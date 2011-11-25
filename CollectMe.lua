@@ -176,7 +176,7 @@ end
 
 function CollectMe_OpenFromButton(id)
     local open = 0;
-    if (id == "CRITTER") then
+    if (id == "companions") then
         open = COLLECTME_CRITTER;
     else
         open = COLLECTME_MOUNT;

@@ -365,20 +365,20 @@
                 </Scripts>
             </Button>
 
-            <Button inherits="UIPanelButtonTemplate" parent="PetPaperDollFrameCompanionFrame" text="Collect Me">
+            <Button inherits="UIPanelButtonTemplate" parent="SpellBookCompanionsFrame" text="Collect Me">
                 <Size>
                     <AbsDimension x="80" y="22"/>
                 </Size>
                 <Anchors>
-                    <Anchor point="LEFT" relativeTo="CompanionNextPageButton" relativePoint="RIGHT">
+                    <Anchor point="TOPRIGHT" relativeTo="SpellBookCompanionsFrame" relativePoint="TOPRIGHT">
                         <Offset>
-                            <AbsDimension x="5" y="0"/>
+                            <AbsDimension x="-30" y="-65"/>
                         </Offset>
                     </Anchor>
                 </Anchors>
                 <Scripts>
                     <OnClick>
-                        CollectMe_OpenFromButton( PetPaperDollFrameCompanionFrame.mode );
+                        CollectMe_OpenFromButton( SpellBookFrame.bookType );
                     </OnClick>
                 </Scripts>
             </Button>
