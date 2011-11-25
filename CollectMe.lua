@@ -250,9 +250,7 @@ end
 function CollectMe_CompanionUpdate()
     CollectMe_ApplyCompanionFilter();
     local totalKnownCompanions = 0;
-    local totalSpecialCompanions = 0;
     local knownCompanionsTable = {};
-    local extraCompanionsTable = {};
 
     for i = 1, GetNumCompanions("CRITTER") do
         local creatureID, creatureName, spellID, icon, active = GetCompanionInfo("CRITTER", i);
@@ -270,14 +268,12 @@ function CollectMe_CompanionUpdate()
         end
     end
 
-    local totalDBCompanions = 0;
+    local totalMissingCompanions = 0;
     local t = {};
     local name, icon;
     local ignoredCompanionsTable = {};
     local totalIgnoredCompanions = 0;
     for k, v in pairs(PotentialCompanionsTable) do
-        totalDBCompanions = totalDBCompanions + 1;
-
         if (knownCompanionsTable[k] == nil) then
             name, _, icon, _, _, _, _, _, _ = GetSpellInfo(k);
 
@@ -292,6 +288,7 @@ function CollectMe_CompanionUpdate()
                     t.isIgnored = true;
                     table.insert(ignoredCompanionsTable, t);
                 else
+                    totalMissingCompanions = totalMissingCompanions + 1;
                     table.insert(MissingItemsTable, t);
                 end
             end
@@ -320,15 +317,14 @@ function CollectMe_CompanionUpdate()
         end
     end
 
-    return (totalDBCompanions - totalIgnoredCompanions), totalKnownCompanions;
+    return (totalMissingCompanions + totalKnownCompanions), totalKnownCompanions;
 end
 
 function CollectMe_MountUpdate()
     CollectMe_ApplyMountFilter();
     local totalKnownMounts = 0;
-    local totalSpecialMounts = 0;
     local knownMountsTable = {};
-    local extraMountsTable = {};
+
     for i = 1, GetNumCompanions("MOUNT") do
         local creatureID, creatureName, spellID, icon, active = GetCompanionInfo("MOUNT", i);
         if (OverallMountsTable[spellID] == nil) then
@@ -345,14 +341,12 @@ function CollectMe_MountUpdate()
         end
     end
 
-    local totalDBMounts = 0;
+    local totalMissingMounts = 0;
     local name, icon;
     local t = {};
     local ignoredMountsTable = {};
     local totalIgnoredMounts = 0;
     for k, v in pairs(PotentialMountsTable) do
-        totalDBMounts = totalDBMounts + 1;
-
         if (knownMountsTable[k] == nil) then
             name, _, icon, _, _, _, _, _, _ = GetSpellInfo(k);
 
@@ -366,6 +360,7 @@ function CollectMe_MountUpdate()
                 t.isIgnored = true;
                 table.insert(ignoredMountsTable, t);
             else
+                totalMissingMounts = totalMissingMounts + 1;
                 table.insert(MissingItemsTable, t);
             end
         end
@@ -392,7 +387,7 @@ function CollectMe_MountUpdate()
             table.insert(MissingItemsTable, v);
         end
     end
-    return (totalDBMounts - totalIgnoredMounts), totalKnownMounts;
+    return (totalMissingMounts + totalKnownMounts), totalKnownMounts;
 end
 
 function CollectMe_InitCompanionTable()
