@@ -825,6 +825,20 @@
                     <OnClick>CollectMePanel_OnClick(self, "disableonpvp");</OnClick>
                 </Scripts>
             </CheckButton>
+            <CheckButton name="$parentCheckButton6" inherits="OptionsCheckButtonTemplate">
+                <Anchors>
+                    <Anchor point="TOPLEFT" relativeTo="$parentCheckButton5">
+                        <Offset>
+                            <AbsDimension x="0" y="-30"/>
+                        </Offset>
+                    </Anchor>
+                </Anchors>
+                <Scripts>
+                    <OnLoad>_G[self:GetName().."Text"]:SetText("Disable missing companion and mount messages");
+                    </OnLoad>
+                    <OnClick>CollectMePanel_OnClick(self, "disablemissingnotice");</OnClick>
+                </Scripts>
+            </CheckButton>
         </Frames>
         <Scripts>
             <OnLoad>

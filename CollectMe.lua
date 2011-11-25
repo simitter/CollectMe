@@ -63,6 +63,12 @@ function CollectMe_OnEvent(event, arg1)
     end
 end
 
+function CollectMe_MissingNotice(type, spellID, creatureName)
+    if (CollectMeSavedVars.Options["disablemissingnotice"] ~= 1) then
+        DEFAULT_CHAT_FRAME:AddMessage("WARNING - CollectMe didn't have " .. type .. " SpellID: " .. spellID .. " name: " .. creatureName .. " in its database. Please contact the mod author.");
+    end
+end
+
 function CollectMe_SummonOnMoving()
     if (CollectMeSavedVars.Options == nil) then
         CollectMeSavedVars.Options = {};
@@ -251,7 +257,7 @@ function CollectMe_CompanionUpdate()
     for i = 1, GetNumCompanions("CRITTER") do
         local creatureID, creatureName, spellID, icon, active = GetCompanionInfo("CRITTER", i);
         if (OverallCompanionsTable[spellID] == nil) then
-            DEFAULT_CHAT_FRAME:AddMessage("WARNING - CollectMe didn't have Companion SpellID:" .. spellID .. " name:" .. creatureName .. " in its database. Please contact the mod author."); -- Was Disabled
+            CollectMe_MissingNotice('Companion', spellID, creatureName);
         end
 
         local name, _, icon, _, _, _, _, _, _ = GetSpellInfo(spellID);
@@ -326,7 +332,7 @@ function CollectMe_MountUpdate()
     for i = 1, GetNumCompanions("MOUNT") do
         local creatureID, creatureName, spellID, icon, active = GetCompanionInfo("MOUNT", i);
         if (OverallMountsTable[spellID] == nil) then
-            DEFAULT_CHAT_FRAME:AddMessage("WARNING - CollectMe didn't have Mount SpellID:" .. spellID .. " name:" .. creatureName .. " in its database. Please contact the mod author."); -- Was Disabled
+            CollectMe_MissingNotice('Mount', spellID, creatureName);
         end
 
         local name, _, icon, _, _, _, _, _, _ = GetSpellInfo(spellID);

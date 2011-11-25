@@ -14,6 +14,7 @@ function CollectMePanel_OnShow(self)
     _G[self:GetName() .. "CheckButton3"]:SetChecked(CollectMeSavedVars.Options["button_hide"]);
     _G[self:GetName() .. "CheckButton4"]:SetChecked(CollectMeSavedVars.Options["button_lock"]);
     _G[self:GetName() .. "CheckButton5"]:SetChecked(CollectMeSavedVars.Options["disableonpvp"]);
+    _G[self:GetName() .. "CheckButton6"]:SetChecked(CollectMeSavedVars.Options["disablemissingnotice"]);
 end
 
 function CollectMePanel_OnClick(self, id)
