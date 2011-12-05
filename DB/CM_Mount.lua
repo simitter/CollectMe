@@ -36,6 +36,7 @@ CollectMeCommonMountTable = {
     [88990] = 47841, -- Dark Phoenix
     [39316] = 22511, -- Dark Riding Talbuk
     [34790] = 20149, -- Dark War Talbuk
+    [103081] = 55188, -- Darkmoon Dancing Bear
     [64927] = 34225, -- Deadly Gladiator's Frost Wyrm
     [88335] = 47353, -- Drake of the East Wind
     [88742] = 47648, -- Drake of the North Wind
@@ -82,6 +83,7 @@ CollectMeCommonMountTable = {
     [42776] = 24003, -- Spectral Tiger
     [98718] = 53270, -- Subdued Seahorse
     [43900] = 24368, -- Swift Brewfest Ram
+    [102346] = 54740, -- Swift Forest Strider
     [37015] = 21510, -- Swift Nether Drake
     [24242] = 15090, -- Swift Razzashi Raptor
     [42777] = 24004, -- Swift Spectral Tiger
@@ -94,6 +96,7 @@ CollectMeCommonMountTable = {
     [34899] = 20150, -- Tan War Talbuk
     [60002] = 32153, -- Time-Lost Proto-Drake
     [59571] = 31698, -- Twilight Drake
+    [107203] = 56921, -- Tyrael's Charger
     [92155] = 51152, -- Ultramarine Qiraji Battle Tank
     [49193] = 27637, -- Vengeful Nether Drake
     [41517] = 23457, -- Veridian Netherwing Drake
@@ -399,5 +402,11 @@ CollectMeMountFilter = {
     ["rfm"] = {
         [49322] = 27684, -- Swift Zhevra
         [75973] = 40725, -- X-53 Touring Rocket
+    },
+
+    -- promotional mounts
+    ["ptm"] = {
+        [107203] = 56921, -- Tyrael's Charger
+
     },
 };

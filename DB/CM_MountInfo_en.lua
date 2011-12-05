@@ -117,6 +117,11 @@ CollectMeMountInfo = {
     [97581] = "Loot card from the WoW Trading Card Game: War of Elements. [BoE]", -- Savage Raptor
     [74918] = "Loot card from TCG expansion 'Icecrown'. [BoE]", -- Wooly White Rhino
     [68825] = "Loot card from the WoW Trading Card Game: Twilight of the Dragons. [BoE]", -- Amani Dragonhawk
+    [107203] = "Obtained by signing up for the WoW Annual Pass promotion. [BoP]", -- Tyrael's Charger
+    [103081] = "Purchased from Lhara in the Darkmoon Faire for 180 Darkmoon Prize Tickets. [BoP]", -- Darkmoon Dancing Bear
+    [102346] = "Purchased from Lhara in the Darkmoon Faire for 180 Darkmoon Prize Tickets. [BoP]", -- Swift Forest Strider
+
+
 
     -- we begin with the alliance infos
     [60114] = "Sold by Mei Francis in Dalaran for 750G", -- Armored Brown Bear
@@ -267,7 +272,7 @@ CollectMeMountInfo = {
     [68056] = "Loot from 10 man Heroic Trial of the Grand Crusader with all 50 attempts left, only one drops per raid. No longer obtainable.", -- Swift Horde Wolf
     [87090] = "Purchased from Kall Worthaton in Orgrimmar.", -- Goblin Trike
     [87091] = "Purchased from Kall Worthaton in Orgrimmar.", -- Goblin Turbo-Trike
-    [92232] = "Sold by Pogg, Hellscream's Reach Quartermaster. Requires Level 70, Apprentice Riding and Hellscream's Reach Exalted reputation.", -- Spectral Wolf
+    [56921] = "Sold by Pogg, Hellscream's Reach Quartermaster. Requires Level 70, Apprentice Riding and Hellscream's Reach Exalted reputation.", -- Spectral Wolf
     [93644] = "Available for Horde after Guild reaches level 25 and you reach Exalted reputation with your guild, 1500g. [BoA]", -- Kor'kron Annihilator
     [100333] = "Reward from the achivement 'Veteran of the Horde' and other higher achivements.", -- Vicious War Wolf
     -- paladin mounts

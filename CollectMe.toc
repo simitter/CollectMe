@@ -1,5 +1,5 @@
 ## Title: CollectMe
-## Notes: Displays a list of mounts and pets which the character is missing and allows auto summoning of pet
+## Notes: Displays a list of mounts and pets which the character is missing and allows auto summoning of pets.
 
 ## Authors: Merla, Tolerant, DesertDwarf, Excitor0
 ## X-Author-Server: Antonidas EU, Gorefiend
@@ -8,8 +8,8 @@
 ## X-email: merla AT wow-serenity DOT net
 ## X-License: MIT modified with notification clause
 
-## Interface: 40200
-## Version: 1.2
+## Interface: 40300
+## Version: 1.2.2
 
 ## X-credits: SkeeveSM (TheCollector), wowwiki
 

@@ -1,4 +1,25 @@
 ----
+**1.2.1**
+*Updated ToC for 4.3
+*Corrected spelling in ToC description 
+*Added Swift Forest Strider
+*Added Darkmoon Dancing Bear
+*Added Tyrael's Charger
+*Added Darkmoon Zeppelin
+*Added Darkmoon Turtle
+*Added Darkmoon Monkey
+*Added Darkmoon Tonk
+*Added Darkmoon Cub
+*Added Darkmoon Balloon
+*Added Purple Puffer
+
+----
+**1.2**
+*Added option to disable the missing companion/mount messages
+*Added Collect Me button to the mount and companion windows
+*Fixed companion counter to work with filters properly
+
+----
 **1.1.40**
 *Added a Blizzard Store filter for mounts
 *Added a Recruit a Friend filter for mounts

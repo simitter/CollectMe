@@ -85,7 +85,7 @@ CollectMeCompanionInfo = {
     [93624] = "Obtained from a lootcard of the WoW Trading Card Game: Worldbreaker. Unique [BoP]", -- Landro's Lil' XT
     [67416] = "Contained in rare spawn Takk's Nest in The Barrens. [BoE]", -- Leaping Hatching
     [19772] = "Crafted by engineers (very rare schematic). [BoE]", -- Lifelike Toad
-    --	[94716] = "Removed in beta build 13241. Unique [BoP]",	-- Lil' Alexstrasza
+    -- [94716] = "Removed in beta build 13241. Unique [BoP]",	-- Lil' Alexstrasza
     [87344] = "Included in the Cataclysm Collector's Edition. [BoA]", -- Lil' Deathwing
     [69677] = "Purchased from Blizzard's online store. Unique [BoA]", -- Lil' K.T.
     [95787] = "Purchased from Blizzard's online store. Unique [BoA]", -- Lil' Ragnaros
@@ -218,5 +218,19 @@ CollectMeCompanionInfo = {
     [100330] = "Sold by Chub or Dorothy Candy & Toy Vendor as part of the Hollows End holiday event for 150 Tricky Treats. [BoP]", -- Feline Familiar
     [100576] = "Guild must complete the achivement 'Dragonwrath, Tarecgosa's Rest - Guild Edition' and anyone with exatled guild rep can purchase it from the guild vendor. [BoA]", -- Lil' Tarecgosa
     [101606] = "Sent to attendees of BlizzCon 2011 or purchasers of the live stream. Unique [BoP]", -- Murkablo
-    [98736] = "Purchased from Blizzard's online store. [BoE]", -- Guardian Cub
+    [105122] = "Purchased from Lhara in the Darkmoon Faire for 90 Darkmoon Prize Tickets. [BoP]", -- Darkmoon Cub
+    [103076] = "Purchased from Lhara in the Darkmoon Faire for 90 Darkmoon Prize Tickets. [BoP]", -- Darkmoon Balloon
+    [101733] = "Purchased from Lhara in the Darkmoon Faire for 90 Darkmoon Prize Tickets. [BoP]", -- Darkmoon Monkey
+    [103544] = "Purchased from Lhara in the Darkmoon Faire for 90 Darkmoon Prize Tickets. [BoP]", -- Darkmoon Tonk
+    [103074] = "Purchased from Lhara in the Darkmoon Faire for 90 Darkmoon Prize Tickets. [BoP]", -- Darkmoon Turtle
+    [103549] = "Purchased from Lhara in the Darkmoon Faire for 90 Darkmoon Prize Tickets. [BoP]", -- Darkmoon Zeppelin
+    [101493] = "Loot reward from Throne of the Tides TCG expansion.  [BoP]", -- Purple Puffer
+
+    [103588] = "Fished from the waters surrounding the Darkmoon Isle.  [BoP]", -- Sea Pony
+    [105633] = "Included in the Diablo 3 Collector's Edition.  [BoA]", -- Fetish Shaman
+    [102317] = "Loot reward from Crown of Heaven TCG expansion.  [BoP]", -- Gregarious Grell
+    [102353] = "Loot reward from Tomb of the Forgotten TCG expansion.  [BoP]", -- Sand Scarab
+    [103125] = "Chane of dropping from a Stolen Present obtained from the quest "You're a Mean One...". Unique [BoP]", -- Lumpy
+    [110029] = "Unknown.  [BoP]", -- Soul of the Aspects
+
 }
