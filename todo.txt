@@ -6,7 +6,7 @@
 
 ---
 Excitor: (notes for myself and so others can see what I'm up to)
-- Add Lunar Lanter, Festival lantern (Companions)
+- Add extra info for Lunar, Festival lanterns
 - Add Reins of the Blazing Drake
 ,Life-Binder's Handmaiden, Ruthless Gladiator's Twilight Drake, Mountain Horse, 
 Swift Mountain Horse, Swift Shorestrider, Corrupted Hippogryph, White Riding Camel,
