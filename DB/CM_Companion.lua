@@ -232,11 +232,13 @@ CollectMeAllianceCompanionTable = {
     [92397] = 49587, -- Guild Herald
     [92395] = 49586, -- Guild Page
     [95786] = 51601, -- Moonkin Hatchling (Alliance)
+    [104047] = 55571, -- Lunar Lantern
 };
 
 -- Horde companions
 CollectMeHordeCompanionTable = {
     [62746] = 33239, -- Argent Gruntling
+    [104049] = 55574, -- Festival Lantern
     [92398] = 49590, -- Guild Herald
     [92396] = 49588, -- Guild Page
     [95909] = 51649, -- Moonkin Hatchling (Horde)
