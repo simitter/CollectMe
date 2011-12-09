@@ -7,11 +7,10 @@
 ---
 Excitor: (notes for myself and so others can see what I'm up to)
 - Add extra info for Lunar, Festival lanterns
-- Add Reins of the Blazing Drake
-,Life-Binder's Handmaiden, Ruthless Gladiator's Twilight Drake, Mountain Horse, 
-Swift Mountain Horse, Swift Shorestrider, Corrupted Hippogryph, White Riding Camel,
+- Swift Shorestrider, Corrupted Hippogryph, White Riding Camel,
 Spectral Gryphon,Spectral Wind Rider,Swift Lovebird,Experiment 12-B, 
-Heart of the Aspects,Swift Springstrider,Reins of the Twilight Harbinger (Mounts)
+,Swift Springstrider,Reins of the Twilight Harbinger (Mounts)
 -Add promotional mount filter
+
 
 
