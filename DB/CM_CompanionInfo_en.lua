@@ -216,7 +216,7 @@ CollectMeCompanionInfo = {
     [96819] = "Loot reward from Twilight of the Dragons TCG expansion. [BoP]", -- Nightsaber Cub
     [100684] = "Reward from the quest Anson's Crate as part of the Hollows End holiday event. [BoP]", -- Creepy Crate
     [100330] = "Sold by Chub or Dorothy Candy & Toy Vendor as part of the Hollows End holiday event for 150 Tricky Treats. [BoP]", -- Feline Familiar
-    [100576] = "Guild must complete the achivement 'Dragonwrath, Tarecgosa's Rest - Guild Edition' and anyone with exatled guild rep can purchase it from the guild vendor. [BoA]", -- Lil' Tarecgosa
+    [100576] = "Guild must complete the achivement 'Dragonwrath, Tarecgosa's Rest - Guild Edition' and anyone with exalted guild rep can purchase it from the guild vendor. [BoA]", -- Lil' Tarecgosa
     [101606] = "Sent to attendees of BlizzCon 2011 or purchasers of the live stream. Unique [BoP]", -- Murkablo
     [105122] = "Purchased from Lhara in the Darkmoon Faire for 90 Darkmoon Prize Tickets. [BoP]", -- Darkmoon Cub
     [103076] = "Purchased from Lhara in the Darkmoon Faire for 90 Darkmoon Prize Tickets. [BoP]", -- Darkmoon Balloon
@@ -225,7 +225,6 @@ CollectMeCompanionInfo = {
     [103074] = "Purchased from Lhara in the Darkmoon Faire for 90 Darkmoon Prize Tickets. [BoP]", -- Darkmoon Turtle
     [103549] = "Purchased from Lhara in the Darkmoon Faire for 90 Darkmoon Prize Tickets. [BoP]", -- Darkmoon Zeppelin
     [101493] = "Loot reward from Throne of the Tides TCG expansion.  [BoP]", -- Purple Puffer
-
     [103588] = "Fished from the waters surrounding the Darkmoon Isle.  [BoP]", -- Sea Pony
     [105633] = "Included in the Diablo 3 Collector's Edition.  [BoA]", -- Fetish Shaman
     [102317] = "Loot reward from Crown of Heaven TCG expansion.  [BoP]", -- Gregarious Grell
