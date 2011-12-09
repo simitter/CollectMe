@@ -1,17 +1,34 @@
 ----
+**1.2.2**
+*Fixed spelling for Lil' Tarecgosa (Companion)
+*Added Sea Pony (Companion)
+*Added Fetish Shaman (Companion)
+*Added Gregarious Grell (Companion)
+*Added Sand Scarab (Companion)
+*Added Lumpy (Companion)
+*Added Soul of the Aspects (Companion)
+*Added Lunar Lantern (Companion)
+*Added Festival Lantern (Companion)
+*Added Mountain Horse (Mount)
+*Added Swift Mountain Horse (Mount)
+*Added Ruthless Gladiator's Twilight Drake (Mount)
+*Added Life-Binder's Handmaiden (Mount)
+*Added Festival Blazing Drake (Mount)
+
+----
 **1.2.1**
 *Updated ToC for 4.3
 *Corrected spelling in ToC description 
-*Added Swift Forest Strider
-*Added Darkmoon Dancing Bear
-*Added Tyrael's Charger
-*Added Darkmoon Zeppelin
-*Added Darkmoon Turtle
-*Added Darkmoon Monkey
-*Added Darkmoon Tonk
-*Added Darkmoon Cub
-*Added Darkmoon Balloon
-*Added Purple Puffer
+*Added Swift Forest Strider (Mount)
+*Added Darkmoon Dancing Bear (Mount)
+*Added Tyrael's Charger (Mount)
+*Added Darkmoon Zeppelin (Companion)
+*Added Darkmoon Turtle (Companion)
+*Added Darkmoon Monkey (Companion)
+*Added Darkmoon Tonk (Companion)
+*Added Darkmoon Cub (Companion)
+*Added Darkmoon Balloon (Companion)
+*Added Purple Puffer (Companion)
 
 ----
 **1.2**
