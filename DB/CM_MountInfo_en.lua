@@ -120,6 +120,13 @@ CollectMeMountInfo = {
     [107203] = "Obtained by signing up for the WoW Annual Pass promotion. [BoP]", -- Tyrael's Charger
     [103081] = "Purchased from Lhara in the Darkmoon Faire for 180 Darkmoon Prize Tickets. [BoP]", -- Darkmoon Dancing Bear
     [102346] = "Purchased from Lhara in the Darkmoon Faire for 180 Darkmoon Prize Tickets. [BoP]", -- Swift Forest Strider
+    [107842] = "Rare drop from the normal Madness of Deathwing encounter. [BoP]", -- Blazing Drake
+    [107845] = "Drop from the heroic Madness of Deathwing encounter. [BoP]", -- Life-Binder's Handmaiden
+    [101821] = "Won by the top 0.5% rated Arena groups in the battlegroup in Season 10. [BoP]", -- Ruthless Gladiator's Twilight Drake
+    [110051] = "Unknown. [BoP]", -- Heart of the Aspects
+    [103196] = "Purchased from Astrid Langstrump located near the entrance to the howling oak in Darnassus for the price of 10g. [BoP]", -- wift Mountain Horse
+    [103195] = "Purchased from Astrid Langstrump located near the entrance to the howling oak in Darnassus for the price of 1g. [BoP]", -- Mountain Horse
+
 
 
 
