@@ -1,15 +1,20 @@
 - On some machines there are problems with the nextCompanion method when entering the world
-- Add more complete info on locations for mounts and pets that are not specific enough
 - Allow size to be set for pet summon button
 - Add tooltip to show names when mousing over summon button
 - Show global cooldown on pet summon button
 
 ---
 Excitor: (notes for myself and so others can see what I'm up to)
+- Add more complete info on locations for mounts and pets that are not specific enough, 
+standardise both  themount and companion infos
+
 - Add extra info for Lunar, Festival lanterns
-- Swift Shorestrider, Corrupted Hippogryph, White Riding Camel,
-Spectral Gryphon,Spectral Wind Rider,Swift Lovebird,Experiment 12-B, 
-,Swift Springstrider,Reins of the Twilight Harbinger (Mounts)
+
+- Corrupted Hippogryph, White Riding Camel,
+Spectral Gryphon,Spectral Wind Rider 
+
+-Confirm world event companions BoP/BoE status
+
 -Add promotional mount filter
 
 
