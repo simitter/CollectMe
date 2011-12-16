@@ -125,7 +125,11 @@ CollectMeMountInfo = {
     [101821] = "Won by the top 0.5% rated Arena groups in the battlegroup in Season 10. [BoP]", -- Ruthless Gladiator's Twilight Drake
     [110051] = "Unknown. [BoP]", -- Heart of the Aspects
     [103196] = "Purchased from Astrid Langstrump located near the entrance to the howling oak in Darnassus for the price of 10g. [BoP]", -- Swift Mountain Horse
-    [103195] = "Purchased from Astrid Langstrump located near the entrance to the howling oak in Darnassus for the price of 1g. [BoP]", -- Mountain Horse
+    [103195] = "Purchased from Astrid Langstrump located near the entrance to the howling oak in Darnassus for the price of 1g. [BoP]", -- Mountain Horse     
+    [102350] = "Purchased from a Lovely Merchant in Thunder Bluff during the Love is in the Air event for 270 Love Tokens. [BoP]", -- Swift Lovebird
+    [110039] = "Rare drop from Ultraxion in the Dragon Sould raid. [BoP]", -- Experiment 12-B
+    [102349] = "Purchased for 500 Nobelgarden Chocolates during the Noblegarden event. It can also be obtained as a rare drop from the Brightly Colored Eggs. [BoP]", -- Swift Springstrider
+    [107844] = "Reward from the achivement 'Glory of the Dragon Soul Raider'. [BoP]", -- Twilight Harbinger
 
 
 
