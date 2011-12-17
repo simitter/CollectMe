@@ -1,4 +1,16 @@
 ----
+**1.2.4**
+*Updated Clockwork Rocket Bot info (Companion)
+*Added Swift Lovebird (Mount)
+*Added Experiment 12-B (Mount)
+*Added Swift Springstrider (Mount)
+*Added Reins of the Twilight Harbinger (Mount)
+
+----
+**1.2.3**
+*Fixed a bug introduced by 1.2.2
+
+----
 **1.2.2**
 *Fixed spelling for Lil' Tarecgosa (Companion)
 *Added Sea Pony (Companion)
