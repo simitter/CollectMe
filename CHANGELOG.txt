@@ -1,4 +1,11 @@
 ----
+**1.2.5**
+*Corrected Sprite Darter Hatchling info (Companion)
+*Added Swift Shorestrider (Mount)
+*Added Corrupted Hippogryph (Mount)
+*Added White Riding Camel (Mount)
+
+----
 **1.2.4**
 *Updated Clockwork Rocket Bot info (Companion)
 *Added Swift Lovebird (Mount)
