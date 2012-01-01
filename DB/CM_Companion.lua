@@ -250,7 +250,6 @@ CollectMeCompanionFilter = {
     -- No longer obtainable
     ["nlo"] = {
         [61855] = 32841, -- Baby Blizzard Bear
-        [54187] = 24968, -- Clockwork Rocket Bot
         [48408] = 27346, -- Essence of Competition
         [66520] = 34930, -- Jade Tiger
         [69002] = 36607, -- Onyxian Whelpling
