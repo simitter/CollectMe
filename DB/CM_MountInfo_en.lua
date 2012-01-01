@@ -130,7 +130,9 @@ CollectMeMountInfo = {
     [110039] = "Rare drop from Ultraxion in the Dragon Sould raid. [BoP]", -- Experiment 12-B
     [102349] = "Purchased for 500 Nobelgarden Chocolates during the Noblegarden event. It can also be obtained as a rare drop from the Brightly Colored Eggs. [BoP]", -- Swift Springstrider
     [107844] = "Reward from the achivement 'Glory of the Dragon Soul Raider'. [BoP]", -- Twilight Harbinger
-
+    [101573] = "Loot card from the WoW Trading Card Game: Throne of the Tides. [BoE]", -- Swift Shorestrider
+    [102514] = "Loot card from the WoW Trading Card Game: Crown of Heaven. [BoE]", -- Corrupted Hippogryph
+    [102488] = "Loot card from the WoW Trading Card Game: Tomb of the Forgotten. [BoE]", -- White Riding Camel
 
 
 
