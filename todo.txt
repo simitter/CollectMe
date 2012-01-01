@@ -6,16 +6,15 @@
 ---
 Excitor: (notes for myself and so others can see what I'm up to)
 - Add more complete info on locations for mounts and pets that are not specific enough, 
-standardise both  themount and companion infos
+standardise both  the mount and companion infos
 
 - Add extra info for Lunar, Festival lanterns
 
-- Corrupted Hippogryph, White Riding Camel,
-Spectral Gryphon,Spectral Wind Rider 
+- Spectral Gryphon,Spectral Wind Rider 
 
--Confirm world event companions BoP/BoE status
+- Confirm world event companions BoP/BoE status
 
--Add promotional mount filter
+- Add promotional mount filter
 
 
 
