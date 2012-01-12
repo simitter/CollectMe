@@ -1,11 +1,3 @@
-New Author Added
-
-Because Merla is unable to continue updates for Collect Me, Tolerant has agreed to keep up the minor updates for now. Please continue to post about any missing pets, mounts or incorrect information and they will do their best to resolve those issues promptly. Feel free to post suggestions or ideas, however they might not be put into effect anytime soon. They will be noted and hopefully be seen in a future release.
-Merla is taking a break
-
-Due to real life issues I had to stop playing World Of Warcraft, and so the add-on will no longer be updated by me. If anyone wants to continue the work on Collect Me, feel free to use whatever you want of the code. If you are an add-on author and you would like to help the original project rather than creating a new one, please send me a message and I'll add you as an author to the project. I'd like to thank all, who used this add-on in the past, especially those who gave feedback and reported errors.
-Introduction
-
 Collect Me keeps track of your companions (minipets) and mounts in the game and can show you your missing pets and mounts with additional information where to get them. It also can summon companions randomly with a priority list.
 Basic Features
 
