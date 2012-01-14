@@ -14,7 +14,7 @@ standardise both  the mount and companion infos
 
 - Confirm world event companions BoP/BoE status
 
-- Add promotional mount filter
+- Missed filters for Mountains and Swift Mountain Horse
 
 
 
