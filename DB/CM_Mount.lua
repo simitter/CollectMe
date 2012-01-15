@@ -47,7 +47,10 @@ CollectMeCommonMountTable = {
     [110039] = 58166, -- Experiment 12-B
     [36702] = 21354, -- Fiery Warhorse
     [97359] = 52672, -- Flameward Hippogryph
+    [61451] = 33029, -- Flying Carpet
+    [44153] = 24653, -- Flying Machine
     [84751] = 45338, -- Fossilized Raptor
+    [75596] = 40533, -- Frosty Flying Carpet
     [65439] = 34425, -- Furious Gladiator's Frost Wyrm
     [49379] = 27707, -- Great Brewfest Kodo
     [61294] = 32562, -- Green Proto-Drake
@@ -61,6 +64,7 @@ CollectMeCommonMountTable = {
     [63956] = 33892, -- Ironbound Proto-Drake
     [107845] = 57228, -- Life-Binder's Handmaiden
     [65917] = 34655, -- Magic Rooster
+    [61309] = 33030, -- Magnificent Flying Carpet
     [44744] = 24743, -- Merciless Nether Drake
     [63796] = 33848, -- Mimiron's Head
     [69395] = 36837, -- Onyxian Drake
@@ -104,6 +108,7 @@ CollectMeCommonMountTable = {
     [39318] = 22513, -- Tan Riding Talbuk
     [34899] = 20150, -- Tan War Talbuk
     [60002] = 32153, -- Time-Lost Proto-Drake
+    [44151] = 24654, -- Turbo-Charged Flying Machine
     [59571] = 31698, -- Twilight Drake
     [107844] = 57227, -- Twilight Harbinger
     [107203] = 56921, -- Tyrael's Charger
@@ -319,21 +324,6 @@ CollectMeDeathknightMountTable = {
     [54729] = 29582, -- Winged Steed of the Ebon Blade
 };
 
--- egineering mounts
-CollectMeEngineerMountTable = {
-    [44153] = 24653, -- Flying Machine
-    [44151] = 24654, -- Turbo-Charged Flying Machine
-};
-
--- tailoring mounts
-CollectMeTailorMountTable = {
-    [61451] = 33029, -- Flying Carpet
-    [75596] = 40533, -- Frosty Flying Carpet
-    [61309] = 33030, -- Magnificent Flying Carpet
-    [61444] = 32635, -- Swift Shadoweave (Ebonweave) Carpet
-    [61442] = 32634, -- Swift Mooncloth Carpet
-    [61446] = 32636, -- Swift Spellfire Carpet
-};
 
 -- filter for mounts
 CollectMeMountFilter = {
