@@ -16,8 +16,6 @@ local PlayerRace = nil;
 local LocalizedPlayerRace = nil;
 local PlayerClass = nil;
 local LocalizedPlayerClass = nil;
-local PlayerIsEngineer = false;
-local PlayerIsTailor = false;
 local ClickedScrollItem = "";
 local nextCompanion = nil;
 local is_entered = false;
@@ -193,29 +191,6 @@ function CollectMe_Initialize(self)
     LocalizedPlayerRace, PlayerRace = UnitRace("player");
     LocalizedPlayerClass, PlayerClass = UnitClass("player");
 
-    -- We might need to check archaeology here in the future for profession-restricted companions/mounts.
-    local prof1, prof2 = GetProfessions();
-    local name;
-    local engineering = GetSpellInfo(4036);
-    local tailoring = GetSpellInfo(3908);
-
-    -- I hate to duplicate this code, but I think the overhead of setting up a for loop and table would cancel out any gain.
-    if (prof1 ~= nil) then
-        name = GetProfessionInfo(prof1);
-        if (name == engineering) then
-            PlayerIsEngineer = true;
-        elseif (name == tailoring) then
-            PlayerIsTailor = true;
-        end
-    end
-    if (prof2 ~= nil) then
-        name = GetProfessionInfo(prof2);
-        if (name == engineering) then
-            PlayerIsEngineer = true;
-        elseif (name == tailoring) then
-            PlayerIsTailor = true;
-        end
-    end
 
     CollectMe_InitCompanionTable();
     CollectMe_InitMountTable();
@@ -508,26 +483,6 @@ function CollectMe_InitMountTable()
 
     if (PlayerClass == "DEATHKNIGHT") then
         t = CollectMeDeathknightMountTable;
-    end
-
-    for k, v in pairs(t) do
-        table.insert(PotentialMountsTable, k, v);
-        table.insert(OverallMountsTable, k, v);
-    end
-
-    t = {};
-    if (PlayerIsEngineer) then
-        t = CollectMeEngineerMountTable;
-    end
-
-    for k, v in pairs(t) do
-        table.insert(PotentialMountsTable, k, v);
-        table.insert(OverallMountsTable, k, v);
-    end
-
-    t = {};
-    if (PlayerIsTailor) then
-        t = CollectMeTailorMountTable;
     end
 
     for k, v in pairs(t) do
