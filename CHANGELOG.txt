@@ -1,3 +1,12 @@
+
+----
+**1.2.6**
+*Updated Mountain Horse to Alliance only (Mount)
+*Updated Swift Mountain Horse to Alliance only (Mount)
+*Added filter for Swift Shorestrider (Mount)
+*Added filter for Corrupted Hippogryph (Mount)
+*Added filter for White Riding Camel (Mount)
+
 ----
 **1.2.5**
 *Corrected Sprite Darter Hatchling info (Companion)
