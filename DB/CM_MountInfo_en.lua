@@ -131,6 +131,11 @@ CollectMeMountInfo = {
     [101573] = "Loot card from the WoW Trading Card Game: Throne of the Tides. [BoE]", -- Swift Shorestrider
     [102514] = "Loot card from the WoW Trading Card Game: Crown of Heaven. [BoE]", -- Corrupted Hippogryph
     [102488] = "Loot card from the WoW Trading Card Game: Tomb of the Forgotten. [BoE]", -- White Riding Camel
+    [44153] = "Recipe is taught by Niobe Whizzlespark and Jonathan Garrett in Shadowmoon Valley for 12G", -- Flying Machine
+    [44151] = "Recipe is taught by Niobe Whizzlespark and Jonathan Garrett in Shadowmoon Valley for 18G", -- Turbo-Charged Flying Machine
+    [61451] = "Recipe is taught by Grand Master Tailoring Trainers", -- Flying Carpet
+    [75596] = "Purchased for 6 Frozen Orbs from Frozo the Renowned in Dalaran, Requires level 70, Tailoring 425 and Artisan Riding.", -- Frosty Flying Carpet
+    [61309] = "Recipe is taught by Grand Master Tailoring Trainers", -- Magnificent Flying Carpet
 
 
 
@@ -304,14 +309,5 @@ CollectMeMountInfo = {
     -- deathknight mounts
     [54729] = "Sold by Dread Commander Thalanor in Acherus for 1000G", -- Winged Steed of the Ebon Blade
     [48778] = "Reward from the Quest Into the Realm of Shadows in the Death Knight Starting Zone", -- Acherus Deathcharger
-    -- engineering mounts
-    [44153] = "Recipe is taught by Niobe Whizzlespark and Jonathan Garrett in Shadowmoon Valley for 12G", -- Flying Machine
-    [44151] = "Recipe is taught by Niobe Whizzlespark and Jonathan Garrett in Shadowmoon Valley for 18G", -- Turbo-Charged Flying Machine
-    -- tailoring mounts
-    [61451] = "Recipe is taught by Grand Master Tailoring Trainers", -- Flying Carpet
-    [75596] = "Purchased for 6 Frozen Orbs from Frozo the Renowned in Dalaran, Requires level 70, Tailoring 425 and Artisan Riding.", -- Frosty Flying Carpet
-    [61309] = "Recipe is taught by Grand Master Tailoring Trainers", -- Magnificent Flying Carpet
-    [61444] = "Not available yet", -- Swift Shadoweave (Ebonweave) Carpet
-    [61442] = "Not available yet", -- Swift Mooncloth Carpet
-    [61446] = "Not available yet", -- Swift Spellfire Carpet
+
 }
