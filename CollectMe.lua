@@ -2,6 +2,7 @@ COLLECTME_NUM_ITEMS_TO_DISPLAY = 9;
 
 COLLECTME_CRITTER = 1;
 COLLECTME_MOUNT = 2;
+COLLECTME_TITLE = 3;
 
 COLLECTME_VERSION = GetAddOnMetadata("CollectMe", "Version");
 
@@ -9,6 +10,8 @@ local PotentialCompanionsTable = {};
 local OverallCompanionsTable = {};
 local PotentialMountsTable = {};
 local OverallMountsTable = {};
+local PotentialTitlesTable = {};
+local OverallTitlesTable = {};
 local MissingItemsTable = {};
 local PlayerFaction = nil;
 local LocalizedPlayerFaction = nil;
@@ -19,8 +22,9 @@ local LocalizedPlayerClass = nil;
 local ClickedScrollItem = "";
 local nextCompanion = nil;
 local is_entered = false;
+local current_tab = 1;
 
-CollectMeSavedVars = { IgnoredCompanionsTable = {}, IgnoredMountsTable = {}, Filters = {}, RndCom = {}, Options = {}, };
+CollectMeSavedVars = { IgnoredCompanionsTable = {}, IgnoredMountsTable = {}, IgnoredTitlesTable = {}, Filters = {}, RndCom = {}, Options = {}, };
 
 function CollectMe_OnLoad(self)
     self:RegisterForDrag("LeftButton");
@@ -194,6 +198,7 @@ function CollectMe_Initialize(self)
 
     CollectMe_InitCompanionTable();
     CollectMe_InitMountTable();
+    CollectMe_InitTitleTable();
 
     CollectMe_Update(CollectMeFrame.selectedTab);
 end
@@ -205,12 +210,17 @@ function CollectMe_Update(id)
 
     local totalItems, totalKnownItems = 0, 0;
 
+    current_tab = id;
+
     if (id == COLLECTME_CRITTER) then
         COLLECTME_CURRENT_FILTERS = PotentialCompanionsFilters;
         totalItems, totalKnownItems = CollectMe_CompanionUpdate();
     elseif (id == COLLECTME_MOUNT) then
         COLLECTME_CURRENT_FILTERS = PotentialMountsFilters;
         totalItems, totalKnownItems = CollectMe_MountUpdate();
+    elseif(id == COLLECTME_TITLE) then
+        COLLECTME_CURRENT_FILTERS = PotentialTitleFilters;
+        totalItems, totalKnownItems = CollectMe_TitleUpdate();
     end
 
     local knownItemPercentage = floor((totalKnownItems / totalItems) * 100);
@@ -491,6 +501,86 @@ function CollectMe_InitMountTable()
     end
 end
 
+function CollectMe_InitTitleTable()
+    PotentialTitlesTable = {};
+    OverallTitlesTable = {};
+    local t = CollectMeCommonTitleTable;
+    for k, v in pairs(t) do
+        table.insert(PotentialTitlesTable, k, v);
+        table.insert(OverallTitlesTable, k, v);
+    end
+
+    t = {};
+    if (PlayerFaction == "Alliance") then
+        t = CollectMeAllianceTitleTable;
+    else
+        t = CollectMeHordeTitleTable;
+    end
+
+    for k, v in pairs(t) do
+        table.insert(PotentialTitlesTable, k, v);
+        table.insert(OverallTitlesTable, k, v);
+    end
+end
+
+function CollectMe_TitleUpdate()
+    -- CollectMe_ApplyMountFilter();
+    local totalKnownTitles = 0;
+    local knownTitlesTable = {};
+    local ignoredTitlesTable = {};
+
+    local totalMissingTitles = 0;
+    local name;
+    local t = {};
+    if(CollectMeSavedVars.IgnoredTitlesTable == nil) then
+        CollectMeSavedVars.IgnoredTitlesTable = {};
+    end
+
+    for k, v in pairs(PotentialTitlesTable) do
+        name = GetTitleName(v);
+        if(name ~= nil) then
+            t = {};
+            t.itemID = v;
+            t.name = name;
+
+            if (CollectMeSavedVars.IgnoredTitlesTable[name]) then
+                t.isIgnored = true;
+                table.insert(ignoredTitlesTable, t);
+            else
+                totalMissingTitles = totalMissingTitles + 1;
+                table.insert(MissingItemsTable, t);
+            end
+
+        end
+
+    end
+
+    table.sort(MissingItemsTable, CollectMe_SortTableByName);
+
+    t = {};
+    t.name = "Missing Titles (" .. #MissingItemsTable .. ")";
+    t.isHeader = true;
+    t.isExpanded = true;
+    table.insert(MissingItemsTable, 1, t);
+
+    if (#ignoredTitlesTable > 0) then
+        table.sort(ignoredTitlesTable, CollectMe_SortTableByName);
+
+        t = {};
+        t.name = "Inactive Titles (" .. #ignoredTitlesTable .. ")";
+        t.isHeader = true;
+        t.isExpanded = true;
+        table.insert(MissingItemsTable, t);
+
+        for k, v in pairs(ignoredTitlesTable) do
+            table.insert(MissingItemsTable, v);
+        end
+    end
+
+    return (totalMissingTitles + totalKnownTitles), totalKnownTitles;
+
+end
+
 function CollectMe_ApplyMountFilter()
     local t = {};
     if (CollectMeSavedVars.Filters ~= nil) then
@@ -575,6 +665,12 @@ function CollectMeScrollFrameUpdate()
                 buttonText:SetText(displayTable[index].name);
                 buttonItemID:SetText(displayTable[index].itemID);
                 buttonIcon:SetNormalTexture(displayTable[index].icon);
+                if(current_tab == 3) then
+                    buttonIcon:SetWidth(1);
+                else
+                    buttonIcon:SetWidth(36);
+                end
+
                 button:Show();
                 if (displayTable[index].name == ClickedScrollItem) then
                     button:LockHighlight();
@@ -652,6 +748,11 @@ function CollectMe_DropDownInactivateMenuOnClick(self)
         ignoredTable = CollectMeSavedVars.IgnoredCompanionsTable;
     elseif (CollectMeFrame.selectedTab == COLLECTME_MOUNT) then
         ignoredTable = CollectMeSavedVars.IgnoredMountsTable;
+    elseif (CollectMeFrame.selectedTab == COLLECTME_TITLE) then
+        if(CollectMeSavedVars.IgnoredTitlesTable) then
+            CollectMeSavedVars.IgnoredTitlesTable = {};
+        end
+        ignoredTable = CollectMeSavedVars.IgnoredTitlesTable;
     end
 
     ignoredTable[self.value] = 1;
@@ -665,6 +766,8 @@ function CollectMe_DropDownActivateMenuOnClick(self)
         ignoredTable = CollectMeSavedVars.IgnoredCompanionsTable;
     elseif (CollectMeFrame.selectedTab == COLLECTME_MOUNT) then
         ignoredTable = CollectMeSavedVars.IgnoredMountsTable;
+    elseif (CollectMeFrame.selectedTab == COLLECTME_TITLE) then
+        ignoredTable = CollectMeSavedVars.IgnoredTitlesTable;
     end
 
     ignoredTable[self.value] = nil;

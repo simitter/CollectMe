@@ -1,4 +1,3 @@
-CollectMeCompanionInfo = {
-    [176] = "Blablabla", -- <Name> of the Ashen Verdict
-    [189] = "BliBliBli", -- Assistant Professor <Name>
+CollectMeTitleInfo = {
+    [188] = "test", -- Avenger of Hyjal", -- [188]
 }

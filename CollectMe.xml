@@ -4,6 +4,8 @@
     <Script file="DB\CM_Mount.lua"/>
     <Script file="DB\CM_MountInfo_en.lua"/>
     <Script file="DB\CM_CompanionInfo_en.lua"/>
+    <Script file="DB\CM_Title.lua"/>
+    <Script file="DB\CM_TitleInfo_en.lua"/>
     <Script file="CollectMe.lua"/>
     <Script file="Options.lua"/>
 
@@ -617,6 +619,21 @@
                 </Scripts>
             </Button>
 
+            <Button name="$parentTab3" inherits="TabButtonTemplate" text="Titles" id="3">
+                <Anchors>
+                    <Anchor point="LEFT" relativeTo="$parentTab2" relativePoint="RIGHT" />
+                </Anchors>
+                <Scripts>
+                    <OnLoad>
+                        PanelTemplates_TabResize(self, 0);
+                    </OnLoad>
+                    <OnClick>
+                        CollectMe_Update(COLLECTME_TITLE);
+                        PanelTemplates_SetTab(self:GetParent(), COLLECTME_TITLE);
+                    </OnClick>
+                </Scripts>
+            </Button>
+
             <DressUpModel name="CollectMeModel" hidden="true">
                 <Size>
                     <AbsDimension x="300" y="250"/>
@@ -707,7 +724,7 @@
         </Frames>
         <Scripts>
             <OnLoad>
-                PanelTemplates_SetNumTabs(self, 2);
+                PanelTemplates_SetNumTabs(self, 3);
                 CollectMe_OnLoad(self);
             </OnLoad>
             <OnEvent>
