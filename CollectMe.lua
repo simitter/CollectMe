@@ -688,19 +688,26 @@ end
 
 function CollectMe_ScrollItemMouseOver(self)
     local itemName = _G[self:GetName() .. "Text"]:GetText();
+    local itemID = tonumber(_G[self:GetName() .. "ItemID"]:GetText());
     local text = "No Info";
-    local isCompanion = false;
-    for k, v in pairs(CollectMeCompanionInfo) do
-        cName = GetSpellInfo(k);
-        if (cName == itemName) then
-            text = v;
-            isCompanion = true;
-            break;
-        end
+    local itemTable = {};
+    local check = nil;
+
+    if(current_tab == COLLECTME_TITLE) then
+        itemTable = CollectMeTitleInfo;
+    elseif(current_tab == COLLECTME_CRITTER) then
+        itemTable = CollectMeCompanionInfo;
+    elseif(current_tab == COLLECTME_MOUNT) then
+        itemTable = CollectMeMountInfo;
     end
 
-    if (isCompanion == false) then
-        for k, v in pairs(CollectMeMountInfo) do
+    for k, v in pairs(itemTable) do
+        if(current_tab == COLLECTME_TITLE) then
+            if (k == itemID) then
+                text = v;
+                break;
+            end
+        else
             cName = GetSpellInfo(k);
             if (cName == itemName) then
                 text = v;
