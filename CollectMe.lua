@@ -524,7 +524,7 @@ function CollectMe_InitTitleTable()
 end
 
 function CollectMe_TitleUpdate()
-    -- CollectMe_ApplyMountFilter();
+    CollectMe_ApplyTitleFilter();
     local totalKnownTitles = 0;
     local knownTitlesTable = {};
     local ignoredTitlesTable = {};
@@ -615,6 +615,37 @@ function CollectMe_ApplyMountFilter()
             t = CollectMeMountFilter.rfm;
             for k, v in pairs(t) do
                 PotentialMountsTable[k] = nil;
+            end
+        end
+    end
+end
+
+
+function CollectMe_ApplyTitleFilter()
+    local t = {};
+    if (CollectMeSavedVars.Filters ~= nil) then
+        if (CollectMeSavedVars.Filters.TitNlo ~= nil) then
+            t = CollectMeTitleFilter.nlo;
+            for k, v in pairs(t) do
+                for k1, v1 in pairs(PotentialTitlesTable) do
+                    if (v == v1) then
+                        PotentialTitlesTable[k1] = nil;
+                        break;
+                    end
+                end
+
+            end
+        end
+
+        if (CollectMeSavedVars.Filters.TitPvp ~= nil) then
+            t = CollectMeTitleFilter.pvp;
+            for k, v in pairs(t) do
+                for k1, v1 in pairs(PotentialTitlesTable) do
+                    if (v == v1) then
+                        PotentialTitlesTable[k1] = nil;
+                        break;
+                    end
+                end
             end
         end
     end

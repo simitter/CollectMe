@@ -51,6 +51,8 @@ function CollectMePanelFilter_OnShow(self)
     _G[self:GetName() .. "CheckButton11"]:SetChecked(CollectMeSavedVars.Filters["MouTcg"]);
     _G[self:GetName() .. "CheckButton12"]:SetChecked(CollectMeSavedVars.Filters["MouBsm"]);
     _G[self:GetName() .. "CheckButton13"]:SetChecked(CollectMeSavedVars.Filters["MouRfm"]);
+    _G[self:GetName() .. "CheckButton14"]:SetChecked(CollectMeSavedVars.Filters["TitNlo"]);
+    _G[self:GetName() .. "CheckButton15"]:SetChecked(CollectMeSavedVars.Filters["TitPvp"]);
 end
 
 function CollectMePanelFilterOption_OnClick(self, id, update)
@@ -59,8 +61,10 @@ function CollectMePanelFilterOption_OnClick(self, id, update)
     PanelTemplates_SetTab(CollectMeFrame, update);
     if (update == COLLECTME_CRITTER) then
         CollectMe_InitCompanionTable();
-    else
+    elseif(update == COLLECTME_MOUNT) then
         CollectMe_InitMountTable();
+    else
+        CollectMe_InitTitleTable();
     end;
     CollectMe_Update(update);
 end

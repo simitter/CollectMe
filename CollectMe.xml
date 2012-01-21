@@ -1041,6 +1041,34 @@
                 </Scripts>
             </CheckButton>
 
+
+            <CheckButton name="$parentCheckButton14" inherits="OptionsCheckButtonTemplate">
+                <Anchors>
+                    <Anchor point="TOPLEFT" relativeTo="$parentCheckButton13">
+                        <Offset>
+                            <AbsDimension x="0" y="-60"/>
+                        </Offset>
+                    </Anchor>
+                </Anchors>
+                <Scripts>
+                    <OnLoad>_G[self:GetName().."Text"]:SetText("Hide no longer obtainable titles");</OnLoad>
+                    <OnClick>CollectMePanelFilterOption_OnClick(self, "TitNlo" , COLLECTME_TITLE);</OnClick>
+                </Scripts>
+            </CheckButton>
+            <CheckButton name="$parentCheckButton15" inherits="OptionsCheckButtonTemplate">
+                <Anchors>
+                    <Anchor point="TOPLEFT" relativeTo="$parentCheckButton14">
+                        <Offset>
+                            <AbsDimension x="0" y="-30"/>
+                        </Offset>
+                    </Anchor>
+                </Anchors>
+                <Scripts>
+                    <OnLoad>_G[self:GetName().."Text"]:SetText("Hide PVP and arena titles");</OnLoad>
+                    <OnClick>CollectMePanelFilterOption_OnClick(self, "TitPvp" , COLLECTME_TITLE);</OnClick>
+                </Scripts>
+            </CheckButton>
+
         </Frames>
         <Scripts>
             <OnLoad>
