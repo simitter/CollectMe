@@ -536,24 +536,38 @@ function CollectMe_TitleUpdate()
         CollectMeSavedVars.IgnoredTitlesTable = {};
     end
 
-    for k, v in pairs(PotentialTitlesTable) do
-        name = GetTitleName(v);
+    for i = 1, GetNumTitles() do
+        name = GetTitleName(i);
         if(name ~= nil) then
-            name = name:gsub("^%s*(.-)%s*$", "%1");
-            t = {};
-            t.itemID = v;
-            t.name = name;
-
-            if (CollectMeSavedVars.IgnoredTitlesTable[name]) then
-                t.isIgnored = true;
-                table.insert(ignoredTitlesTable, t);
-            else
-                totalMissingTitles = totalMissingTitles + 1;
-                table.insert(MissingItemsTable, t);
+            if(IsTitleKnown(i) == 1) then
+                totalKnownTitles = totalKnownTitles + 1;
+                name = name:gsub("^%s*(.-)%s*$", "%1");
+                knownTitlesTable[i] = 1;
+                if (CollectMeSavedVars.IgnoredMountsTable[name]) then
+                    CollectMeSavedVars.IgnoredMountsTable[name] = nil;
+                end
             end
-
         end
+    end
 
+    for k, v in pairs(PotentialTitlesTable) do
+        if(knownTitlesTable[v] == nil) then
+            name = GetTitleName(v);
+            if(name ~= nil) then
+                name = name:gsub("^%s*(.-)%s*$", "%1");
+                t = {};
+                t.itemID = v;
+                t.name = name;
+
+                if (CollectMeSavedVars.IgnoredTitlesTable[name]) then
+                    t.isIgnored = true;
+                    table.insert(ignoredTitlesTable, t);
+                else
+                    totalMissingTitles = totalMissingTitles + 1;
+                    table.insert(MissingItemsTable, t);
+                end
+            end
+        end
     end
 
     table.sort(MissingItemsTable, CollectMe_SortTableByName);
