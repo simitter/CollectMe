@@ -541,7 +541,7 @@ function CollectMe_TitleUpdate()
         if(name ~= nil) then
             t = {};
             t.itemID = v;
-            t.name = name;
+            t.name = (name:gsub("^%s*(.-)%s*$", "%1"));
 
             if (CollectMeSavedVars.IgnoredTitlesTable[name]) then
                 t.isIgnored = true;
@@ -844,7 +844,7 @@ function CollectMe_ScrollHeaderClicked(headerName)
 end
 
 function CollectMe_SortTableByName(a, b)
-    return (a.name < b.name);
+    return (string.lower(a.name) < string.lower(b.name));
 end
 
 function CollectMe_OnDragStart(self)
