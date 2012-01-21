@@ -539,9 +539,10 @@ function CollectMe_TitleUpdate()
     for k, v in pairs(PotentialTitlesTable) do
         name = GetTitleName(v);
         if(name ~= nil) then
+            name = name:gsub("^%s*(.-)%s*$", "%1");
             t = {};
             t.itemID = v;
-            t.name = (name:gsub("^%s*(.-)%s*$", "%1"));
+            t.name = name;
 
             if (CollectMeSavedVars.IgnoredTitlesTable[name]) then
                 t.isIgnored = true;
@@ -787,7 +788,7 @@ function CollectMe_DropDownInactivateMenuOnClick(self)
     elseif (CollectMeFrame.selectedTab == COLLECTME_MOUNT) then
         ignoredTable = CollectMeSavedVars.IgnoredMountsTable;
     elseif (CollectMeFrame.selectedTab == COLLECTME_TITLE) then
-        if(CollectMeSavedVars.IgnoredTitlesTable) then
+        if(CollectMeSavedVars.IgnoredTitlesTable == nil) then
             CollectMeSavedVars.IgnoredTitlesTable = {};
         end
         ignoredTable = CollectMeSavedVars.IgnoredTitlesTable;
