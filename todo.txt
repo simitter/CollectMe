@@ -16,5 +16,7 @@ standardise both  the mount and companion infos
 
 - Missed filters for Mountains and Swift Mountain Horse
 
+- Flametalon? (maybe accidental removal check old commits)
+
 
 
