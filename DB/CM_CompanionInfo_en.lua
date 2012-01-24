@@ -231,6 +231,6 @@ CollectMeCompanionInfo = {
     [102353] = "Loot reward from Tomb of the Forgotten TCG expansion.  [BoP]", -- Sand Scarab
     [103125] = "Chance of dropping from a Stolen Present obtained from the quest 'You're a Mean One...'. Unique [BoP]", -- Lumpy
     [110029] = "Unknown.  [BoP]", -- Soul of the Aspects
-    [104047] = "Obtained during the Lunar Festival world event.  [BoP]", -- Lunar Lantern
-    [104049] = "Obtained during the Lunar Festival world event.  [BoP]", -- Festival Lantern
+    [104047] = "Purchased from Valadar Starsong in Moonglade for 50 Coins of Ancestry.  [BoE]", -- Lunar Lantern
+    [104049] = "Purchased from Valadar Starsong in Moonglade for 50 Coins of Ancestry.  [BoE]", -- Festival Lantern
 }
