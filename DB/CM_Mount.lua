@@ -46,6 +46,7 @@ CollectMeCommonMountTable = {
     [88741] = 47647, -- Drake of the West Wind
     [110039] = 58166, -- Experiment 12-B
     [36702] = 21354, -- Fiery Warhorse
+    [101542] = 54395, -- Flametalon of Alysrazor
     [97359] = 52672, -- Flameward Hippogryph
     [61451] = 33029, -- Flying Carpet
     [44153] = 24653, -- Flying Machine
