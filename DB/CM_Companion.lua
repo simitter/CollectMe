@@ -290,6 +290,7 @@ CollectMeCompanionFilter = {
         [96817] = 52343, -- Landro's Lichling
         [93624] = 50468, -- Landro's Lil' XT
         [96819] = 52344, -- Nightsaber Cub
+        [101493] = 54383, -- Purple Puffer
         [45125] = 25109, -- Rocket Chicken
        [102353] = 54745, -- Sand Scarab
         [68810] = 36511, -- Spectral Tiger Cub
