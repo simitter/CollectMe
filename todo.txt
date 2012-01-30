@@ -11,9 +11,8 @@ Excitor: (notes for myself and so others can see what I'm up to)
 
 - Spectral Gryphon,Spectral Wind Rider (upcoming blizzard store??)
 
-- Confirm world event companions BoP/BoE status   http://www.wowpedia.org/Companion  
- //List of World Event companions (NOTE: BoP tag
-   does not mean they're actually BoP needs to be checked through WoWhead individually)
+- Set all World Event pets to BoE (Exceptions: Ice Chip, Curious Wolvar Pup, Curious Oracle Hatchling, Egbert's Egg
+   Sleepy Willy, Snail Shell, Piglet's Collar, Rat Cage, Turtle Box, Elekk Training Collar)
 
 - Titles (finish placeholders for easy adding infos)(actually add the info (kill me))
 
