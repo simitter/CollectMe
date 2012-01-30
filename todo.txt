@@ -16,6 +16,7 @@ Excitor: (notes for myself and so others can see what I'm up to)
 
 - Titles (finish placeholders for easy adding infos)(actually add the info (kill me))
 
+- Eng and Tailor filter for mounts, remove Eng filter for companions
 
 
 
