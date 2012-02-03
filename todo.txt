@@ -18,5 +18,7 @@ Excitor: (notes for myself and so others can see what I'm up to)
 
 - Eng and Tailor filter for mounts, remove Eng filter for companions
 
+- Feldrake, Eye of the Legion once info on the spell ID's are up
+
 
 
