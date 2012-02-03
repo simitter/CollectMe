@@ -4,15 +4,12 @@
 - Show global cooldown on pet summon button
 
 ---
-Excitor: (notes for myself and so others can see what I'm up to)
+Excitor:
 
 - Add more complete info on locations for mounts and pets that are not specific enough, 
   standardise both the mount and companion infos lines 19-end (pets) 1-end (mounts)
 
 - Spectral Gryphon,Spectral Wind Rider (upcoming blizzard store??)
-
-- Set all World Event pets to BoE (Exceptions: Ice Chip, Curious Wolvar Pup, Curious Oracle Hatchling, Egbert's Egg
-   Sleepy Willy, Snail Shell, Piglet's Collar, Rat Cage, Turtle Box, Elekk Training Collar)
 
 - Titles (finish placeholders for easy adding infos)(actually add the info (kill me))
 
