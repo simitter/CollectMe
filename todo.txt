@@ -4,17 +4,18 @@
 - Show global cooldown on pet summon button
 
 ---
-Excitor: (notes for myself and so others can see what I'm up to)
+Excitor:
+
 - Add more complete info on locations for mounts and pets that are not specific enough, 
-standardise both  the mount and companion infos
+  standardise both the mount and companion infos lines 19-end (pets) 1-end (mounts)
 
-- Add extra info for Lunar, Festival lanterns
+- Spectral Gryphon,Spectral Wind Rider (upcoming blizzard store??)
 
-- Spectral Gryphon,Spectral Wind Rider 
+- Titles (finish placeholders for easy adding infos)(actually add the info (kill me))
 
-- Confirm world event companions BoP/BoE status
+- Eng and Tailor filter for mounts, remove Eng filter for companions
 
-- Missed filters for Mountains and Swift Mountain Horse
+- Feldrake, Eye of the Legion once info on the spell ID's are up
 
 
 

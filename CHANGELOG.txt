@@ -1,3 +1,10 @@
+----
+**1.2.7**
+*Updated info for Lunar Lantern (Companion)
+*Updated info for Festival Lantern (Companion)
+*Added Purple Puffer to the TCG filter (Companion)
+*Fixed missing Flametalon of Alysrazor (Mount)
+*Added an Engineering and a Tailoring filter for the mounts (profession mounts will no longer be automatically hidden)
 
 ----
 **1.2.6**

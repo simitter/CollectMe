@@ -65,6 +65,7 @@ CollectMeCommonCompanionTable = {
     [48408] = 27346, -- Essence of Competition
     [49964] = 27914, -- Ethereal Soul-Trader
     [26533] = 15698, -- Father Winter's Helper
+    [104049] = 55574, -- Festival Lantern
     [105633] = 56266, -- Fetish Shaman
     [100330] = 53884, -- Feline Familiar
     [36034] = 21076, -- Firefly
@@ -109,6 +110,7 @@ CollectMeCommonCompanionTable = {
     [23429] = 14629, -- Loggerhead Snapjaw
     [40405] = 23198, -- Lucky
     [103125] = 55215, -- Lumpy
+    [104047] = 55571, -- Lunar Lantern
     [24988] = 15358, -- Lurky
     [93837] = 50545, -- Magic Lamp
     [33050] = 18839, -- Magical Crawdad
@@ -232,13 +234,11 @@ CollectMeAllianceCompanionTable = {
     [92397] = 49587, -- Guild Herald
     [92395] = 49586, -- Guild Page
     [95786] = 51601, -- Moonkin Hatchling (Alliance)
-    [104047] = 55571, -- Lunar Lantern
 };
 
 -- Horde companions
 CollectMeHordeCompanionTable = {
     [62746] = 33239, -- Argent Gruntling
-    [104049] = 55574, -- Festival Lantern
     [92398] = 49590, -- Guild Herald
     [92396] = 49588, -- Guild Page
     [95909] = 51649, -- Moonkin Hatchling (Horde)
@@ -290,6 +290,7 @@ CollectMeCompanionFilter = {
         [96817] = 52343, -- Landro's Lichling
         [93624] = 50468, -- Landro's Lil' XT
         [96819] = 52344, -- Nightsaber Cub
+        [101493] = 54383, -- Purple Puffer
         [45125] = 25109, -- Rocket Chicken
        [102353] = 54745, -- Sand Scarab
         [68810] = 36511, -- Spectral Tiger Cub
