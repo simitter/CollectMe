@@ -626,8 +626,23 @@ function CollectMe_ApplyMountFilter()
                 PotentialMountsTable[k] = nil;
             end
         end
+        
         if (CollectMeSavedVars.Filters.MouRfm ~= nil) then
             t = CollectMeMountFilter.rfm;
+            for k, v in pairs(t) do
+                PotentialMountsTable[k] = nil;
+            end
+        end
+        
+        if (CollectMeSavedVars.Filters.MouEng ~= nil) then
+            t = CollectMeMountFilter.eng;
+            for k, v in pairs(t) do
+                PotentialMountsTable[k] = nil;
+            end
+        end
+        
+        if (CollectMeSavedVars.Filters.MouTal ~= nil) then
+            t = CollectMeMountFilter.tal;
             for k, v in pairs(t) do
                 PotentialMountsTable[k] = nil;
             end
