@@ -51,8 +51,10 @@ function CollectMePanelFilter_OnShow(self)
     _G[self:GetName() .. "CheckButton11"]:SetChecked(CollectMeSavedVars.Filters["MouTcg"]);
     _G[self:GetName() .. "CheckButton12"]:SetChecked(CollectMeSavedVars.Filters["MouBsm"]);
     _G[self:GetName() .. "CheckButton13"]:SetChecked(CollectMeSavedVars.Filters["MouRfm"]);
-    _G[self:GetName() .. "CheckButton14"]:SetChecked(CollectMeSavedVars.Filters["TitNlo"]);
-    _G[self:GetName() .. "CheckButton15"]:SetChecked(CollectMeSavedVars.Filters["TitPvp"]);
+    _G[self:GetName() .. "CheckButton14"]:SetChecked(CollectMeSavedVars.Filters["MouEng"]);
+    _G[self:GetName() .. "CheckButton15"]:SetChecked(CollectMeSavedVars.Filters["MouTal"]);
+    _G[self:GetName() .. "CheckButton16"]:SetChecked(CollectMeSavedVars.Filters["TitNlo"]);
+    _G[self:GetName() .. "CheckButton17"]:SetChecked(CollectMeSavedVars.Filters["TitPvp"]);
 end
 
 function CollectMePanelFilterOption_OnClick(self, id, update)
