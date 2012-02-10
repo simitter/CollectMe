@@ -415,6 +415,18 @@ CollectMeMountFilter = {
     -- promotional mounts
     ["ptm"] = {
         [107203] = 56921, -- Tyrael's Charger
+        
+    -- Eng mounts
+    ["eng"] = {
+        [44153] = 24653, -- Flying Machine
+        [44151] = 24654, -- Turbo-Charged Flying Machine
+        
+    -- Tailoring mounts
+    ["tal"] = {
+        [61451] = 33029, -- Flying Carpet
+        [61309] = 33030, -- Magnificent Flying Carpet
+        [75596] = 40533, -- Frosty Flying Carpet
+
 
     },
 };
