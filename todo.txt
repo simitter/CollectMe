@@ -13,7 +13,7 @@ Excitor:
 
 - Titles (finish placeholders for easy adding infos)(actually add the info (kill me))
 
-- Eng and Tailor filter for mounts, remove Eng filter for companions
+- remove Eng filter for companions
 
 - Feldrake, Eye of the Legion once info on the spell ID's are up
 
