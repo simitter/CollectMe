@@ -363,6 +363,7 @@ CollectMeMountFilter = {
         [74856] = 40165, -- Blazing Hippogryph
         [102514] = 54903, -- Corrupted Hippogryph
         [65917] = 34655, -- Magic Rooster
+        [93623] = 50467, -- Mottled Drake 
         [30174] = 17266, -- Riding Turtle
         [97581] = 52813, -- Savage Raptor
         [42776] = 24003, -- Spectral Tiger
