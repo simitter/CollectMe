@@ -1,12 +1,12 @@
-Collect Me keeps track of your companions (minipets) and mounts in the game and can show you your missing pets and mounts with additional information where to get them. It also can summon companions randomly with a priority list.
+Collect Me keeps track of your companions (minipets) and mounts in the game and can show you your missing pets and mounts with additional information where to get them. It also can summon companions randomly with a priority list. Additionally Collect Me keeps track of your titles, which ones you're missing and how to get them.
 Basic Features
 
-    * Ignore List
-    * Filters
-    * Source-information of pets and mounts
-    * 3d model preview (sometimes ;) )
+    * Ignore List for titles, mounts and companions
+    * Filters for titles, mounts and companions
+    * Source-information of pets, mounts and titles
+    * 3d model preview of companions and mounts (sometimes ;) )
     * Priority-based random pet-summoning
-    * auto-summoning on moving 
+    * auto-summoning companions on moving 
 
 Known Bugs
 
@@ -22,14 +22,14 @@ Slash Commands
 
 The Main Window
 
-When you start the Main Window the add-on will automatically build a mount and pet list based on your faction, class and professions.
-By hovering over a pet or mount with the mouse you will receive additional information where to get it.
+When you start the Main Window the add-on will automatically build a mount, pet, title list based on your faction, class.
+By hovering over a pet/mount/title with the mouse you will receive additional information where to get it.
 Ignore List
 
-You can add pets to an ignore list by right-clicking on them, if you don't want them or you can't get them by any reasons.
+You can add an item to the ignore list by right-clicking on them, if you don't want them or you can't get them by any reasons.
 Filters
 
-In addition to the Ignore List, you can add some pre-configured filters in the option menu. Those filters will hide companions and mounts from both, the missing and the ignore list. This will allow you to keep the list small to bring in some general survey. By combining the filters and the ignore list you should have a good compromise of speed and detail.
+In addition to the Ignore List, you can add some pre-configured filters in the option menu. Those filters will hide companions, mounts and titles from both, the missing and the ignore list. This will allow you to keep the list small to bring in some general survey. By combining the filters and the ignore list you should have a good compromise of speed and detail.
 Priority-based random companion summoning
 
 The add-on can summon a random companion by using the slash command /cm randomcompanion. I highly recommend to use a macro for this.
@@ -69,3 +69,4 @@ Thanks
     * SkeeveSM for his add-on TheCollector which inspired me and where I've taken the base interface and some ideas and algorithms.
     * warcraftpets.com
     * warcraftmounts.com 
+    * wowhead.com 
