@@ -3,6 +3,7 @@
 *Added a new title feature for managing and collecting titles (Title)
 *Updated several World Event companions to BoE (Companion)
 *Fixed profession filters (Mount)(they're actually implemented now sorry :(  )
+*Added Mottled Drake (Mount)
 
 ----
 **1.2.7**
