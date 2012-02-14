@@ -405,6 +405,7 @@ CollectMeMountFilter = {
     -- blizzard store mounts
     ["bsm"] = {
         [75614] = 40625, -- Celestial Steed
+        [110051] = 58169, -- Heart of the Aspects
         [98727] = 53273, -- Winged Guardian
     },
 
