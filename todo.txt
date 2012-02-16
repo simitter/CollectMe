@@ -11,7 +11,7 @@ Excitor:
 
 - Spectral Gryphon,Spectral Wind Rider (upcoming blizzard store??)
 
-- Titles (finish placeholders for easy adding infos)(actually add the info (kill me))
+- Fix to long title, add tags to recognise titles with same name at glance.
 
 - remove Eng filter for companions
 
