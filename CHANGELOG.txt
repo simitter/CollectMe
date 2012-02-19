@@ -1,4 +1,9 @@
 ----
+**1.3.1**
+*Fixed some title info (Title)
+*Updated info and added filter for Hearts of the Aspects (Mount)
+
+----
 **1.3**
 *Added a new title feature for managing and collecting titles (Title)
 *Updated several World Event companions to BoE (Companion)
