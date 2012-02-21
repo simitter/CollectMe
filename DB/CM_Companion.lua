@@ -286,6 +286,7 @@ CollectMeCompanionFilter = {
         [40549] = 23234, -- Bananas
         [45127] = 25110, -- Dragon Kite
         [49964] = 27914, -- Ethereal Soul-Trader
+       [112994] = 59020, -- Eye of the Legion
        [102317] = 54730, -- Gregarious Grell
         [30156] = 17255, -- Hippogryph Hatchling
         [96817] = 52343, -- Landro's Lichling
