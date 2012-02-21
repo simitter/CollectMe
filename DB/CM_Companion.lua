@@ -64,6 +64,7 @@ CollectMeCommonCompanionTable = {
     [93836] = 46898, -- Enchanted Lantern
     [48408] = 27346, -- Essence of Competition
     [49964] = 27914, -- Ethereal Soul-Trader
+    [112994] = 59020, -- Eye of the Legion
     [26533] = 15698, -- Father Winter's Helper
     [104049] = 55574, -- Festival Lantern
     [105633] = 56266, -- Fetish Shaman
