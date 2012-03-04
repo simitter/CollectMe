@@ -45,6 +45,7 @@ CollectMeCommonMountTable = {
     [88744] = 47646, -- Drake of the South Wind
     [88741] = 47647, -- Drake of the West Wind
     [110039] = 58166, -- Experiment 12-B
+    [113120] = 59072, -- Feldrake
     [36702] = 21354, -- Fiery Warhorse
     [101542] = 54395, -- Flametalon of Alysrazor
     [97359] = 52672, -- Flameward Hippogryph
