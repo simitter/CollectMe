@@ -1,4 +1,12 @@
 ----
+**1.3.2**
+*Updated info for Tuskarr Kite (Companion)
+*Updated info for Spectral Tiger Cub (Companion)
+*Added Feldrake (Mount)
+*Added Eyed of the Legion (Companion)
+*Fixed several spelling & grammar errors (Title)
+
+----
 **1.3.1**
 *Fixed some title info (Title)
 *Updated info and added filter for Hearts of the Aspects (Mount)
