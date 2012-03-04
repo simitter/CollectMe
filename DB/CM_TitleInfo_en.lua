@@ -56,7 +56,7 @@ CollectMeTitleInfo = {
     [55] = "Realm first level 80 Druid. Removed in early WotLK Beta.", -- of the Emerald Dream", -- [55]
     [56] = "This title was awarded to players that were ranked #1 in their battlegroup when season 5 ended.", --Deadly Gladiator ", -- [56]
     [57] = "Realm first level 80 Priest. Removed in early WotLK Beta.", --Prophet ", -- [57]
-    [58] = "Realm first level 80 Warlock. Removed in early WotLK Beta"., -- the Malefic", -- [58]
+    [58] = "Realm first level 80 Warlock. Removed in early WotLK Beta.", -- the Malefic", -- [58]
     [59] = "Realm first level 80 Hunter. Removed in early WotLK Beta.", --Stalker ", -- [59]
     [60] = "Realm first level 80 Death Knight. Removed in early WotLK Beta.", -- of the Ebon Blade", -- [60]
     [61] = "Realm first level 80 Mage. Removed in early WotLK Beta.", --Archmage ", -- [61]
@@ -191,6 +191,6 @@ CollectMeTitleInfo = {
     [191] = "Awarded per battlegroup at the end of arena season 9 based on top ranked percentage. Top 0.0% - 0.5.%", -- Vicious Gladiator
     [192] = "Awarded per battlegroup at the end of arena season 10 based on top ranked percentage. Top 0.0% - 0.5.%", -- Ruthless Gladiator
     [193] = "Awarded per battlegroup at the end of arena season 11 based on top ranked percentage. Top 0.0% - 0.5.%", -- Cataclysmic Gladiator
-    [194] = "Reward for defeating Deathwing on heroic difficulty"., -- Savior of Azeroth
+    [194] = "Reward for defeating Deathwing on heroic difficulty.", -- Savior of Azeroth
     [196] = "Reward for defeating Deathwing on normal difficulty.", -- Destroyer's End
 };
