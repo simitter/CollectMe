@@ -15,7 +15,5 @@ Excitor:
 
 - remove Eng filter for companions
 
-- Feldrake, Eye of the Legion once info on the spell ID's are up
-
 
 
