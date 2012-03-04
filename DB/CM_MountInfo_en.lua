@@ -137,6 +137,7 @@ CollectMeMountInfo = {
     [75596] = "Purchased for 6 Frozen Orbs from Frozo the Renowned in Dalaran, Requires level 70, Tailoring 425 and Artisan Riding.", -- Frosty Flying Carpet
     [61309] = "Recipe is taught by Grand Master Tailoring Trainers", -- Magnificent Flying Carpet
     [93623] = "Loot card from the WoW Trading Card Game: Worldbreaker.", -- Mottled Drake
+    [113120] = "Loot card from the WoW Trading Card Game: War of the Ancients.", -- Feldrake
 
 
     -- we begin with the alliance infos
