@@ -254,7 +254,6 @@ CollectMeCompanionFilter = {
         [48408] = 27346, -- Essence of Competition
         [66520] = 34930, -- Jade Tiger
         [69002] = 36607, -- Onyxian Whelpling
-        [45890] = 25706, -- Searing Scorchling
         [48406] = 27217, -- Spirit of Competition
         [51851] = 28513, -- Vampiric Batling
         [64351] = 34031, -- XS-001 Constructor Bot
