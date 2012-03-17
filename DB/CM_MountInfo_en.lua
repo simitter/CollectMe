@@ -217,7 +217,8 @@ CollectMeMountInfo = {
     [100332] = "Reward from achivement 'Veteran of the Alliance' or higher.", -- Vicious War Steed
     [103196] = "Purchased from Astrid Langstrump located near the entrance to the howling oak in Darnassus for the price of 10g. [BoP]", -- Swift Mountain Horse
     [103195] = "Purchased from Astrid Langstrump located near the entrance to the howling oak in Darnassus for the price of 1g. [BoP]", -- Mountain Horse 
-
+    [107516] = "Obtained through the new Scroll of Resurrection system implemented in 4.3.3.", -- Spectral Gryphon
+    
     -- now the horde mounts
     [61230] = "Sold by Mei Francis in Dalaran for 2000G", -- Armored Blue Wind Rider
     [60116] = "Sold by Mei Francis in Dalaran for 750G", -- Armored Brown Bear
@@ -294,6 +295,8 @@ CollectMeMountInfo = {
     [56921] = "Sold by Pogg, Hellscream's Reach Quartermaster. Requires Level 70, Apprentice Riding and Hellscream's Reach Exalted reputation.", -- Spectral Wolf
     [93644] = "Available for Horde after Guild reaches level 25 and you reach Exalted reputation with your guild, 1500g. [BoA]", -- Kor'kron Annihilator
     [100333] = "Reward from the achivement 'Veteran of the Horde' and other higher achivements.", -- Vicious War Wolf
+    [107517] = "Obtained through the new Scroll of Resurrection system implemented in 4.3.3.", -- Spectral Wind Rider
+    
     -- paladin mounts
     [23214] = "Taught by the Paladin Trainer at Level 61 or obtained by completing the Level 60 Paladin Quest Line", -- Alliance Charger
     [13819] = "Taught by the Paladin Trainer at Level 40", -- Alliance Warhorse
