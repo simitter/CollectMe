@@ -320,9 +320,6 @@ CollectMeCompanionFilter = {
         [89930] = 48377, -- Swirling Stormling
         [89931] = 48378, -- Whirling Waveling
         [30152] = 17254, -- White Tiger Cub
-    },
-    -- Engineer BoP pets
-    ["eng"] = {},
     -- Companions from the Blizzard Store (Real currency)
     ["sto"] = {
         [99578] = 53623, -- Cenarion Hatchling
