@@ -441,12 +441,12 @@ function CollectMe_ApplyCompanionFilter()
             end
         end
 
---       if (CollectMeSavedVars.Filters.ComEng ~= nil) then
---           t = CollectMeCompanionFilter.eng;
---           for k, v in pairs(t) do
---                PotentialCompanionsTable[k] = nil;
---            end
---        end
+        if (CollectMeSavedVars.Filters.ComEng ~= nil) then
+            t = CollectMeCompanionFilter.eng;
+            for k, v in pairs(t) do
+                PotentialCompanionsTable[k] = nil;
+            end
+        end
 
         if (CollectMeSavedVars.Filters.ComSto ~= nil) then
             t = CollectMeCompanionFilter.sto;

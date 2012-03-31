@@ -44,16 +44,17 @@ function CollectMePanelFilter_OnShow(self)
     _G[self:GetName() .. "CheckButton4"]:SetChecked(CollectMeSavedVars.Filters["ComTcg"]);
     _G[self:GetName() .. "CheckButton5"]:SetChecked(CollectMeSavedVars.Filters["ComCol"]);
     _G[self:GetName() .. "CheckButton6"]:SetChecked(CollectMeSavedVars.Filters["ComUnk"]);
-    _G[self:GetName() .. "CheckButton7"]:SetChecked(CollectMeSavedVars.Filters["ComSto"]);
-    _G[self:GetName() .. "CheckButton8"]:SetChecked(CollectMeSavedVars.Filters["MouNlo"]);
-    _G[self:GetName() .. "CheckButton9"]:SetChecked(CollectMeSavedVars.Filters["MouPvp"]);
-    _G[self:GetName() .. "CheckButton10"]:SetChecked(CollectMeSavedVars.Filters["MouTcg"]);
-    _G[self:GetName() .. "CheckButton11"]:SetChecked(CollectMeSavedVars.Filters["MouBsm"]);
-    _G[self:GetName() .. "CheckButton12"]:SetChecked(CollectMeSavedVars.Filters["MouRfm"]);
-    _G[self:GetName() .. "CheckButton13"]:SetChecked(CollectMeSavedVars.Filters["MouEng"]);
-    _G[self:GetName() .. "CheckButton14"]:SetChecked(CollectMeSavedVars.Filters["MouTal"]);
-    _G[self:GetName() .. "CheckButton15"]:SetChecked(CollectMeSavedVars.Filters["TitNlo"]);
-    _G[self:GetName() .. "CheckButton16"]:SetChecked(CollectMeSavedVars.Filters["TitPvp"]);
+    _G[self:GetName() .. "CheckButton7"]:SetChecked(CollectMeSavedVars.Filters["ComEng"]);
+    _G[self:GetName() .. "CheckButton8"]:SetChecked(CollectMeSavedVars.Filters["ComSto"]);
+    _G[self:GetName() .. "CheckButton9"]:SetChecked(CollectMeSavedVars.Filters["MouNlo"]);
+    _G[self:GetName() .. "CheckButton10"]:SetChecked(CollectMeSavedVars.Filters["MouPvp"]);
+    _G[self:GetName() .. "CheckButton11"]:SetChecked(CollectMeSavedVars.Filters["MouTcg"]);
+    _G[self:GetName() .. "CheckButton12"]:SetChecked(CollectMeSavedVars.Filters["MouBsm"]);
+    _G[self:GetName() .. "CheckButton13"]:SetChecked(CollectMeSavedVars.Filters["MouRfm"]);
+    _G[self:GetName() .. "CheckButton14"]:SetChecked(CollectMeSavedVars.Filters["MouEng"]);
+    _G[self:GetName() .. "CheckButton15"]:SetChecked(CollectMeSavedVars.Filters["MouTal"]);
+    _G[self:GetName() .. "CheckButton16"]:SetChecked(CollectMeSavedVars.Filters["TitNlo"]);
+    _G[self:GetName() .. "CheckButton17"]:SetChecked(CollectMeSavedVars.Filters["TitPvp"]);
 end
 
 function CollectMePanelFilterOption_OnClick(self, id, update)

@@ -957,13 +957,27 @@
                     </Anchor>
                 </Anchors>
                 <Scripts>
+                    <OnLoad>_G[self:GetName().."Text"]:SetText("Hide Engineer BoP companions");</OnLoad>
+                    <OnClick>CollectMePanelFilterOption_OnClick(self, "ComEng" , COLLECTME_CRITTER);</OnClick>
+                </Scripts>
+            </CheckButton>
+
+            <CheckButton name="$parentCheckButton8" inherits="OptionsCheckButtonTemplate">
+                <Anchors>
+                    <Anchor point="TOPLEFT" relativeTo="$parentCheckButton7">
+                        <Offset>
+                            <AbsDimension x="0" y="-25"/>
+                        </Offset>
+                    </Anchor>
+                </Anchors>
+                <Scripts>
                     <OnLoad>_G[self:GetName().."Text"]:SetText("Hide companions from the Blizzard Store");</OnLoad>
                     <OnClick>CollectMePanelFilterOption_OnClick(self, "ComSto" , COLLECTME_CRITTER);</OnClick>
                 </Scripts>
             </CheckButton>
-            <CheckButton name="$parentCheckButton8" inherits="OptionsCheckButtonTemplate">
+            <CheckButton name="$parentCheckButton9" inherits="OptionsCheckButtonTemplate">
                 <Anchors>
-                    <Anchor point="TOPLEFT" relativeTo="$parentCheckButton7">
+                    <Anchor point="TOPLEFT" relativeTo="$parentCheckButton8">
                         <Offset>
                             <AbsDimension x="0" y="-60"/>
                         </Offset>
@@ -972,19 +986,6 @@
                 <Scripts>
                     <OnLoad>_G[self:GetName().."Text"]:SetText("Hide no longer obtainable mounts");</OnLoad>
                     <OnClick>CollectMePanelFilterOption_OnClick(self, "MouNlo" , COLLECTME_MOUNT);</OnClick>
-                </Scripts>
-            </CheckButton>
-            <CheckButton name="$parentCheckButton9" inherits="OptionsCheckButtonTemplate">
-                <Anchors>
-                    <Anchor point="TOPLEFT" relativeTo="$parentCheckButton8">
-                        <Offset>
-                            <AbsDimension x="0" y="-25"/>
-                        </Offset>
-                    </Anchor>
-                </Anchors>
-                <Scripts>
-                    <OnLoad>_G[self:GetName().."Text"]:SetText("Hide PvP and Arena mounts");</OnLoad>
-                    <OnClick>CollectMePanelFilterOption_OnClick(self, "MouPvp" , COLLECTME_MOUNT);</OnClick>
                 </Scripts>
             </CheckButton>
             <CheckButton name="$parentCheckButton10" inherits="OptionsCheckButtonTemplate">
@@ -996,8 +997,8 @@
                     </Anchor>
                 </Anchors>
                 <Scripts>
-                    <OnLoad>_G[self:GetName().."Text"]:SetText("Hide Trading Card Game mounts");</OnLoad>
-                    <OnClick>CollectMePanelFilterOption_OnClick(self, "MouTcg" , COLLECTME_MOUNT);</OnClick>
+                    <OnLoad>_G[self:GetName().."Text"]:SetText("Hide PvP and Arena mounts");</OnLoad>
+                    <OnClick>CollectMePanelFilterOption_OnClick(self, "MouPvp" , COLLECTME_MOUNT);</OnClick>
                 </Scripts>
             </CheckButton>
             <CheckButton name="$parentCheckButton11" inherits="OptionsCheckButtonTemplate">
@@ -1009,14 +1010,27 @@
                     </Anchor>
                 </Anchors>
                 <Scripts>
+                    <OnLoad>_G[self:GetName().."Text"]:SetText("Hide Trading Card Game mounts");</OnLoad>
+                    <OnClick>CollectMePanelFilterOption_OnClick(self, "MouTcg" , COLLECTME_MOUNT);</OnClick>
+                </Scripts>
+            </CheckButton>
+            <CheckButton name="$parentCheckButton12" inherits="OptionsCheckButtonTemplate">
+                <Anchors>
+                    <Anchor point="TOPLEFT" relativeTo="$parentCheckButton11">
+                        <Offset>
+                            <AbsDimension x="0" y="-25"/>
+                        </Offset>
+                    </Anchor>
+                </Anchors>
+                <Scripts>
                     <OnLoad>_G[self:GetName().."Text"]:SetText("Hide Blizzard Store mounts");</OnLoad>
                     <OnClick>CollectMePanelFilterOption_OnClick(self, "MouBsm" , COLLECTME_MOUNT);</OnClick>
                 </Scripts>
             </CheckButton>
             
-            <CheckButton name="$parentCheckButton12" inherits="OptionsCheckButtonTemplate">
+            <CheckButton name="$parentCheckButton13" inherits="OptionsCheckButtonTemplate">
                 <Anchors>
-                    <Anchor point="TOPLEFT" relativeTo="$parentCheckButton11">
+                    <Anchor point="TOPLEFT" relativeTo="$parentCheckButton12">
                         <Offset>
                             <AbsDimension x="0" y="-25"/>
                         </Offset>
@@ -1027,9 +1041,9 @@
                     <OnClick>CollectMePanelFilterOption_OnClick(self, "MouRfm" , COLLECTME_MOUNT);</OnClick>
                 </Scripts>
             </CheckButton>
-                        <CheckButton name="$parentCheckButton13" inherits="OptionsCheckButtonTemplate">
+                        <CheckButton name="$parentCheckButton14" inherits="OptionsCheckButtonTemplate">
                 <Anchors>
-                    <Anchor point="TOPLEFT" relativeTo="$parentCheckButton12">
+                    <Anchor point="TOPLEFT" relativeTo="$parentCheckButton13">
                         <Offset>
                             <AbsDimension x="0" y="-25"/>
                         </Offset>
@@ -1040,9 +1054,9 @@
                     <OnClick>CollectMePanelFilterOption_OnClick(self, "MouEng" , COLLECTME_MOUNT);</OnClick>
                 </Scripts>
             </CheckButton>
-                        <CheckButton name="$parentCheckButton14" inherits="OptionsCheckButtonTemplate">
+                        <CheckButton name="$parentCheckButton15" inherits="OptionsCheckButtonTemplate">
                 <Anchors>
-                    <Anchor point="TOPLEFT" relativeTo="$parentCheckButton13">
+                    <Anchor point="TOPLEFT" relativeTo="$parentCheckButton14">
                         <Offset>
                             <AbsDimension x="0" y="-25"/>
                         </Offset>
@@ -1055,9 +1069,9 @@
             </CheckButton>
 
 
-            <CheckButton name="$parentCheckButton15" inherits="OptionsCheckButtonTemplate">
+            <CheckButton name="$parentCheckButton16" inherits="OptionsCheckButtonTemplate">
                 <Anchors>
-                    <Anchor point="TOPLEFT" relativeTo="$parentCheckButton14">
+                    <Anchor point="TOPLEFT" relativeTo="$parentCheckButton15">
                         <Offset>
                             <AbsDimension x="0" y="-60"/>
                         </Offset>
@@ -1068,9 +1082,9 @@
                     <OnClick>CollectMePanelFilterOption_OnClick(self, "TitNlo" , COLLECTME_TITLE);</OnClick>
                 </Scripts>
             </CheckButton>
-            <CheckButton name="$parentCheckButton16" inherits="OptionsCheckButtonTemplate">
+            <CheckButton name="$parentCheckButton17" inherits="OptionsCheckButtonTemplate">
                 <Anchors>
-                    <Anchor point="TOPLEFT" relativeTo="$parentCheckButton15">
+                    <Anchor point="TOPLEFT" relativeTo="$parentCheckButton16">
                         <Offset>
                             <AbsDimension x="0" y="-25"/>
                         </Offset>
