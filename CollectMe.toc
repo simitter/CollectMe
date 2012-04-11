@@ -9,7 +9,7 @@
 ## X-License: MIT modified with notification clause
 
 ## Interface: 40300
-## Version: 1.3.3
+## Version: 1.3.4
 
 ## X-credits: SkeeveSM (TheCollector), wowwiki
 
