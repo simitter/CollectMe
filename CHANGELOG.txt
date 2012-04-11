@@ -1,8 +1,8 @@
 ----
 **1.3.4**
-*Updated info for Word Pup (Companion)
+*Updated info for Worg Pup (Companion)
 *Updated info for Smolderweb Hatchling (Companion)
-*Updated info for Sould of the Aspects (Companion)
+*Updated info for Soul of the Aspects (Companion)
 
 ----
 **1.3.3**
