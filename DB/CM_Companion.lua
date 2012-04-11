@@ -316,7 +316,6 @@ CollectMeCompanionFilter = {
         [87863] = 47169, -- Eat the Egg
         [23429] = 14629, -- Loggerhead Snapjaw
         [89929] = 48376, -- Rumbling Rockling
-        [110029] = 58163, -- Soul of the Aspects
         [89930] = 48377, -- Swirling Stormling
         [89931] = 48378, -- Whirling Waveling
         [30152] = 17254, -- White Tiger Cub
@@ -334,6 +333,7 @@ CollectMeCompanionFilter = {
         [95786] = 51601, -- Moonkin Hatchling (Alliance)
         [95909] = 51649, -- Moonkin Hatchling (Horde)
         [69541] = 36911, -- Pandaren Monk
+        [110029] = 58163, -- Soul of the Aspects
         [69536] = 36909, -- Wind Rider Cub
     },
 };
