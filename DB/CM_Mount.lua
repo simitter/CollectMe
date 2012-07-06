@@ -2,6 +2,7 @@
 CollectMeCommonMountTable = {
     [75207] = 40054, -- Abyssal Seahorse
     [60025] = 32158, -- Albino Drake
+    [96503] = 52185, -- Amani Dragonhawk
     [98204] = 53276, -- Amani Battle Bear
     [43688] = 24379, -- Amani War Bear
     [63844] = 33857, -- Argent Hippogryph
@@ -362,6 +363,7 @@ CollectMeMountFilter = {
 
     -- trading card game
     ["tcg"] = {
+        [96503] = 52185, -- Amani Dragonhawk
         [51412] = 28363, -- Big Battle Bear
         [74856] = 40165, -- Blazing Hippogryph
         [102514] = 54903, -- Corrupted Hippogryph
