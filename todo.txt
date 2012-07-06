@@ -11,7 +11,7 @@ Excitor:
 
 - Fix to long title, add tags to recognise titles with same name at glance.
 
-- Remove Eng filter for companions
+- Remove Eng filter for companions.
 
 
 
