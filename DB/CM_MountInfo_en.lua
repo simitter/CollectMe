@@ -1,6 +1,6 @@
 CollectMeMountInfo = {
-    [60025] = "Reward from Achievement Leading the Cavalry (collect 50 Mounts)", -- Albino Drake
-    [40192] = "Dropped by Kael'Thas Sunstrider in Tempest Keep (Raid)", -- Ashes of Al'ar
+    [60025] = "Reward from the achievement Leading the Cavalry (collect 50 Mounts)", -- Albino Drake
+    [40192] = "Dropped by Kael'Thas Sunstrider in Tempest Keep", -- Ashes of Al'ar
     [41514] = "Sold by Drake Dealer Hurlunk in Shadowmoon Valley for 200G. You need to be exalted with Netherwing", -- Azure Netherwing Drake
     [59567] = "Reward from 25-man Eye of Eternity (Malygos). Unique [BoP]", -- Azure Drake
     [59650] = "Dropped by Sartharion (10) if you kill him in Hard Mode with three drakes alive", -- Black Drake
@@ -125,7 +125,7 @@ CollectMeMountInfo = {
     [101821] = "Won by the top 0.5% rated Arena groups in the battlegroup in Season 10. [BoP]", -- Ruthless Gladiator's Twilight Drake
     [110051] = "Purchased from Blizzard's online store. [BoA]", -- Heart of the Aspects
     [102350] = "Purchased from a Lovely Merchant in Thunder Bluff during the Love is in the Air event for 270 Love Tokens. [BoP]", -- Swift Lovebird
-    [110039] = "Rare drop from Ultraxion in the Dragon Sould raid. [BoP]", -- Experiment 12-B
+    [110039] = "Rare drop from Ultraxion in the Dragon Soul raid. [BoP]", -- Experiment 12-B
     [102349] = "Purchased for 500 Nobelgarden Chocolates during the Noblegarden event. It can also be obtained as a rare drop from the Brightly Colored Eggs. [BoP]", -- Swift Springstrider
     [107844] = "Reward from the achivement 'Glory of the Dragon Soul Raider'. [BoP]", -- Twilight Harbinger
     [101573] = "Loot card from the WoW Trading Card Game: Throne of the Tides. [BoE]", -- Swift Shorestrider
