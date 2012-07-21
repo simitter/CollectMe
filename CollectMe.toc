@@ -8,14 +8,17 @@
 ## X-email: merla AT wow-serenity DOT net
 ## X-License: MIT modified with notification clause
 
-## Interface: 40300
-## Version: 1.3.5
+## Interface: 50000
+## Version: 2.0
 
-## X-credits: SkeeveSM (TheCollector), wowwiki
+## X-credits: wowwiki
 
 ## Dependencies:
 ## DefaultState: Enabled
 ## LoadOnDemand: 0
-## SavedVariablesPerCharacter: CollectMeSavedVars
 
-CollectMe.xml
+## OptionalDeps: Ace3
+
+embeds.xml
+
+CollectMe.lua
