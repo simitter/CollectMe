@@ -12,13 +12,12 @@ function CollectMe:OnInitialize()
 end
 
 function CollectMe:BuildUI()
-    local f = AceGUI:Create("Frame");
+    local f = AceGUI:Create("CollectMe");
     f:SetTitle("Collect Me " .. self.COLLECTME_VERSION);
-    f:Hide();
 
     self.frame = f;
 end
 
 function CollectMe:SlashProcessor(input)
-    self.frame:Show();
+    self.frame:Toggle();
 end

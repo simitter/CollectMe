@@ -21,4 +21,5 @@
 
 embeds.xml
 
+CollectMeFrame.lua
 CollectMe.lua
