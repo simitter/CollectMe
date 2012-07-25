@@ -358,8 +358,10 @@ CollectMeMountFilter = {
         [24242] = 15090, -- Swift Razzashi Raptor
         [49322] = 27684, -- Swift Zhevra
         [24252] = 15104, -- Swift Zulian Tiger
+        [49322] = 27684, -- Swift Zhevra
         [49193] = 27637, -- Vengeful Nether Drake
         [71810] = 38361, -- Wrathful Gladiator's Frost Wyrm
+        [75973] = 40725, -- X-53 Touring Rocket
     },
 
     -- trading card game
@@ -420,6 +422,7 @@ CollectMeMountFilter = {
     ["rfm"] = {
         [49322] = 27684, -- Swift Zhevra
         [75973] = 40725, -- X-53 Touring Rocket
+        [121820] = 62454, -- Obsidian Nightwing
     },
 
     -- promotional mounts
