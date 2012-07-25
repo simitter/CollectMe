@@ -71,6 +71,7 @@ CollectMeCommonMountTable = {
     [44744] = 24743, -- Merciless Nether Drake
     [63796] = 33848, -- Mimiron's Head
     [93623] = 50467, -- Mottled Drake 
+    [121820] = 62454, -- Obsidian Nightwing
     [69395] = 36837, -- Onyxian Drake
     [41513] = 23455, -- Onyx Netherwing Drake
     [88718] = 47631, -- Phosphorescent Stone Drake
