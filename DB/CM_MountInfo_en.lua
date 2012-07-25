@@ -67,11 +67,11 @@ CollectMeMountInfo = {
     [42776] = "Obtained from a lootcard of the WoW Trading Card Game: Fires of Outland", -- Spectral Tiger
     [37015] = "Won by the top 0.5% rated Arena groups in the battlegroup in Season 1", -- Swift Nether Drake
     [42777] = "Obtained from a lootcard of the WoW Trading Card Game: Fires of Outland", -- Swift Spectral Tiger
-    [49322] = "Obtained by Recruiting a Friend whom continues playing for at least 2 months", -- Swift Zhevra
+    [49322] = "No longer obtainable Recruit a Friend mount.", -- Swift Zhevra
     [49193] = "Won by the top 0.5% rated Arena groups in the battlegroup in Season 3", -- Vengeful Nether Drake
     [46197] = "Obtained from a lootcard of the WoW Trading Card Game: Servants of the Betrayer", -- X-51 Nether-Rocket
     [46199] = "Obtained from a lootcard of the WoW Trading Card Game: Servants of the Betrayer", -- X-51 Nether-Rocket X-TREME
-    [75973] = "Obtained by Recruiting a Friend whom continues playing for at least 2 months", -- X-53 Touring Rocket
+    [75973] = "No longer obtainable Recruit a friend mount.", -- X-53 Touring Rocket
     [65917] = "Obtained from a lootcard 'El Pollo Grande' of the WoW Trading Card Game: Fields of Honor", -- Magic Rooster
     [64927] = "Won by the top 0.5% rated Arena groups in the battlegroup in Season 5", -- Deadly Gladiator's Frost Wyrm
     [63956] = "Reward from Heroic: Glory of the Ulduar Raider Achievement", -- Ironbound Proto-Drake
@@ -138,6 +138,7 @@ CollectMeMountInfo = {
     [61309] = "Recipe is taught by Grand Master Tailoring Trainers", -- Magnificent Flying Carpet
     [93623] = "Loot card from the WoW Trading Card Game: Worldbreaker.", -- Mottled Drake
     [113120] = "Loot card from the WoW Trading Card Game: War of the Ancients.", -- Feldrake
+    [121820] = "Obtained by using the Recruit a Friend Service.", -- Obsidian Nightwing
 
 
     -- we begin with the alliance infos
