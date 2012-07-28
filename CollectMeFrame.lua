@@ -151,7 +151,6 @@ local function Constructor()
 
     frame:EnableMouse(true)
     frame:SetMovable(true)
-    frame:SetResizable(true)
     frame:SetFrameStrata("FULLSCREEN_DIALOG")
     frame:SetBackdrop(FrameBackdrop)
     frame:SetBackdropColor(0, 0, 0, 1)
