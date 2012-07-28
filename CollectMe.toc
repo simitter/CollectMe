@@ -20,6 +20,7 @@
 ## OptionalDeps: Ace3
 
 embeds.xml
+locales.xml
 
 CollectMeFrame.lua
 CollectMe.lua

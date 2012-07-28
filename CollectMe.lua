@@ -2,12 +2,13 @@ CollectMe = LibStub("AceAddon-3.0"):NewAddon("CollectMe", "AceConsole-3.0");
 local AceGUI = LibStub("AceGUI-3.0");
 
 function CollectMe:OnInitialize()
-    self.COLLECTME_VERSION = GetAddOnMetadata("CollectMe", "Version");
+    self.COLLECTME_VERSION = GetAddOnMetadata("CollectMe", "Version")
+    self.L = LibStub("AceLocale-3.0"):GetLocale("CollectMe", true)
 
-    self:BuildUI();
+    self:BuildUI()
 
-    self:RegisterChatCommand("collectme", "SlashProcessor");
-    self:RegisterChatCommand("cm", "SlashProcessor");
+    self:RegisterChatCommand("collectme", "SlashProcessor")
+    self:RegisterChatCommand("cm", "SlashProcessor")
 end
 
 function CollectMe:SelectGroup(container, group)
@@ -16,13 +17,13 @@ function CollectMe:SelectGroup(container, group)
 end
 
 function CollectMe:BuildUI()
-    local f = AceGUI:Create("CollectMe");
-    f:SetTitle("Collect Me " .. self.COLLECTME_VERSION);
+    local f = AceGUI:Create("CollectMe")
+    f:SetTitle("Collect Me " .. self.COLLECTME_VERSION)
     f:SetWidth(570)
     f:SetLayout("Fill")
 
     local tabs = AceGUI:Create("TabGroup")
-    tabs:SetTabs({ {text = "Mounts", value = 1}, {text = "Titles", value = 62}})
+    tabs:SetTabs({ {text = self.L["Mounts"], value = 1}, {text = self.L["Titles"], value = 62}})
     tabs:SetCallback("OnGroupSelected", function (container, event, group) CollectMe:SelectGroup(container, group) end)
     f:AddChild(tabs)
 
@@ -50,7 +51,7 @@ function CollectMe:BuildTab(container, group)
     scrollcontainer:AddChild(scroll)
 
     local active = AceGUI:Create("Heading")
-    active:SetText("Active")
+    active:SetText(self.L["Active"])
     active:SetFullWidth(true)
     scroll:AddChild(active)
 
@@ -59,7 +60,7 @@ function CollectMe:BuildTab(container, group)
     filtercontainer:AddChild(filter)
 
     local desc = AceGUI:Create("Heading")
-    desc:SetText("Filters")
+    desc:SetText(self.L["Filters"])
     desc:SetFullWidth(true)
     filter:AddChild(desc)
 end
