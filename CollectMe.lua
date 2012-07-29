@@ -48,6 +48,7 @@ function CollectMe:BuildTab(container, group)
 
     local scroll = AceGUI:Create("ScrollFrame")
     scroll:SetFullHeight(true)
+    scroll:SetLayout("Flow")
     scrollcontainer:AddChild(scroll)
 
     local active = AceGUI:Create("Heading")
@@ -57,13 +58,41 @@ function CollectMe:BuildTab(container, group)
 
     local filter = AceGUI:Create("ScrollFrame")
     filter:SetFullHeight(true)
+    filter:SetLayout("Flow")
     filtercontainer:AddChild(filter)
 
     local desc = AceGUI:Create("Heading")
     desc:SetText(self.L["Filters"])
     desc:SetFullWidth(true)
     filter:AddChild(desc)
+
+    if(group == 1) then
+        self:BuildMounts(scroll, filter)
+    elseif(group == 2) then
+        --        self:BuildTitles()
+    end
 end
+
+function CollectMe:BuildMounts(listcontainer, filtercontainer)
+    local mount_count = GetNumCompanions("Mount")
+    for i = 1, mount_count, 1 do
+        local creature_id, creature_name, creature_spell_id, icon = GetCompanionInfo("Mount", i)
+
+        local f = AceGUI:Create("CollectMeLabel")
+         f:SetHighlight("Interface\\QuestFrame\\UI-QuestTitleHighlight")
+        f:SetFontObject(SystemFont_Shadow_Med1)
+        f:SetText(creature_name)
+        f:SetFullWidth(true)
+        f:SetImage(icon)
+        f:SetImageSize(36, 36)
+        f:SetPoint("Top", 10, 10)
+
+        listcontainer:AddChild(f)
+
+    end
+end
+
+
 
 function CollectMe:SlashProcessor(input)
     self.tabs:SelectTab(1)
