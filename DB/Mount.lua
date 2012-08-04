@@ -43,6 +43,19 @@ function CollectMe:BuildMountDB()
     self:AddMount(39315, 21073) -- Cobalt Riding Talbuk
     self:AddMount(34896, 19375) -- Cobalt War Talbuk
     self:AddMount(97560, 38046, FLY) -- Corrupted Fire Hawk
+    self:AddMount(102514, 38972, FLY)  -- Corrupted Hippogryph
+    self:AddMount(73313, 25279)  -- Crimson Deathcharger
+    self:AddMount(88990, 37145, FLY)  -- Dark Phoenix
+    self:AddMount(39316, 21074)  -- Dark Riding Talbuk
+    self:AddMount(34790, 19303)  -- Dark War Talbuk
+    self:AddMount(103081, 39060)  -- Darkmoon Dancing Bear
+    self:AddMount(64927, 25511, FLY)         -- Deadly Gladiator's Frost Wyrm
+    self:AddMount(88335, 35757, FLY)         -- Drake of the East Wind
+    self:AddMount(88742, 35553, FLY)         -- Drake of the North Wind
+    self:AddMount(88744, 35755, FLY)         -- Drake of the South Wind
+    self:AddMount(88741, 35754, FLY)         -- Drake of the West Wind
+    self:AddMount(110039, 39229, FLY)   -- Experiment 12-B
+    self:AddMount(113120, nil, FLY)   -- Feldrake
 
 
     -- Alliance Mounts
@@ -102,35 +115,6 @@ end
 
 -- general mounts
 CollectMeCommonMountTable = {
-    [74856] = 40165, -- Blazing Hippogryph
-    [72808] = 38778, -- Bloodbathed Frsotbrood Vanquisher
-    [59568] = 31695, -- Blue Drake
-    [59996] = 32151, -- Blue Proto-Drake
-    [25953] = 15666, -- Blue Qiraji Battle Tank
-    [39803] = 22978, -- Blue Riding Nether Ray
-    [43899] = 24368, -- Brewfest Ram
-    [59569] = 31717, -- Bronze Drake
-    [88748] = 47652, -- Brown Riding Camel
-    [58615] = 31124, -- Brutal Nether Drake
-    [75614] = 40625, -- Celestial Steed
-    [43927] = 24488, -- Cenarion War Hippogryph
-    [41515] = 23460, -- Cobalt Netherwing Drake
-    [39315] = 22510, -- Cobalt Riding Talbuk
-    [34896] = 20072, -- Cobalt War Talbuk
-    [97560] = 52807, -- Corrupted Fire Hawk
-    [102514] = 54903, -- Corrupted Hippogryph
-    [73313] = 39046, -- Crimson Deathcharger
-    [88990] = 47841, -- Dark Phoenix
-    [39316] = 22511, -- Dark Riding Talbuk
-    [34790] = 20149, -- Dark War Talbuk
-    [103081] = 55188, -- Darkmoon Dancing Bear
-    [64927] = 34225, -- Deadly Gladiator's Frost Wyrm
-    [88335] = 47353, -- Drake of the East Wind
-    [88742] = 47648, -- Drake of the North Wind
-    [88744] = 47646, -- Drake of the South Wind
-    [88741] = 47647, -- Drake of the West Wind
-    [110039] = 58166, -- Experiment 12-B
-    [113120] = 59072, -- Feldrake
     [36702] = 21354, -- Fiery Warhorse
     [101542] = 54395, -- Flametalon of Alysrazor
     [97359] = 52672, -- Flameward Hippogryph
