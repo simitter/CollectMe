@@ -29,7 +29,7 @@ function CollectMe:BuildMountDB()
     self:AddMount(107842, 39561, FLY) -- Blazing Drake
     self:AddMount(74856, 31803, FLY) -- Blazing Hippogryph
     self:AddMount(72808, 31156, FLY) -- Bloodbathed Frostbrood Vanquisher
-    self:AddMount(59568, 59568, FLY) -- Blue Drake
+    self:AddMount(59568, 25832, FLY) -- Blue Drake
     self:AddMount(59996, 28041, FLY) -- Blue Proto-Drake
     self:AddMount(25953, 15672) -- Blue Qiraji Battle Tank
     self:AddMount(39803, 21156, FLY) -- Blue Riding Nether Ray
@@ -113,17 +113,23 @@ function CollectMe:BuildMountDB()
 end
 
 function CollectMe:AddMount(spell_id, display_id, type, filters, zones)
-    table.insert(self.MOUNTS, {
-        spell_id   = spell_id,
-        display_id = display_id,
-        ground     = true,     -- all mounts can walk on ground
-        fly        = (type == FLY),
-        swim       = (type == SWIM),
-        aquatic    = (type == AQUATIC),
-        primary    = (type == nil and GROUND or type),
-        filters    = filters,
-        zones      = zones
-    })
+    if spell_id ~= nil then
+        local name, _, icon = GetSpellInfo(spell_id)
+
+        table.insert(self.MOUNTS, {
+            name       = name,
+            icon       = icon,
+            spell_id   = spell_id,
+            display_id = display_id,
+            ground     = true,     -- all mounts can walk on ground
+            fly        = (type == FLY),
+            swim       = (type == SWIM),
+            aquatic    = (type == AQUATIC),
+            primary    = (type == nil and GROUND or type),
+            filters    = filters,
+            zones      = zones
+        })
+    end
 end
 
 -- general mounts

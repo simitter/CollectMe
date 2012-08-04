@@ -84,11 +84,9 @@ end
 function CollectMe:BuildMounts(listcontainer, filtercontainer)
     local mount_count = GetNumCompanions("Mount")
     for i,v in ipairs(self.MOUNTS) do
-        local name, _, icon = GetSpellInfo(v.spell_id);
-
         local f = self:CreateItemRow()
-        f:SetText(name)
-        f:SetImage(icon)
+        f:SetText(v.name)
+        f:SetImage(v.icon)
         f:SetImageSize(36, 36)
         f:SetCallback("OnClick", function () CollectMe:ItemRowClick(v.spell_id) end)
 
