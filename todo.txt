@@ -7,14 +7,15 @@
 Excitor:
 
 - Add more complete info on locations for mounts that are not specific enough, 
-  standardise both the mount and companion infos 1-end (mounts)
+  standardise the mount info 1-end (mounts)
 
 - Fix to long title, add tags to recognise titles with same name at glance.
 
 - Ashes of Alar info bug?
 - Missing BoP, BoA... info on mounts.
 - Remove Unique tag it's useless and clutters the visiblity of BoP, BoE... etc.
-- Remove Eng filter for companions. (may not be need with MoP rewrite)
+- Remove Eng filter for companions. (may not be needed with MoP rewrite)
+- Vitreous Stone Drake info change.
 
 
 
