@@ -27,6 +27,23 @@ function CollectMe:BuildMountDB()
     self:AddMount(59976, 28040, FLY) -- Black Proto-Drake
     self:AddMount(26656, 15676) -- Black Qiraji Battle Tank
     self:AddMount(107842, 39561, FLY) -- Blazing Drake
+    self:AddMount(74856, 31803, FLY) -- Blazing Hippogryph
+    self:AddMount(72808, 31156, FLY) -- Bloodbathed Frostbrood Vanquisher
+    self:AddMount(59568, 59568, FLY) -- Blue Drake
+    self:AddMount(59996, 28041, FLY) -- Blue Proto-Drake
+    self:AddMount(25953, 15672) -- Blue Qiraji Battle Tank
+    self:AddMount(39803, 21156, FLY) -- Blue Riding Nether Ray
+    self:AddMount(43899, 22265) -- Brewfest Ram
+    self:AddMount(59569, 25833, FLY) -- Bronze Drake
+    self:AddMount(88748, 35136) -- Brown Riding Camel
+    self:AddMount(58615, 27507, FLY) -- Brutal Nether Drake
+    self:AddMount(75614, 31958, FLY) -- Celestial Steed
+    self:AddMount(43927, 22473, FLY) -- Cenarion War Hippogryph
+    self:AddMount(41515, 21525, FLY) -- Cobalt Netherwing Drake
+    self:AddMount(39315, 21073) -- Cobalt Riding Talbuk
+    self:AddMount(34896, 19375) -- Cobalt War Talbuk
+    self:AddMount(97560, 38046, FLY) -- Corrupted Fire Hawk
+
 
     -- Alliance Mounts
     if self.FACTION == "Alliance" then
@@ -83,11 +100,8 @@ function CollectMe:AddMount(spell_id, display_id, type, filters, zones)
     })
 end
 
-
-
 -- general mounts
 CollectMeCommonMountTable = {
-
     [74856] = 40165, -- Blazing Hippogryph
     [72808] = 38778, -- Bloodbathed Frsotbrood Vanquisher
     [59568] = 31695, -- Blue Drake
