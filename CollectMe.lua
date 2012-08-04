@@ -127,11 +127,18 @@ function CollectMe:GetMountInfo(spell_id)
     return nil
 end
 
+function CollectMe:SortTable(tbl)
+    table.sort(tbl, function(a, b) return (string.lower(a.name) < string.lower(b.name)) end)
+end
+
+
+ -- CONSOLE COMMAND HANDLER
 function CollectMe:SlashProcessor(input)
     self.tabs:SelectTab(1)
     self.frame:Show()
 end
 
+ -- HOOKS
 function CollectMe:DressUpItemLink(link)
     if IsDressableItem(link) then
         SetDressUpBackground(DressUpFrame, self.RACE);

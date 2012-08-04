@@ -129,6 +129,8 @@ function CollectMe:BuildMountDB()
     if self.CLASS == "DEATHKNIGHT" then
 
     end
+
+    self:SortTable(self.MOUNTS)
 end
 
 function CollectMe:AddMount(spell_id, display_id, type, filters, zones)
