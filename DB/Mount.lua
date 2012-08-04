@@ -136,10 +136,12 @@ end
 function CollectMe:AddMount(spell_id, display_id, type, filters, zones)
     if spell_id ~= nil then
         local name, _, icon = GetSpellInfo(spell_id)
+        local link = GetSpellLink(spell_id)
 
         table.insert(self.MOUNTS, {
             name       = name,
             icon       = icon,
+            link       = link,
             spell_id   = spell_id,
             display_id = display_id,
             ground     = true,     -- all mounts can walk on ground

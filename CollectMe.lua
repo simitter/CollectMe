@@ -88,22 +88,31 @@ function CollectMe:BuildMounts(listcontainer, filtercontainer)
         f:SetText(v.name)
         f:SetImage(v.icon)
         f:SetImageSize(36, 36)
-        f:SetCallback("OnClick", function () CollectMe:ItemRowClick(v.display_id) end)
+        f:SetCallback("OnClick", function (container, event, group) CollectMe:ItemRowClick(group, v.spell_id) end)
 
         listcontainer:AddChild(f)
     end
 end
 
-function CollectMe:ItemRowClick(display_id)
-    if display_id ~= nil then
-        DressUpBackgroundTopLeft:SetTexture(nil);
-        DressUpBackgroundTopRight:SetTexture(nil);
-        DressUpBackgroundBotLeft:SetTexture(nil);
-        DressUpBackgroundBotRight:SetTexture(nil);
-        DressUpModel:SetDisplayInfo(display_id);
-        if not DressUpFrame:IsShown() then
-            ShowUIPanel(DressUpFrame);
+function CollectMe:ItemRowClick(group, spell_id)
+    if group == "LeftButton" then
+        local mount = self:GetMountInfo(spell_id)
+        if mount ~= nil then
+            if IsShiftKeyDown() == 1 and mount.link ~= nil then
+                ChatEdit_InsertLink(mount.link)
+            elseif mount.display_id ~= nil then
+                DressUpBackgroundTopLeft:SetTexture(nil);
+                DressUpBackgroundTopRight:SetTexture(nil);
+                DressUpBackgroundBotLeft:SetTexture(nil);
+                DressUpBackgroundBotRight:SetTexture(nil);
+                DressUpModel:SetDisplayInfo(mount.display_id);
+                if not DressUpFrame:IsShown() then
+                    ShowUIPanel(DressUpFrame);
+                end
+            end
         end
+    elseif group == "RightButton" then
+        -- move to inactive
     end
 end
 
