@@ -1,4 +1,4 @@
-CollectMe = LibStub("AceAddon-3.0"):GetAddon("CollectMe");
+CollectMe = LibStub("AceAddon-3.0"):GetAddon("CollectMe")
 
 CollectMe.MOUNTS = {};
 
@@ -9,17 +9,33 @@ local AQUATIC = 4
 
 function CollectMe:BuildMountDB()
     -- Common Mounts
-    self:AddMount(75207, 34956, AQUATIC); -- Abyssal Seahorse
-    self:AddMount(60025, 25836, FLY); -- Albino Drake
+    self:AddMount(75207, 34956, AQUATIC) -- Abyssal Seahorse
+    self:AddMount(60025, 25836, FLY) -- Albino Drake
+    self:AddMount(96503, 37800, FLY) -- Amani Dragonhawk
+    self:AddMount(98204, 38261) -- Amani Battle Bear
+    self:AddMount(43688, 22464) -- Amani War Bear
+    self:AddMount(63844, 22471) -- Argent Hippogryph
+    self:AddMount(67466, 28918) -- Argent Warhorse
+    self:AddMount(96491, 14341) -- Armored Razzashi Raptor
+    self:AddMount(40192, 17890, FLY) -- Ashes of Al'ar
+    self:AddMount(41514, 21521, FLY) -- Azure Netherwing Drake
+    self:AddMount(59567, 27785, FLY) -- Azure Drake
+    self:AddMount(51412, 25335) -- Big Battle Bear
+    self:AddMount(58983, 27567) -- Big Blizzard Bear
+    self:AddMount(71342, 30989, FLY) -- Big Love Rocket
+    self:AddMount(59650, 25831, FLY) -- Black Drake
+    self:AddMount(59976, 28040, FLY) -- Black Proto-Drake
+    self:AddMount(26656, 15676) -- Black Qiraji Battle Tank
+    self:AddMount(107842, 39561, FLY) -- Blazing Drake
 
     -- Alliance Mounts
     if self.FACTION == "Alliance" then
-        self:AddMount(60114, 27820); -- Armored Brown Bear
+        self:AddMount(60114, 27820) -- Armored Brown Bear
     end
 
     -- Horde Mounts
     if self.FACTION == "Horde" then
-        self:AddMount(61230, 27914, FLY); -- Armored Blue Wind Rider
+        self:AddMount(61230, 27914, FLY) -- Armored Blue Wind Rider
     end
 
     -- Paladin Mounts for Humans and Dwarfs
@@ -67,24 +83,11 @@ function CollectMe:AddMount(spell_id, display_id, type, filters, zones)
     })
 end
 
+
+
 -- general mounts
 CollectMeCommonMountTable = {
-    [96503] = 52185, -- Amani Dragonhawk
-    [98204] = 53276, -- Amani Battle Bear
-    [43688] = 24379, -- Amani War Bear
-    [63844] = 33857, -- Argent Hippogryph
-    [67466] = 35445, -- Argent Warhorse
-    [96491] = 52172, -- Armored Razzashi Raptor
-    [40192] = 18545, -- Ashes of Al'ar
-    [41514] = 23456, -- Azure Netherwing Drake
-    [59567] = 27682, -- Azure Drake
-    [51412] = 28363, -- Big Battle Bear
-    [58983] = 31319, -- Big Blizzard Bear
-    [71342] = 38204, -- Big Love Rocket
-    [59650] = 31778, -- Black Drake
-    [59976] = 31912, -- Black Proto-Drake
-    [26656] = 15711, -- Black Qiraji Battle Tank
-    [107842] = 57226, -- Blazing Drake
+
     [74856] = 40165, -- Blazing Hippogryph
     [72808] = 38778, -- Bloodbathed Frsotbrood Vanquisher
     [59568] = 31695, -- Blue Drake
