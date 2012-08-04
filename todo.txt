@@ -11,11 +11,14 @@ Excitor:
 
 - Fix to long title, add tags to recognise titles with same name at glance.
 
+- Tags to mounts that can be obtained through the Excotic Mystery bag.
+
 - Ashes of Alar info bug?
 - Missing BoP, BoA... info on mounts.
 - Remove Unique tag it's useless and clutters the visiblity of BoP, BoE... etc.
 - Remove Eng filter for companions. (may not be needed with MoP rewrite)
 - Vitreous Stone Drake info change.
+
 
 
 
