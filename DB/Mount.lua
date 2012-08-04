@@ -56,6 +56,19 @@ function CollectMe:BuildMountDB()
     self:AddMount(88741, 35754, FLY)         -- Drake of the West Wind
     self:AddMount(110039, 39229, FLY)   -- Experiment 12-B
     self:AddMount(113120, nil, FLY)   -- Feldrake
+    self:AddMount(36702, 19250)   -- Fiery Warhorse
+    self:AddMount(101542, 38783, FLY)   -- Flametalon of Alysrazor
+    self:AddMount(97359, 38018, FLY)   -- Flameward Hippogryph
+    self:AddMount(61451, 28082, FLY)   -- Flying Carpet
+    self:AddMount(44153, 22719, FLY)   -- Flying Machine
+    self:AddMount(84751, 34410)   -- Fossilized Raptor
+    self:AddMount(75596, 28063, FLY)   -- Frosty Flying Carpet
+    self:AddMount(65439, 25593, FLY)   -- Furious Gladiator's Frost Wyrm
+    self:AddMount(49379, 24757)   -- Great Brewfest Kodo
+    self:AddMount(61294, 28053, FLY)   -- Green Proto-Drake
+    self:AddMount(26056, 15679)   -- Green Qiraji Battle Tank
+    self:AddMount(39798, 21152, FLY)   -- Green Riding Nether Ray
+    self:AddMount(88750, 35135)   -- Grey Riding Camel
 
 
     -- Alliance Mounts
@@ -115,19 +128,6 @@ end
 
 -- general mounts
 CollectMeCommonMountTable = {
-    [36702] = 21354, -- Fiery Warhorse
-    [101542] = 54395, -- Flametalon of Alysrazor
-    [97359] = 52672, -- Flameward Hippogryph
-    [61451] = 33029, -- Flying Carpet
-    [44153] = 24653, -- Flying Machine
-    [84751] = 45338, -- Fossilized Raptor
-    [75596] = 40533, -- Frosty Flying Carpet
-    [65439] = 34425, -- Furious Gladiator's Frost Wyrm
-    [49379] = 27707, -- Great Brewfest Kodo
-    [61294] = 32562, -- Green Proto-Drake
-    [26056] = 15715, -- Green Qiraji Battle Tank
-    [39798] = 22958, -- Green Riding Nether Ray
-    [88750] = 47654, -- Grey Riding Camel
     [110051] = 58169, -- Heart of the Aspects
     [48025] = 24814, -- Headless Horseman's Mount
     [72807] = 38695, -- Icebound Frostbrood Vanquisher
