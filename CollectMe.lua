@@ -87,8 +87,23 @@ function CollectMe:BuildMounts(listcontainer, filtercontainer)
         f:SetText(name)
         f:SetImage(icon)
         f:SetImageSize(36, 36)
+        f:SetCallback("OnClick", function () CollectMe:ItemRowClick(v.spell_id) end)
 
         listcontainer:AddChild(f)
+    end
+end
+
+function CollectMe:ItemRowClick(spell_id)
+    local mount = self:GetMountInfo(spell_id)
+    if mount ~= nil then
+        DressUpBackgroundTopLeft:SetTexture(nil);
+        DressUpBackgroundTopRight:SetTexture(nil);
+        DressUpBackgroundBotLeft:SetTexture(nil);
+        DressUpBackgroundBotRight:SetTexture(nil);
+        DressUpModel:SetDisplayInfo(mount.display_id);
+        if not DressUpFrame:IsShown() then
+            ShowUIPanel(DressUpFrame);
+        end
     end
 end
 
@@ -100,6 +115,15 @@ function CollectMe:CreateItemRow()
     f:SetFullWidth(true)
 
     return f
+end
+
+function CollectMe:GetMountInfo(spell_id)
+    for i,v in ipairs(self.MOUNTS) do
+        if v.spell_id == spell_id then
+            return v
+        end
+    end
+    return nil
 end
 
 function CollectMe:SlashProcessor(input)
