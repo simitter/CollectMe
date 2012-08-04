@@ -69,6 +69,25 @@ function CollectMe:BuildMountDB()
     self:AddMount(26056, 15679)   -- Green Qiraji Battle Tank
     self:AddMount(39798, 21152, FLY)   -- Green Riding Nether Ray
     self:AddMount(88750, 35135)   -- Grey Riding Camel
+    self:AddMount(110051, 40029, FLY)  -- Heart of the Aspects
+    self:AddMount(48025, 25159, FLY)  -- Headless Horseman's Mount
+    self:AddMount(72807, 31154, FLY)  -- Icebound Frostbrood Vanquisher
+    self:AddMount(72286, 31007, FLY)  -- Invincible
+    self:AddMount(63956, 28953, FLY)  -- Ironbound Proto-Drake
+    self:AddMount(107845, 39563, FLY)  -- Life-Binder's Handmaiden
+    self:AddMount(65917, 29344)  -- Magic Rooster
+    self:AddMount(61309, 28060, FLY)  -- Magnificent Flying Carpet
+    self:AddMount(44744, 22620, FLY)  -- Merciless Nether Drake
+    self:AddMount(63796, 28890, FLY)  -- Mimiron's Head
+    self:AddMount(93623, 37231, FLY)  -- Mottled Drake
+    self:AddMount(121820, nil, FLY)  -- Obsidian Nightwing
+    self:AddMount(69395, 30346, FLY)  -- Onyxian Drake
+    self:AddMount(41513, 21520, FLY)  -- Onyx Netherwing Drake
+    self:AddMount(88718, 35740, FLY)  -- Phosphorescent Stone Drake
+    self:AddMount(60021, 28042, FLY)  -- Plagued Proto-Drake
+    self:AddMount(97493, 38031, FLY)  -- Pureblood Fire Hawk
+    self:AddMount(41516, 21523, FLY)  -- Purple Netherwing Drake
+    self:AddMount(39801, 21155, FLY)  -- Purple Riding Nether Ray
 
 
     -- Alliance Mounts
@@ -134,25 +153,6 @@ end
 
 -- general mounts
 CollectMeCommonMountTable = {
-    [110051] = 58169, -- Heart of the Aspects
-    [48025] = 24814, -- Headless Horseman's Mount
-    [72807] = 38695, -- Icebound Frostbrood Vanquisher
-    [72286] = 38260, -- Invincible
-    [63956] = 33892, -- Ironbound Proto-Drake
-    [107845] = 57228, -- Life-Binder's Handmaiden
-    [65917] = 34655, -- Magic Rooster
-    [61309] = 33030, -- Magnificent Flying Carpet
-    [44744] = 24743, -- Merciless Nether Drake
-    [63796] = 33848, -- Mimiron's Head
-    [93623] = 50467, -- Mottled Drake 
-    [121820] = 62454, -- Obsidian Nightwing
-    [69395] = 36837, -- Onyxian Drake
-    [41513] = 23455, -- Onyx Netherwing Drake
-    [88718] = 47631, -- Phosphorescent Stone Drake
-    [60021] = 32156, -- Plagued Proto-Drake
-    [97493] = 52748, -- Pureblood Fire Hawk
-    [41516] = 23458, -- Purple Netherwing Drake
-    [39801] = 22975, -- Purple Riding Nether Ray
     [41252] = 23408, -- Raven Lord
     [59570] = 31697, -- Red Drake
     [59961] = 31902, -- Red Proto-Drake
