@@ -98,7 +98,7 @@ end
 
 function CollectMe:ItemRowClick(spell_id)
     local mount = self:GetMountInfo(spell_id)
-    if mount ~= nil then
+    if mount ~= nil and mount.display_id ~= nil then
         DressUpBackgroundTopLeft:SetTexture(nil);
         DressUpBackgroundTopRight:SetTexture(nil);
         DressUpBackgroundBotLeft:SetTexture(nil);
