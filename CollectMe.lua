@@ -1,4 +1,4 @@
-CollectMe = LibStub("AceAddon-3.0"):NewAddon("CollectMe", "AceConsole-3.0");
+CollectMe = LibStub("AceAddon-3.0"):NewAddon("CollectMe", "AceConsole-3.0", "AceHook-3.0");
 local AceGUI = LibStub("AceGUI-3.0");
 
 function CollectMe:OnInitialize()
@@ -14,6 +14,9 @@ function CollectMe:OnInitialize()
 
     self:RegisterChatCommand("collectme", "SlashProcessor")
     self:RegisterChatCommand("cm", "SlashProcessor")
+
+    self:SecureHook("DressUpItemLink")
+    self:HookScript(DressUpFrameResetButton, "OnClick", "DressUpFrameResetButton")
 end
 
 function CollectMe:SelectGroup(container, group)
@@ -130,3 +133,17 @@ function CollectMe:SlashProcessor(input)
     self.tabs:SelectTab(1)
     self.frame:Show()
 end
+
+function CollectMe:DressUpItemLink(link)
+    if IsDressableItem(link) then
+        SetDressUpBackground(DressUpFrame, self.RACE);
+        DressUpModel:SetUnit("player")
+        DressUpModel:TryOn(link)
+    end
+end
+
+function CollectMe:DressUpFrameResetButton()
+     SetDressUpBackground(DressUpFrame, self.RACE);
+     DressUpModel:SetUnit("player");
+end
+
