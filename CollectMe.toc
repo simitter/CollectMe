@@ -22,7 +22,8 @@
 embeds.xml
 locales.xml
 
-DB\Mount.lua
 CollectMeLabel.lua
 CollectMeFrame.lua
 CollectMe.lua
+DB\Mount.lua
+

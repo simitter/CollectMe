@@ -5,6 +5,11 @@ function CollectMe:OnInitialize()
     self.COLLECTME_VERSION = GetAddOnMetadata("CollectMe", "Version")
     self.L = LibStub("AceLocale-3.0"):GetLocale("CollectMe", true)
 
+    self.FACTION = UnitFactionGroup("player");
+    LocalizedPlayerRace, self.RACE = UnitRace("player");
+    LocalizedPlayerClass, self.CLASS = UnitClass("player");
+
+    self:BuildMountDB()
     self:BuildUI()
 
     self:RegisterChatCommand("collectme", "SlashProcessor")
@@ -75,24 +80,27 @@ end
 
 function CollectMe:BuildMounts(listcontainer, filtercontainer)
     local mount_count = GetNumCompanions("Mount")
-    for i = 1, mount_count, 1 do
-        local creature_id, creature_name, creature_spell_id, icon = GetCompanionInfo("Mount", i)
+    for i,v in ipairs(self.MOUNTS) do
+        local name, _, icon = GetSpellInfo(v.spell_id);
 
-        local f = AceGUI:Create("CollectMeLabel")
-        f:SetHighlight("Interface\\QuestFrame\\UI-QuestTitleHighlight")
-        f:SetFontObject(SystemFont_Shadow_Med1)
-        f:SetText(creature_name)
-        f:SetFullWidth(true)
+        local f = self:CreateItemRow()
+        f:SetText(name)
         f:SetImage(icon)
         f:SetImageSize(36, 36)
-        f:SetPoint("Top", 10, 10)
 
         listcontainer:AddChild(f)
-
     end
 end
 
+function CollectMe:CreateItemRow()
+    local f = AceGUI:Create("CollectMeLabel")
+    f:SetHighlight("Interface\\QuestFrame\\UI-QuestTitleHighlight")
+    f:SetFontObject(SystemFont_Shadow_Med1)
+    f:SetPoint("Top", 10, 10)
+    f:SetFullWidth(true)
 
+    return f
+end
 
 function CollectMe:SlashProcessor(input)
     self.tabs:SelectTab(1)

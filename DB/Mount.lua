@@ -1,7 +1,74 @@
+CollectMe = LibStub("AceAddon-3.0"):GetAddon("CollectMe");
+
+CollectMe.MOUNTS = {};
+
+local GROUND = 1
+local FLY = 2
+local SWIM = 3
+local AQUATIC = 4
+
+function CollectMe:BuildMountDB()
+    -- Common Mounts
+    self:AddMount(75207, 34956, AQUATIC); -- Abyssal Seahorse
+    self:AddMount(60025, 25836, FLY); -- Albino Drake
+
+    -- Alliance Mounts
+    if self.FACTION == "Alliance" then
+        self:AddMount(60114, 27820); -- Armored Brown Bear
+    end
+
+    -- Horde Mounts
+    if self.FACTION == "Horde" then
+        self:AddMount(61230, 27914, FLY); -- Armored Blue Wind Rider
+    end
+
+    -- Paladin Mounts for Humans and Dwarfs
+    if self.CLASS == "PALADIN" and (self.RACE == "Human" or self.RACE == "Dwarf") then
+
+    end
+
+    -- Paladin Mounts for Draenei
+    if self.CLASS == "PALADIN" and self.RACE == "Draenei" then
+
+    end
+
+    -- Paladin Mounts for Blood Elves
+    if self.CLASS == "PALADIN" and self.RACE == "BloodElf" then
+
+    end
+
+    -- Paladin Mounts for Tauren
+    if self.CLASS == "PALADIN" and self.RACE == "Tauren" then
+
+    end
+
+    -- Warlock Mounts
+    if self.CLASS == "WARLOCK" then
+
+    end
+
+    -- Death Knight Mounts
+    if self.CLASS == "DEATHKNIGHT" then
+
+    end
+end
+
+function CollectMe:AddMount(spell_id, display_id, type, filters, zones)
+    table.insert(self.MOUNTS, {
+        spell_id   = spell_id,
+        display_id = display_id,
+        ground     = true,     -- all mounts can walk on ground
+        fly        = (type == FLY),
+        swim       = (type == SWIM),
+        aquatic    = (type == AQUATIC),
+        primary    = (type == nil and GROUND or type),
+        filters    = filters,
+        zones      = zones
+    })
+end
+
 -- general mounts
 CollectMeCommonMountTable = {
-    [75207] = 40054, -- Abyssal Seahorse
-    [60025] = 32158, -- Albino Drake
     [96503] = 52185, -- Amani Dragonhawk
     [98204] = 53276, -- Amani Battle Bear
     [43688] = 24379, -- Amani War Bear
@@ -138,7 +205,6 @@ CollectMeCommonMountTable = {
 
 -- alliance mounts
 CollectMeAllianceMountTable = {
-    [60114] = 32206, -- Armored Brown Bear
     [61229] = 32335, -- Armored Snowy Gryphon
     [22719] = 14334, -- Black Battlestrider
     [470] = 308, -- Black Stallion Bridle
@@ -220,7 +286,6 @@ CollectMeAllianceMountTable = {
 
 -- horde mounts
 CollectMeHordeMountTable = {
-    [61230] = 32336, -- Armored Blue Wind Rider
     [60116] = 32207, -- Armored Brown Bear
     [35022] = 20222, -- Black Hawkstrider
     [64977] = 34238, -- Black Skeletal Horse
