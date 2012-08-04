@@ -23,7 +23,7 @@ function CollectMe:BuildUI()
     f:SetLayout("Fill")
 
     local tabs = AceGUI:Create("TabGroup")
-    tabs:SetTabs({ {text = self.L["Mounts"], value = 1}, {text = self.L["Titles"], value = 62}})
+    tabs:SetTabs({ {text = self.L["Mounts"], value = 1}, {text = self.L["Titles"], value = 2}, {text = self.L["Random Mount"], value = 3}, {text = self.L["Random Companion"], value = 4}})
     tabs:SetCallback("OnGroupSelected", function (container, event, group) CollectMe:SelectGroup(container, group) end)
     f:AddChild(tabs)
 
@@ -79,7 +79,7 @@ function CollectMe:BuildMounts(listcontainer, filtercontainer)
         local creature_id, creature_name, creature_spell_id, icon = GetCompanionInfo("Mount", i)
 
         local f = AceGUI:Create("CollectMeLabel")
-         f:SetHighlight("Interface\\QuestFrame\\UI-QuestTitleHighlight")
+        f:SetHighlight("Interface\\QuestFrame\\UI-QuestTitleHighlight")
         f:SetFontObject(SystemFont_Shadow_Med1)
         f:SetText(creature_name)
         f:SetFullWidth(true)
