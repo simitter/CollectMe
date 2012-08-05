@@ -9,8 +9,8 @@ L["Filters"] = true
 L["Random Mount"] = true
 L["Random Companion"] = true
 
-
 -- Mounts
+-- Common Mounts
 L["mount_60025"] = "Reward from the achievement Leading the Cavalry (collect 50 Mounts)" -- Albino Drake
 L["mount_40192"] = "Dropped by Kael'Thas Sunstrider in Tempest Keep" -- Ashes of Al'ar
 L["mount_41514"] = "Sold by Drake Dealer Hurlunk in Shadowmoon Valley for 200G. You need to be exalted with Netherwing" -- Azure Netherwing Drake
@@ -151,6 +151,8 @@ L["mount_61309"] = "Recipe is taught by Grand Master Tailoring Trainers" -- Magn
 L["mount_93623"] = "Loot card from the WoW Trading Card Game: Worldbreaker." -- Mottled Drake
 L["mount_113120"] = "Loot card from the WoW Trading Card Game: War of the Ancients." -- Feldrake
 L["mount_121820"] = "Obtained by using the Recruit a Friend Service." -- Obsidian Nightwing
+
+-- Alliance Mounts
 L["mount_60114"] = "Sold by Mei Francis in Dalaran for 750G" -- Armored Brown Bear
 L["mount_61229"] = "Sold by Mei Francis in Dalaran for 2000G" -- Armored Snowy Gryphon
 L["mount_22719"] = "Sold by Lieutenant Karter in Stormwind for 2000 honor" -- Black Battlestrider
@@ -228,6 +230,8 @@ L["mount_100332"] = "Reward from achivement 'Veteran of the Alliance' or higher.
 L["mount_103196"] = "Purchased from Astrid Langstrump located near the entrance to the howling oak in Darnassus for the price of 10g. [BoP]" -- Swift Mountain Horse
 L["mount_103195"] = "Purchased from Astrid Langstrump located near the entrance to the howling oak in Darnassus for the price of 1g. [BoP]" -- Mountain Horse
 L["mount_107516"] = "Obtained through the new Scroll of Resurrection system implemented in 4.3.3." -- Spectral Gryphon
+
+-- Horde Mounts
 L["mount_61230"] = "Sold by Mei Francis in Dalaran for 2000G" -- Armored Blue Wind Rider
 L["mount_60116"] = "Sold by Mei Francis in Dalaran for 750G" -- Armored Brown Bear
 L["mount_35022"] = "Sold by Winaestra in Eversong Woods for 10G. You must be a Blood Elf or exalted with Silvermoon" -- Black Hawkstrider
@@ -304,6 +308,8 @@ L["mount_56921"] = "Sold by Pogg, Hellscream's Reach Quartermaster. Requires Lev
 L["mount_93644"] = "Available for Horde after Guild reaches level 25 and you reach Exalted reputation with your guild, 1500g. [BoA]" -- Kor'kron Annihilator
 L["mount_100333"] = "Reward from the achivement 'Veteran of the Horde' and other higher achivements." -- Vicious War Wolf
 L["mount_107517"] = "Obtained through the new Scroll of Resurrection system implemented in 4.3.3." -- Spectral Wind Rider
+
+-- Paladin Mounts
 L["mount_23214"] = "Taught by the Paladin Trainer at Level 61 or obtained by completing the Level 60 Paladin Quest Line" -- Alliance Charger
 L["mount_13819"] = "Taught by the Paladin Trainer at Level 40" -- Alliance Warhorse
 L["mount_66906"] = "Sold by Dame Evniki Kapsalis, Crusader's Quartermaster at the Argent Tournament for 100 Champion's Seals. Requires level 40 and Riding 150 and must be a Paladin. Must have the Argent Champion title." -- Argent Charger
@@ -313,7 +319,11 @@ L["mount_73629"] = "Taught by the Paladin Trainer at Level 20, Draenei Only" -- 
 L["mount_73630"] = "Taught by the Paladin Trainer at Level 40, Draenei Only" -- Great Exarch's Elekk
 L["mount_69820"] = "Taught by the Paladin Trainer at Level 20, Tauren Only" -- Sunwalker Kodo
 L["mount_69826"] = "Taught by the Paladin Trainer at Level 40, Tauren Only" -- Great Sunwalker Kodo
+
+-- Warlock Mounts
 L["mount_23161"] = "Taught by the Warlock Trainer at Level 61 or obtained by completing the Level 60 Warlock Quest Line" -- Dreadsteed
 L["mount_5784"] = "Taught by the Warlock Trainer at Level 40" -- Felsteed
+
+-- Death Knight Mounts
 L["mount_54729"] = "Sold by Dread Commander Thalanor in Acherus for 1000G" -- Winged Steed of the Ebon Blade
 L["mount_48778"] = "Reward from the Quest Into the Realm of Shadows in the Death Knight Starting Zone" -- Acherus Deathcharger
