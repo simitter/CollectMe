@@ -29,6 +29,7 @@ function CollectMe:BuildUI()
     f:SetTitle("Collect Me " .. self.COLLECTME_VERSION)
     f:SetWidth(570)
     f:SetLayout("Fill")
+    tinsert(UISpecialFrames, f.frame:GetName())
 
     local tabs = AceGUI:Create("TabGroup")
     tabs:SetTabs({ {text = self.L["Mounts"], value = 1}, {text = self.L["Titles"], value = 2}, {text = self.L["Random Mount"], value = 3}, {text = self.L["Random Companion"], value = 4}})
