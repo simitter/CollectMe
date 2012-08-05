@@ -1,13 +1,37 @@
 CollectMe = LibStub("AceAddon-3.0"):NewAddon("CollectMe", "AceConsole-3.0", "AceHook-3.0");
 local AceGUI = LibStub("AceGUI-3.0");
+local addon_name = "CollectMe"
+
+
+local defaults = {
+    profile = {
+        ignored = {
+            mounts = {},
+            titles = {}
+        }
+    }
+}
+
+local options = {
+    name = addon_name,
+    type = "group",
+    childGroups = "tab",
+    args = { }
+}
 
 function CollectMe:OnInitialize()
     self.COLLECTME_VERSION = GetAddOnMetadata("CollectMe", "Version")
     self.L = LibStub("AceLocale-3.0"):GetLocale("CollectMe", true)
 
-    self.FACTION = UnitFactionGroup("player");
-    LocalizedPlayerRace, self.RACE = UnitRace("player");
-    LocalizedPlayerClass, self.CLASS = UnitClass("player");
+    self.FACTION = UnitFactionGroup("player")
+    LocalizedPlayerRace, self.RACE = UnitRace("player")
+    LocalizedPlayerClass, self.CLASS = UnitClass("player")
+
+    LibStub("AceConfig-3.0"):RegisterOptionsTable(addon_name, options)
+    LibStub("AceConfigDialog-3.0"):AddToBlizOptions(addon_name)
+
+    self.db = LibStub("AceDB-3.0"):New("CollectMeDB", defaults)
+    options.args.profile = LibStub("AceDBOptions-3.0"):GetOptionsTable(self.db)
 
     self:BuildMountDB()
     self:BuildUI()

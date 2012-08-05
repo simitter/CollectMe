@@ -17,6 +17,8 @@
 ## DefaultState: Enabled
 ## LoadOnDemand: 0
 
+## SavedVariables: CollectMeDB
+
 ## OptionalDeps: Ace3
 
 embeds.xml
