@@ -1,8 +1,4 @@
 CollectMeMountInfo = {
-
-    [40192] = "Dropped by Kael'Thas Sunstrider in Tempest Keep", -- Ashes of Al'ar
-    [41514] = "Sold by Drake Dealer Hurlunk in Shadowmoon Valley for 200G. You need to be exalted with Netherwing", -- Azure Netherwing Drake
-    [59567] = "Reward from 25-man Eye of Eternity (Malygos). Unique [BoP]", -- Azure Drake
     [59650] = "Dropped by Sartharion (10) if you kill him in Hard Mode with three drakes alive", -- Black Drake
     [59976] = "Reward from Achievment Heroic: Glory of the Raider before Patch 3.1", -- Black Proto-Drake
     [59996] = "Dropped by Skadi the Ruthless in Utgarde Pinnacle Heroic", -- Blue Proto-Drake
