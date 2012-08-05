@@ -1,6 +1,8 @@
 CollectMe = LibStub("AceAddon-3.0"):NewAddon("CollectMe", "AceConsole-3.0", "AceHook-3.0");
 local AceGUI = LibStub("AceGUI-3.0");
 local addon_name = "CollectMe"
+local MOUNT = 1
+local TITLE = 2
 
 
 local defaults = {
@@ -31,7 +33,7 @@ function CollectMe:OnInitialize()
     LibStub("AceConfigDialog-3.0"):AddToBlizOptions(addon_name)
 
     self.db = LibStub("AceDB-3.0"):New("CollectMeDB", defaults)
-    options.args.profile = LibStub("AceDBOptions-3.0"):GetOptionsTable(self.db)
+    options.args.profiles = LibStub("AceDBOptions-3.0"):GetOptionsTable(self.db)
 
     self:BuildMountDB()
     self:BuildUI()
@@ -99,9 +101,9 @@ function CollectMe:BuildTab(container, group)
     desc:SetFullWidth(true)
     filter:AddChild(desc)
 
-    if(group == 1) then
+    if(group == MOUNT) then
         self:BuildMounts(scroll, filter)
-    elseif(group == 2) then
+    elseif(group == TITLE) then
         --        self:BuildTitles()
     end
 end
@@ -136,8 +138,8 @@ function CollectMe:ItemRowClick(group, spell_id)
                 end
             end
         end
-    elseif group == "RightButton" then
-        -- move to inactive
+    elseif group == "RightButton" and IsControlKeyDown() then
+        table.insert(self.db.profile.ignored.mounts, spell_id)
     end
 end
 
