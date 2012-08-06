@@ -88,6 +88,27 @@ function CollectMe:BuildMountDB()
     self:AddMount(97493, 38031, FLY)  -- Pureblood Fire Hawk
     self:AddMount(41516, 21523, FLY)  -- Purple Netherwing Drake
     self:AddMount(39801, 21155, FLY)  -- Purple Riding Nether Ray
+    self:AddMount(23408, 21473)  -- Raven Lord
+    self:AddMount(31697, 25835, FLY)  -- Red Drake
+    self:AddMount(31902, 28044, FLY)  -- Red Proto-Drake
+    self:AddMount(15716, 15681)  -- Red Qiraji Battle Tank
+    self:AddMount(22976, 21158, FLY)  -- Red Riding Nether Ray
+    self:AddMount(35362, 29794, FLY)  -- Relentless Gladiator's Frost Wyrm
+    self:AddMount(17266, 17158)  -- Riding Turtle
+    self:AddMount(30542, 10718)  -- Rivendare's Deathcharger
+    self:AddMount(33904, 28954, FLY)  -- Rusted Proto-Drake
+    self:AddMount(54498, 38755, FLY)  -- Ruthless Gladiator's Twilight Drake
+    self:AddMount(50269, 35750, FLY)  -- Sandstone Drake
+    self:AddMount(52813, 38048)  -- Savage Raptor
+    self:AddMount(34187, 29161)  -- Sea Turtle
+    self:AddMount(22977, 21157, FLY)  -- Silver Riding Nether Ray
+    self:AddMount(22512, 21075)  -- Silver Riding Talbuk
+    self:AddMount(20152, 19378)  -- Silver War Talbuk
+    self:AddMount(24003, 21973)  -- Spectral Tiger
+    self:AddMount(53270, 34955, AQUATIC)  -- Subdued Seahorse
+    self:AddMount(24368, 22350)  -- Swift Brewfest Ram
+    self:AddMount(54740, 1281)  -- Swift Forest Strider
+    self:AddMount(54742, 1961)  -- Swift Lovebird
 
 
     -- Alliance Mounts
@@ -178,6 +199,8 @@ CollectMeCommonMountTable = {
     [43900] = 24368, -- Swift Brewfest Ram
     [102346] = 54740, -- Swift Forest Strider
     [102350] = 54742, -- Swift Lovebird
+
+-- Mounts above this point have been converted to the new format
     [101573] = 54423, -- Swift Shorestrider
     [37015] = 21510, -- Swift Nether Drake
     [24242] = 15090, -- Swift Razzashi Raptor
