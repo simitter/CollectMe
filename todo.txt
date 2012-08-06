@@ -16,8 +16,7 @@ Excitor:
 - Ashes of Alar info bug?
 - Missing BoP, BoA... info on mounts.
 - Remove Unique tag it's useless and clutters the visiblity of BoP, BoE... etc.
-- Remove Eng filter for companions. (may not be needed with MoP rewrite)
-- Vitreous Stone Drake info change.
+
 
 
 
