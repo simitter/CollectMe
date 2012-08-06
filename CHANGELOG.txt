@@ -1,4 +1,9 @@
 ----
+**future.release**
+*Updated info for Recruit a Friend mounts
+*Added Obsidian Nightwing
+
+----
 **1.3.5**
 *Added Amani Dragonhawk (Mount)
 *Updated Feldrak to TCG filter (Mount)
