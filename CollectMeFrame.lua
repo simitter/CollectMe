@@ -179,7 +179,7 @@ local function Constructor()
     statusbar.value = statusbar:CreateFontString(nil, "OVERLAY")
     statusbar.value:SetPoint("CENTER", statusbar, "CENTER", 4, 0)
     statusbar.value:SetFont("Fonts\\FRIZQT__.TTF", 14, "OUTLINE")
-    statusbar.value:SetTextColor(0, 1, 0)
+    statusbar.value:SetTextColor(1, 1, 0)
     statusbar:Hide()
 
     local titlebg = frame:CreateTexture(nil, "OVERLAY")

@@ -3,6 +3,8 @@ local AceGUI = LibStub("AceGUI-3.0");
 local addon_name = "CollectMe"
 local MOUNT = 1
 local TITLE = 2
+local RANDOM_COMPANION = 3
+local RANDOM_MOUNT = 4
 
 
 local defaults = {
@@ -58,7 +60,7 @@ function CollectMe:BuildUI()
     tinsert(UISpecialFrames, f.frame:GetName())
 
     local tabs = AceGUI:Create("TabGroup")
-    tabs:SetTabs({ {text = self.L["Mounts"], value = 1}, {text = self.L["Titles"], value = 2}, {text = self.L["Random Mount"], value = 3}, {text = self.L["Random Companion"], value = 4}})
+    tabs:SetTabs({ {text = self.L["Mounts"], value = MOUNT}, {text = self.L["Titles"], value = TITLE}, {text = self.L["Random Companion"], value = RANDOM_MOUNT}, {text = self.L["Random Mount"], value = RANDOM_COMPANION}})
     tabs:SetCallback("OnGroupSelected", function (container, event, group) CollectMe:SelectGroup(container, group) end)
     f:AddChild(tabs)
 
@@ -67,6 +69,7 @@ function CollectMe:BuildUI()
 end
 
 function CollectMe:BuildTab(container, group)
+    self.frame.statusbar:Hide()
     container:SetLayout("Flow")
 
     local scrollcontainer = AceGUI:Create("SimpleGroup")
@@ -86,7 +89,6 @@ function CollectMe:BuildTab(container, group)
     scroll:SetLayout("Flow")
     scrollcontainer:AddChild(scroll)
     self.scroll = scroll
-
 
     local filter = AceGUI:Create("ScrollFrame")
     filter:SetFullHeight(true)
@@ -109,6 +111,8 @@ function CollectMe:BuildMounts(listcontainer, filtercontainer)
     self:RefreshKnownMounts()
 
     local active_mounts, ignored_mounts = {}, {}
+    local all_count, known_count = #self.MOUNTS, 0
+
     for i,v in ipairs(self.MOUNTS) do
         if not self:IsInTable(self.known_mounts, v.spell_id) then
             local f = self:CreateItemRow()
@@ -122,6 +126,8 @@ function CollectMe:BuildMounts(listcontainer, filtercontainer)
             else
                 table.insert(active_mounts, f)
             end
+        else
+            known_count = known_count +1
         end
     end
 
@@ -141,6 +147,13 @@ function CollectMe:BuildMounts(listcontainer, filtercontainer)
         listcontainer:AddChild(ignored_mounts[f])
     end
 
+    all_count = all_count - #self.db.profile.ignored.mounts
+    local percent = self:round(known_count / all_count * 100, 2)
+
+    self.frame.statusbar:SetMinMaxValues(0, all_count)
+    self.frame.statusbar:SetValue(known_count)
+    self.frame.statusbar.value:SetText(known_count .. " / " .. all_count .. " (".. percent .. "%)")
+    self.frame.statusbar:Show()
 end
 
 function CollectMe:ItemRowClick(group, spell_id)
@@ -216,6 +229,12 @@ function CollectMe:IsInTable(t, spell_id)
     end
 
     return false
+end
+
+-- no round in math library? seriously????
+function CollectMe:round(num, idp)
+    local mult = 10^(idp or 0)
+    return math.floor(num * mult + 0.5) / mult
 end
 
 function CollectMe:SortTable(tbl)
