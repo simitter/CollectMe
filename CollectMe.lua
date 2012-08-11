@@ -85,11 +85,8 @@ function CollectMe:BuildTab(container, group)
     scroll:SetFullHeight(true)
     scroll:SetLayout("Flow")
     scrollcontainer:AddChild(scroll)
+    self.scroll = scroll
 
-    local active = AceGUI:Create("Heading")
-    active:SetText(self.L["Active"])
-    active:SetFullWidth(true)
-    scroll:AddChild(active)
 
     local filter = AceGUI:Create("ScrollFrame")
     filter:SetFullHeight(true)
@@ -109,16 +106,41 @@ function CollectMe:BuildTab(container, group)
 end
 
 function CollectMe:BuildMounts(listcontainer, filtercontainer)
-    local mount_count = GetNumCompanions("Mount")
-    for i,v in ipairs(self.MOUNTS) do
-        local f = self:CreateItemRow()
-        f:SetText(v.name)
-        f:SetImage(v.icon)
-        f:SetImageSize(36, 36)
-        f:SetCallback("OnClick", function (container, event, group) CollectMe:ItemRowClick(group, v.spell_id) end)
+    self:RefreshKnownMounts()
 
-        listcontainer:AddChild(f)
+    local active_mounts, ignored_mounts = {}, {}
+    for i,v in ipairs(self.MOUNTS) do
+        if not self:IsInTable(self.known_mounts, v.spell_id) then
+            local f = self:CreateItemRow()
+            f:SetText(v.name)
+            f:SetImage(v.icon)
+            f:SetImageSize(36, 36)
+            f:SetCallback("OnClick", function (container, event, group) CollectMe:ItemRowClick(group, v.spell_id) end)
+
+            if self:IsInTable(self.db.profile.ignored.mounts, v.spell_id) then
+                table.insert(ignored_mounts, f)
+            else
+                table.insert(active_mounts, f)
+            end
+        end
     end
+
+    local active = AceGUI:Create("Heading")
+    active:SetText(self.L["Active"] .. " - " .. #active_mounts)
+    active:SetFullWidth(true)
+    listcontainer:AddChild(active)
+    for f = 1, #active_mounts, 1 do
+        listcontainer:AddChild(active_mounts[f])
+    end
+
+    local ignored = AceGUI:Create("Heading")
+    ignored:SetText(self.L["Ignored"] .. " - " .. #ignored_mounts)
+    ignored:SetFullWidth(true)
+    listcontainer:AddChild(ignored)
+    for f = 1, #ignored_mounts, 1 do
+        listcontainer:AddChild(ignored_mounts[f])
+    end
+
 end
 
 function CollectMe:ItemRowClick(group, spell_id)
@@ -139,7 +161,20 @@ function CollectMe:ItemRowClick(group, spell_id)
             end
         end
     elseif group == "RightButton" and IsControlKeyDown() then
-        table.insert(self.db.profile.ignored.mounts, spell_id)
+        local offset = self.scroll.localstatus.offset
+        local position = self:IsInTable(self.db.profile.ignored.mounts, spell_id)
+        if position ~= false then
+            table.remove(self.db.profile.ignored.mounts, position)
+        else
+            table.insert(self.db.profile.ignored.mounts, spell_id)
+        end
+
+        self.tabs:SelectTab(MOUNT)
+
+        -- SetScroll doe not calculate position accurately
+        local status_table = self.scroll.localstatus
+        status_table.offset = offset
+        self.scroll:SetStatusTable(status_table)
     end
 end
 
@@ -162,6 +197,27 @@ function CollectMe:GetMountInfo(spell_id)
     return nil
 end
 
+function CollectMe:RefreshKnownMounts()
+    self.known_mount_count = GetNumCompanions("Mount")
+    self.known_mounts = {}
+
+    for i = 1, self.known_mount_count, 1 do
+        local _, _, spell_id = GetCompanionInfo("Mount", i)
+        table.insert(self.known_mounts, spell_id);
+    end
+end
+
+-- checks is element is in table returns position if true, false otherwise
+function CollectMe:IsInTable(t, spell_id)
+    for i = 1, #t do
+        if t[i] == spell_id then
+            return i
+        end
+    end
+
+    return false
+end
+
 function CollectMe:SortTable(tbl)
     table.sort(tbl, function(a, b) return (string.lower(a.name) < string.lower(b.name)) end)
 end
@@ -169,7 +225,7 @@ end
 
  -- CONSOLE COMMAND HANDLER
 function CollectMe:SlashProcessor(input)
-    self.tabs:SelectTab(1)
+    self.tabs:SelectTab(MOUNT)
     self.frame:Show()
 end
 

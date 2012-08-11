@@ -5,6 +5,7 @@ if not L then return end
 L["Mounts"] = true
 L["Titles"] = true
 L["Active"] = true
+L["Ignored"] = true
 L["Filters"] = true
 L["Random Mount"] = true
 L["Random Companion"] = true
