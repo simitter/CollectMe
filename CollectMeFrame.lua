@@ -159,9 +159,24 @@ local function Constructor()
     frame:SetScript("OnHide", Frame_OnClose)
     frame:SetScript("OnMouseDown", Frame_OnMouseDown)
 
-    local closebutton = CreateFrame("Button", nil, frame, "UIPanelCloseButton")
-    closebutton:SetPoint("TOPRIGHT", 8, 8)
+    local closebutton = CreateFrame("Button", nil, frame, "UIPanelButtonTemplate")
     closebutton:SetScript("OnClick", Button_OnClick)
+    closebutton:SetPoint("BOTTOMRIGHT", -20, 17)
+    closebutton:SetHeight(20)
+    closebutton:SetWidth(100)
+    closebutton:SetText(CLOSE)
+
+    local statusbar = CreateFrame("StatusBar", nil, frame)
+    statusbar:SetPoint("BOTTOMLEFT", 22, 17)
+    statusbar:SetHeight(20)
+    statusbar:SetWidth(300)
+    statusbar:SetStatusBarTexture("Interface\\TARGETINGFRAME\\UI-StatusBar")
+    statusbar:SetStatusBarColor(0, 0.65, 0)
+    statusbar.bg = statusbar:CreateTexture(nil, "BACKGROUND")
+    statusbar.bg:SetTexture("Interface\\TARGETINGFRAME\\UI-StatusBar")
+    statusbar.bg:SetAllPoints(true)
+    statusbar.bg:SetVertexColor(0.45, 0.25, 0, 0.5)
+    statusbar:Hide()
 
     local titlebg = frame:CreateTexture(nil, "OVERLAY")
     titlebg:SetTexture("Interface\\DialogFrame\\UI-DialogBox-Header")
@@ -204,7 +219,8 @@ local function Constructor()
         titlebg     = titlebg,
         content     = content,
         frame       = frame,
-        type        = Type
+        type        = Type,
+        statusbar   = statusbar
     }
     for method, func in pairs(methods) do
         widget[method] = func
