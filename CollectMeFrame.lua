@@ -183,8 +183,7 @@ local function Constructor()
     statusbar:Hide()
 
     local tooltip = CreateFrame( "GameTooltip", "CollectMeTooltip", nil, "GameTooltipTemplate" )
-    tooltip:AddFontStrings( tooltip:CreateFontString( "Links", nil, "GameTooltipTextSmall" ), tooltip:CreateFontString( "Rechts", nil, "GameTooltipTextSmall" ) )
-    tooltip:SetScale(0.7)
+    tooltip:SetScale(0.75)
 
     local titlebg = frame:CreateTexture(nil, "OVERLAY")
     titlebg:SetTexture("Interface\\DialogFrame\\UI-DialogBox-Header")
