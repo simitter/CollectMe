@@ -210,44 +210,6 @@ function CollectMe:AddMount(spell_id, display_id, type, filters, zones)
     end
 end
 
--- general mounts
-CollectMeCommonMountTable = {
-    [101573] = 54423, -- Swift Shorestrider
-    [37015] = 21510, -- Swift Nether Drake
-    [24242] = 15090, -- Swift Razzashi Raptor
-    [42777] = 24004, -- Swift Spectral Tiger
-    [102349] = 54741, -- Swift Springstrider
-    [46628] = 26131, -- Swift White Hawkstrider
-    [49322] = 27684, -- Swift Zhevra
-    [96499] = 52178, -- Swift Zulian Panther
-    [24252] = 15104, -- Swift Zulian Tiger
-    [88749] = 47653, -- Tan Riding Camel
-    [39318] = 22513, -- Tan Riding Talbuk
-    [34899] = 20150, -- Tan War Talbuk
-    [60002] = 32153, -- Time-Lost Proto-Drake
-    [44151] = 24654, -- Turbo-Charged Flying Machine
-    [59571] = 31698, -- Twilight Drake
-    [107844] = 57227, -- Twilight Harbinger
-    [107203] = 56921, -- Tyrael's Charger
-    [92155] = 51152, -- Ultramarine Qiraji Battle Tank
-    [49193] = 27637, -- Vengeful Nether Drake
-    [41517] = 23457, -- Veridian Netherwing Drake
-    [41518] = 23459, -- Violet Netherwing Drake
-    [60024] = 32157, -- Violet Proto-Drake
-    [88746] = 47651, -- Vitreous Stone Drake
-    [88331] = 47352, -- Volcanic Stone Drake
-    [54753] = 29596, -- White Polar Bear Mount
-    [39319] = 22514, -- White Riding Camel
-    [102488] = 54879, -- White Riding Talbuk
-    [34897] = 20151, -- White War Talbuk
-    [98727] = 53273, -- Winged Guardian
-    [74918] = 40191, -- Wooly White Rhino
-    [46197] = 26192, -- X-51 Nether-Rocket
-    [46199] = 26164, -- X-51 Nether-Rocket X-TREME
-    [75973] = 40725, -- X-53 Touring Rocket
-    [26055] = 15714, -- Yellow Qiraji Battle Tank
-};
-
 -- alliance mounts
 CollectMeAllianceMountTable = {
     [61229] = 32335, -- Armored Snowy Gryphon
