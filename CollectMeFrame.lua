@@ -182,6 +182,10 @@ local function Constructor()
     statusbar.value:SetTextColor(1, 1, 0)
     statusbar:Hide()
 
+    local tooltip = CreateFrame( "GameTooltip", "CollectMeTooltip", nil, "GameTooltipTemplate" )
+    tooltip:AddFontStrings( tooltip:CreateFontString( "Links", nil, "GameTooltipTextSmall" ), tooltip:CreateFontString( "Rechts", nil, "GameTooltipTextSmall" ) )
+    tooltip:SetScale(0.7)
+
     local titlebg = frame:CreateTexture(nil, "OVERLAY")
     titlebg:SetTexture("Interface\\DialogFrame\\UI-DialogBox-Header")
     titlebg:SetTexCoord(0.31, 0.67, 0, 0.63)
@@ -224,7 +228,8 @@ local function Constructor()
         content     = content,
         frame       = frame,
         type        = Type,
-        statusbar   = statusbar
+        statusbar   = statusbar,
+        tooltip     = tooltip
     }
     for method, func in pairs(methods) do
         widget[method] = func

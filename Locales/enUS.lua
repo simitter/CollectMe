@@ -1,4 +1,4 @@
-local L = LibStub("AceLocale-3.0"):NewLocale("CollectMe", "enUS", true)
+local L = LibStub("AceLocale-3.0"):NewLocale("CollectMe", "enUS", true, true)
 if not L then return end
 
 -- UI

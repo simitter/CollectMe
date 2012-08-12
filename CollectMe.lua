@@ -120,6 +120,8 @@ function CollectMe:BuildMounts(listcontainer, filtercontainer)
             f:SetImage(v.icon)
             f:SetImageSize(36, 36)
             f:SetCallback("OnClick", function (container, event, group) CollectMe:ItemRowClick(group, v.spell_id) end)
+            f:SetCallback("OnEnter", function (container, event, group) CollectMe:ItemRowEnter(v) end)
+            f:SetCallback("OnLeave", function (container, event, group) CollectMe:ItemRowLeave(v) end)
 
             if self:IsInTable(self.db.profile.ignored.mounts, v.spell_id) then
                 table.insert(ignored_mounts, f)
@@ -189,6 +191,19 @@ function CollectMe:ItemRowClick(group, spell_id)
         status_table.offset = offset
         self.scroll:SetStatusTable(status_table)
     end
+end
+
+function CollectMe:ItemRowEnter(v)
+    local tooltip = self.frame.tooltip
+    tooltip:SetOwner(UIParent, "ANCHOR_CURSOR")
+    tooltip:SetHyperlink(v.link)
+    tooltip:AddLine(" ")
+    tooltip:AddLine(self.L["mount_" .. v.spell_id], 0, 1, 0, 1)
+    tooltip:Show()
+end
+
+function CollectMe:ItemRowLeave(v)
+    self.frame.tooltip:Hide()
 end
 
 function CollectMe:CreateItemRow()
