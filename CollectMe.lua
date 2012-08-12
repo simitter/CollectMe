@@ -5,6 +5,7 @@ local MOUNT = 1
 local TITLE = 2
 local RANDOM_COMPANION = 3
 local RANDOM_MOUNT = 4
+local MOUNT_FILTERS = { "nlo", "tcg", "pvp", "bsm", "rfm", "ptm" }
 
 
 local defaults = {
@@ -12,6 +13,16 @@ local defaults = {
         ignored = {
             mounts = {},
             titles = {}
+        },
+        filters = {
+            mounts = {
+                nlo = false,
+                tcg = false,
+                pvp = false,
+                bsm = false,
+                rfm = false,
+                ptm = false
+            }
         }
     }
 }
@@ -105,9 +116,12 @@ function CollectMe:BuildTab(container, group)
     elseif(group == TITLE) then
         --        self:BuildTitles()
     end
+
+    self:BuildFilters(filter)
 end
 
-function CollectMe:BuildMounts(listcontainer, filtercontainer)
+function CollectMe:BuildMounts(listcontainer)
+    listcontainer:ReleaseChildren()
     self:RefreshKnownMounts()
 
     local active_mounts, ignored_mounts = {}, {}
@@ -156,6 +170,21 @@ function CollectMe:BuildMounts(listcontainer, filtercontainer)
     self.frame.statusbar:SetValue(known_count)
     self.frame.statusbar.value:SetText(known_count .. " / " .. all_count .. " (".. percent .. "%)")
     self.frame.statusbar:Show()
+end
+
+function CollectMe:BuildFilters(filtercontainer)
+    for i = 1, #MOUNT_FILTERS, 1 do
+        local f = AceGUI:Create("CheckBox")
+        f:SetLabel(self.L["filters_" .. MOUNT_FILTERS[i]])
+        f:SetPoint("Top", 15, 15)
+        f:SetValue(self.db.profile.filters.mounts[MOUNT_FILTERS[i]])
+        f:SetCallback("OnValueChanged", function (container, event, value) CollectMe:ToggleFilter(MOUNT_FILTERS[i], value) end)
+        filtercontainer:AddChild(f)
+    end
+end
+
+function CollectMe:ToggleFilter(filter, value)
+    self.db.profile.filters.mounts[filter] = value
 end
 
 function CollectMe:ItemRowClick(group, spell_id)

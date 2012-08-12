@@ -9,6 +9,12 @@ L["Ignored"] = true
 L["Filters"] = true
 L["Random Mount"] = true
 L["Random Companion"] = true
+L["filters_nlo"] = "No longer obtainable"
+L["filters_tcg"] = "Trading Card Game"
+L["filters_pvp"] = "PvP"
+L["filters_bsm"] = "Blizzard Store"
+L["filters_rfm"] = "Recruit a friend"
+L["filters_ptm"] = "Promotional"
 
 -- Mounts
 -- Common Mounts
