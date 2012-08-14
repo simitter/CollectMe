@@ -249,6 +249,17 @@ function CollectMe:ItemRowEnter(v)
     tooltip:SetHyperlink(v.link)
     tooltip:AddLine(" ")
     tooltip:AddLine(self.L["mount_" .. v.spell_id], 0, 1, 0, 1)
+    if v.filters ~= nil then
+        tooltip:AddLine(" ")
+        for k,value in pairs(v.filters) do
+            tooltip:AddLine(self.L["filters_" .. k], 0, 0.3, 1, 1)
+        end
+    end
+
+    tooltip:AddLine(" ")
+    tooltip:AddLine(self.L["tooltip_preview"], 0.65, 0.65, 0, 1)
+    tooltip:AddLine(self.L["tooltip_link"], 0.65, 0.65, 0, 1)
+    tooltip:AddLine(self.L["tooltip_toggle"], 0.65, 0.65, 0, 1)
     tooltip:Show()
 end
 
