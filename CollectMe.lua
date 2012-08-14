@@ -112,7 +112,7 @@ function CollectMe:BuildTab(container, group)
     filter:AddChild(desc)
 
     if(group == MOUNT) then
-        self:BuildMounts(scroll, filter)
+        self:BuildMounts(scroll)
     elseif(group == TITLE) then
         --        self:BuildTitles()
     end
@@ -125,7 +125,7 @@ function CollectMe:BuildMounts(listcontainer)
     self:RefreshKnownMounts()
 
     local active_mounts, ignored_mounts = {}, {}
-    local all_count, known_count = #self.MOUNTS, 0
+    local all_count, known_count, filter_count = #self.MOUNTS, 0, 0
 
     for i,v in ipairs(self.MOUNTS) do
         if not self:IsInTable(self.known_mounts, v.spell_id) then
@@ -140,7 +140,11 @@ function CollectMe:BuildMounts(listcontainer)
             if self:IsInTable(self.db.profile.ignored.mounts, v.spell_id) then
                 table.insert(ignored_mounts, f)
             else
-                table.insert(active_mounts, f)
+                if not self:IsFiltered(v.filters) then
+                    table.insert(active_mounts, f)
+                else
+                    filter_count = filter_count + 1
+                end
             end
         else
             known_count = known_count +1
@@ -163,13 +167,29 @@ function CollectMe:BuildMounts(listcontainer)
         listcontainer:AddChild(ignored_mounts[f])
     end
 
-    all_count = all_count - #self.db.profile.ignored.mounts
+    all_count = all_count - #self.db.profile.ignored.mounts - filter_count
     local percent = self:round(known_count / all_count * 100, 2)
 
     self.frame.statusbar:SetMinMaxValues(0, all_count)
     self.frame.statusbar:SetValue(known_count)
     self.frame.statusbar.value:SetText(known_count .. " / " .. all_count .. " (".. percent .. "%)")
     self.frame.statusbar:Show()
+end
+
+function CollectMe:IsFiltered(filters)
+    if filters ~= nil then
+        for k,v in pairs(filters) do
+            if v == 1 then
+                for i = 1, #MOUNT_FILTERS, 1 do
+                    if MOUNT_FILTERS[i] == k and self.db.profile.filters.mounts[MOUNT_FILTERS[i]] == true then
+                        return true
+                    end
+                end
+            end
+        end
+    end
+
+    return false
 end
 
 function CollectMe:BuildFilters(filtercontainer)
@@ -185,6 +205,7 @@ end
 
 function CollectMe:ToggleFilter(filter, value)
     self.db.profile.filters.mounts[filter] = value
+    self:BuildMounts(self.scroll)
 end
 
 function CollectMe:ItemRowClick(group, spell_id)

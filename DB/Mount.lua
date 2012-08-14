@@ -13,7 +13,7 @@ function CollectMe:BuildMountDB()
     self:AddMount(60025, 25836, FLY) -- Albino Drake
     self:AddMount(96503, 37800, FLY) -- Amani Dragonhawk
     self:AddMount(98204, 38261) -- Amani Battle Bear
-    self:AddMount(43688, 22464) -- Amani War Bear
+    self:AddMount(43688, 22464, GROUND, { nlo = 1 }) -- Amani War Bear
     self:AddMount(63844, 22471) -- Argent Hippogryph
     self:AddMount(67466, 28918) -- Argent Warhorse
     self:AddMount(96491, 14341) -- Armored Razzashi Raptor
