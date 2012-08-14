@@ -28,4 +28,4 @@ CollectMeLabel.lua
 CollectMeFrame.lua
 CollectMe.lua
 DB\Mount.lua
-
+DB\Title.lua
