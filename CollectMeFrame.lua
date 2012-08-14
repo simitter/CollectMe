@@ -20,6 +20,15 @@ local CreateFrame, UIParent = CreateFrame, UIParent
 --[[-----------------------------------------------------------------------------
 Scripts
 -------------------------------------------------------------------------------]]
+local function CorrectTooltipFont(...)
+    for i = 1, select("#", ...) do
+        local region = select(i, ...)
+        if region and region:GetObjectType() == "FontString" then
+            region:SetFontObject(SystemFont_Tiny)
+        end
+    end
+end
+
 local function Button_OnClick(frame)
     PlaySound("gsTitleOptionExit")
     frame.obj:Hide()
@@ -183,7 +192,7 @@ local function Constructor()
     statusbar:Hide()
 
     local tooltip = CreateFrame( "GameTooltip", "CollectMeTooltip", nil, "GameTooltipTemplate" )
-    tooltip:SetScale(0.75)
+    CorrectTooltipFont(tooltip:GetRegions())
 
     local titlebg = frame:CreateTexture(nil, "OVERLAY")
     titlebg:SetTexture("Interface\\DialogFrame\\UI-DialogBox-Header")

@@ -23,6 +23,10 @@ local defaults = {
                 rfm = false,
                 ptm = false
             }
+        },
+        missing_message = {
+            mounts = false,
+            titles = false
         }
     }
 }
@@ -106,11 +110,6 @@ function CollectMe:BuildTab(container, group)
     filter:SetLayout("Flow")
     filtercontainer:AddChild(filter)
 
-    local desc = AceGUI:Create("Heading")
-    desc:SetText(self.L["Filters"])
-    desc:SetFullWidth(true)
-    filter:AddChild(desc)
-
     if(group == MOUNT) then
         self:BuildMounts(scroll)
     elseif(group == TITLE) then
@@ -118,6 +117,7 @@ function CollectMe:BuildTab(container, group)
     end
 
     self:BuildFilters(filter)
+    self:BuildOptions(filter)
 end
 
 function CollectMe:BuildMounts(listcontainer)
@@ -193,6 +193,11 @@ function CollectMe:IsFiltered(filters)
 end
 
 function CollectMe:BuildFilters(filtercontainer)
+    local desc = AceGUI:Create("Heading")
+    desc:SetText(self.L["Filters"])
+    desc:SetFullWidth(true)
+    filtercontainer:AddChild(desc)
+
     for i = 1, #MOUNT_FILTERS, 1 do
         local f = AceGUI:Create("CheckBox")
         f:SetLabel(self.L["filters_" .. MOUNT_FILTERS[i]])
@@ -201,6 +206,22 @@ function CollectMe:BuildFilters(filtercontainer)
         f:SetCallback("OnValueChanged", function (container, event, value) CollectMe:ToggleFilter(MOUNT_FILTERS[i], value) end)
         filtercontainer:AddChild(f)
     end
+end
+
+function CollectMe:BuildOptions(container)
+    local desc = AceGUI:Create("Heading")
+    desc:SetText(self.L["Options"])
+    desc:SetFullWidth(true)
+    container:AddChild(desc)
+
+    local f = AceGUI:Create("CheckBox")
+    f.text:SetMaxLines(2)
+    f:SetLabel(self.L["Disable missing mount message"])
+    f:SetPoint("Top", 15, 15)
+    f:SetValue(self.db.profile.missing_message.mounts)
+    f:SetCallback("OnValueChanged", function (container, event, value) self.db.profile.missing_message.mounts = value end)
+    container:AddChild(f)
+
 end
 
 function CollectMe:ToggleFilter(filter, value)
@@ -257,9 +278,9 @@ function CollectMe:ItemRowEnter(v)
     end
 
     tooltip:AddLine(" ")
-    tooltip:AddLine(self.L["tooltip_preview"], 0.65, 0.65, 0, 1)
-    tooltip:AddLine(self.L["tooltip_link"], 0.65, 0.65, 0, 1)
-    tooltip:AddLine(self.L["tooltip_toggle"], 0.65, 0.65, 0, 1)
+    tooltip:AddLine(self.L["tooltip_preview"], 0.65, 0.65, 0)
+    tooltip:AddLine(self.L["tooltip_link"], 0.65, 0.65, 0)
+    tooltip:AddLine(self.L["tooltip_toggle"], 0.65, 0.65, 0)
     tooltip:Show()
 end
 

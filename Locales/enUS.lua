@@ -18,6 +18,9 @@ L["filters_ptm"] = "Promotional"
 L["tooltip_preview"] = "Left click to see a model preview"
 L["tooltip_link"] = "Shift + Left click to link into chat"
 L["tooltip_toggle"] = "Ctrl + Right click to add/remove from ignore list"
+L["Options"] = true
+L["Disable missing mount message"] = true
+L["Disable missing title message"] = true
 
 -- Mounts
 -- Common Mounts
@@ -138,7 +141,7 @@ L["mount_101542"] = "Drops from Alysrazor in the Firelands. [BoP]" -- Flametalon
 L["mount_97493"] = "Drops from Ragnaros in the Firelands. [BoP]" -- Pureblood Fire Hawk
 L["mount_97581"] = "Loot card from the WoW Trading Card Game: War of Elements. [BoE]" -- Savage Raptor
 L["mount_74918"] = "Loot card from TCG expansion 'Icecrown'. [BoE]" -- Wooly White Rhino
-L["mount_68825"] = "Loot card from the WoW Trading Card Game: Twilight of the Dragons. [BoE]" -- Amani Dragonhawk
+L["mount_96503"] = "Loot card from the WoW Trading Card Game: Twilight of the Dragons. [BoE]" -- Amani Dragonhawk
 L["mount_107203"] = "Obtained by signing up for the WoW Annual Pass promotion. [BoP]" -- Tyrael's Charger
 L["mount_103081"] = "Purchased from Lhara in the Darkmoon Faire for 180 Darkmoon Prize Tickets. [BoP]" -- Darkmoon Dancing Bear
 L["mount_102346"] = "Purchased from Lhara in the Darkmoon Faire for 180 Darkmoon Prize Tickets. [BoP]" -- Swift Forest Strider
