@@ -9,6 +9,18 @@ L["Ignored"] = "Ignoriert"
 L["Filters"] = "Filter"
 L["Random Mount"] = "Zufälliges Reittier"
 L["Random Companion"] = "Zufälliger Begleiter"
+L["filters_nlo"] = "Nicht mehr verfügbar"
+L["filters_tcg"] = "Trading Card Game"
+L["filters_pvp"] = "PvP"
+L["filters_bsm"] = "Blizzard Store"
+L["filters_rfm"] = "Recruit a friend"
+L["filters_ptm"] = "Promotion"
+L["tooltip_preview"] = "Linksklick für eine Vorschau"
+L["tooltip_link"] = "Shift + Left click to link into chat"
+L["tooltip_toggle"] = "Ctrl + Rechtsklick"
+L["Options"] = "Einstellungen"
+L["Disable missing mount message"] = "Deaktiviere fehlende Reittiernachrichten"
+L["Disable missing title message"] = "Deaktiviere fehlende Titelnachrichten"
 
 -- Mounts
 -- Common Mounts
@@ -17,7 +29,6 @@ L["mount_40192"] = "Von Kael'Thas Sonnenwanderer in der Festung der Stürme" -- 
 L["mount_41514"] = "Verkauft von Drachenhändler Hurlunk im Schattenmondtal für 200G. Du musst Ehrfürchtig bei den Netherschwingen sein." -- Azure Netherwing Drake
 L["mount_59567"] = "Belohnung von Das Auge der Ewigkeit (Malygos). Einzigartig [BoP]" -- Azure Drake
 L["mount_59650"] = "Von Sartharion 10er, im Hardmode mit 3 Drachen" -- Black Drake
-
 L["mount_59976"] = "Reward from Achievment Heroic: Glory of the Raider before Patch 3.1" -- Black Proto-Drake
 L["mount_59996"] = "Dropped by Skadi the Ruthless in Utgarde Pinnacle Heroic" -- Blue Proto-Drake
 L["mount_25953"] = "Dropped by the Trash Mobs in Ahn'Qiraji" -- Blue Qiraji Battle Tank
@@ -33,7 +44,7 @@ L["mount_68188"] = "Reward from completing 25-ToGC with no deaths and 50 attempt
 L["mount_68187"] = "Reward from completing 25-ToGC with no deaths and 50 attempts remaining. No longer obtainable. [BoP]" -- Crusader's White Warhorse
 L["mount_39316"] = "Sold by Aldraan (Alliance) and Coreiel (Horde) in Nagrand for 70 Halaa Battle Tokens and 15 Halaa Research Tokens" -- Dark Riding Talbuk
 L["mount_34790"] = "Sold by Aldraan (Alliance) and Coreiel (Horde) in Nagrand for 100 Halaa Battle Tokens and 20 Halaa Research Tokens" -- Dark War Talbuk
-L["mount_36702"] = "Dropped by Attumen the Huntsman in Karazhan" -- Fiery Warhorse
+L["mount_36702"] = "von Attumen der Jäger in Karazhan" -- Fiery Warhorse
 L["mount_65439"] = "Won by the top 0.5% rated Arena groups in the battlegroup in Season 6. Unique [BoP]" -- Furious Gladiator's Frost Wyrm
 L["mount_49379"] = "Dropped by Coren Direbrew in Blackrock Depths during the Brewfest" -- Great Brewfest Kodo
 L["mount_61294"] = "Contained in Cracked Egg which spawns from Mysterious Egg which can be bought from Geen in Sholazar Basin with a The Oracles reputation of at least revered" -- Green Proto-Drake
@@ -155,8 +166,8 @@ L["mount_113120"] = "Loot card from the WoW Trading Card Game: War of the Ancien
 L["mount_121820"] = "Obtained by using the Recruit a Friend Service." -- Obsidian Nightwing
 
 -- Alliance Mounts
-L["mount_60114"] = "Sold by Mei Francis in Dalaran for 750G" -- Armored Brown Bear
-L["mount_61229"] = "Sold by Mei Francis in Dalaran for 2000G" -- Armored Snowy Gryphon
+L["mount_60114"] = "Verkauft von Mei Francis in Dalaran für 750G" -- Armored Brown Bear
+L["mount_61229"] = "Verkauft von Mei Francis in Dalaran für 2000G" -- Armored Snowy Gryphon
 L["mount_22719"] = "Sold by Lieutenant Karter in Stormwind for 2000 honor" -- Black Battlestrider
 L["mount_470"] = "Sold by Unger Statforth in the Wetlands for 10G" -- Black Stallion Bridle
 L["mount_60118"] = "Reward from For The Alliance! Achievement (Kill the 4 Horde faction leaders)" -- Black War Bear
@@ -181,7 +192,7 @@ L["mount_35712"] = "Sold by Torallius the Pack Handler in the Exodar for 100G. Y
 L["mount_35714"] = "Sold by Torallius the Pack Handler in the Exodar for 100G. You must be a Draenei or exalted with the Exodar" -- Great Purple Elekk
 L["mount_17453"] = "Sold by Milli Featherwhistle in Dun Morogh for 10G. You must be a Gnome or exalted with Gnomeregan" -- Green Mechanostrider
 L["mount_59799"] = "Sold by Lillehoff in the Storm Peaks for 1000G. You must be revered with the Sons of Hodir" -- Ice Mammoth
-L["mount_60424"] = "Built by an engineer" -- Mekgineer's Chopper
+L["mount_60424"] = "Gebaut von einem Ingenieur" -- Mekgineer's Chopper
 L["mount_472"] = "Sold by Katie Hunter in Elwynn Forest for 10G. You must be a Human or exalted with Stormwind" -- Pinto
 L["mount_35711"] = "Sold by Torallius the Pack Handler in the Exodar for 10G. You must be a Draenei or exalted with the Exodar" -- Purple Elekk
 L["mount_10873"] = "Sold by Milli Featherwhistle in Dun Morogh for 10G. You must be a Gnome or exalted with Gnomeregan" -- Red Mechanostrider
@@ -323,13 +334,12 @@ L["mount_69820"] = "Taught by the Paladin Trainer at Level 20, Tauren Only" -- S
 L["mount_69826"] = "Taught by the Paladin Trainer at Level 40, Tauren Only" -- Great Sunwalker Kodo
 
 -- Warlock Mounts
-L["mount_23161"] = "Taught by the Warlock Trainer at Level 61 or obtained by completing the Level 60 Warlock Quest Line" -- Dreadsteed
-L["mount_5784"] = "Taught by the Warlock Trainer at Level 40" -- Felsteed
+L["mount_23161"] = "Erlernbar beim Hexenmeisterlehrer ab Level 61 oder durch die Hexenmeisterquest mit Level 60 zu erhalten" -- Dreadsteed
+L["mount_5784"] = "Erlernbar beim Hexenmeisterlehrer ab Level 40" -- Felsteed
 
 -- Death Knight Mounts
 L["mount_54729"] = "Sold by Dread Commander Thalanor in Acherus for 1000G" -- Winged Steed of the Ebon Blade
 L["mount_48778"] = "Reward from the Quest Into the Realm of Shadows in the Death Knight Starting Zone" -- Acherus Deathcharger
-
 
 -- Titles
 L["title_1"] = "The title was originally awarded as part of the PvP ranking system and is no longer obtainable." -- Private
