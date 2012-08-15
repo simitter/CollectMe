@@ -53,6 +53,7 @@ function CollectMe:OnInitialize()
     options.args.profiles = LibStub("AceDBOptions-3.0"):GetOptionsTable(self.db)
 
     self:BuildMountDB()
+    self:BuildTitleDB()
     self:BuildUI()
 
     self:RegisterChatCommand("collectme", "SlashProcessor")

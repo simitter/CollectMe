@@ -1,379 +1,409 @@
--- general titles
-CollectMeCommonTitleTable = {
-    29, --Gladiator ", -- [29]
-    30, --Duelist ", -- [30]
-    31, --Rival ", -- [31]
-    32, --Challenger ", -- [32]
-    36, -- Champion of the Naaru", -- [36]
-    37, --Merciless Gladiator ", -- [37]
-    38, -- of the Shattered Sun", -- [38]
-    39, -- Hand of A'dal", -- [39]
-    40, --Vengeful Gladiator ", -- [40]
-    41, --Battlemaster ", -- [41]
-    42, -- the Seeker", -- [42]
-    43, --Elder ", -- [43]
-    46, -- the Exalted", -- [46]
-    47, -- the Explorer", -- [47]
-    48, -- the Diplomat", -- [48]
-    49, --Brutal Gladiator ", -- [49]
-    50, --Arena Master ", -- [50]
-    51, --Salty ", -- [51]
-    52, --Chef ", -- [52]
-    53, -- the Supreme", -- [53]
-    54, -- of the Ten Storms", -- [54]
-    55, -- of the Emerald Dream", -- [55]
-    56, --Deadly Gladiator ", -- [56]
-    57, --Prophet ", -- [57]
-    58, -- the Malefic", -- [58]
-    59, --Stalker ", -- [59]
-    60, -- of the Ebon Blade", -- [60]
-    61, --Archmage ", -- [61]
-    62, --Warbringer ", -- [62]
-    63, --Assassin ", -- [63]
-    64, --Grand Master Alchemist ", -- [64]
-    65, --Grand Master Blacksmith ", -- [65]
-    66, --Iron Chef ", -- [66]
-    67, --Grand Master Enchanter ", -- [67]
-    68, --Grand Master Engineer ", -- [68]
-    69, --Doctor ", -- [69]
-    70, --Grand Master Angler ", -- [70]
-    71, --Grand Master Herbalist ", -- [71]
-    72, --Grand Master Scribe ", -- [72]
-    73, --Grand Master Jewelcrafter ", -- [73]
-    74, --Grand Master Leatherworker ", -- [74]
-    75, --Grand Master Miner ", -- [75]
-    76, --Grand Master Skinner ", -- [76]
-    77, --Grand Master Tailor ", -- [77]
-    78, -- of Quel'Thalas", -- [78]
-    79, -- of Argus", -- [79]
-    80, -- of Khaz Modan", -- [80]
-    82, -- the Lion Hearted", -- [82]
-    83, -- Champion of Elune", -- [83]
-    84, -- Hero of Orgrimmar", -- [84]
-    85, --Plainsrunner ", -- [85]
-    86, -- of the Darkspear", -- [86]
-    87, -- the Forsaken", -- [87]
-    88, -- the Magic Seeker", -- [88]
-    89, --Twilight Vanquisher ", -- [89]
-    90, -- Conqueror of Naxxramas", -- [90]
-    91, -- Hero of Northrend", -- [91]
-    92, -- the Hallowed", -- [92]
-    93, --Loremaster ", -- [93]
-    96, -- the Flawless Victor", -- [96]
-    97, -- Champion of the Frozen Wastes", -- [97]
-    98, --Ambassador ", -- [98]
-    99, -- the Argent Champion", -- [99]
-    100, -- Guardian of Cenarius", -- [100]
-    101, --Brewmaster ", -- [101]
-    102, --Merrymaker ", -- [102]
-    103, -- the Love Fool", -- [103]
-    104, --Matron ", -- [104]
-    105, --Patron ", -- [105]
-    106, --Obsidian Slayer ", -- [106]
-    107, -- of the Nightfall", -- [107]
-    108, -- the Immortal", -- [108]
-    109, -- the Undying", -- [109]
-    110, -- Jenkins", -- [110]
-    111, --Bloodsail Admiral ", -- [111]
-    112, -- the Insane", -- [112]
-    122, -- the Noble", -- [122]
-    123, --Crusader ", -- [123]
-    124, -- Death's Demise", -- [124]
-    125, -- the Celestial Defender", -- [125]
-    126, -- Conqueror of Ulduar", -- [126]
-    127, -- Champion of Ulduar", -- [127]
-    128, --Vanquisher ", -- [128]
-    129, --Starcaller ", -- [129]
-    130, -- the Astral Walker", -- [130]
-    131, -- Herald of the Titans", -- [131]
-    132, --Furious Gladiator ", -- [132]
-    133, -- the Pilgrim", -- [133]
-    134, --Relentless Gladiator ", -- [134]
-    135, --Grand Crusader ", -- [135]
-    136, -- the Argent Defender", -- [136]
-    137, -- the Patient", -- [137]
-    138, -- the Light of Dawn", -- [138]
-    139, -- Bane of the Fallen King", -- [139]
-    140, -- the Kingslayer", -- [140]
-    141, -- of the Ashen Verdict", -- [141]
-    142, --Wrathful Gladiator ", -- [142]
-    143, -- the Camel-Hoarder", -- [143]
-    146, -- Blessed Defender of Nordrassil", -- [146]
-    147, -- Slayer of Stupid, Incompetent and Disappointing Minions", -- [147]
-    148, --Assistant Professor ", -- [148]
-    149, --Associate Professor ", -- [149]
-    150, --Professor ", -- [150]
-    151, -- of the Four Winds", -- [151]
-    184, -- The Bloodthirsty", -- [184]
-    185, -- Defender of a Shattered World", -- [185]
-    186, --Dragonslayer ", -- [186]
-    187, -- Blackwing's Bane", -- [187]
-    188, -- Avenger of Hyjal", -- [188]
-    189, -- the Flamebreaker", -- [189]
-    190, --Firelord ", -- [190]
-    191, --Vicious Gladiator ", -- [191]
-    192, --Ruthless Gladiator ", -- [192]
-    193, --Cataclysmic Gladiator ", -- [193]
-    194, -- Savior of Azeroth", -- [194]
-    196, -- Destroyer's End", -- [196]
-};
+CollectMe = LibStub("AceAddon-3.0"):GetAddon("CollectMe")
+
+CollectMe.TITLES = {}
+CollectMe.TITLE_SPELLS = {}
+
+function CollectMe:BuildTitleDB()
+    -- Common Titles
+    self:AddTitle(29)  -- Gladiator
+    self:AddTitle(30)  -- Duelist
+    self:AddTitle(31)  -- Rival
+    self:AddTitle(32)  -- Challenger
+    self:AddTitle(36)  -- Champion of the Naaru
+    self:AddTitle(37)  -- Merciless Gladiator
+    self:AddTitle(38)  -- of the Shattered Sun
+    self:AddTitle(39)  -- Hand of A'dal
+    self:AddTitle(40)  -- Vengeful Gladiator
+    self:AddTitle(41)  -- Battlemaster
+    self:AddTitle(42)  -- the Seeker
+    self:AddTitle(43)  -- Elder
+    self:AddTitle(46)  -- the Exalted
+    self:AddTitle(47)  -- the Explorer
+    self:AddTitle(48)  -- the Diplomat
+    self:AddTitle(49)  -- Brutal Gladiator
+    self:AddTitle(50)  -- Arena Master
+    self:AddTitle(51)  -- Salty
+    self:AddTitle(52)  -- Chef
+    self:AddTitle(53)  -- the Supreme
+    self:AddTitle(54)  -- of the Ten Storms
+    self:AddTitle(55)  -- of the Emerald Dream
+    self:AddTitle(56)  -- Deadly Gladiator
+    self:AddTitle(57)  -- Prophet
+    self:AddTitle(58)  -- the Malefic
+    self:AddTitle(59)  -- Stalker
+    self:AddTitle(60)  -- of the Ebon Blade
+    self:AddTitle(61)  -- Archmage
+    self:AddTitle(62)  -- Warbringer
+    self:AddTitle(63)  -- Assassin
+    self:AddTitle(64)  -- Grand Master Alchemist
+    self:AddTitle(65)  -- Grand Master Blacksmith
+    self:AddTitle(66)  -- Iron Chef
+    self:AddTitle(67)  -- Grand Master Enchanter
+    self:AddTitle(68)  -- Grand Master Engineer
+    self:AddTitle(69)  -- Doctor
+    self:AddTitle(70)  -- Grand Master Angler
+    self:AddTitle(71)  -- Grand Master Herbalist
+    self:AddTitle(72)  -- Grand Master Scribe
+    self:AddTitle(73)  -- Grand Master Jewelcrafter
+    self:AddTitle(74)  -- Grand Master Leatherworker
+    self:AddTitle(75)  -- Grand Master Miner
+    self:AddTitle(76)  -- Grand Master Skinner
+    self:AddTitle(77)  -- Grand Master Tailor
+    self:AddTitle(78)  -- of Quel'Thalas
+    self:AddTitle(79)  -- of Argus
+    self:AddTitle(80)  -- of Khaz Modan
+    self:AddTitle(82)  -- the Lion Hearted
+    self:AddTitle(83)  -- Champion of Elune
+    self:AddTitle(84)  -- Hero of Orgrimmar
+    self:AddTitle(85)  -- Plainsrunner
+    self:AddTitle(86)  -- of the Darkspear
+    self:AddTitle(87)  -- the Forsaken
+    self:AddTitle(88)  -- the Magic Seeker
+    self:AddTitle(89)  -- Twilight Vanquisher
+    self:AddTitle(90)  -- Conqueror of Naxxramas
+    self:AddTitle(91)  -- Hero of Northrend
+    self:AddTitle(92)  -- the Hallowed
+    self:AddTitle(93)  -- Loremaster
+    self:AddTitle(96)  -- the Flawless Victor
+    self:AddTitle(97)  -- Champion of the Frozen Wastes
+    self:AddTitle(98)  -- Ambassador
+    self:AddTitle(99)  -- the Argent Champion
+    self:AddTitle(100) -- Guardian of Cenarius
+    self:AddTitle(101) -- Brewmaster
+    self:AddTitle(102) -- Merrymaker
+    self:AddTitle(103) -- the Love Fool
+    self:AddTitle(104) -- Matron
+    self:AddTitle(105) -- Patron
+    self:AddTitle(106) -- Obsidian Slayer
+    self:AddTitle(107) -- of the Nightfall
+    self:AddTitle(108) -- the Immortal
+    self:AddTitle(109) -- the Undying
+    self:AddTitle(110) -- Jenkins
+    self:AddTitle(111) -- Bloodsail Admiral
+    self:AddTitle(112) -- the Insane
+    self:AddTitle(122) -- the Noble
+    self:AddTitle(123) -- Crusader
+    self:AddTitle(124) -- Death's Demise
+    self:AddTitle(125) -- the Celestial Defender
+    self:AddTitle(126) -- Conqueror of Ulduar
+    self:AddTitle(127) -- Champion of Ulduar
+    self:AddTitle(128) -- Vanquisher
+    self:AddTitle(129) -- Starcaller
+    self:AddTitle(130) -- the Astral Walker
+    self:AddTitle(131) -- Herald of the Titans
+    self:AddTitle(132) -- Furious Gladiator
+    self:AddTitle(133) -- the Pilgrim
+    self:AddTitle(134) -- Relentless Gladiator
+    self:AddTitle(135) -- Grand Crusader
+    self:AddTitle(136) -- the Argent Defender
+    self:AddTitle(137) -- the Patient
+    self:AddTitle(138) -- the Light of Dawn
+    self:AddTitle(139) -- Bane of the Fallen King
+    self:AddTitle(140) -- the Kingslayer
+    self:AddTitle(141) -- of the Ashen Verdict
+    self:AddTitle(142) -- Wrathful Gladiator
+    self:AddTitle(143) -- the Camel-Hoarder
+    self:AddTitle(146) -- Blessed Defender of Nordrassil", -- [1
+    self:AddTitle(147) -- Slayer of Stupid, Incompetent and Disa
+    self:AddTitle(148) -- Assistant Professor
+    self:AddTitle(149) -- Associate Professor
+    self:AddTitle(150) -- Professor
+    self:AddTitle(151) -- of the Four Winds
+    self:AddTitle(184) -- The Bloodthirsty
+    self:AddTitle(185) -- Defender of a Shattered World", -- [18
+    self:AddTitle(186) -- Dragonslayer
+    self:AddTitle(187) -- Blackwing's Bane
+    self:AddTitle(188) -- Avenger of Hyjal
+    self:AddTitle(189) -- the Flamebreaker
+    self:AddTitle(190) -- Firelord
+    self:AddTitle(191) -- Vicious Gladiator
+    self:AddTitle(192) -- Ruthless Gladiator
+    self:AddTitle(193) -- Cataclysmic Gladiator
+    self:AddTitle(194) -- Savior of Azeroth
+    self:AddTitle(196) -- Destroyer's End
+
+    -- Alliance Titles
+    if self.FACTION == "Alliance" then
+
+    end
+
+    -- Horde Titles
+    if self.FACTION == "Horde" then
+
+    end
+
+end
+
+function CollectMe:AddTitle(id, filters)
+    if id ~= nil then
+        local name GetTitleName(id)
+
+        table.insert(self.TITLES, {
+            id         = id,
+            name       = name,
+            filters    = filters
+        })
+
+        table.insert(self.TITLE_SPELLS, id)
+    end
+end
 
 -- alliance titles
 CollectMeAllianceTitleTable = {
-    1, --Private ", -- [1]
-    2, --Corporal ", -- [2]
-    3, --Sergeant ", -- [3]
-    4, --Master Sergeant ", -- [4]
-    5, --Sergeant Major ", -- [5]
-    6, --Knight ", -- [6]
-    7, --Knight-Lieutenant ", -- [7]
-    8, --Knight-Captain ", -- [8]
-    9, --Knight-Champion ", -- [9]
-    10, --Lieutenant Commander ", -- [10]
-    11, --Commander ", -- [11]
-    12, --Marshal ", -- [12]
-    13, --Field Marshal ", -- [13]
-    14, --Grand Marshal ", -- [14]
-    35, --Justicar ", -- [35]
-    44, --Flame Warden ", -- [44]
-    81, -- of Gnomeregan", -- [81]
-    94, -- of the Alliance", -- [94]
-    113, -- of the Exodar", -- [113]
-    114, -- of Darnassus", -- [114]
-    115, -- of Ironforge", -- [115]
-    116, -- of Stormwind", -- [116]
-    152, -- Veteran of the Alliance", -- [152]
-    154, --Private ", -- [154]
-    155, --Corporal ", -- [155]
-    156, --Sergeant ", -- [156]
-    157, --Master Sergeant ", -- [157]
-    158, --Sergeant Major ", -- [158]
-    159, --Knight ", -- [159]
-    160, --Knight-Lieutenant ", -- [160]
-    161, --Knight-Captain ", -- [161]
-    162, --Knight-Champion ", -- [162]
-    163, --Lieutenant Commander ", -- [163]
-    164, --Commander ", -- [164]
-    165, --Marshal ", -- [165]
-    166, --Field Marshal ", -- [166]
-    167, --Grand Marshal ", -- [167]
-    182, -- Hero of the Alliance", -- [182]
-    145, --Warbound ", -- [145]
+    1, -- Private
+    2, -- Porporal
+    3, -- Sergeant
+    4, -- Master Sergeant
+    5, -- Sergeant Major
+    6, -- Knight
+    7, -- Knight-Lieutenant
+    8, -- Knight-Captain
+    9, -- Knight-Champion
+    10, -- Lieutenant Commander
+    11, -- Commander
+    12, -- Marshal
+    13, -- Field Marshal
+    14, -- Grand Marshal
+    35, -- Justicar
+    44, -- Flame Warden
+    81, -- of Gnomeregan
+    94, -- of the Alliance
+    113, -- of the Exodar
+    114, -- of Darnassus
+    115, -- of Ironforge
+    116, -- of Stormwind
+    152, -- Veteran of the Alliance
+    154, -- Private
+    155, -- Corporal
+    156, -- Sergeant
+    157, -- Master Sergeant
+    158, -- Sergeant Major
+    159, -- Knight
+    160, -- Knight-Lieutenant
+    161, -- Knight-Captain
+    162, -- Knight-Champion
+    163, -- Lieutenant Commander
+    164, -- Commander
+    165, -- Marshal
+    166, -- Field Marshal
+    167, -- Grand Marshal
+    182, -- Hero of the Alliance
+    145, -- Warbound
 };
 
 -- horde titles
 CollectMeHordeTitleTable = {
-    15, --Scout ", -- [15]
-    16, --Grunt ", -- [16]
-    17, --Sergeant ", -- [17]
-    18, --Senior Sergeant ", -- [18]
-    19, --First Sergeant ", -- [19]
-    20, --Stone Guard ", -- [20]
-    21, --Blood Guard ", -- [21]
-    22, --Legionnaire ", -- [22]
-    23, --Centurion ", -- [23]
-    24, --Champion ", -- [24]
-    25, --Lieutenant General ", -- [25]
-    26, --General ", -- [26]
-    27, --Warlord ", -- [27]
-    28, --High Warlord ", -- [28]
-    34, --Conqueror ", -- [34]
-    45, --Flame Keeper ", -- [45]
-    95, -- of the Horde", -- [95]
-    117, -- of Orgrimmar", -- [117]
-    118, -- of Sen'jin", -- [118]
-    119, -- of Silvermoon", -- [119]
-    120, -- of Thunder Bluff", -- [120]
-    121, -- of the Undercity", -- [121]
-    153, -- Veteran of the Horde", -- [153]
-    168, --Scout ", -- [168]
-    169, --Grunt ", -- [169]
-    170, --Sergeant ", -- [170]
-    171, --Senior Sergeant ", -- [171]
-    172, --First Sergeant ", -- [172]
-    173, --Stone Guard ", -- [173]
-    174, --Blood Guard ", -- [174]
-    175, --Legionnaire ", -- [175]
-    176, --Centurion ", -- [176]
-    177, --Champion ", -- [177]
-    178, --Lieutenant General ", -- [178]
-    179, --General ", -- [179]
-    180, --Warlord ", -- [180]
-    181, --High Warlord ", -- [181]
-    183, -- Hero of the Horde", -- [183]
-    144, --Warbringer ", -- [144]
+    15, -- Scout
+    16, -- Grunt
+    17, -- Sergeant
+    18, -- Senior Sergeant
+    19, -- First Sergeant
+    20, -- Stone Guard
+    21, -- Blood Guard
+    22, -- Legionnaire
+    23, -- Centurion
+    24, -- Champion
+    25, -- Lieutenant General
+    26, -- General
+    27, -- Warlord
+    28, -- High Warlord
+    34, -- Conqueror
+    45, -- Flame Keeper
+    95, -- of the Horde
+    117, -- of Orgrimmar
+    118, -- of Sen'jin
+    119, -- of Silvermoon
+    120, -- of Thunder Bluff
+    121, -- of the Undercity
+    153, -- Veteran of the Horde
+    168, -- Scout
+    169, -- Grunt
+    170, -- Sergeant
+    171, -- Senior Sergeant
+    172, -- First Sergeant
+    173, -- Stone Guard
+    174, -- Blood Guard
+    175, -- Legionnaire
+    176, -- Centurion
+    177, -- Champion
+    178, -- Lieutenant General
+    179, -- General
+    180, -- Warlord
+    181, -- High Warlord
+    183, -- Hero of the Horde
+    144, -- Warbringer
 };
 
 -- filter for titles
 CollectMeTitleFilter = {
     -- no longer obtainable
     ["nlo"] = {
-        1, --Private ", -- [1]
-        2, --Corporal ", -- [2]
-        3, --Sergeant ", -- [3]
-        4, --Master Sergeant ", -- [4]
-        5, --Sergeant Major ", -- [5]
-        6, --Knight ", -- [6]
-        7, --Knight-Lieutenant ", -- [7]
-        8, --Knight-Captain ", -- [8]
-        9, --Knight-Champion ", -- [9]
-        10, --Lieutenant Commander ", -- [10]
-        11, --Commander ", -- [11]
-        12, --Marshal ", -- [12]
-        13, --Field Marshal ", -- [13]
-        14, --Grand Marshal ", -- [14]
-        15, --Scout ", -- [15]
-        16, --Grunt ", -- [16]
-        17, --Sergeant ", -- [17]
-        18, --Senior Sergeant ", -- [18]
-        19, --First Sergeant ", -- [19]
-        20, --Stone Guard ", -- [20]
-        21, --Blood Guard ", -- [21]
-        22, --Legionnaire ", -- [22]
-        23, --Centurion ", -- [23]
-        24, --Champion ", -- [24]
-        25, --Lieutenant General ", -- [25]
-        26, --General ", -- [26]
-        27, --Warlord ", -- [27]
-        28, --High Warlord ", -- [28]
-        29, --Gladiator ", -- [29]
-        33, --Scarab Lord ", -- [33]
-        128, --Vanquisher ", -- [128]
-        37, --Merciless Gladiator ", -- [37]
-        40, --Vengeful Gladiator ", -- [40]
-        49, --Brutal Gladiator ", -- [49]
-        56, --Deadly Gladiator ", -- [56]
-        132, --Furious Gladiator ", -- [132]
-        134, --Relentless Gladiator ", -- [134]
-        142, --Wrathful Gladiator ", -- [142]
-        191, --Vicious Gladiator ", -- [191]
-        192, --Ruthless Gladiator ", -- [192]
-        36, -- Champion of the Naaru", -- [36]
-        39, -- Hand of A'dal", -- [39]
-        53, -- the Supreme", -- [53]
-        54, -- of the Ten Storms", -- [54]
-        55, -- of the Emerald Dream", -- [55]
-        57, --Prophet ", -- [57]
-        58, -- the Malefic", -- [58]
-        59, --Stalker ", -- [59]
-        60, -- of the Ebon Blade", -- [60]
-        61, --Archmage ", -- [61]
-        62, --Warbringer ", -- [62]
-        63, --Assassin ", -- [63]
-        64, --Grand Master Alchemist ", -- [64]
-        65, --Grand Master Blacksmith ", -- [65]
-        66, --Iron Chef ", -- [66]
-        67, --Grand Master Enchanter ", -- [67]
-        68, --Grand Master Engineer ", -- [68]
-        69, --Doctor ", -- [69]
-        70, --Grand Master Angler ", -- [70]
-        71, --Grand Master Herbalist ", -- [71]
-        72, --Grand Master Scribe ", -- [72]
-        73, --Grand Master Jewelcrafter ", -- [73]
-        74, --Grand Master Leatherworker ", -- [74]
-        75, --Grand Master Miner ", -- [75]
-        76, --Grand Master Skinner ", -- [76]
-        77, --Grand Master Tailor ", -- [77]
-        78, -- of Quel'Thalas", -- [78]
-        79, -- of Argus", -- [79]
-        80, -- of Khaz Modan", -- [80]
-        82, -- the Lion Hearted", -- [82]
-        83, -- Champion of Elune", -- [83]
-        84, -- Hero of Orgrimmar", -- [84]
-        85, --Plainsrunner ", -- [85]
-        86, -- of the Darkspear", -- [86]
-        87, -- the Forsaken", -- [87]
-        88, -- the Magic Seeker", -- [88]
-        90, -- Conqueror of Naxxramas", -- [90]
-        124, -- Death's Demise", -- [124]
-        125, -- the Celestial Defender", -- [125]
-        106, --Obsidian Slayer ", -- [106]
-        135, --Grand Crusader ", -- [135]
-        91, -- Hero of Northrend", -- [91]
-        96, -- the Flawless Victor", -- [96]
-        146, -- Blessed Defender of Nordrassil", -- [146]
-        147, -- Slayer of Stupid, Incompetent and Disappointing Minions", -- [147]
+        1, -- Private
+        2, -- Corporal
+        3, -- Sergeant
+        4, -- Master Sergeant
+        5, -- Sergeant Major
+        6, -- Knight
+        7, -- Knight-Lieutenant
+        8, -- Knight-Captain
+        9, -- Knight-Champion
+        10, -- Lieutenant Commander
+        11, -- Commander
+        12, -- Marshal
+        13, -- Field Marshal
+        14, -- Grand Marshal
+        15, -- Scout
+        16, -- Grunt
+        17, -- Sergeant
+        18, -- Senior Sergeant
+        19, -- First Sergeant
+        20, -- Stone Guard
+        21, -- Blood Guard
+        22, -- Legionnaire
+        23, -- Centurion
+        24, -- Champion
+        25, -- Lieutenant General
+        26, -- General
+        27, -- Warlord
+        28, -- High Warlord
+        29, -- Gladiator
+        33, -- Scarab Lord
+        128, -- Vanquisher
+        37, -- Merciless Gladiator
+        40, -- Vengeful Gladiator
+        49, -- Brutal Gladiator
+        56, -- Deadly Gladiator
+        132, -- Furious Gladiator
+        134, -- Relentless Gladiator
+        142, -- Wrathful Gladiator
+        191, -- Vicious Gladiator
+        192, -- Ruthless Gladiator
+        36, -- Champion of the Naaru
+        39, -- Hand of A'dal
+        53, -- the Supreme
+        54, -- of the Ten Storms
+        55, -- of the Emerald Dream
+        57, -- Prophet
+        58, -- the Malefic
+        59, -- Stalker
+        60, -- of the Ebon Blade
+        61, -- Archmage
+        62, -- Warbringer
+        63, -- Assassin
+        64, -- Grand Master Alchemist
+        65, -- Grand Master Blacksmith
+        66, -- Iron Chef
+        67, -- Grand Master Enchanter
+        68, -- Grand Master Engineer
+        69, -- Doctor
+        70, -- Grand Master Angler
+        71, -- Grand Master Herbalist
+        72, -- Grand Master Scribe
+        73, -- Grand Master Jewelcrafter
+        74, -- Grand Master Leatherworker
+        75, -- Grand Master Miner
+        76, -- Grand Master Skinner
+        77, -- Grand Master Tailor
+        78, -- of Quel'Thalas
+        79, -- of Argus
+        80, -- of Khaz Modan
+        82, -- the Lion Hearted
+        83, -- Champion of Elune
+        84, -- Hero of Orgrimmar
+        85, -- Plainsrunner
+        86, -- of the Darkspear
+        87, -- the Forsaken
+        88, -- the Magic Seeker
+        90, -- Conqueror of Naxxramas
+        124, -- Death's Demise
+        125, -- the Celestial Defender
+        106, -- Obsidian Slayer
+        135, -- Grand Crusader
+        91, -- Hero of Northrend
+        96, -- the Flawless Victor
+        146, -- Blessed Defender of Nordrassil
+        147, -- Slayer of Stupid, Incompetent and Disappointing Minions
     },
 
     -- trading card game
     ["pvp"] = {
-        1, --Private ", -- [1]
-        2, --Corporal ", -- [2]
-        3, --Sergeant ", -- [3]
-        4, --Master Sergeant ", -- [4]
-        5, --Sergeant Major ", -- [5]
-        6, --Knight ", -- [6]
-        7, --Knight-Lieutenant ", -- [7]
-        8, --Knight-Captain ", -- [8]
-        9, --Knight-Champion ", -- [9]
-        10, --Lieutenant Commander ", -- [10]
-        11, --Commander ", -- [11]
-        12, --Marshal ", -- [12]
-        13, --Field Marshal ", -- [13]
-        14, --Grand Marshal ", -- [14]
-        15, --Scout ", -- [15]
-        16, --Grunt ", -- [16]
-        17, --Sergeant ", -- [17]
-        18, --Senior Sergeant ", -- [18]
-        19, --First Sergeant ", -- [19]
-        20, --Stone Guard ", -- [20]
-        21, --Blood Guard ", -- [21]
-        22, --Legionnaire ", -- [22]
-        23, --Centurion ", -- [23]
-        24, --Champion ", -- [24]
-        25, --Lieutenant General ", -- [25]
-        26, --General ", -- [26]
-        27, --Warlord ", -- [27]
-        28, --High Warlord ", -- [28]
-        29, --Gladiator ", -- [29]
-        30, --Duelist ", -- [30]
-        31, --Rival ", -- [31]
-        32, --Challenger ", -- [32]
-        128, --Vanquisher ", -- [128]
-        37, --Merciless Gladiator ", -- [37]
-        40, --Vengeful Gladiator ", -- [40]
-        49, --Brutal Gladiator ", -- [49]
-        56, --Deadly Gladiator ", -- [56]
-        132, --Furious Gladiator ", -- [132]
-        134, --Relentless Gladiator ", -- [134]
-        142, --Wrathful Gladiator ", -- [142]
-        191, --Vicious Gladiator ", -- [191]
-        192, --Ruthless Gladiator ", -- [192]
-        193, --Cataclysmic Gladiator ", -- [193]
-        144, --Warbringer ", -- [144]
-        145, --Warbound ", -- [145]
-        152, -- Veteran of the Alliance", -- [152]
-        154, --Private ", -- [154]
-        155, --Corporal ", -- [155]
-        156, --Sergeant ", -- [156]
-        157, --Master Sergeant ", -- [157]
-        158, --Sergeant Major ", -- [158]
-        159, --Knight ", -- [159]
-        160, --Knight-Lieutenant ", -- [160]
-        161, --Knight-Captain ", -- [161]
-        162, --Knight-Champion ", -- [162]
-        163, --Lieutenant Commander ", -- [163]
-        164, --Commander ", -- [164]
-        165, --Marshal ", -- [165]
-        166, --Field Marshal ", -- [166]
-        167, --Grand Marshal ", -- [167]
-        182, -- Hero of the Alliance", -- [182]
-        153, -- Veteran of the Horde", -- [153]
-        168, --Scout ", -- [168]
-        169, --Grunt ", -- [169]
-        170, --Sergeant ", -- [170]
-        171, --Senior Sergeant ", -- [171]
-        172, --First Sergeant ", -- [172]
-        173, --Stone Guard ", -- [173]
-        174, --Blood Guard ", -- [174]
-        175, --Legionnaire ", -- [175]
-        176, --Centurion ", -- [176]
-        177, --Champion ", -- [177]
-        178, --Lieutenant General ", -- [178]
-        179, --General ", -- [179]
-        180, --Warlord ", -- [180]
-        181, --High Warlord ", -- [181]
-        183, -- Hero of the Horde", -- [183]
+        1, -- Private
+        2, -- Corporal
+        3, -- Sergeant
+        4, -- Master Sergeant
+        5, -- Sergeant Major
+        6, -- Knight
+        7, -- Knight-Lieutenant
+        8, -- Knight-Captain
+        9, -- Knight-Champion
+        10, -- Lieutenant Commander
+        11, -- Commander
+        12, -- Marshal
+        13, -- Field Marshal
+        14, -- Grand Marshal
+        15, -- Scout
+        16, -- Grunt
+        17, -- Sergeant
+        18, -- Senior Sergeant
+        19, -- First Sergeant
+        20, -- Stone Guard
+        21, -- Blood Guard
+        22, -- Legionnaire
+        23, -- Centurion
+        24, -- Champion
+        25, -- Lieutenant General
+        26, -- General
+        27, -- Warlord
+        28, -- High Warlord
+        29, -- Gladiator
+        30, -- Duelist
+        31, -- Rival
+        32, -- Challenger
+        128, -- Vanquisher
+        37, -- Merciless Gladiator
+        40, -- Vengeful Gladiator
+        49, -- Brutal Gladiator
+        56, -- Deadly Gladiator
+        132, -- Furious Gladiator
+        134, -- Relentless Gladiator
+        142, -- Wrathful Gladiator
+        191, -- Vicious Gladiator
+        192, -- Ruthless Gladiator
+        193, -- Cataclysmic Gladiator
+        144, -- Warbringer
+        145, -- Warbound
+        152, -- Veteran of the Alliance
+        154, -- Private
+        155, -- Corporal
+        156, -- Sergeant
+        157, -- Master Sergeant
+        158, -- Sergeant Major
+        159, -- Knight
+        160, -- Knight-Lieutenant
+        161, -- Knight-Captain
+        162, -- Knight-Champion
+        163, -- Lieutenant Commander
+        164, -- Commander
+        165, -- Marshal
+        166, -- Field Marshal
+        167, -- Grand Marshal
+        182, -- Hero of the Alliance
+        153, -- Veteran of the Horde
+        168, -- Scout
+        169, -- Grunt
+        170, -- Sergeant
+        171, -- Senior Sergeant
+        172, -- First Sergeant
+        173, -- Stone Guard
+        174, -- Blood Guard
+        175, -- Legionnaire
+        176, -- Centurion
+        177, -- Champion
+        178, -- Lieutenant General
+        179, -- General
+        180, -- Warlord
+        181, -- High Warlord
+        183, -- Hero of the Horde
     },
 };
 
