@@ -133,18 +133,21 @@ function CollectMe:BuildList(listcontainer)
         item_list = self.MOUNTS
         ignored_db_setting = self.db.profile.ignored.mounts
     else
-
+        item_list = self.TITLES
+        ignored_db_setting = self.db.profile.ignored.titles
     end
 
     local active, ignored = {}, {}
     local all_count, known_count, filter_count = #item_list, 0, 0
 
     for i,v in ipairs(item_list) do
-        if (self.active_tab == MOUNT and not self:IsInTable(self.known_mounts, v.id)) or (self.active_tab == TITLE and IsTitleKnown(v.id)) then
+        if (self.active_tab == MOUNT and not self:IsInTable(self.known_mounts, v.id)) or (self.active_tab == TITLE and IsTitleKnown(v.id) ~= 1) then
             local f = self:CreateItemRow()
+            if self.active_tab == MOUNT then
+                f:SetImage(v.icon)
+                f:SetImageSize(36, 36)
+            end
             f:SetText(v.name)
-            f:SetImage(v.icon)
-            f:SetImageSize(36, 36)
             f:SetCallback("OnClick", function (container, event, group) CollectMe:ItemRowClick(group, v.id) end)
             f:SetCallback("OnEnter", function (container, event, group) CollectMe:ItemRowEnter(v) end)
             f:SetCallback("OnLeave", function (container, event, group) CollectMe:ItemRowLeave(v) end)
@@ -159,6 +162,7 @@ function CollectMe:BuildList(listcontainer)
                 end
             end
         else
+            print('here')
             known_count = known_count +1
         end
     end
@@ -279,19 +283,28 @@ end
 function CollectMe:ItemRowEnter(v)
     local tooltip = self.frame.tooltip
     tooltip:SetOwner(UIParent, "ANCHOR_CURSOR")
-    tooltip:SetHyperlink(v.link)
-    tooltip:AddLine(" ")
-    tooltip:AddLine(self.L["mount_" .. v.id], 0, 1, 0, 1)
+    if self.active_tab == MOUNT then
+        tooltip:SetHyperlink(v.link)
+        tooltip:AddLine(" ")
+        tooltip:AddLine(self.L["mount_" .. v.id], 0, 1, 0, 1)
+    else
+        tooltip:AddLine(v.name)
+        tooltip:AddLine(" ")
+        tooltip:AddLine(self.L["title_" .. v.id], 0, 1, 0, 1)
+    end
+
     if v.filters ~= nil then
         tooltip:AddLine(" ")
         for k,value in pairs(v.filters) do
-            tooltip:AddLine(self.L["filters_" .. k], 0, 0.3, 1, 1)
+            tooltip:AddLine(self.L["filters_" .. k], 0, 0.5, 1, 1)
         end
     end
 
     tooltip:AddLine(" ")
-    tooltip:AddLine(self.L["tooltip_preview"], 0.65, 0.65, 0)
-    tooltip:AddLine(self.L["tooltip_link"], 0.65, 0.65, 0)
+    if self.active_tab == MOUNT then
+        tooltip:AddLine(self.L["tooltip_preview"], 0.65, 0.65, 0)
+        tooltip:AddLine(self.L["tooltip_link"], 0.65, 0.65, 0)
+    end
     tooltip:AddLine(self.L["tooltip_toggle"], 0.65, 0.65, 0)
     tooltip:Show()
 end

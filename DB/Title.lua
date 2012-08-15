@@ -141,7 +141,7 @@ function CollectMe:AddTitle(id, filters)
 
         table.insert(self.TITLES, {
             id         = id,
-            name       = name,
+            name       = name:gsub("^%s*(.-)%s*$", "%1"),
             filters    = filters
         })
 
