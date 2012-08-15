@@ -31,6 +31,10 @@ local defaults = {
         missing_message = {
             mounts = false,
             titles = false
+        },
+        random = {
+            companions = {},
+            mounts = {}
         }
     }
 }
@@ -100,7 +104,7 @@ function CollectMe:BuildUI()
     tinsert(UISpecialFrames, f.frame:GetName())
 
     local tabs = AceGUI:Create("TabGroup")
-    tabs:SetTabs({ {text = self.L["Mounts"], value = MOUNT}, {text = self.L["Titles"], value = TITLE}, {text = self.L["Random Companion"], value = RANDOM_MOUNT}, {text = self.L["Random Mount"], value = RANDOM_COMPANION}})
+    tabs:SetTabs({ {text = self.L["Mounts"], value = MOUNT}, {text = self.L["Titles"], value = TITLE}, {text = self.L["Random Companion"], value = RANDOM_COMPANION}, {text = self.L["Random Mount"], value = RANDOM_MOUNT}})
     tabs:SetCallback("OnGroupSelected", function (container, event, group) CollectMe:SelectGroup(container, group) end)
     f:AddChild(tabs)
 
@@ -138,9 +142,29 @@ function CollectMe:BuildTab(container)
     if self.active_tab == MOUNT or self.active_tab == TITLE then
         self:BuildList(scroll)
         self:BuildFilters(filter)
+    elseif self.active_tab == RANDOM_COMPANION then
+        self:BuildRandomList(scroll)
     end
 
     self:BuildOptions(filter)
+end
+
+function CollectMe:BuildRandomList(listcontainer)
+    local count = GetNumCompanions("CRITTER")
+
+    listcontainer:AddChild(self:CreateHeading(self.L["Available companions"] ..  " - " .. count))
+    for i = 1, count, 1 do
+        local _, name, spell_id = GetCompanionInfo("CRITTER", i)
+        local f = AceGUI:Create("Slider")
+        f:SetLabel(name)
+        f:SetFullWidth(true)
+        f:SetSliderValues(0, 10, 1)
+        local value = (self.db.profile.random.companions[spell_id] ~= nil and self.db.profile.random.companions[spell_id] or 0)
+        f:SetValue(value)
+        f:SetCallback("OnValueChanged", function (container, event, val) self.db.profile.random.companions[spell_id] = val end)
+
+        listcontainer:AddChild(f)
+    end
 end
 
 function CollectMe:BuildList(listcontainer)
@@ -188,18 +212,12 @@ function CollectMe:BuildList(listcontainer)
         end
     end
 
-    local active_heading = AceGUI:Create("Heading")
-    active_heading:SetText(self.L["Active"] .. " - " .. #active)
-    active_heading:SetFullWidth(true)
-    listcontainer:AddChild(active_heading)
+    listcontainer:AddChild(self:CreateHeading(self.L["Active"] .. " - " .. #active))
     for f = 1, #active, 1 do
         listcontainer:AddChild(active[f])
     end
 
-    local ignored_heading = AceGUI:Create("Heading")
-    ignored_heading:SetText(self.L["Ignored"] .. " - " .. #ignored)
-    ignored_heading:SetFullWidth(true)
-    listcontainer:AddChild(ignored_heading)
+    listcontainer:AddChild(self:CreateHeading(self.L["Ignored"] .. " - " .. #ignored))
     for f = 1, #ignored, 1 do
         listcontainer:AddChild(ignored[f])
     end
@@ -230,10 +248,7 @@ function CollectMe:IsFiltered(filters)
 end
 
 function CollectMe:BuildFilters(filtercontainer)
-    local desc = AceGUI:Create("Heading")
-    desc:SetText(self.L["Filters"])
-    desc:SetFullWidth(true)
-    filtercontainer:AddChild(desc)
+    filtercontainer:AddChild(self:CreateHeading(self.L["Filters"]))
 
     for i = 1, #self.filter_list, 1 do
         local f = AceGUI:Create("CheckBox")
@@ -246,10 +261,7 @@ function CollectMe:BuildFilters(filtercontainer)
 end
 
 function CollectMe:BuildOptions(container)
-    local desc = AceGUI:Create("Heading")
-    desc:SetText(self.L["Options"])
-    desc:SetFullWidth(true)
-    container:AddChild(desc)
+    container:AddChild(self:CreateHeading(self.L["Options"]))
 
     if self.active_tab == MOUNT then
         local f = self:GetCheckboxOption(self.L["Disable missing mount message"], self.db.profile.missing_message.mounts)
@@ -378,6 +390,14 @@ function CollectMe:RefreshKnownMounts()
             end
         end
     end
+end
+
+function CollectMe:CreateHeading(text)
+    local heading = AceGUI:Create("Heading")
+    heading:SetText(text)
+    heading:SetFullWidth(true)
+
+    return heading
 end
 
 -- checks is element is in table returns position if true, false otherwise
