@@ -1,6 +1,7 @@
 CollectMe = LibStub("AceAddon-3.0"):GetAddon("CollectMe")
 
-CollectMe.MOUNTS = {};
+CollectMe.MOUNTS = {}
+CollectMe.MOUNT_SPELLS = {}
 
 local GROUND = 1
 local FLY = 2
@@ -109,7 +110,6 @@ function CollectMe:BuildMountDB()
     self:AddMount(43900, 22350)  -- Swift Brewfest Ram
     self:AddMount(102346, 1281)  -- Swift Forest Strider
     self:AddMount(102350, 1961)  -- Swift Lovebird
-
     self:AddMount(101573, 17011)  -- Swift Shorestrider
     self:AddMount(37015, 20344)  -- Swift Nether Drake
     self:AddMount(24242, 15289)  -- Swift Razzashi Raptor
@@ -207,6 +207,8 @@ function CollectMe:AddMount(spell_id, display_id, type, filters, zones)
             filters    = filters,
             zones      = zones
         })
+
+        table.insert(self.MOUNT_SPELLS, spell_id)
     end
 end
 

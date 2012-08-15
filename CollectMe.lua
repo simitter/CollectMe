@@ -312,8 +312,13 @@ function CollectMe:RefreshKnownMounts()
     self.known_mounts = {}
 
     for i = 1, self.known_mount_count, 1 do
-        local _, _, spell_id = GetCompanionInfo("Mount", i)
+        local _, name, spell_id = GetCompanionInfo("Mount", i)
         table.insert(self.known_mounts, spell_id);
+        if self.db.profile.missing_message.mounts == false then
+            if not self:IsInTable(self.MOUNT_SPELLS, spell_id) then
+                self:Print(self.L["Mount"] .. " " .. name .. "("..spell_id..") " .. self.L["is missing"] .. ". " .. self.L["Please inform the author"])
+            end
+        end
     end
 end
 
