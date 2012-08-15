@@ -22,7 +22,7 @@ function CollectMe:BuildMountDB()
     self:AddMount(41514, 21521, FLY) -- Azure Netherwing Drake
     self:AddMount(59567, 27785, FLY) -- Azure Drake
     self:AddMount(51412, 25335) -- Big Battle Bear
-    self:AddMount(58983, 27567) -- Big Blizzard Bear
+    self:AddMount(58983, 27567, GROUND, { nlo = 1 }) -- Big Blizzard Bear
     self:AddMount(71342, 30989, FLY) -- Big Love Rocket
     self:AddMount(59650, 25831, FLY) -- Black Drake
     self:AddMount(59976, 28040, FLY) -- Black Proto-Drake
@@ -410,8 +410,6 @@ CollectMeDeathknightMountTable = {
 CollectMeMountFilter = {
     -- no longer obtainable
     ["nlo"] = {
-        [43688] = 24379, -- Amani War Bear
-        [58983] = 31319, -- Big Blizzard Bear
         [59976] = 31912, -- Black Proto-Drake
         [26656] = 15711, -- Black Qiraji Battle Tank
         [43899] = 24368, -- Brewfest Ram
