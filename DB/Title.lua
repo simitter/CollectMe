@@ -124,12 +124,88 @@ function CollectMe:BuildTitleDB()
 
     -- Alliance Titles
     if self.FACTION == "Alliance" then
-
+        self:AddTitle(1)   -- Private
+        self:AddTitle(2)   -- Porporal
+        self:AddTitle(3)   -- Sergeant
+        self:AddTitle(4)   -- Master Sergeant
+        self:AddTitle(5)   -- Sergeant Major
+        self:AddTitle(6)   -- Knight
+        self:AddTitle(7)   -- Knight-Lieutenant
+        self:AddTitle(8)   -- Knight-Captain
+        self:AddTitle(9)   -- Knight-Champion
+        self:AddTitle(10)   -- Lieutenant Commander
+        self:AddTitle(11)   -- Commander
+        self:AddTitle(12)   -- Marshal
+        self:AddTitle(13)   -- Field Marshal
+        self:AddTitle(14)   -- Grand Marshal
+        self:AddTitle(35)   -- Justicar
+        self:AddTitle(44)   -- Flame Warden
+        self:AddTitle(81)   -- of Gnomeregan
+        self:AddTitle(94)   -- of the Alliance
+        self:AddTitle(113)  -- of the Exodar
+        self:AddTitle(114)  -- of Darnassus
+        self:AddTitle(115)  -- of Ironforge
+        self:AddTitle(116)  -- of Stormwind
+        self:AddTitle(152)  -- Veteran of the Alliance
+        self:AddTitle(154)  -- Private
+        self:AddTitle(155)  -- Corporal
+        self:AddTitle(156)  -- Sergeant
+        self:AddTitle(157)  -- Master Sergeant
+        self:AddTitle(158)  -- Sergeant Major
+        self:AddTitle(159)  -- Knight
+        self:AddTitle(160)  -- Knight-Lieutenant
+        self:AddTitle(161)  -- Knight-Captain
+        self:AddTitle(162)  -- Knight-Champion
+        self:AddTitle(163)  -- Lieutenant Commander
+        self:AddTitle(164)  -- Commander
+        self:AddTitle(165)  -- Marshal
+        self:AddTitle(166)  -- Field Marshal
+        self:AddTitle(167)  -- Grand Marshal
+        self:AddTitle(182)  -- Hero of the Alliance
+        self:AddTitle(145)  -- Warbound
     end
 
     -- Horde Titles
     if self.FACTION == "Horde" then
-
+        self:AddTitle(15)   -- Scout
+        self:AddTitle(16)   -- Grunt
+        self:AddTitle(17)   -- Sergeant
+        self:AddTitle(18)   -- Senior Sergeant
+        self:AddTitle(19)   -- First Sergeant
+        self:AddTitle(20)   -- Stone Guard
+        self:AddTitle(21)   -- Blood Guard
+        self:AddTitle(22)   -- Legionnaire
+        self:AddTitle(23)   -- Centurion
+        self:AddTitle(24)   -- Champion
+        self:AddTitle(25)   -- Lieutenant General
+        self:AddTitle(26)   -- General
+        self:AddTitle(27)   -- Warlord
+        self:AddTitle(28)   -- High Warlord
+        self:AddTitle(34)   -- Conqueror
+        self:AddTitle(45)   -- Flame Keeper
+        self:AddTitle(95)   -- of the Horde
+        self:AddTitle(117)   -- of Orgrimmar
+        self:AddTitle(118)   -- of Sen'jin
+        self:AddTitle(119)   -- of Silvermoon
+        self:AddTitle(120)   -- of Thunder Bluff
+        self:AddTitle(121)   -- of the Undercity
+        self:AddTitle(153)   -- Veteran of the Horde
+        self:AddTitle(168)   -- Scout
+        self:AddTitle(169)   -- Grunt
+        self:AddTitle(170)   -- Sergeant
+        self:AddTitle(171)   -- Senior Sergeant
+        self:AddTitle(172)   -- First Sergeant
+        self:AddTitle(173)   -- Stone Guard
+        self:AddTitle(174)   -- Blood Guard
+        self:AddTitle(175)   -- Legionnaire
+        self:AddTitle(176)   -- Centurion
+        self:AddTitle(177)   -- Champion
+        self:AddTitle(178)   -- Lieutenant General
+        self:AddTitle(179)   -- General
+        self:AddTitle(180)   -- Warlord
+        self:AddTitle(181)   -- High Warlord
+        self:AddTitle(183)   -- Hero of the Horde
+        self:AddTitle(144)   -- Warbringer
     end
 
     self:SortTable(self.TITLES)
@@ -148,92 +224,6 @@ function CollectMe:AddTitle(id, filters)
         table.insert(self.TITLE_SPELLS, id)
     end
 end
-
--- alliance titles
-CollectMeAllianceTitleTable = {
-    1, -- Private
-    2, -- Porporal
-    3, -- Sergeant
-    4, -- Master Sergeant
-    5, -- Sergeant Major
-    6, -- Knight
-    7, -- Knight-Lieutenant
-    8, -- Knight-Captain
-    9, -- Knight-Champion
-    10, -- Lieutenant Commander
-    11, -- Commander
-    12, -- Marshal
-    13, -- Field Marshal
-    14, -- Grand Marshal
-    35, -- Justicar
-    44, -- Flame Warden
-    81, -- of Gnomeregan
-    94, -- of the Alliance
-    113, -- of the Exodar
-    114, -- of Darnassus
-    115, -- of Ironforge
-    116, -- of Stormwind
-    152, -- Veteran of the Alliance
-    154, -- Private
-    155, -- Corporal
-    156, -- Sergeant
-    157, -- Master Sergeant
-    158, -- Sergeant Major
-    159, -- Knight
-    160, -- Knight-Lieutenant
-    161, -- Knight-Captain
-    162, -- Knight-Champion
-    163, -- Lieutenant Commander
-    164, -- Commander
-    165, -- Marshal
-    166, -- Field Marshal
-    167, -- Grand Marshal
-    182, -- Hero of the Alliance
-    145, -- Warbound
-};
-
--- horde titles
-CollectMeHordeTitleTable = {
-    15, -- Scout
-    16, -- Grunt
-    17, -- Sergeant
-    18, -- Senior Sergeant
-    19, -- First Sergeant
-    20, -- Stone Guard
-    21, -- Blood Guard
-    22, -- Legionnaire
-    23, -- Centurion
-    24, -- Champion
-    25, -- Lieutenant General
-    26, -- General
-    27, -- Warlord
-    28, -- High Warlord
-    34, -- Conqueror
-    45, -- Flame Keeper
-    95, -- of the Horde
-    117, -- of Orgrimmar
-    118, -- of Sen'jin
-    119, -- of Silvermoon
-    120, -- of Thunder Bluff
-    121, -- of the Undercity
-    153, -- Veteran of the Horde
-    168, -- Scout
-    169, -- Grunt
-    170, -- Sergeant
-    171, -- Senior Sergeant
-    172, -- First Sergeant
-    173, -- Stone Guard
-    174, -- Blood Guard
-    175, -- Legionnaire
-    176, -- Centurion
-    177, -- Champion
-    178, -- Lieutenant General
-    179, -- General
-    180, -- Warlord
-    181, -- High Warlord
-    183, -- Hero of the Horde
-    144, -- Warbringer
-};
 
 -- filter for titles
 CollectMeTitleFilter = {
