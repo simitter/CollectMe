@@ -162,7 +162,6 @@ function CollectMe:BuildList(listcontainer)
                 end
             end
         else
-            print('here')
             known_count = known_count +1
         end
     end
@@ -246,7 +245,7 @@ function CollectMe:ToggleFilter(filter, value)
 end
 
 function CollectMe:ItemRowClick(group, spell_id)
-    if group == "LeftButton" then
+    if self.active_tab == MOUNT and group == "LeftButton" then
         local mount = self:GetMountInfo(spell_id)
         if mount ~= nil then
             if IsShiftKeyDown() == 1 and mount.link ~= nil then
@@ -264,14 +263,16 @@ function CollectMe:ItemRowClick(group, spell_id)
         end
     elseif group == "RightButton" and IsControlKeyDown() then
         local offset = self.scroll.localstatus.offset
-        local position = self:IsInTable(self.db.profile.ignored.mounts, spell_id)
+        local ignored_table = (self.active_tab ==  MOUNT and self.db.profile.ignored.mounts or self.db.profile.ignored.titles)
+
+        local position = self:IsInTable(ignored_table, spell_id)
         if position ~= false then
-            table.remove(self.db.profile.ignored.mounts, position)
+            table.remove(ignored_table, position)
         else
-            table.insert(self.db.profile.ignored.mounts, spell_id)
+            table.insert(ignored_table, spell_id)
         end
 
-        self.tabs:SelectTab(MOUNT)
+        self.tabs:SelectTab(self.active_tab)
 
         -- SetScroll doe not calculate position accurately
         local status_table = self.scroll.localstatus
