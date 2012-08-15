@@ -135,13 +135,11 @@ function CollectMe:BuildTab(container)
     filter:SetLayout("Flow")
     filtercontainer:AddChild(filter)
 
-    if(self.active_tab == MOUNT) then
+    if self.active_tab == MOUNT or self.active_tab == TITLE then
         self:BuildList(scroll)
-    elseif(self.active_tab == TITLE) then
-        self:BuildList(scroll)
+        self:BuildFilters(filter)
     end
 
-    self:BuildFilters(filter)
     self:BuildOptions(filter)
 end
 
@@ -150,6 +148,15 @@ function CollectMe:BuildList(listcontainer)
 
     if self.active_tab == MOUNT then
         self:RefreshKnownMounts()
+    elseif self.active_tab == TITLE and self.db.profile.missing_message.titles == false then
+        for i = 1, GetNumTitles(), 1 do
+            if IsTitleKnown(i) == 1 and self:IsInTable(self.TITLE_SPELLS, i) == false then
+                local name = GetTitleName(i)
+                if name ~= nil then
+                    self:Print(self.L["Title"] .. " " .. name:gsub("^%s*(.-)%s*$", "%1") .. "("..i..") " .. self.L["is missing"] .. ". " .. self.L["Please inform the author"])
+                end
+            end
+        end
     end
 
     local active, ignored = {}, {}
@@ -244,14 +251,24 @@ function CollectMe:BuildOptions(container)
     desc:SetFullWidth(true)
     container:AddChild(desc)
 
+    if self.active_tab == MOUNT then
+        local f = self:GetCheckboxOption(self.L["Disable missing mount message"], self.db.profile.missing_message.mounts)
+        f:SetCallback("OnValueChanged", function (container, event, value) self.db.profile.missing_message.mounts = value end)
+        container:AddChild(f)
+    elseif self.active_tab == TITLE then
+        local f = self:GetCheckboxOption(self.L["Disable missing title message"], self.db.profile.missing_message.titles)
+        f:SetCallback("OnValueChanged", function (container, event, value) self.db.profile.missing_message.titles = value end)
+        container:AddChild(f)
+    end
+end
+
+function CollectMe:GetCheckboxOption(label, init_value)
     local f = AceGUI:Create("CheckBox")
     f.text:SetMaxLines(2)
-    f:SetLabel(self.L["Disable missing mount message"])
+    f:SetLabel(label)
     f:SetPoint("Top", 15, 15)
-    f:SetValue(self.db.profile.missing_message.mounts)
-    f:SetCallback("OnValueChanged", function (container, event, value) self.db.profile.missing_message.mounts = value end)
-    container:AddChild(f)
-
+    f:SetValue(init_value)
+    return f
 end
 
 function CollectMe:ToggleFilter(filter, value)

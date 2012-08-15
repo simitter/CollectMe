@@ -22,6 +22,7 @@ L["Options"] = true
 L["Disable missing mount message"] = true
 L["Disable missing title message"] = true
 L["Mount"] = true
+L["Title"] = true
 L["is missing"] = true
 L["Please inform the author"] = true
 
