@@ -25,6 +25,7 @@ L["Mount"] = true
 L["Title"] = true
 L["is missing"] = true
 L["Please inform the author"] = true
+L["You don't have configured your companion priorities yet. Please open the random companion tab"] = true
 
 -- Mounts
 -- Common Mounts

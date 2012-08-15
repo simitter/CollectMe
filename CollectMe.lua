@@ -167,6 +167,25 @@ function CollectMe:BuildRandomList(listcontainer)
     end
 end
 
+function CollectMe:SummonRandomCompanion()
+    local summonable = {};
+    for i = 1, GetNumCompanions("CRITTER") do
+        local _, _, spell_id = GetCompanionInfo("CRITTER", i);
+        if (self.db.profile.random.companions[spell_id] ~= nil and self.db.profile.random.companions[spell_id] ~= 0) then
+            for j = 1, self.db.profile.random.companions[spell_id] do
+                table.insert(summonable, i);
+            end
+        end
+    end
+
+    if (#summonable > 0) then
+        local call = math.random(1, #summonable - 1);
+        CallCompanion("CRITTER", summonable[call]);
+    else
+        self:Print(self.L["You don't have configured your companion priorities yet. Please open the random companion tab"])
+    end
+end
+
 function CollectMe:BuildList(listcontainer)
     listcontainer:ReleaseChildren()
 
@@ -424,8 +443,12 @@ end
 
  -- CONSOLE COMMAND HANDLER
 function CollectMe:SlashProcessor(input)
-    self.tabs:SelectTab(MOUNT)
-    self.frame:Show()
+    if input == "rc" or input == "randomcompanion" then
+        self:SummonRandomCompanion()
+    else
+        self.tabs:SelectTab(MOUNT)
+        self.frame:Show()
+    end
 end
 
  -- HOOKS
