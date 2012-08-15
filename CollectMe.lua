@@ -6,7 +6,7 @@ local TITLE = 2
 local RANDOM_COMPANION = 3
 local RANDOM_MOUNT = 4
 local MOUNT_FILTERS = { "nlo", "tcg", "pvp", "bsm", "rfm", "ptm" }
-
+local TITLE_FILTERS = { "nlo", "pvp" }
 
 local defaults = {
     profile = {
@@ -22,6 +22,10 @@ local defaults = {
                 bsm = false,
                 rfm = false,
                 ptm = false
+            },
+            titles = {
+                nlo = false,
+                pvp = false
             }
         },
         missing_message = {
@@ -192,11 +196,20 @@ function CollectMe:BuildList(listcontainer)
 end
 
 function CollectMe:IsFiltered(filters)
+    local filter_list, filter_db_setting
+    if self.active_tab == MOUNT then
+        filter_list = MOUNT_FILTERS
+        filter_db_setting = self.db.profile.filters.mounts
+    else
+        filter_list = TITLE_FILTERS
+        filter_db_setting = self.db.profile.filters.titles
+    end
+
     if filters ~= nil then
         for k,v in pairs(filters) do
             if v == 1 then
-                for i = 1, #MOUNT_FILTERS, 1 do
-                    if MOUNT_FILTERS[i] == k and self.db.profile.filters.mounts[MOUNT_FILTERS[i]] == true then
+                for i = 1, #filter_list, 1 do
+                    if filter_list[i] == k and filter_db_setting[filter_list[i]] == true then
                         return true
                     end
                 end
@@ -213,12 +226,21 @@ function CollectMe:BuildFilters(filtercontainer)
     desc:SetFullWidth(true)
     filtercontainer:AddChild(desc)
 
-    for i = 1, #MOUNT_FILTERS, 1 do
+    local filters, filter_db_setting
+    if self.active_tab == MOUNT then
+        filters = MOUNT_FILTERS
+        filter_db_setting = self.db.profile.filters.mounts
+    else
+        filters = TITLE_FILTERS
+        filter_db_setting = self.db.profile.filters.titles
+    end
+
+    for i = 1, #filters, 1 do
         local f = AceGUI:Create("CheckBox")
-        f:SetLabel(self.L["filters_" .. MOUNT_FILTERS[i]])
+        f:SetLabel(self.L["filters_" .. filters[i]])
         f:SetPoint("Top", 15, 15)
-        f:SetValue(self.db.profile.filters.mounts[MOUNT_FILTERS[i]])
-        f:SetCallback("OnValueChanged", function (container, event, value) CollectMe:ToggleFilter(MOUNT_FILTERS[i], value) end)
+        f:SetValue(filter_db_setting[filters[i]])
+        f:SetCallback("OnValueChanged", function (container, event, value) CollectMe:ToggleFilter(filters[i], value) end)
         filtercontainer:AddChild(f)
     end
 end
@@ -240,7 +262,9 @@ function CollectMe:BuildOptions(container)
 end
 
 function CollectMe:ToggleFilter(filter, value)
-    self.db.profile.filters.mounts[filter] = value
+    local filter_db = (self.active_tab == MOUNT and self.db.profile.filters.mounts or self.db.profile.filters.titles)
+
+    filter_db[filter] = value
     self:BuildList(self.scroll)
 end
 

@@ -10,7 +10,7 @@ function CollectMe:BuildTitleDB()
     self:AddTitle(31)  -- Rival
     self:AddTitle(32)  -- Challenger
     self:AddTitle(36)  -- Champion of the Naaru
-    self:AddTitle(37)  -- Merciless Gladiator
+    self:AddTitle(37, { nlo = 1 })  -- Merciless Gladiator
     self:AddTitle(38)  -- of the Shattered Sun
     self:AddTitle(39)  -- Hand of A'dal
     self:AddTitle(40)  -- Vengeful Gladiator
