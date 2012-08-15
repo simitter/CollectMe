@@ -56,11 +56,15 @@ function CollectMe:OnInitialize()
     self.db = LibStub("AceDB-3.0"):New("CollectMeDB", defaults)
     options.args.profiles = LibStub("AceDBOptions-3.0"):GetOptionsTable(self.db)
 
-    self.active_tab = MOUNT
-    self.filter_db = self.db.profile.filters.mounts
-
     self:BuildMountDB()
     self:BuildTitleDB()
+
+    self.active_tab = MOUNT
+    self.filter_db = self.db.profile.filters.mounts
+    self.ignored_db = self.db.profile.ignored.mounts
+    self.item_list = self.MOUNTS
+    self.filter_list = MOUNT_FILTERS
+
     self:BuildUI()
 
     self:RegisterChatCommand("collectme", "SlashProcessor")
@@ -75,8 +79,14 @@ function CollectMe:SelectGroup(container, group)
     self.active_tab = group
     if group == MOUNT then
         self.filter_db = self.db.profile.filters.mounts
+        self.ignored_db = self.db.profile.ignored.mounts
+        self.item_list = self.MOUNTS
+        self.filter_list = MOUNT_FILTERS
     elseif group == TITLE then
         self.filter_db = self.db.profile.filters.titles
+        self.ignored_db = self.db.profile.ignored.titles
+        self.item_list = self.TITLES
+        self.filter_list = TITLE_FILTERS
     end
 
     CollectMe:BuildTab(container)
@@ -138,20 +148,14 @@ end
 function CollectMe:BuildList(listcontainer)
     listcontainer:ReleaseChildren()
 
-    local item_list, ignored_db_setting
     if self.active_tab == MOUNT then
         self:RefreshKnownMounts()
-        item_list = self.MOUNTS
-        ignored_db_setting = self.db.profile.ignored.mounts
-    else
-        item_list = self.TITLES
-        ignored_db_setting = self.db.profile.ignored.titles
     end
 
     local active, ignored = {}, {}
-    local all_count, known_count, filter_count = #item_list, 0, 0
+    local all_count, known_count, filter_count = #self.item_list, 0, 0
 
-    for i,v in ipairs(item_list) do
+    for i,v in ipairs(self.item_list) do
         if (self.active_tab == MOUNT and not self:IsInTable(self.known_mounts, v.id)) or (self.active_tab == TITLE and IsTitleKnown(v.id) ~= 1) then
             local f = self:CreateItemRow()
             if self.active_tab == MOUNT then
@@ -163,7 +167,7 @@ function CollectMe:BuildList(listcontainer)
             f:SetCallback("OnEnter", function (container, event, group) CollectMe:ItemRowEnter(v) end)
             f:SetCallback("OnLeave", function (container, event, group) CollectMe:ItemRowLeave(v) end)
 
-            if self:IsInTable(ignored_db_setting, v.id) then
+            if self:IsInTable(self.ignored_db, v.id) then
                 table.insert(ignored, f)
             else
                 if not self:IsFiltered(v.filters) then
@@ -193,7 +197,7 @@ function CollectMe:BuildList(listcontainer)
         listcontainer:AddChild(ignored[f])
     end
 
-    all_count = all_count - #ignored_db_setting - filter_count
+    all_count = all_count - #self.ignored_db - filter_count
     local percent = self:round(known_count / all_count * 100, 2)
 
     self.frame.statusbar:SetMinMaxValues(0, all_count)
@@ -203,18 +207,11 @@ function CollectMe:BuildList(listcontainer)
 end
 
 function CollectMe:IsFiltered(filters)
-    local filter_list
-    if self.active_tab == MOUNT then
-        filter_list = MOUNT_FILTERS
-    else
-        filter_list = TITLE_FILTERS
-    end
-
     if filters ~= nil then
         for k,v in pairs(filters) do
             if v == 1 then
-                for i = 1, #filter_list, 1 do
-                    if filter_list[i] == k and self.filter_db[filter_list[i]] == true then
+                for i = 1, #self.filter_list, 1 do
+                    if self.filter_list[i] == k and self.filter_db[self.filter_list[i]] == true then
                         return true
                     end
                 end
@@ -231,19 +228,12 @@ function CollectMe:BuildFilters(filtercontainer)
     desc:SetFullWidth(true)
     filtercontainer:AddChild(desc)
 
-    local filters
-    if self.active_tab == MOUNT then
-        filters = MOUNT_FILTERS
-    else
-        filters = TITLE_FILTERS
-    end
-
-    for i = 1, #filters, 1 do
+    for i = 1, #self.filter_list, 1 do
         local f = AceGUI:Create("CheckBox")
-        f:SetLabel(self.L["filters_" .. filters[i]])
+        f:SetLabel(self.L["filters_" .. self.filter_list[i]])
         f:SetPoint("Top", 15, 15)
-        f:SetValue(self.filter_db[filters[i]])
-        f:SetCallback("OnValueChanged", function (container, event, value) CollectMe:ToggleFilter(filters[i], value) end)
+        f:SetValue(self.filter_db[self.filter_list[i]])
+        f:SetCallback("OnValueChanged", function (container, event, value) CollectMe:ToggleFilter(self.filter_list[i], value) end)
         filtercontainer:AddChild(f)
     end
 end
