@@ -132,11 +132,12 @@ function CollectMe:BuildTitleDB()
 
     end
 
+    self:SortTable(self.TITLES)
 end
 
 function CollectMe:AddTitle(id, filters)
     if id ~= nil then
-        local name GetTitleName(id)
+        local name = GetTitleName(id)
 
         table.insert(self.TITLES, {
             id         = id,

@@ -52,6 +52,8 @@ function CollectMe:OnInitialize()
     self.db = LibStub("AceDB-3.0"):New("CollectMeDB", defaults)
     options.args.profiles = LibStub("AceDBOptions-3.0"):GetOptionsTable(self.db)
 
+    self.active_tab = MOUNT
+
     self:BuildMountDB()
     self:BuildTitleDB()
     self:BuildUI()
@@ -65,7 +67,8 @@ end
 
 function CollectMe:SelectGroup(container, group)
     container:ReleaseChildren()
-    CollectMe:BuildTab(container, group)
+    self.active_tab = group
+    CollectMe:BuildTab(container)
 end
 
 function CollectMe:BuildUI()
@@ -84,7 +87,7 @@ function CollectMe:BuildUI()
     self.frame = f
 end
 
-function CollectMe:BuildTab(container, group)
+function CollectMe:BuildTab(container)
     self.frame.statusbar:Hide()
     container:SetLayout("Flow")
 
@@ -111,38 +114,46 @@ function CollectMe:BuildTab(container, group)
     filter:SetLayout("Flow")
     filtercontainer:AddChild(filter)
 
-    if(group == MOUNT) then
-        self:BuildMounts(scroll)
-    elseif(group == TITLE) then
-        --        self:BuildTitles()
+    if(self.active_tab == MOUNT) then
+        self:BuildList(scroll)
+    elseif(self.active_tab == TITLE) then
+        self:BuildList(scroll)
     end
 
     self:BuildFilters(filter)
     self:BuildOptions(filter)
 end
 
-function CollectMe:BuildMounts(listcontainer)
+function CollectMe:BuildList(listcontainer)
     listcontainer:ReleaseChildren()
-    self:RefreshKnownMounts()
 
-    local active_mounts, ignored_mounts = {}, {}
-    local all_count, known_count, filter_count = #self.MOUNTS, 0, 0
+    local item_list, ignored_db_setting
+    if self.active_tab == MOUNT then
+        self:RefreshKnownMounts()
+        item_list = self.MOUNTS
+        ignored_db_setting = self.db.profile.ignored.mounts
+    else
 
-    for i,v in ipairs(self.MOUNTS) do
-        if not self:IsInTable(self.known_mounts, v.spell_id) then
+    end
+
+    local active, ignored = {}, {}
+    local all_count, known_count, filter_count = #item_list, 0, 0
+
+    for i,v in ipairs(item_list) do
+        if (self.active_tab == MOUNT and not self:IsInTable(self.known_mounts, v.id)) or (self.active_tab == TITLE and IsTitleKnown(v.id)) then
             local f = self:CreateItemRow()
             f:SetText(v.name)
             f:SetImage(v.icon)
             f:SetImageSize(36, 36)
-            f:SetCallback("OnClick", function (container, event, group) CollectMe:ItemRowClick(group, v.spell_id) end)
+            f:SetCallback("OnClick", function (container, event, group) CollectMe:ItemRowClick(group, v.id) end)
             f:SetCallback("OnEnter", function (container, event, group) CollectMe:ItemRowEnter(v) end)
             f:SetCallback("OnLeave", function (container, event, group) CollectMe:ItemRowLeave(v) end)
 
-            if self:IsInTable(self.db.profile.ignored.mounts, v.spell_id) then
-                table.insert(ignored_mounts, f)
+            if self:IsInTable(ignored_db_setting, v.id) then
+                table.insert(ignored, f)
             else
                 if not self:IsFiltered(v.filters) then
-                    table.insert(active_mounts, f)
+                    table.insert(active, f)
                 else
                     filter_count = filter_count + 1
                 end
@@ -152,23 +163,23 @@ function CollectMe:BuildMounts(listcontainer)
         end
     end
 
-    local active = AceGUI:Create("Heading")
-    active:SetText(self.L["Active"] .. " - " .. #active_mounts)
-    active:SetFullWidth(true)
-    listcontainer:AddChild(active)
-    for f = 1, #active_mounts, 1 do
-        listcontainer:AddChild(active_mounts[f])
+    local active_heading = AceGUI:Create("Heading")
+    active_heading:SetText(self.L["Active"] .. " - " .. #active)
+    active_heading:SetFullWidth(true)
+    listcontainer:AddChild(active_heading)
+    for f = 1, #active, 1 do
+        listcontainer:AddChild(active[f])
     end
 
-    local ignored = AceGUI:Create("Heading")
-    ignored:SetText(self.L["Ignored"] .. " - " .. #ignored_mounts)
-    ignored:SetFullWidth(true)
-    listcontainer:AddChild(ignored)
-    for f = 1, #ignored_mounts, 1 do
-        listcontainer:AddChild(ignored_mounts[f])
+    local ignored_heading = AceGUI:Create("Heading")
+    ignored_heading:SetText(self.L["Ignored"] .. " - " .. #ignored)
+    ignored_heading:SetFullWidth(true)
+    listcontainer:AddChild(ignored_heading)
+    for f = 1, #ignored, 1 do
+        listcontainer:AddChild(ignored[f])
     end
 
-    all_count = all_count - #self.db.profile.ignored.mounts - filter_count
+    all_count = all_count - #ignored_db_setting - filter_count
     local percent = self:round(known_count / all_count * 100, 2)
 
     self.frame.statusbar:SetMinMaxValues(0, all_count)
@@ -227,7 +238,7 @@ end
 
 function CollectMe:ToggleFilter(filter, value)
     self.db.profile.filters.mounts[filter] = value
-    self:BuildMounts(self.scroll)
+    self:BuildList(self.scroll)
 end
 
 function CollectMe:ItemRowClick(group, spell_id)
@@ -270,7 +281,7 @@ function CollectMe:ItemRowEnter(v)
     tooltip:SetOwner(UIParent, "ANCHOR_CURSOR")
     tooltip:SetHyperlink(v.link)
     tooltip:AddLine(" ")
-    tooltip:AddLine(self.L["mount_" .. v.spell_id], 0, 1, 0, 1)
+    tooltip:AddLine(self.L["mount_" .. v.id], 0, 1, 0, 1)
     if v.filters ~= nil then
         tooltip:AddLine(" ")
         for k,value in pairs(v.filters) do
@@ -301,7 +312,7 @@ end
 
 function CollectMe:GetMountInfo(spell_id)
     for i,v in ipairs(self.MOUNTS) do
-        if v.spell_id == spell_id then
+        if v.id == spell_id then
             return v
         end
     end

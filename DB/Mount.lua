@@ -197,7 +197,7 @@ function CollectMe:AddMount(spell_id, display_id, type, filters, zones)
             name       = name,
             icon       = icon,
             link       = link,
-            spell_id   = spell_id,
+            id         = spell_id,
             display_id = display_id,
             ground     = true,     -- all mounts can walk on ground
             fly        = (type == FLY),
