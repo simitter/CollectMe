@@ -78,6 +78,19 @@ function CollectMe:OnInitialize()
     self:HookScript(DressUpFrameResetButton, "OnClick", "DressUpFrameResetButton")
 end
 
+function CollectMe:OnEnable()
+    self:InitMacro("CollectMeRC", "INV_PET_BABYBLIZZARDBEAR", "/cm rc")
+end
+
+function CollectMe:InitMacro(name, icon, body)
+    local index = GetMacroIndexByName(name)
+    if index == 0 then
+        local id = CreateMacro(name, icon, body, nil);
+    else
+        EditMacro(index, nil, nil, body)
+    end
+end
+
 function CollectMe:SelectGroup(container, group)
     container:ReleaseChildren()
     self.active_tab = group
