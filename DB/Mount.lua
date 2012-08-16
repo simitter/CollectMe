@@ -157,12 +157,15 @@ function CollectMe:BuildMountDB()
 
     -- Paladin Mounts for Humans and Dwarfs
     if self.CLASS == "PALADIN" and (self.RACE == "Human" or self.RACE == "Dwarf") then
-
+        self:AddMount(66906, 28919) -- Argent Charger
+        self:AddMount(23214, 14584) -- Charger
+        self:AddMount(13819, 8469) -- Warhorse
     end
 
     -- Paladin Mounts for Draenei
     if self.CLASS == "PALADIN" and self.RACE == "Draenei" then
-
+        self:AddMount(73629, 31367) -- Exarch's Elekk
+        self:AddMount(73630, 31368) -- Great Exarch's Elekk
     end
 
     -- Paladin Mounts for Blood Elves
@@ -177,12 +180,14 @@ function CollectMe:BuildMountDB()
 
     -- Warlock Mounts
     if self.CLASS == "WARLOCK" then
-
+        self:AddMount(23161, 14554) -- Dreadsteed
+        self:AddMount(5784, 2346) -- Felsteed
     end
 
     -- Death Knight Mounts
     if self.CLASS == "DEATHKNIGHT" then
-
+        self:AddMount(48778, 25280) -- Acherus Deathcharger
+        self:AddMount(54729, 28108) -- Winged Steed of the Ebon Blade
     end
 
     self:SortTable(self.MOUNTS)
@@ -375,14 +380,6 @@ CollectMeHordeMountTable = {
     [71810] = 38361, -- Wrathful Gladiator's Frost Wyrm
 };
 
--- alliance paladin mounts
-CollectMeAlliancePaladinMountTable = {
-    [66906] = 35179, -- Argent Charger
-    [23214] = 14565, -- Charger
-    [13819] = 9158, -- Warhorse
-    [73629] = 39208, -- Exarch's Elekk
-    [73630] = 39209, -- Great Exarch's Elekk
-};
 
 -- horde paladin mounts
 CollectMeHordePaladinMountTable = {
@@ -391,18 +388,6 @@ CollectMeHordePaladinMountTable = {
     [34769] = 20029, -- Horde Warhorse
     [69820] = 36883, -- Sunwalker Kodo
     [69826] = 37059, -- Great Sunwalker Kodo
-};
-
--- warlock mounts
-CollectMeWarlockMountTable = {
-    [23161] = 14505, -- Dreadsteed
-    [5784] = 304, -- Felsteed
-};
-
--- deathknight mounts
-CollectMeDeathknightMountTable = {
-    [48778] = 28302, -- Acherus Deathcharger
-    [54729] = 29582, -- Winged Steed of the Ebon Blade
 };
 
 
