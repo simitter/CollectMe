@@ -111,7 +111,7 @@ function CollectMe:BuildMountDB()
     self:AddMount(102346, 1281)  -- Swift Forest Strider
     self:AddMount(102350, 1961)  -- Swift Lovebird
     self:AddMount(101573, 17011)  -- Swift Shorestrider
-    self:AddMount(37015, 20344)  -- Swift Nether Drake
+    self:AddMount(37015, 20344, FLY)  -- Swift Nether Drake
     self:AddMount(24242, 15289)  -- Swift Razzashi Raptor
     self:AddMount(42777, 21974)  -- Swift Spectral Tiger
     self:AddMount(102349, 16992)  -- Swift Springstrider
@@ -122,27 +122,27 @@ function CollectMe:BuildMountDB()
     self:AddMount(88749, 35134)  -- Tan Riding Camel
     self:AddMount(39318, 21077)  -- Tan Riding Talbuk
     self:AddMount(34899, 19376)  -- Tan War Talbuk
-    self:AddMount(60002, 28045)  -- Time-Lost Proto-Drake
-    self:AddMount(44151, 22720)  -- Turbo-Charged Flying Machine
-    self:AddMount(59571, 27796)  -- Twilight Drake
-    self:AddMount(107844, 39562)  -- Twilight Harbinger
-    self:AddMount(107203, 39530)  -- Tyrael's Charger
+    self:AddMount(60002, 28045, FLY)  -- Time-Lost Proto-Drake
+    self:AddMount(44151, 22720, FLY)  -- Turbo-Charged Flying Machine
+    self:AddMount(59571, 27796, FLY)  -- Twilight Drake
+    self:AddMount(107844, 39562, FLY)  -- Twilight Harbinger
+    self:AddMount(107203, 39530, FLY)  -- Tyrael's Charger
     self:AddMount(92155, 15672)  -- Ultramarine Qiraji Battle Tank
-    self:AddMount(49193, 24725)  -- Vengeful Nether Drake
-    self:AddMount(41517, 21522)  -- Veridian Netherwing Drake
-    self:AddMount(41518, 21524)  -- Violet Netherwing Drake
-    self:AddMount(60024, 28043)  -- Violet Proto-Drake
-    self:AddMount(88746, 35751)  -- Vitreous Stone Drake
-    self:AddMount(88331, 35551)  -- Volcanic Stone Drake
+    self:AddMount(49193, 24725, FLY)  -- Vengeful Nether Drake
+    self:AddMount(41517, 21522, FLY)  -- Veridian Netherwing Drake
+    self:AddMount(41518, 21524, FLY)  -- Violet Netherwing Drake
+    self:AddMount(60024, 28043, FLY)  -- Violet Proto-Drake
+    self:AddMount(88746, 35751, FLY)  -- Vitreous Stone Drake
+    self:AddMount(88331, 35551, FLY)  -- Volcanic Stone Drake
     self:AddMount(54753, 28428)  -- White Polar Bear Mount
     self:AddMount(39319, 21076 )  -- White Riding Camel
     self:AddMount(102488, nil)  -- White Riding Talbuk
     self:AddMount(34897, 19377)  -- White War Talbuk
-    self:AddMount(98727, 38260)  -- Winged Guardian
+    self:AddMount(98727, 38260, FLY)  -- Winged Guardian
     self:AddMount(74918, 31721)  -- Wooly White Rhino
-    self:AddMount(46197, 23656)  -- X-51 Nether-Rocket
-    self:AddMount(46199, 23647)  -- X-51 Nether-Rocket X-TREME
-    self:AddMount(75973, 31992)  -- X-53 Touring Rocket
+    self:AddMount(46197, 23656, FLY)  -- X-51 Nether-Rocket
+    self:AddMount(46199, 23647, FLY)  -- X-51 Nether-Rocket X-TREME
+    self:AddMount(75973, 31992, FLY)  -- X-53 Touring Rocket
     self:AddMount(26055, 15680)  -- Yellow Qiraji Battle Tank
 
     -- Alliance Mounts
