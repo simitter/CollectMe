@@ -61,7 +61,7 @@ function CollectMe:BuildMountDB()
     self:AddMount(101542, 38783, FLY)   -- Flametalon of Alysrazor
     self:AddMount(97359, 38018, FLY)   -- Flameward Hippogryph
     self:AddMount(61451, 28082, FLY)   -- Flying Carpet
-    self:AddMount(44153, 22719, FLY)   -- Flying Machine
+    self:AddMount(44153, 22719, FLY, { eng = 1 })   -- Flying Machine
     self:AddMount(84751, 34410)   -- Fossilized Raptor
     self:AddMount(75596, 28063, FLY)   -- Frosty Flying Carpet
     self:AddMount(65439, 25593, FLY)   -- Furious Gladiator's Frost Wyrm
@@ -122,8 +122,8 @@ function CollectMe:BuildMountDB()
     self:AddMount(88749, 35134)  -- Tan Riding Camel
     self:AddMount(39318, 21077)  -- Tan Riding Talbuk
     self:AddMount(34899, 19376)  -- Tan War Talbuk
-    self:AddMount(60002, 28045, FLY)  -- Time-Lost Proto-Drake
-    self:AddMount(44151, 22720, FLY)  -- Turbo-Charged Flying Machine
+    self:AddMount(60002, 28045, FLY)  -- Time-Lost Proto-Drake 
+    self:AddMount(44151, 22720, FLY, { eng = 1 })  -- Turbo-Charged Flying Machine
     self:AddMount(59571, 27796, FLY)  -- Twilight Drake
     self:AddMount(107844, 39562, FLY)  -- Twilight Harbinger
     self:AddMount(107203, 39530, FLY)  -- Tyrael's Charger
@@ -480,12 +480,6 @@ CollectMeMountFilter = {
     -- promotional mounts
     ["ptm"] = {
         [107203] = 56921, -- Tyrael's Charger
-    },
-        
-    -- Eng mounts
-    ["eng"] = {
-        [44153] = 24653, -- Flying Machine
-        [44151] = 24654, -- Turbo-Charged Flying Machine
     },
         
     -- Tailoring mounts
