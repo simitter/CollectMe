@@ -164,18 +164,23 @@ function CollectMe:BuildMountDB()
 
     -- Paladin Mounts for Draenei
     if self.CLASS == "PALADIN" and self.RACE == "Draenei" then
+        self:AddMount(66906, 28919) -- Argent Charger
         self:AddMount(73629, 31367) -- Exarch's Elekk
         self:AddMount(73630, 31368) -- Great Exarch's Elekk
     end
 
     -- Paladin Mounts for Blood Elves
     if self.CLASS == "PALADIN" and self.RACE == "BloodElf" then
-
+        self:AddMount(66906, 28919) -- Argent Charger
+        self:AddMount(34767, 19085) -- Horde Charger
+        self:AddMount(34769, 19296) -- Horde Warhorse
     end
 
     -- Paladin Mounts for Tauren
     if self.CLASS == "PALADIN" and self.RACE == "Tauren" then
-
+        self:AddMount(66906, 28919) -- Argent Charger
+        self:AddMount(69826, 30501) -- Great Sunwalker Kodo
+        self:AddMount(69820, 30366) -- Sunwalker Kodo
     end
 
     -- Warlock Mounts
@@ -378,16 +383,6 @@ CollectMeHordeMountTable = {
     [65645] = 34552, -- White Skeletal Warhorse
     [59793] = 31852, -- Wooly Mammoth
     [71810] = 38361, -- Wrathful Gladiator's Frost Wyrm
-};
-
-
--- horde paladin mounts
-CollectMeHordePaladinMountTable = {
-    [66906] = 35179, -- Argent Charger
-    [34767] = 20030, -- Horde Charger
-    [34769] = 20029, -- Horde Warhorse
-    [69820] = 36883, -- Sunwalker Kodo
-    [69826] = 37059, -- Great Sunwalker Kodo
 };
 
 
