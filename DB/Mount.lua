@@ -95,13 +95,13 @@ function CollectMe:BuildMountDB()
     self:AddMount(26054, 15681)  -- Red Qiraji Battle Tank
     self:AddMount(39800, 21158, FLY)  -- Red Riding Nether Ray
     self:AddMount(67336, 29794, FLY)  -- Relentless Gladiator's Frost Wyrm
-    self:AddMount(30174, 17158)  -- Riding Turtle
+    self:AddMount(30174, 17158, SWIM)  -- Riding Turtle
     self:AddMount(17481, 10718)  -- Rivendare's Deathcharger
     self:AddMount(63963, 28954, FLY)  -- Rusted Proto-Drake
     self:AddMount(101821, 38755, FLY)  -- Ruthless Gladiator's Twilight Drake
     self:AddMount(93326, 35750, FLY)  -- Sandstone Drake
     self:AddMount(97581, 38048)  -- Savage Raptor
-    self:AddMount(64731, 29161)  -- Sea Turtle
+    self:AddMount(64731, 29161, SWIM)  -- Sea Turtle
     self:AddMount(39802, 21157, FLY)  -- Silver Riding Nether Ray
     self:AddMount(39317, 21075)  -- Silver Riding Talbuk
     self:AddMount(34898, 19378)  -- Silver War Talbuk
