@@ -192,7 +192,7 @@ function CollectMe:BuildMountDB()
     -- Death Knight Mounts
     if self.CLASS == "DEATHKNIGHT" then
         self:AddMount(48778, 25280) -- Acherus Deathcharger
-        self:AddMount(54729, 28108) -- Winged Steed of the Ebon Blade
+        self:AddMount(54729, 28108, FLY) -- Winged Steed of the Ebon Blade
     end
 
     self:SortTable(self.MOUNTS)
