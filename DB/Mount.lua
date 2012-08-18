@@ -148,6 +148,18 @@ function CollectMe:BuildMountDB()
     -- Alliance Mounts
     if self.FACTION == "Alliance" then
         self:AddMount(60114, 27820) -- Armored Brown Bear
+        self:AddMount(61229, 27913, FLY) -- Armored Snowy Gryphon
+        self:AddMount(22719, 14372) -- Black Battlestrider
+        self:AddMount(470, 2402)   -- Black Stallion Bridle
+        self:AddMount(60118, 27818) -- Black War Bear
+        self:AddMount(48027, 23928) -- Black War Elekk
+        self:AddMount(59785, 27247) -- Black War Mammoth
+        self:AddMount(22720, 14577) -- Black War Ram
+        self:AddMount(22717, 14337) -- Black War Steed
+        self:AddMount(22723, 14330) -- Black War Tiger
+        self:AddMount(61996, 27525, FLY) -- Blue Dragonhawk
+        self:AddMount(10969, 6569) -- Blue Mechanostrider
+        self:AddMount(34406, 17063) -- Brown Elekk
     end
 
     -- Horde Mounts
