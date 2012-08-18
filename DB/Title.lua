@@ -5,30 +5,30 @@ CollectMe.TITLE_SPELLS = {}
 
 function CollectMe:BuildTitleDB()
     -- Common Titles
-    self:AddTitle(29, {nlo = 1, pvp = 1})  -- Gladiator
+    self:AddTitle(29, {nlo = 1, are = 1})  -- Gladiator
     self:AddTitle(30, {pvp = 1})  -- Duelist
     self:AddTitle(31, {pvp = 1})  -- Rival
     self:AddTitle(32, {pvp = 1})  -- Challenger
     self:AddTitle(33, {nlo = 1})  -- Scarab Lord
     self:AddTitle(36, {nlo = 1})  -- Champion of the Naaru
-    self:AddTitle(37, {nlo = 1, pvp = 1})  -- Merciless Gladiator
+    self:AddTitle(37, {nlo = 1, are = 1})  -- Merciless Gladiator
     self:AddTitle(38)  -- of the Shattered Sun
     self:AddTitle(39, {nlo = 1})  -- Hand of A'dal
-    self:AddTitle(40, {nlo = 1, pvp = 1})  -- Vengeful Gladiator
+    self:AddTitle(40, {nlo = 1, are = 1})  -- Vengeful Gladiator
     self:AddTitle(41)  -- Battlemaster
     self:AddTitle(42)  -- the Seeker
     self:AddTitle(43)  -- Elder
     self:AddTitle(46)  -- the Exalted
     self:AddTitle(47)  -- the Explorer
     self:AddTitle(48)  -- the Diplomat
-    self:AddTitle(49, {nlo = 1, pvp = 1})  -- Brutal Gladiator
+    self:AddTitle(49, {nlo = 1, are = 1})  -- Brutal Gladiator
     self:AddTitle(50)  -- Arena Master
     self:AddTitle(51)  -- Salty
     self:AddTitle(52)  -- Chef
     self:AddTitle(53, {nlo = 1})  -- the Supreme
     self:AddTitle(54, {nlo = 1})  -- of the Ten Storms
     self:AddTitle(55, {nlo = 1})  -- of the Emerald Dream
-    self:AddTitle(56, {nlo = 1, pvp = 1})  -- Deadly Gladiator
+    self:AddTitle(56, {nlo = 1, are = 1})  -- Deadly Gladiator
     self:AddTitle(57, {nlo = 1})  -- Prophet
     self:AddTitle(58, {nlo = 1})  -- the Malefic
     self:AddTitle(59, {nlo = 1})  -- Stalker
@@ -88,13 +88,13 @@ function CollectMe:BuildTitleDB()
     self:AddTitle(125, {nlo = 1}) -- the Celestial Defender
     self:AddTitle(126) -- Conqueror of Ulduar
     self:AddTitle(127) -- Champion of Ulduar
-    self:AddTitle(128, { nlo = 1, pvp = 1 }) -- Vanquisher
+    self:AddTitle(128, { nlo = 1, are = 1 }) -- Vanquisher
     self:AddTitle(129) -- Starcaller
     self:AddTitle(130) -- the Astral Walker
     self:AddTitle(131) -- Herald of the Titans
-    self:AddTitle(132, {nlo = 1, pvp = 1}) -- Furious Gladiator
+    self:AddTitle(132, {nlo = 1, are = 1}) -- Furious Gladiator
     self:AddTitle(133) -- the Pilgrim
-    self:AddTitle(134, {nlo = 1, pvp = 1}) -- Relentless Gladiator
+    self:AddTitle(134, {nlo = 1, are = 1}) -- Relentless Gladiator
     self:AddTitle(135, {nlo = 1}) -- Grand Crusader
     self:AddTitle(136) -- the Argent Defender
     self:AddTitle(137) -- the Patient
@@ -102,7 +102,7 @@ function CollectMe:BuildTitleDB()
     self:AddTitle(139) -- Bane of the Fallen King
     self:AddTitle(140) -- the Kingslayer
     self:AddTitle(141) -- of the Ashen Verdict
-    self:AddTitle(142, {nlo = 1, pvp = 1}) -- Wrathful Gladiator
+    self:AddTitle(142, {nlo = 1, are = 1}) -- Wrathful Gladiator
     self:AddTitle(143) -- the Camel-Hoarder
     self:AddTitle(146, {nlo = 1}) -- Blessed Defender of Nordrassil", -- [1
     self:AddTitle(147, {nlo = 1}) -- Slayer of Stupid, Incompetent and Disa
@@ -117,8 +117,8 @@ function CollectMe:BuildTitleDB()
     self:AddTitle(188) -- Avenger of Hyjal
     self:AddTitle(189) -- the Flamebreaker
     self:AddTitle(190) -- Firelord
-    self:AddTitle(191, {nlo = 1, pvp = 1}) -- Vicious Gladiator
-    self:AddTitle(192, {nlo = 1, pvp = 1}) -- Ruthless Gladiator
+    self:AddTitle(191, {nlo = 1, are = 1}) -- Vicious Gladiator
+    self:AddTitle(192, {nlo = 1, are = 1}) -- Ruthless Gladiator
     self:AddTitle(193, {pvp = 1}) -- Cataclysmic Gladiator
     self:AddTitle(194) -- Savior of Azeroth
     self:AddTitle(196) -- Destroyer's End
