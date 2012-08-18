@@ -10,7 +10,7 @@ local AQUATIC = 4
 
 function CollectMe:BuildMountDB()
     -- Common Mounts
-    self:AddMount(75207, 34956, AQUATIC) -- Abyssal Seahorse
+    self:AddMount(75207, 34956, AQUATIC, {}, { 614, 615, 610 }) -- Abyssal Seahorse
     self:AddMount(60025, 25836, FLY) -- Albino Drake
     self:AddMount(96503, 37800, FLY) -- Amani Dragonhawk
     self:AddMount(98204, 38261) -- Amani Battle Bear
@@ -209,11 +209,7 @@ function CollectMe:AddMount(spell_id, display_id, type, filters, zones)
             link       = link,
             id         = spell_id,
             display_id = display_id,
-            ground     = true,     -- all mounts can walk on ground
-            fly        = (type == FLY),
-            swim       = (type == SWIM),
-            aquatic    = (type == AQUATIC),
-            primary    = (type == nil and GROUND or type),
+            type       = (type == nil and GROUND or type),
             filters    = filters,
             zones      = zones
         })

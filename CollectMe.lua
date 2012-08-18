@@ -8,6 +8,11 @@ local RANDOM_MOUNT = 4
 local MOUNT_FILTERS = { "nlo", "tcg", "pvp", "bsm", "rfm", "ptm" }
 local TITLE_FILTERS = { "nlo", "pvp" }
 
+local GROUND = 1
+local FLY = 2
+local SWIM = 3
+local AQUATIC = 4
+
 local defaults = {
     profile = {
         ignored = {
@@ -212,16 +217,95 @@ function CollectMe:SummonRandomCompanion()
         local _, _, spell_id = GetCompanionInfo("CRITTER", i);
         if (self.db.profile.random.companions[spell_id] ~= nil and self.db.profile.random.companions[spell_id] ~= 0) then
             for j = 1, self.db.profile.random.companions[spell_id] do
-                table.insert(summonable, i);
+                table.insert(summonable, i)
             end
         end
     end
 
     if (#summonable > 0) then
-        local call = math.random(1, #summonable - 1);
-        CallCompanion("CRITTER", summonable[call]);
+        local call = math.random(1, #summonable)
+        CallCompanion("CRITTER", summonable[call])
     else
         self:Print(self.L["You don't have configured your companion priorities yet. Please open the random companion tab"])
+    end
+end
+
+function CollectMe:GetCurrentZone()
+    SetMapToCurrentZone()
+    return GetCurrentMapAreaID()
+end
+
+function CollectMe:SummonRandomMount()
+    if not IsMounted() then
+        local zone_mounts, type_mounts, fallback_mounts = {}, {}, {}
+        local zone_id, is_swimming, is_flyable_area = self:GetCurrentZone(), IsSwimming(), IsFlyableArea()
+        for i = 1, GetNumCompanions("MOUNT") do
+            local _, name, spell_id = GetCompanionInfo("MOUNT", i);
+
+            -- check if current mount is in priority pool and if it is usable here
+            if self.db.profile.random.mounts[spell_id] ~= nil and self.db.profile.random.mounts[spell_id] ~= 0 and IsUsableSpell(spell_id) ~= nil then
+
+                -- get info table from mount db
+                local info = self:GetMountInfo(spell_id)
+                if info == nil then
+                    info = {
+                        type = GROUND, --mount not known, assuming it' is a ground mount
+                        name    = name,
+                        id      = spell_id
+                    }
+                end
+
+                -- setting up zone table (aquatic handled by that too currently)
+                if(info.zones ~= nil and self:IsInTable(info.zones, zone_id)) then
+                    self:InsertMount(zone_mounts, spell_id, i)
+                end
+
+                if #zone_mounts == 0 then
+                    -- swimming mounts
+                    if is_swimming == 1 then
+                        if info.type == SWIM or (self.db.profile.summon.mounts.flying_in_water == true and info.type == FLY and is_flyable_area == 1) then
+                            self:InsertMount(type_mounts, spell_id, i)
+                        end
+                    -- flying mounts
+                    elseif is_flyable_area == 1 then
+                        if info.type == FLY then
+                            self:InsertMount(type_mounts, spell_id, i)
+                        end
+                    end
+
+                    if #type_mounts == 0 then
+                        -- fallback mounts
+                        if info.type == GROUND or (self.db.profile.summon.mounts.flying_on_ground  == true and info.type == FLY) then
+                            self:InsertMount(fallback_mounts, spell_id, i)
+                        end
+                    end
+                end
+            end
+        end
+
+        if #zone_mounts > 0 then
+            self:Mount(zone_mounts)
+        elseif #type_mounts > 0 then
+            self:Mount(type_mounts)
+        elseif #fallback_mounts > 0 then
+            self:Mount(fallback_mounts)
+        else
+            self:Print(self.L["You don't have configured your mount priorities yet. Please open the random mount tab"])
+        end
+
+    elseif self.db.profile.summon.mounts.no_dismount == false then
+        Dismount()
+    end
+end
+
+function CollectMe:Mount(t)
+    local call = math.random(1, #t);
+    CallCompanion("MOUNT", t[call]);
+end
+
+function CollectMe:InsertMount(t, id, insert)
+    for j = 1, self.db.profile.random.mounts[id] do
+        table.insert(t, insert)
     end
 end
 
@@ -511,6 +595,10 @@ end
 function CollectMe:SlashProcessor(input)
     if input == "rc" or input == "randomcompanion" then
         self:SummonRandomCompanion()
+    elseif input == "rm" or input == "randommount" then
+        self:SummonRandomMount()
+    elseif input == "debug zone" then
+        self:Print(self:GetCurrentZone())
     else
         self.tabs:SelectTab(MOUNT)
         self.frame:Show()
