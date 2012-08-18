@@ -173,6 +173,17 @@ function CollectMe:BuildMountDB()
         self:AddMount(61465, 27241) -- Grand Black War Mammoth
         self:AddMount(61470, 27242) -- Grand Ice Mammoth
         self:AddMount(35710, 19869) -- Gray Elekk
+        self:AddMount(6777, 2736)  -- Gray Ram
+        self:AddMount(35713, 19871) -- Great Blue Elekk
+        self:AddMount(35712, 19873) -- Great Green Elekk
+        self:AddMount(35714, 19872) -- Great Purple Elekk
+        self:AddMount(65637, 28606) -- Great Red Elekk
+        self:AddMount(17453, 10661) -- Green Mechanostrider
+        self:AddMount(59799, 27248) -- Ice Mammoth
+        self:AddMount(63636, 29258) -- Ironforge Ram
+        self:AddMount(60424, 25870) -- Mekgineer's Chopper
+        self:AddMount(103195, 39096) -- Mountain Horse
+        self:AddMount(472, 2409)   -- Pinto
     end
 
     -- Horde Mounts
@@ -245,17 +256,6 @@ end
 
 -- alliance mounts
 CollectMeAllianceMountTable = {
-    [6777] = 12373, -- Gray Ram
-    [35713] = 20848, -- Great Blue Elekk
-    [35712] = 20849, -- Great Green Elekk
-    [35714] = 20850, -- Great Purple Elekk
-    [65637] = 34551, -- Great Red Elekk
-    [17453] = 11147, -- Green Mechanostrider
-    [59799] = 31855, -- Ice Mammoth
-    [63636] = 33408, -- Ironforge Ram
-    [60424] = 32286, -- Mekgineer's Chopper
-    [103195] = 55272, -- Mountain Horse
-    [472] = 307, -- Pinto
     [35711] = 20847, -- Purple Elekk
     [66090] = 33840, -- Quel'dorei Steed
     [10873] = 7739, -- Red Mechanostrider
