@@ -1,15 +1,16 @@
 ----
 **2.0**
-*complete recode of the addon
-*new UI
-*removed companion list (replaced by Blizzard Pet Journal)
-*new filters and options
-*random mount summoning
-*removed pet summoning button (replaced by macro)
-*preview by using dressing room and display id's - no more cache
-*improved tooltips
-*mounts linkable to chat
-*full translation support
+*Complete recode of the addon, with a new UI
+*Removed companion list (replaced by Blizzard Pet Journal)
+*Filters and options are now more easily accessible
+*Random mount summoning (using a macro)
+*Removed pet summoning button (replaced by a macro)
+*Added preview by using dressing room and display id's - no more cache
+*Mounts linkable to chat
+*Added translation support (English, German currently implemented)
+*Added feature to ctrl+left click mounts, companions in chat to view their models
+*Updated info for Recruit a Friend mounts (Mount)
+*Added Obsidian Nightwing (Mount)
 
 ----
 **1.3.5**
