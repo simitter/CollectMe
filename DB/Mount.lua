@@ -38,7 +38,7 @@ function CollectMe:BuildMountDB()
     self:AddMount(59569, 25833, FLY) -- Bronze Drake
     self:AddMount(88748, 35136) -- Brown Riding Camel
     self:AddMount(58615, 27507, FLY) -- Brutal Nether Drake
-    self:AddMount(75614, 31958, FLY) -- Celestial Steed
+    self:AddMount(75614, 31958, FLY, { bsm = 1 }) -- Celestial Steed
     self:AddMount(43927, 22473, FLY) -- Cenarion War Hippogryph
     self:AddMount(41515, 21525, FLY) -- Cobalt Netherwing Drake
     self:AddMount(39315, 21073) -- Cobalt Riding Talbuk
@@ -70,7 +70,7 @@ function CollectMe:BuildMountDB()
     self:AddMount(26056, 15679)   -- Green Qiraji Battle Tank
     self:AddMount(39798, 21152, FLY)   -- Green Riding Nether Ray
     self:AddMount(88750, 35135)   -- Grey Riding Camel
-    self:AddMount(110051, 40029, FLY)  -- Heart of the Aspects
+    self:AddMount(110051, 40029, FLY, { bsm = 1 })  -- Heart of the Aspects
     self:AddMount(48025, 25159, FLY)  -- Headless Horseman's Mount
     self:AddMount(72807, 31154, FLY)  -- Icebound Frostbrood Vanquisher
     self:AddMount(72286, 31007, FLY)  -- Invincible
@@ -81,7 +81,7 @@ function CollectMe:BuildMountDB()
     self:AddMount(44744, 22620, FLY)  -- Merciless Nether Drake
     self:AddMount(63796, 28890, FLY)  -- Mimiron's Head
     self:AddMount(93623, 37231, FLY)  -- Mottled Drake
-    self:AddMount(121820, nil, FLY)  -- Obsidian Nightwing
+    self:AddMount(121820, nil, FLY, { rfm = 1 })  -- Obsidian Nightwing
     self:AddMount(69395, 30346, FLY)  -- Onyxian Drake
     self:AddMount(41513, 21520, FLY)  -- Onyx Netherwing Drake
     self:AddMount(88718, 35740, FLY)  -- Phosphorescent Stone Drake
@@ -116,7 +116,7 @@ function CollectMe:BuildMountDB()
     self:AddMount(42777, 21974)  -- Swift Spectral Tiger
     self:AddMount(102349, 16992)  -- Swift Springstrider
     self:AddMount(46628, 19483)  -- Swift White Hawkstrider
-    self:AddMount(49322, 24745)  -- Swift Zhevra
+    self:AddMount(49322, 24745, FLY, { rfm = 1 })  -- Swift Zhevra
     self:AddMount(96499, 37799)  -- Swift Zulian Panther
     self:AddMount(24252, 15290)  -- Swift Zulian Tiger
     self:AddMount(88749, 35134)  -- Tan Riding Camel
@@ -138,11 +138,11 @@ function CollectMe:BuildMountDB()
     self:AddMount(39319, 21076 )  -- White Riding Camel
     self:AddMount(102488, nil)  -- White Riding Talbuk
     self:AddMount(34897, 19377)  -- White War Talbuk
-    self:AddMount(98727, 38260, FLY)  -- Winged Guardian
+    self:AddMount(98727, 38260, FLY, { bsm = 1 })  -- Winged Guardian
     self:AddMount(74918, 31721)  -- Wooly White Rhino
     self:AddMount(46197, 23656, FLY)  -- X-51 Nether-Rocket
     self:AddMount(46199, 23647, FLY)  -- X-51 Nether-Rocket X-TREME
-    self:AddMount(75973, 31992, FLY)  -- X-53 Touring Rocket
+    self:AddMount(75973, 31992, FLY, { rfm = 1 })  -- X-53 Touring Rocket
     self:AddMount(26055, 15680)  -- Yellow Qiraji Battle Tank
 
     -- Alliance Mounts
@@ -457,20 +457,6 @@ CollectMeMountFilter = {
         [35028] = 20225, -- Swift Warstrider
         [49193] = 27637, -- Vengeful Nether Drake
         [71810] = 38361, -- Wrathful Gladiator's Frost Wyrm
-    },
-
-    -- blizzard store mounts
-    ["bsm"] = {
-        [75614] = 40625, -- Celestial Steed
-        [110051] = 58169, -- Heart of the Aspects
-        [98727] = 53273, -- Winged Guardian
-    },
-
-    -- recruit a friend mounts
-    ["rfm"] = {
-        [49322] = 27684, -- Swift Zhevra
-        [75973] = 40725, -- X-53 Touring Rocket
-        [121820] = 62454, -- Obsidian Nightwing
     },
 
     -- promotional mounts
