@@ -160,6 +160,19 @@ function CollectMe:BuildMountDB()
         self:AddMount(61996, 27525, FLY) -- Blue Dragonhawk
         self:AddMount(10969, 6569) -- Blue Mechanostrider
         self:AddMount(34406, 17063) -- Brown Elekk
+        self:AddMount(458, 2404)   -- Brown Horse
+        self:AddMount(6899, 2785)  -- Brown Ram
+        self:AddMount(6648, 2405)  -- Chestnut Mare
+        self:AddMount(68187, 29937) -- Crusader's White Warhorse
+        self:AddMount(63637, 29256) -- Darnassian Nightsaber
+        self:AddMount(32239, 17694, FLY) -- Ebon Gryphon
+        self:AddMount(63639, 29255) -- Exodar Elekk
+        self:AddMount(63638, 28571) -- Gnomeregan Mechanostrider
+        self:AddMount(32235, 17697, FLY) -- Golden Gryphon
+        self:AddMount(90621, 36213) -- Golden King
+        self:AddMount(61465, 27241) -- Grand Black War Mammoth
+        self:AddMount(61470, 27242) -- Grand Ice Mammoth
+        self:AddMount(35710, 19869) -- Gray Elekk
     end
 
     -- Horde Mounts
@@ -232,31 +245,6 @@ end
 
 -- alliance mounts
 CollectMeAllianceMountTable = {
-    [61229] = 32335, -- Armored Snowy Gryphon
-    [22719] = 14334, -- Black Battlestrider
-    [470] = 308, -- Black Stallion Bridle
-    [60118] = 32203, -- Black War Bear
-    [48027] = 26439, -- Black War Elekk
-    [59785] = 31849, -- Black War Mammoth
-    [22720] = 14335, -- Black War Ram
-    [22717] = 14332, -- Black War Steed
-    [22723] = 14336, -- Black War Tiger
-    [61996] = 31239, -- Blue Dragonhawk
-    [10969] = 7749, -- Blue Mechanostrider
-    [34406] = 19658, -- Brown Elekk
-    [458] = 284, -- Brown Horse
-    [6899] = 4779, -- Brown Ram
-    [6648] = 4269, -- Chestnut Mare
-    [68187] = 35876, -- Crusader's White Warhorse
-    [63637] = 33298, -- Darnassian Nightsaber
-    [32239] = 20503, -- Ebon Gryphon
-    [63639] = 33416, -- Exodar Elekk
-    [63638] = 33301, -- Gnomeregan Mechanostrider
-    [32235] = 18360, -- Golden Gryphon
-    [90621] = 48632, -- Golden King
-    [61465] = 31862, -- Grand Black War Mammoth
-    [61470] = 31858, -- Grand Ice Mammoth
-    [35710] = 20846, -- Gray Elekk
     [6777] = 12373, -- Gray Ram
     [35713] = 20848, -- Great Blue Elekk
     [35712] = 20849, -- Great Green Elekk
