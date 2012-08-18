@@ -12,7 +12,7 @@ function CollectMe:BuildMountDB()
     -- Common Mounts
     self:AddMount(75207, 34956, AQUATIC, {}, { 614, 615, 610 }) -- Abyssal Seahorse
     self:AddMount(60025, 25836, FLY) -- Albino Drake
-    self:AddMount(96503, 37800, FLY) -- Amani Dragonhawk
+    self:AddMount(96503, 37800, FLY, { tcg = 1 }) -- Amani Dragonhawk
     self:AddMount(98204, 38261) -- Amani Battle Bear
     self:AddMount(43688, 22464, GROUND, { nlo = 1 }) -- Amani War Bear
     self:AddMount(63844, 22471) -- Argent Hippogryph
@@ -21,14 +21,14 @@ function CollectMe:BuildMountDB()
     self:AddMount(40192, 17890, FLY) -- Ashes of Al'ar
     self:AddMount(41514, 21521, FLY) -- Azure Netherwing Drake
     self:AddMount(59567, 27785, FLY) -- Azure Drake
-    self:AddMount(51412, 25335) -- Big Battle Bear
+    self:AddMount(51412, 25335, GROUND, { tcg = 1 }) -- Big Battle Bear
     self:AddMount(58983, 27567, GROUND, { nlo = 1 }) -- Big Blizzard Bear
     self:AddMount(71342, 30989, FLY) -- Big Love Rocket
     self:AddMount(59650, 25831, FLY) -- Black Drake
     self:AddMount(59976, 28040, FLY) -- Black Proto-Drake
     self:AddMount(26656, 15676, GROUND, {}, { 766 }) -- Black Qiraji Battle Tank
     self:AddMount(107842, 39561, FLY) -- Blazing Drake
-    self:AddMount(74856, 31803, FLY) -- Blazing Hippogryph
+    self:AddMount(74856, 31803, FLY, { tcg = 1 }) -- Blazing Hippogryph
     self:AddMount(72808, 31156, FLY) -- Bloodbathed Frostbrood Vanquisher
     self:AddMount(59568, 25832, FLY) -- Blue Drake
     self:AddMount(59996, 28041, FLY) -- Blue Proto-Drake
@@ -44,7 +44,7 @@ function CollectMe:BuildMountDB()
     self:AddMount(39315, 21073) -- Cobalt Riding Talbuk
     self:AddMount(34896, 19375) -- Cobalt War Talbuk
     self:AddMount(97560, 38046, FLY) -- Corrupted Fire Hawk
-    self:AddMount(102514, 38972, FLY)  -- Corrupted Hippogryph
+    self:AddMount(102514, 38972, FLY, { tcg = 1 })  -- Corrupted Hippogryph
     self:AddMount(73313, 25279)  -- Crimson Deathcharger
     self:AddMount(88990, 37145, FLY)  -- Dark Phoenix
     self:AddMount(39316, 21074, GROUND, { pvp = 1 })  -- Dark Riding Talbuk
@@ -56,7 +56,7 @@ function CollectMe:BuildMountDB()
     self:AddMount(88744, 35755, FLY)         -- Drake of the South Wind
     self:AddMount(88741, 35754, FLY)         -- Drake of the West Wind
     self:AddMount(110039, 39229, FLY)   -- Experiment 12-B
-    self:AddMount(113120, nil, FLY)   -- Feldrake
+    self:AddMount(113120, nil, FLY, { tcg = 1 })   -- Feldrake
     self:AddMount(36702, 19250)   -- Fiery Warhorse
     self:AddMount(101542, 38783, FLY)   -- Flametalon of Alysrazor
     self:AddMount(97359, 38018, FLY)   -- Flameward Hippogryph
@@ -76,11 +76,11 @@ function CollectMe:BuildMountDB()
     self:AddMount(72286, 31007, FLY)  -- Invincible
     self:AddMount(63956, 28953, FLY)  -- Ironbound Proto-Drake
     self:AddMount(107845, 39563, FLY)  -- Life-Binder's Handmaiden
-    self:AddMount(65917, 29344)  -- Magic Rooster
+    self:AddMount(65917, 29344, GROUND, { tcg = 1 })  -- Magic Rooster
     self:AddMount(61309, 28060, FLY)  -- Magnificent Flying Carpet
     self:AddMount(44744, 22620, FLY, { are = 1, nlo = 1})  -- Merciless Nether Drake
     self:AddMount(63796, 28890, FLY)  -- Mimiron's Head
-    self:AddMount(93623, 37231, FLY)  -- Mottled Drake
+    self:AddMount(93623, 37231, FLY, { tcg = 1 })  -- Mottled Drake
     self:AddMount(121820, nil, FLY, { rfm = 1 })  -- Obsidian Nightwing
     self:AddMount(69395, 30346, FLY)  -- Onyxian Drake
     self:AddMount(41513, 21520, FLY)  -- Onyx Netherwing Drake
@@ -95,25 +95,25 @@ function CollectMe:BuildMountDB()
     self:AddMount(26054, 15681, GROUND, {}, { 766 })  -- Red Qiraji Battle Tank
     self:AddMount(39800, 21158, FLY)  -- Red Riding Nether Ray
     self:AddMount(67336, 29794, FLY, { are = 1, nlo = 1})  -- Relentless Gladiator's Frost Wyrm
-    self:AddMount(30174, 17158, SWIM)  -- Riding Turtle
+    self:AddMount(30174, 17158, SWIM, { tcg = 1 })  -- Riding Turtle
     self:AddMount(17481, 10718)  -- Rivendare's Deathcharger
     self:AddMount(63963, 28954, FLY)  -- Rusted Proto-Drake
     self:AddMount(101821, 38755, FLY, { are = 1 })  -- Ruthless Gladiator's Twilight Drake
     self:AddMount(93326, 35750, FLY)  -- Sandstone Drake
-    self:AddMount(97581, 38048)  -- Savage Raptor
+    self:AddMount(97581, 38048, GROUND, { tcg = 1 })  -- Savage Raptor
     self:AddMount(64731, 29161, SWIM)  -- Sea Turtle
     self:AddMount(39802, 21157, FLY)  -- Silver Riding Nether Ray
     self:AddMount(39317, 21075)  -- Silver Riding Talbuk
     self:AddMount(34898, 19378)  -- Silver War Talbuk
-    self:AddMount(42776, 21973)  -- Spectral Tiger
+    self:AddMount(42776, 21973, GROUND, { tcg = 1 })  -- Spectral Tiger
     self:AddMount(98718, 34955, AQUATIC)  -- Subdued Seahorse
     self:AddMount(43900, 22350)  -- Swift Brewfest Ram
     self:AddMount(102346, 1281)  -- Swift Forest Strider
     self:AddMount(102350, 1961)  -- Swift Lovebird
-    self:AddMount(101573, 17011)  -- Swift Shorestrider
+    self:AddMount(101573, 17011, GROUND, { tcg = 1 })  -- Swift Shorestrider
     self:AddMount(37015, 20344, FLY, { are = 1, nlo = 1})  -- Swift Nether Drake
     self:AddMount(24242, 15289)  -- Swift Razzashi Raptor
-    self:AddMount(42777, 21974)  -- Swift Spectral Tiger
+    self:AddMount(42777, 21974, GROUND, { tcg = 1 })  -- Swift Spectral Tiger
     self:AddMount(102349, 16992)  -- Swift Springstrider
     self:AddMount(46628, 19483)  -- Swift White Hawkstrider
     self:AddMount(49322, 24745, FLY, { rfm = 1 })  -- Swift Zhevra
@@ -135,13 +135,13 @@ function CollectMe:BuildMountDB()
     self:AddMount(88746, 35751, FLY)  -- Vitreous Stone Drake
     self:AddMount(88331, 35551, FLY)  -- Volcanic Stone Drake
     self:AddMount(54753, 28428)  -- White Polar Bear Mount
-    self:AddMount(39319, 21076 )  -- White Riding Camel
+    self:AddMount(39319, 21076, GROUND, { tcg = 1 } )  -- White Riding Camel
     self:AddMount(102488, nil)  -- White Riding Talbuk
     self:AddMount(34897, 19377)  -- White War Talbuk
     self:AddMount(98727, 38260, FLY, { bsm = 1 })  -- Winged Guardian
-    self:AddMount(74918, 31721)  -- Wooly White Rhino
-    self:AddMount(46197, 23656, FLY)  -- X-51 Nether-Rocket
-    self:AddMount(46199, 23647, FLY)  -- X-51 Nether-Rocket X-TREME
+    self:AddMount(74918, 31721, GROUND, { tcg = 1 })  -- Wooly White Rhino
+    self:AddMount(46197, 23656, FLY, { tcg = 1 })  -- X-51 Nether-Rocket
+    self:AddMount(46199, 23647, FLY, { tcg = 1 })  -- X-51 Nether-Rocket X-TREME
     self:AddMount(75973, 31992, FLY, { rfm = 1 })  -- X-53 Touring Rocket
     self:AddMount(26055, 15680, GROUND, {}, { 766 })  -- Yellow Qiraji Battle Tank
     self:AddMount(71810, 31047, FLY, { are = 1, nlo = 1}) -- Wrathful Gladiator's Frost Wyrm
@@ -393,25 +393,5 @@ CollectMeMountFilter = {
         [24252] = 15104, -- Swift Zulian Tiger
         [49322] = 27684, -- Swift Zhevra
         [75973] = 40725, -- X-53 Touring Rocket
-    },
-
-    -- trading card game
-    ["tcg"] = {
-        [96503] = 52185, -- Amani Dragonhawk
-        [51412] = 28363, -- Big Battle Bear
-        [74856] = 40165, -- Blazing Hippogryph
-        [102514] = 54903, -- Corrupted Hippogryph
-        [113120] = 59072, -- Feldrake
-        [65917] = 34655, -- Magic Rooster
-        [93623] = 50467, -- Mottled Drake
-        [30174] = 17266, -- Riding Turtle
-        [97581] = 52813, -- Savage Raptor
-        [42776] = 24003, -- Spectral Tiger
-        [101573] = 54423, -- Swift Shorestrider
-        [42777] = 24004, -- Swift Spectral Tiger
-        [39319] = 22514, -- White Riding Camel
-        [74918] = 40191, -- Wooly White Rhino
-        [46197] = 26192, -- X-51 Nether-Rocket
-        [46199] = 26164, -- X-51 Nether-Rocket X-TREME
     }
 };
