@@ -231,83 +231,83 @@ function CollectMe:BuildMountDB()
     -- Horde Mounts
     if self.FACTION == "Horde" then
         self:AddMount(61230, 27914, FLY) -- Armored Blue Wind Rider
-        self:AddMount(60116, 27821 ) -- Armored Brown Bear
-        self:AddMount(35022, 19478 ) -- Black Hawkstrider
-        self:AddMount(64977, 29130 ) -- Black Skeletal Horse
-        self:AddMount(60119, 27819 ) -- Black War Bear
-        self:AddMount(22718, 14348 ) -- Black War Kodo
-        self:AddMount(59788, 27245 ) -- Black War Mammoth
-        self:AddMount(22721, 14388 ) -- Black War Raptor
-        self:AddMount(22724, 14334 ) -- Black War Wolf
-        self:AddMount(64658, 207 ) -- Black Wolf
-        self:AddMount(35020, 19480 ) -- Blue Hawkstrider
-        self:AddMount(17463, 10671 ) -- Blue Skeletal Horse
-        self:AddMount(32244, 17700 ) -- Blue Wind Rider
-        self:AddMount(18990, 11641 ) -- Brown Kodo
-        self:AddMount(17464, 10672 ) -- Brown Skeletal Horse
-        self:AddMount(6654, 2328 ) -- Brown Wolf
-        self:AddMount(68188, 68188) -- Crusader's Black Warhorse
-        self:AddMount(63635, 29261 ) -- Darkspear Raptor
-        self:AddMount(6653, 2327 ) -- Dire Wolf
-        self:AddMount(8395, 4806 ) -- Emerald Raptor
-        self:AddMount(63643, 29257 ) -- Forsaken Warhorse
-        self:AddMount(23509, 14776 ) -- Frostwolf Howler
-        self:AddMount(61467, 27240 ) -- Grand Black War Mammoth
-        self:AddMount(61469, 27239 ) -- Grand Ice Mammoth
-        self:AddMount(18989, 12246 ) -- Gray Kodo
-        self:AddMount(23249, 14578 ) -- Great Brown Kodo
-        self:AddMount(65641, 28556 ) -- Great Golden Kodo
-        self:AddMount(23248, 14579 ) -- Great Gray Kodo
-        self:AddMount(23247, 14349 ) -- Great White Kodo
-        self:AddMount(17465, 10720 ) -- Green Skeletal Warhorse
-        self:AddMount(32245, 17701 ) -- Green Wind Rider
-        self:AddMount(87090, 35249 ) -- Goblin Trike
-        self:AddMount(87091, 35250 ) -- Goblin Turbo-Trike
-        self:AddMount(59797, 27246 ) -- Ice Mammoth
-        self:AddMount(93644, 37138 ) -- Kor'kron Annihilator
-        self:AddMount(55531, 25871 ) -- Mechano-Hog
-        self:AddMount(66846, 29754 ) -- Ochre Skeletal Warhorse
-        self:AddMount(63640, 29260 ) -- Orgrimmar Wolf
-        self:AddMount(35018, 19479 ) -- Purple Hawkstrider
-        self:AddMount(23246, 10721 ) -- Purple Skeletal Warhorse
-        self:AddMount(61997, 28402 ) -- Red Dragonhawk
-        self:AddMount(34795, 18696 ) -- Red Hawkstrider
-        self:AddMount(17462, 10670 ) -- Red Skeletal Horse
-        self:AddMount(22722, 10719 ) -- Red Skeletal Warhorse
-        self:AddMount(63642, 29262 ) -- Silvermoon Hawkstrider
-        self:AddMount(107517, 39547 ) -- Spectral Wind Rider
-        self:AddMount(92232, 37159 ) -- Spectral Wolf
-        self:AddMount(66088, 29696 ) -- Sunreaver Dragonhawk
-        self:AddMount(66091, 28889 ) -- Sunreaver Hawkstrider
-        self:AddMount(23241, 14339 ) -- Swift Blue Raptor
-        self:AddMount(23250, 14573 ) -- Swift Brown Wolf
-        self:AddMount(65646, 14335 ) -- Swift Burgundy Wolf
-        self:AddMount(23252, 14574 ) -- Swift Gray Wolf
-        self:AddMount(35025, 19484 ) -- Swift Green Hawkstrider
-        self:AddMount(32295, 17720 ) -- Swift Green Wind Rider
-        self:AddMount(68056, 29283 ) -- Swift Horde Wolf
-        self:AddMount(23242, 14344 ) -- Swift Olive Raptor
-        self:AddMount(23243, 14342 ) -- Swift Orange Raptor
-        self:AddMount(33660, 18697 ) -- Swift Pink Hawkstrider
-        self:AddMount(35027, 19482 ) -- Swift Purple Hawkstrider
+        self:AddMount(60116, 27821) -- Armored Brown Bear
+        self:AddMount(35022, 19478) -- Black Hawkstrider
+        self:AddMount(64977, 29130) -- Black Skeletal Horse
+        self:AddMount(60119, 27819) -- Black War Bear
+        self:AddMount(22718, 14348) -- Black War Kodo
+        self:AddMount(59788, 27245) -- Black War Mammoth
+        self:AddMount(22721, 14388) -- Black War Raptor
+        self:AddMount(22724, 14334) -- Black War Wolf
+        self:AddMount(64658, 207) -- Black Wolf
+        self:AddMount(35020, 19480) -- Blue Hawkstrider
+        self:AddMount(17463, 10671) -- Blue Skeletal Horse
+        self:AddMount(32244, 17700, FLY) -- Blue Wind Rider
+        self:AddMount(18990, 11641) -- Brown Kodo
+        self:AddMount(17464, 10672) -- Brown Skeletal Horse
+        self:AddMount(6654, 2328) -- Brown Wolf
+        self:AddMount(68188, 29938) -- Crusader's Black Warhorse
+        self:AddMount(63635, 29261) -- Darkspear Raptor
+        self:AddMount(6653, 2327) -- Dire Wolf
+        self:AddMount(8395, 4806) -- Emerald Raptor
+        self:AddMount(63643, 29257) -- Forsaken Warhorse
+        self:AddMount(23509, 14776) -- Frostwolf Howler
+        self:AddMount(61467, 27240) -- Grand Black War Mammoth
+        self:AddMount(61469, 27239) -- Grand Ice Mammoth
+        self:AddMount(18989, 12246) -- Gray Kodo
+        self:AddMount(23249, 14578) -- Great Brown Kodo
+        self:AddMount(65641, 28556) -- Great Golden Kodo
+        self:AddMount(23248, 14579) -- Great Gray Kodo
+        self:AddMount(23247, 14349) -- Great White Kodo
+        self:AddMount(17465, 10720) -- Green Skeletal Warhorse
+        self:AddMount(32245, 17701, FLY) -- Green Wind Rider
+        self:AddMount(87090, 35249) -- Goblin Trike
+        self:AddMount(87091, 35250) -- Goblin Turbo-Trike
+        self:AddMount(59797, 27246) -- Ice Mammoth
+        self:AddMount(93644, 37138) -- Kor'kron Annihilator
+        self:AddMount(55531, 25871) -- Mechano-Hog
+        self:AddMount(66846, 29754) -- Ochre Skeletal Warhorse
+        self:AddMount(63640, 29260) -- Orgrimmar Wolf
+        self:AddMount(35018, 19479) -- Purple Hawkstrider
+        self:AddMount(23246, 10721) -- Purple Skeletal Warhorse
+        self:AddMount(61997, 28402, FLY) -- Red Dragonhawk
+        self:AddMount(34795, 18696) -- Red Hawkstrider
+        self:AddMount(17462, 10670) -- Red Skeletal Horse
+        self:AddMount(22722, 10719) -- Red Skeletal Warhorse
+        self:AddMount(63642, 29262) -- Silvermoon Hawkstrider
+        self:AddMount(107517, 39547, FLY) -- Spectral Wind Rider
+        self:AddMount(92232, 37159) -- Spectral Wolf
+        self:AddMount(66088, 29696, FLY) -- Sunreaver Dragonhawk
+        self:AddMount(66091, 28889) -- Sunreaver Hawkstrider
+        self:AddMount(23241, 14339) -- Swift Blue Raptor
+        self:AddMount(23250, 14573) -- Swift Brown Wolf
+        self:AddMount(65646, 14335) -- Swift Burgundy Wolf
+        self:AddMount(23252, 14574) -- Swift Gray Wolf
+        self:AddMount(35025, 19484) -- Swift Green Hawkstrider
+        self:AddMount(32295, 17720, FLY) -- Swift Green Wind Rider
+        self:AddMount(68056, 29283) -- Swift Horde Wolf
+        self:AddMount(23242, 14344) -- Swift Olive Raptor
+        self:AddMount(23243, 14342) -- Swift Orange Raptor
+        self:AddMount(33660, 18697) -- Swift Pink Hawkstrider
+        self:AddMount(35027, 19482) -- Swift Purple Hawkstrider
         self:AddMount(65644, 14343) -- Swift Purple Raptor
-        self:AddMount(32297, 17721 ) -- Swift Purple Wind Rider
-        self:AddMount(65639, 28607 ) -- Swift Red Hawkstrider
-        self:AddMount(32246, 17719 ) -- Swift Red Wind Rider
-        self:AddMount(23251, 14575 ) -- Swift Timber Wolf
-        self:AddMount(35028, 20359 ) -- Swift Warstrider
-        self:AddMount(32296, 17722 ) -- Swift Yellow Wind Rider
-        self:AddMount(32243, 17699 ) -- Tawny Wind Rider
-        self:AddMount(63641, 29259 ) -- Thunder Bluff Kodo
-        self:AddMount(580, 247 ) -- Timber Wolf
-        self:AddMount(61447, 27238 ) -- Traveler's Tundra Mammoth
-        self:AddMount(10796, 6472 ) -- Turquoise Raptor
-        self:AddMount(64659, 29102 ) -- Venomhide Ravasaur
-        self:AddMount(100333, 38607 ) -- Vicious War Wolf
-        self:AddMount(10799, 6473 ) -- Violet Raptor
-        self:AddMount(64657, 12241 ) -- White Kodo
-        self:AddMount(65645, 28605 ) -- White Skeletal Warhorse
-        self:AddMount(59793, 27244 ) -- Wooly Mammoth
+        self:AddMount(32297, 17721, FLY) -- Swift Purple Wind Rider
+        self:AddMount(65639, 28607) -- Swift Red Hawkstrider
+        self:AddMount(32246, 17719, FLY) -- Swift Red Wind Rider
+        self:AddMount(23251, 14575) -- Swift Timber Wolf
+        self:AddMount(35028, 20359) -- Swift Warstrider
+        self:AddMount(32296, 17722, FLY) -- Swift Yellow Wind Rider
+        self:AddMount(32243, 17699, FLY) -- Tawny Wind Rider
+        self:AddMount(63641, 29259) -- Thunder Bluff Kodo
+        self:AddMount(580, 247) -- Timber Wolf
+        self:AddMount(61447, 27238) -- Traveler's Tundra Mammoth
+        self:AddMount(10796, 6472) -- Turquoise Raptor
+        self:AddMount(64659, 29102) -- Venomhide Ravasaur
+        self:AddMount(100333, 38607) -- Vicious War Wolf
+        self:AddMount(10799, 6473) -- Violet Raptor
+        self:AddMount(64657, 12241) -- White Kodo
+        self:AddMount(65645, 28605) -- White Skeletal Warhorse
+        self:AddMount(59793, 27244) -- Wooly Mammoth
     end
 
     -- Paladin Mounts for Humans and Dwarfs
