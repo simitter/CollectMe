@@ -192,7 +192,7 @@ function CollectMe:BuildRandomList(listcontainer)
         f:SetLabel(name)
         f:SetFullWidth(true)
         f:SetSliderValues(0, 10, 1)
-        local value = (random_db[spell_id] ~= nil and random_db[spell_id] ~= 0)
+        local value = (random_db[spell_id] ~= nil and random_db[spell_id] or 0)
         f:SetValue(value)
         f:SetCallback("OnValueChanged", function (container, event, val) random_db[spell_id] = val end)
 
