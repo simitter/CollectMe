@@ -1,0 +1,7 @@
+package-as: CollectMe
+
+manual-changelog: CHANGELOG.txt
+license-output: LICENSE.txt
+
+ignore:
+    - todo.txt # ignore a specific file
