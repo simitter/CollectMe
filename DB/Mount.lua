@@ -122,7 +122,7 @@ function CollectMe:BuildMountDB()
     self:AddMount(88749, 35134)  -- Tan Riding Camel
     self:AddMount(39318, 21077)  -- Tan Riding Talbuk
     self:AddMount(34899, 19376)  -- Tan War Talbuk
-    self:AddMount(60002, 28045, FLY)  -- Time-Lost Proto-Drake 
+    self:AddMount(60002, 28045, FLY)  -- Time-Lost Proto-Drake
     self:AddMount(44151, 22720, FLY)  -- Turbo-Charged Flying Machine
     self:AddMount(59571, 27796, FLY)  -- Twilight Drake
     self:AddMount(107844, 39562, FLY)  -- Twilight Harbinger
@@ -208,7 +208,23 @@ function CollectMe:BuildMountDB()
         self:AddMount(23225, 14374)  -- Swift Green Mechanostrider
         self:AddMount(23219, 14332)  -- Swift Mistsaber
         self:AddMount(103196, 39095)  -- Swift Mountain Horse
-
+        self:AddMount(65638, 14333)  -- Swift Moonsaber
+        self:AddMount(23227, 14582)  -- Swift Palomino
+        self:AddMount(32292, 17717)  -- Swift Purple Gryphon
+        self:AddMount(32289, 17718)  -- Swift Red Gryphon
+        self:AddMount(23338, 14632)  -- Swift Stormsaber
+        self:AddMount(65643, 28612)  -- Swift Violet Ram
+        self:AddMount(23223, 14376)  -- Swift White Mechanostrider
+        self:AddMount(23240, 14346)  -- Swift White Ram
+        self:AddMount(23228, 14338)  -- Swift White Steed
+        self:AddMount(23222, 14377)  -- Swift Yellow Mechanostrider
+        self:AddMount(61425, 27237)  -- Traveler's Tundra Mammoth
+        self:AddMount(65642, 14375)  -- Turbostrider
+        self:AddMount(17454, 9476)  -- Unpainted Mechanostrider
+        self:AddMount(100332, 38668) -- Vicious War Steed
+        self:AddMount(6898, 2786)   -- White Ram
+        self:AddMount(17229, 10426)  -- Winterspring Frostsaber
+        self:AddMount(59791, 27243)  -- Wooly Mammoth
     end
 
     -- Horde Mounts
@@ -278,27 +294,6 @@ function CollectMe:AddMount(spell_id, display_id, type, filters, zones)
         table.insert(self.MOUNT_SPELLS, spell_id)
     end
 end
-
--- alliance mounts
-CollectMeAllianceMountTable = {
-    [65638] = 34550, -- Swift Moonsaber
-    [23227] = 14559, -- Swift Palomino
-    [32292] = 20507, -- Swift Purple Gryphon
-    [32289] = 20508, -- Swift Red Gryphon
-    [23338] = 14602, -- Swift Stormsaber
-    [65643] = 34554, -- Swift Violet Ram
-    [23223] = 14552, -- Swift White Mechanostrider
-    [23240] = 14547, -- Swift White Ram
-    [23228] = 14560, -- Swift White Steed
-    [23222] = 14551, -- Swift Yellow Mechanostrider
-    [61425] = 32633, -- Traveler's Tundra Mammoth
-    [65642] = 34553, -- Turbostrider
-    [17454] = 10180, -- Unpainted Mechanostrider
-    [100332] = 53885, -- Vicious War Steed
-    [6898] = 4777, -- White Ram
-    [17229] = 11021, -- Winterspring Frostsaber
-    [59791] = 31851, -- Wooly Mammoth
-};
 
 -- horde mounts
 CollectMeHordeMountTable = {
@@ -421,7 +416,7 @@ CollectMeMountFilter = {
         [102514] = 54903, -- Corrupted Hippogryph
         [113120] = 59072, -- Feldrake
         [65917] = 34655, -- Magic Rooster
-        [93623] = 50467, -- Mottled Drake 
+        [93623] = 50467, -- Mottled Drake
         [30174] = 17266, -- Riding Turtle
         [97581] = 52813, -- Savage Raptor
         [42776] = 24003, -- Spectral Tiger
