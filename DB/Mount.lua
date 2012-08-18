@@ -126,7 +126,7 @@ function CollectMe:BuildMountDB()
     self:AddMount(44151, 22720, FLY)  -- Turbo-Charged Flying Machine
     self:AddMount(59571, 27796, FLY)  -- Twilight Drake
     self:AddMount(107844, 39562, FLY)  -- Twilight Harbinger
-    self:AddMount(107203, 39530, FLY)  -- Tyrael's Charger
+    self:AddMount(107203, 39530, FLY, { ptm = 1 })  -- Tyrael's Charger
     self:AddMount(92155, 15672)  -- Ultramarine Qiraji Battle Tank
     self:AddMount(49193, 24725, FLY)  -- Vengeful Nether Drake
     self:AddMount(41517, 21522, FLY)  -- Veridian Netherwing Drake
@@ -448,11 +448,6 @@ CollectMeMountFilter = {
         [35028] = 20225, -- Swift Warstrider
         [49193] = 27637, -- Vengeful Nether Drake
         [71810] = 38361, -- Wrathful Gladiator's Frost Wyrm
-    },
-
-    -- promotional mounts
-    ["ptm"] = {
-        [107203] = 56921, -- Tyrael's Charger
     }
 
 };
