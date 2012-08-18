@@ -28,6 +28,8 @@ L["Please inform the author"] = true
 L["You don't have configured your companion priorities yet. Please open the random companion tab"] = true
 L["Auto summon on moving forward"] = true
 L["Disable auto summon in pvp"] = true
+L["Available companions"] = true
+L["Available mounts"] = true
 
 -- Mounts
 -- Common Mounts

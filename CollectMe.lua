@@ -164,7 +164,7 @@ function CollectMe:BuildTab(container)
     if self.active_tab == MOUNT or self.active_tab == TITLE then
         self:BuildList(scroll)
         self:BuildFilters(filter)
-    elseif self.active_tab == RANDOM_COMPANION then
+    elseif self.active_tab == RANDOM_COMPANION or self.active_tab == RANDOM_MOUNT then
         self:BuildRandomList(scroll)
     end
 
@@ -172,18 +172,29 @@ function CollectMe:BuildTab(container)
 end
 
 function CollectMe:BuildRandomList(listcontainer)
-    local count = GetNumCompanions("CRITTER")
+    local type, random_db, title
+    if self.active_tab == RANDOM_COMPANION then
+        type = "CRITTER"
+        random_db = self.db.profile.random.companions
+        title = self.L["Available companions"]
+    else
+        type = "MOUNT"
+        random_db = self.db.profile.random.mounts
+        title = self.L["Available mounts"]
+    end
 
-    listcontainer:AddChild(self:CreateHeading(self.L["Available companions"] ..  " - " .. count))
+    local count = GetNumCompanions(type)
+    listcontainer:AddChild(self:CreateHeading(title ..  " - " .. count))
+
     for i = 1, count, 1 do
-        local _, name, spell_id = GetCompanionInfo("CRITTER", i)
+        local _, name, spell_id = GetCompanionInfo(type, i)
         local f = AceGUI:Create("Slider")
         f:SetLabel(name)
         f:SetFullWidth(true)
         f:SetSliderValues(0, 10, 1)
-        local value = (self.db.profile.random.companions[spell_id] ~= nil and self.db.profile.random.companions[spell_id] or 0)
+        local value = (random_db[spell_id] ~= nil and random_db[spell_id] or 0)
         f:SetValue(value)
-        f:SetCallback("OnValueChanged", function (container, event, val) self.db.profile.random.companions[spell_id] = val end)
+        f:SetCallback("OnValueChanged", function (container, event, val) random_db[spell_id] = val end)
 
         listcontainer:AddChild(f)
     end
