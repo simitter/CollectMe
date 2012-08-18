@@ -25,8 +25,8 @@ function CollectMe:BuildMountDB()
     self:AddMount(58983, 27567, GROUND, { nlo = 1 }) -- Big Blizzard Bear
     self:AddMount(71342, 30989, FLY) -- Big Love Rocket
     self:AddMount(59650, 25831, FLY) -- Black Drake
-    self:AddMount(59976, 28040, FLY) -- Black Proto-Drake
-    self:AddMount(26656, 15676, GROUND, {}, { 766 }) -- Black Qiraji Battle Tank
+    self:AddMount(59976, 28040, FLY, { nlo = 1 }) -- Black Proto-Drake
+    self:AddMount(26656, 15676, GROUND, { nlo = 1 }) -- Black Qiraji Battle Tank
     self:AddMount(107842, 39561, FLY) -- Blazing Drake
     self:AddMount(74856, 31803, FLY, { tcg = 1 }) -- Blazing Hippogryph
     self:AddMount(72808, 31156, FLY) -- Bloodbathed Frostbrood Vanquisher
@@ -34,7 +34,7 @@ function CollectMe:BuildMountDB()
     self:AddMount(59996, 28041, FLY) -- Blue Proto-Drake
     self:AddMount(25953, 15672, GROUND, {}, { 766 }) -- Blue Qiraji Battle Tank
     self:AddMount(39803, 21156, FLY) -- Blue Riding Nether Ray
-    self:AddMount(43899, 22265) -- Brewfest Ram
+    self:AddMount(43899, 22265, GROUND, { nlo = 1 }) -- Brewfest Ram
     self:AddMount(59569, 25833, FLY) -- Bronze Drake
     self:AddMount(88748, 35136) -- Brown Riding Camel
     self:AddMount(58615, 27507, FLY, { are = 1, nlo = 1 }) -- Brutal Nether Drake
@@ -85,7 +85,7 @@ function CollectMe:BuildMountDB()
     self:AddMount(69395, 30346, FLY)  -- Onyxian Drake
     self:AddMount(41513, 21520, FLY)  -- Onyx Netherwing Drake
     self:AddMount(88718, 35740, FLY)  -- Phosphorescent Stone Drake
-    self:AddMount(60021, 28042, FLY)  -- Plagued Proto-Drake
+    self:AddMount(60021, 28042, FLY, { nlo = 1 })  -- Plagued Proto-Drake
     self:AddMount(97493, 38031, FLY)  -- Pureblood Fire Hawk
     self:AddMount(41516, 21523, FLY)  -- Purple Netherwing Drake
     self:AddMount(39801, 21155, FLY)  -- Purple Riding Nether Ray
@@ -112,13 +112,13 @@ function CollectMe:BuildMountDB()
     self:AddMount(102350, 1961)  -- Swift Lovebird
     self:AddMount(101573, 17011, GROUND, { tcg = 1 })  -- Swift Shorestrider
     self:AddMount(37015, 20344, FLY, { are = 1, nlo = 1})  -- Swift Nether Drake
-    self:AddMount(24242, 15289)  -- Swift Razzashi Raptor
+    self:AddMount(24242, 15289, GROUND, { nlo = 1 })  -- Swift Razzashi Raptor
     self:AddMount(42777, 21974, GROUND, { tcg = 1 })  -- Swift Spectral Tiger
     self:AddMount(102349, 16992)  -- Swift Springstrider
     self:AddMount(46628, 19483)  -- Swift White Hawkstrider
-    self:AddMount(49322, 24745, FLY, { rfm = 1 })  -- Swift Zhevra
+    self:AddMount(49322, 24745, FLY, { rfm = 1, nlo = 1 })  -- Swift Zhevra
     self:AddMount(96499, 37799)  -- Swift Zulian Panther
-    self:AddMount(24252, 15290)  -- Swift Zulian Tiger
+    self:AddMount(24252, 15290, GROUND, { nlo = 1 })  -- Swift Zulian Tiger
     self:AddMount(88749, 35134)  -- Tan Riding Camel
     self:AddMount(39318, 21077)  -- Tan Riding Talbuk
     self:AddMount(34899, 19376)  -- Tan War Talbuk
@@ -142,7 +142,7 @@ function CollectMe:BuildMountDB()
     self:AddMount(74918, 31721, GROUND, { tcg = 1 })  -- Wooly White Rhino
     self:AddMount(46197, 23656, FLY, { tcg = 1 })  -- X-51 Nether-Rocket
     self:AddMount(46199, 23647, FLY, { tcg = 1 })  -- X-51 Nether-Rocket X-TREME
-    self:AddMount(75973, 31992, FLY, { rfm = 1 })  -- X-53 Touring Rocket
+    self:AddMount(75973, 31992, FLY, { rfm = 1, nlo = 1 })  -- X-53 Touring Rocket
     self:AddMount(26055, 15680, GROUND, {}, { 766 })  -- Yellow Qiraji Battle Tank
     self:AddMount(71810, 31047, FLY, { are = 1, nlo = 1}) -- Wrathful Gladiator's Frost Wyrm
 
@@ -164,7 +164,7 @@ function CollectMe:BuildMountDB()
         self:AddMount(458, 2404)   -- Brown Horse
         self:AddMount(6899, 2785)  -- Brown Ram
         self:AddMount(6648, 2405)  -- Chestnut Mare
-        self:AddMount(68187, 29937) -- Crusader's White Warhorse
+        self:AddMount(68187, 29937, GROUND, { nlo = 1 }) -- Crusader's White Warhorse
         self:AddMount(63637, 29256) -- Darnassian Nightsaber
         self:AddMount(32239, 17694, FLY) -- Ebon Gryphon
         self:AddMount(63639, 29255) -- Exodar Elekk
@@ -198,7 +198,7 @@ function CollectMe:BuildMountDB()
         self:AddMount(66847, 29755) -- Striped Dawnsaber
         self:AddMount(8394, 6080)  -- Striped Frostsaber
         self:AddMount(10793, 6448)  -- Striped Nightsaber
-        self:AddMount(68057, 29284)  -- Swift Alliance Steed
+        self:AddMount(68057, 29284, GROUND, { nlo = 1 })  -- Swift Alliance Steed
         self:AddMount(32242, 17759, FLY)  -- Swift Blue Gryphon
         self:AddMount(23238, 14347)  -- Swift Brown Ram
         self:AddMount(23229, 14583)  -- Swift Brown Steed
@@ -246,7 +246,7 @@ function CollectMe:BuildMountDB()
         self:AddMount(18990, 11641) -- Brown Kodo
         self:AddMount(17464, 10672) -- Brown Skeletal Horse
         self:AddMount(6654, 2328) -- Brown Wolf
-        self:AddMount(68188, 29938) -- Crusader's Black Warhorse
+        self:AddMount(68188, 29938, GROUND, { nlo = 1 }) -- Crusader's Black Warhorse
         self:AddMount(63635, 29261) -- Darkspear Raptor
         self:AddMount(6653, 2327) -- Dire Wolf
         self:AddMount(8395, 4806) -- Emerald Raptor
@@ -285,7 +285,7 @@ function CollectMe:BuildMountDB()
         self:AddMount(23252, 14574) -- Swift Gray Wolf
         self:AddMount(35025, 19484) -- Swift Green Hawkstrider
         self:AddMount(32295, 17720, FLY) -- Swift Green Wind Rider
-        self:AddMount(68056, 29283) -- Swift Horde Wolf
+        self:AddMount(68056, 29283, GROUND, { nlo = 1 }) -- Swift Horde Wolf
         self:AddMount(23242, 14344) -- Swift Olive Raptor
         self:AddMount(23243, 14342) -- Swift Orange Raptor
         self:AddMount(33660, 18697) -- Swift Pink Hawkstrider
@@ -372,26 +372,3 @@ function CollectMe:AddMount(spell_id, display_id, type, filters, zones)
         table.insert(self.MOUNT_SPELLS, spell_id)
     end
 end
-
--- filter for mounts
-CollectMeMountFilter = {
-    -- no longer obtainable
-    ["nlo"] = {
-        [59976] = 31912, -- Black Proto-Drake
-        [26656] = 15711, -- Black Qiraji Battle Tank
-        [43899] = 24368, -- Brewfest Ram
-        [68188] = 35878, -- Crusader's Black Warhorse
-        [68187] = 35876, -- Crusader's White Warhorse
-        [60021] = 32156, -- Plagued Proto-Drake
-        [68057] = 35808, -- Swift Alliance Steed
-        [68056] = 35809, -- Swift Horde Wolf
-        [61444] = 32635, -- Swift Shadoweave (Ebonweave) Carpet
-        [61446] = 32636, -- Swift Spellfire Carpet
-        [61442] = 32634, -- Swift Mooncloth Carpet
-        [24242] = 15090, -- Swift Razzashi Raptor
-        [49322] = 27684, -- Swift Zhevra
-        [24252] = 15104, -- Swift Zulian Tiger
-        [49322] = 27684, -- Swift Zhevra
-        [75973] = 40725, -- X-53 Touring Rocket
-    }
-};
