@@ -582,6 +582,15 @@ function CollectMe:IsInTable(t, spell_id)
     return false
 end
 
+function CollectMe:PrintAllTitles()
+    for i = 1, GetNumTitles(), 1 do
+        local name = GetTitleName(i)
+        if name ~= nil then
+            self:Print(i.. " - " ..name)
+        end
+    end
+end
+
 -- no round in math library? seriously????
 function CollectMe:round(num, idp)
     local mult = 10^(idp or 0)
@@ -601,6 +610,8 @@ function CollectMe:SlashProcessor(input)
         self:SummonRandomMount()
     elseif input == "debug zone" then
         self:Print(self:GetCurrentZone())
+    elseif input == "debug title" then
+        self:PrintAllTitles()
     else
         self.tabs:SelectTab(MOUNT)
         self.frame:Show()
