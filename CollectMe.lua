@@ -35,6 +35,12 @@ local defaults = {
         random = {
             companions = {},
             mounts = {}
+        },
+        summon = {
+            companions = {
+                auto = false,
+                disable_pvp = false
+            }
         }
     }
 }
@@ -76,6 +82,9 @@ function CollectMe:OnInitialize()
 
     self:SecureHook("DressUpItemLink")
     self:HookScript(DressUpFrameResetButton, "OnClick", "DressUpFrameResetButton")
+
+    self:SecureHook("MoveForwardStart", "AutoSummonCompanion")
+    self:SecureHook("ToggleAutoRun", "AutoSummonCompanion")
 end
 
 function CollectMe:OnEnable()
@@ -303,6 +312,13 @@ function CollectMe:BuildOptions(container)
         local f = self:GetCheckboxOption(self.L["Disable missing title message"], self.db.profile.missing_message.titles)
         f:SetCallback("OnValueChanged", function (container, event, value) self.db.profile.missing_message.titles = value end)
         container:AddChild(f)
+    elseif self.active_tab == RANDOM_COMPANION then
+        local f = self:GetCheckboxOption(self.L["Auto summon on moving forward"], self.db.profile.summon.companions.auto)
+        f:SetCallback("OnValueChanged", function (container, event, value) self.db.profile.summon.companions.auto = value end)
+        container:AddChild(f)
+        local f = self:GetCheckboxOption(self.L["Disable auto summon in pvp"], self.db.profile.summon.companions.disable_pvp)
+        f:SetCallback("OnValueChanged", function (container, event, value) self.db.profile.summon.companions.disable_pvp = value end)
+        container:AddChild(f)
     end
 end
 
@@ -432,6 +448,16 @@ function CollectMe:CreateHeading(text)
     return heading
 end
 
+function CollectMe:GetActive(type)
+    for i = 1, GetNumCompanions(type) do
+        local _, _, spell_id, _, summoned = GetCompanionInfo("CRITTER", i);
+        if (summoned ~= nil) then
+            return spell_id
+        end
+    end
+    return nil;
+end
+
 -- checks is element is in table returns position if true, false otherwise
 function CollectMe:IsInTable(t, spell_id)
     for i = 1, #t do
@@ -478,3 +504,16 @@ function CollectMe:DressUpFrameResetButton()
      DressUpModel:SetUnit("player");
 end
 
+function CollectMe:AutoSummonCompanion()
+    if IsMounted() == nil and IsStealthed() == nil and self.db.profile.summon.companions.auto == true then
+        if (not (UnitIsPVP("player") == 1 and self.db.profile.summon.companions.disable_pvp == true)) then
+            local active = self:GetActive("CRITTER")
+            if (active == nil) then
+                self:SummonRandomCompanion()
+            end
+        end
+    end
+    if (UnitIsPVP("player") == 1 and self.db.profile.summon.companions.disable_pvp == true) then
+        DismissCompanion("CRITTER")
+    end
+end
