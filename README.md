@@ -13,7 +13,7 @@ Collect Me keeps track of your mounts and titles in the game and can show you yo
  * WowAce profile support
 
 ## Usage
-Collect Me creates two magscros for mount and companion summoning. All other features and settin can be accessed on the main window.
+Collect Me creates two macros for mount and companion summoning. All other features and settin can be accessed on the main window.
 
 ## Slash Commands
  * /collectme or /cm will bring up the main window
