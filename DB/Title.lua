@@ -123,6 +123,20 @@ function CollectMe:BuildTitleDB()
     self:AddTitle(194) -- Savior of Azeroth
     self:AddTitle(196) -- Destroyer's End
 
+    -- mists of pandaria
+    self:AddTitle(197) -- the Beloved
+    self:AddTitle(198) -- the Fearless
+    self:AddTitle(199) -- Zookeeper
+    self:AddTitle(200) -- the Relic Hunter
+    self:AddTitle(201) -- the Undaunted
+    self:AddTitle(202) -- Master of the Ways
+    self:AddTitle(203) -- the Tranquil Master
+    self:AddTitle(204) -- Delver of the Vaults
+    self:AddTitle(205) -- Shadow-Master
+    self:AddTitle(206) -- the Scenaterdist
+    self:AddTitle(207) -- Tamer
+    self:AddTitle(208) -- Seeker of Knowledge
+
     -- Alliance Titles
     if self.FACTION == "Alliance" then
         self:AddTitle(1, {nlo = 1, pvp = 1})   -- Private
@@ -216,12 +230,14 @@ function CollectMe:AddTitle(id, filters)
     if id ~= nil then
         local name = GetTitleName(id)
 
-        table.insert(self.TITLES, {
-            id         = id,
-            name       = name:gsub("^%s*(.-)%s*$", "%1"),
-            filters    = filters
-        })
+        if name ~= nil then
+            table.insert(self.TITLES, {
+                id         = id,
+                name       = name:gsub("^%s*(.-)%s*$", "%1"),
+                filters    = filters
+            })
 
-        table.insert(self.TITLE_SPELLS, id)
+            table.insert(self.TITLE_SPELLS, id)
+        end
     end
 end
