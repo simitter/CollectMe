@@ -26,13 +26,13 @@ function CollectMe:BuildMountDB()
     self:AddMount(71342, 30989, FLY) -- Big Love Rocket
     self:AddMount(59650, 25831, FLY) -- Black Drake
     self:AddMount(59976, 28040, FLY) -- Black Proto-Drake
-    self:AddMount(26656, 15676) -- Black Qiraji Battle Tank
+    self:AddMount(26656, 15676, GROUND, {}, { 766 }) -- Black Qiraji Battle Tank
     self:AddMount(107842, 39561, FLY) -- Blazing Drake
     self:AddMount(74856, 31803, FLY) -- Blazing Hippogryph
     self:AddMount(72808, 31156, FLY) -- Bloodbathed Frostbrood Vanquisher
     self:AddMount(59568, 25832, FLY) -- Blue Drake
     self:AddMount(59996, 28041, FLY) -- Blue Proto-Drake
-    self:AddMount(25953, 15672) -- Blue Qiraji Battle Tank
+    self:AddMount(25953, 15672, GROUND, {}, { 766 }) -- Blue Qiraji Battle Tank
     self:AddMount(39803, 21156, FLY) -- Blue Riding Nether Ray
     self:AddMount(43899, 22265) -- Brewfest Ram
     self:AddMount(59569, 25833, FLY) -- Bronze Drake
@@ -67,7 +67,7 @@ function CollectMe:BuildMountDB()
     self:AddMount(65439, 25593, FLY)   -- Furious Gladiator's Frost Wyrm
     self:AddMount(49379, 24757)   -- Great Brewfest Kodo
     self:AddMount(61294, 28053, FLY)   -- Green Proto-Drake
-    self:AddMount(26056, 15679)   -- Green Qiraji Battle Tank
+    self:AddMount(26056, 15679, GROUND, {}, { 766 })   -- Green Qiraji Battle Tank
     self:AddMount(39798, 21152, FLY)   -- Green Riding Nether Ray
     self:AddMount(88750, 35135)   -- Grey Riding Camel
     self:AddMount(110051, 40029, FLY, { bsm = 1 })  -- Heart of the Aspects
@@ -92,7 +92,7 @@ function CollectMe:BuildMountDB()
     self:AddMount(41252, 21473)  -- Raven Lord
     self:AddMount(59570, 25835, FLY)  -- Red Drake
     self:AddMount(59961, 28044, FLY)  -- Red Proto-Drake
-    self:AddMount(26054, 15681)  -- Red Qiraji Battle Tank
+    self:AddMount(26054, 15681, GROUND, {}, { 766 })  -- Red Qiraji Battle Tank
     self:AddMount(39800, 21158, FLY)  -- Red Riding Nether Ray
     self:AddMount(67336, 29794, FLY)  -- Relentless Gladiator's Frost Wyrm
     self:AddMount(30174, 17158, SWIM)  -- Riding Turtle
@@ -143,7 +143,7 @@ function CollectMe:BuildMountDB()
     self:AddMount(46197, 23656, FLY)  -- X-51 Nether-Rocket
     self:AddMount(46199, 23647, FLY)  -- X-51 Nether-Rocket X-TREME
     self:AddMount(75973, 31992, FLY, { rfm = 1 })  -- X-53 Touring Rocket
-    self:AddMount(26055, 15680)  -- Yellow Qiraji Battle Tank
+    self:AddMount(26055, 15680, GROUND, {}, { 766 })  -- Yellow Qiraji Battle Tank
 
     -- Alliance Mounts
     if self.FACTION == "Alliance" then
