@@ -184,6 +184,19 @@ function CollectMe:BuildMountDB()
         self:AddMount(60424, 25870) -- Mekgineer's Chopper
         self:AddMount(103195, 39096) -- Mountain Horse
         self:AddMount(472, 2409)   -- Pinto
+        self:AddMount(35711, 19870) -- Purple Elekk
+        self:AddMount(66090, 28888) -- Quel'dorei Steed
+        self:AddMount(10873, 9473) -- Red Mechanostrider
+        self:AddMount(66087, 22474) -- Silver Covenant Hippogryph
+        self:AddMount(32240, 17696) -- Snowy Gryphon
+        self:AddMount(92231, 37160) -- Spectral Steed
+        self:AddMount(107516, 39546) -- Spectral Gryphon
+        self:AddMount(10789, 6444) -- Spotted Frostsaber
+        self:AddMount(23510, 14777) -- Stormpike Battle Charger
+        self:AddMount(63232, 28912) -- Stormwind Steed
+        self:AddMount(66847, 29755) -- Striped Dawnsaber
+        self:AddMount(8394, 6080)  -- Striped Frostsaber
+
     end
 
     -- Horde Mounts
@@ -256,18 +269,6 @@ end
 
 -- alliance mounts
 CollectMeAllianceMountTable = {
-    [35711] = 20847, -- Purple Elekk
-    [66090] = 33840, -- Quel'dorei Steed
-    [10873] = 7739, -- Red Mechanostrider
-    [66087] = 35147, -- Silver Covenant Hippogryph
-    [32240] = 20505, -- Snowy Gryphon
-    [92231] = 49487, -- Spectral Steed
-    [107516] = 57156, -- Spectral Gryphon
-    [10789] = 7687, -- Spotted Frostsaber
-    [23510] = 14745, -- Stormpike Battle Charger
-    [63232] = 33297, -- Stormwind Steed
-    [66847] = 35168, -- Striped Dawnsaber
-    [8394] = 6074, -- Striped Frostsaber
     [10793] = 7690, -- Striped Nightsaber
     [68057] = 35808, -- Swift Alliance Steed
     [32242] = 18406, -- Swift Blue Gryphon
