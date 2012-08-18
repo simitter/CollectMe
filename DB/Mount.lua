@@ -187,15 +187,27 @@ function CollectMe:BuildMountDB()
         self:AddMount(35711, 19870) -- Purple Elekk
         self:AddMount(66090, 28888) -- Quel'dorei Steed
         self:AddMount(10873, 9473) -- Red Mechanostrider
-        self:AddMount(66087, 22474) -- Silver Covenant Hippogryph
-        self:AddMount(32240, 17696) -- Snowy Gryphon
+        self:AddMount(66087, 22474, FLY) -- Silver Covenant Hippogryph
+        self:AddMount(32240, 17696, FLY) -- Snowy Gryphon
         self:AddMount(92231, 37160) -- Spectral Steed
-        self:AddMount(107516, 39546) -- Spectral Gryphon
+        self:AddMount(107516, 39546, FLY) -- Spectral Gryphon
         self:AddMount(10789, 6444) -- Spotted Frostsaber
         self:AddMount(23510, 14777) -- Stormpike Battle Charger
         self:AddMount(63232, 28912) -- Stormwind Steed
         self:AddMount(66847, 29755) -- Striped Dawnsaber
         self:AddMount(8394, 6080)  -- Striped Frostsaber
+        self:AddMount(10793, 6448)  -- Striped Nightsaber
+        self:AddMount(68057, 29284)  -- Swift Alliance Steed
+        self:AddMount(32242, 17759, FLY)  -- Swift Blue Gryphon
+        self:AddMount(23238, 14347)  -- Swift Brown Ram
+        self:AddMount(23229, 14583)  -- Swift Brown Steed
+        self:AddMount(23221, 14331)  -- Swift Frostsaber
+        self:AddMount(23239, 14576)  -- Swift Gray Ram
+        self:AddMount(65640, 29043)  -- Swift Gray Steed
+        self:AddMount(32290, 17703, FLY)  -- Swift Green Gryphon
+        self:AddMount(23225, 14374)  -- Swift Green Mechanostrider
+        self:AddMount(23219, 14332)  -- Swift Mistsaber
+        self:AddMount(103196, 39095)  -- Swift Mountain Horse
 
     end
 
@@ -269,18 +281,6 @@ end
 
 -- alliance mounts
 CollectMeAllianceMountTable = {
-    [10793] = 7690, -- Striped Nightsaber
-    [68057] = 35808, -- Swift Alliance Steed
-    [32242] = 18406, -- Swift Blue Gryphon
-    [23238] = 14546, -- Swift Brown Ram
-    [23229] = 14561, -- Swift Brown Steed
-    [23221] = 14556, -- Swift Frostsaber
-    [23239] = 14548, -- Swift Gray Ram
-    [65640] = 34557, -- Swift Gray Steed
-    [32290] = 20506, -- Swift Green Gryphon
-    [23225] = 14553, -- Swift Green Mechanostrider
-    [23219] = 14555, -- Swift Mistsaber
-    [103196] = 55273, -- Swift Mountain Horse
     [65638] = 34550, -- Swift Moonsaber
     [23227] = 14559, -- Swift Palomino
     [32292] = 20507, -- Swift Purple Gryphon
