@@ -1,27 +1,27 @@
-== Introduction ==
+## Introduction
 Collect Me keeps track of your mounts and titles in the game and can show you your missing mounts and titles with additional information where to get them. It also can summon companions and mounts randomly with a priority list.
-wBasic Features
 
-    * Ignore List for titles, mounts and companions
-    * Filters for titles, mounts and companions
-    * Source-information of pets, mounts and titles
-    * 3d model preview of companions and mounts (sometimes ;) )
-    * Priority-based random pet-summoning
-    * auto-summoning companions on moving
+## Basic Features
 
-Known Bugs
+ * Ignore List for mount and titles
+ * Filters for mounts and titles
+ * Source-information of mounts and titles
+ * 3D model preview of mounts
+ * Zone- and priority-based random mount-summoning
+ * Priority-based random pet-summoning
+ * auto-summoning companions on moving
+ * WowAce profile support
 
-On some occasions the Collect Me Summon Button doesn't show up directly after log-in in. A simple workaround should be the slash command:
-/cm randomcompanion
-Usage
-Slash Commands
+## Usage
+Collect Me creates two macros for mount and companion summoning. All other features and settings can be accessed on the main window
 
-    * /collectme or /cm will bring up the main window.
-    * /cm config or /cm options will bring up the options directly.
-    * /cm randomcompanion will summon a random companion by using the priority list.
-    * You also can use the "Collect Me" button in the Blizzard Pet/Mount Tab to start the add-on.
+## Slash Commands
+ * /collectme or /cm will bring up the main window
+ * /cm randomcompanion or /cm rc will summon a random companion bases on your priority list
+ * /cm randommount or /cm rm will summon a random companion bases on your priority list
+ * You also can use the "Collect Me" button in the Blizzard Mount Tab to start the add-on
 
-The Main Window
+## The Main Window
 
 When you start the Main Window the add-on will automatically build a mount, pet, title list based on your faction, class.
 By hovering over a pet/mount/title with the mouse you will receive additional information where to get it.
