@@ -22,52 +22,51 @@ Collect Me creates two macros for mount and companion summoning. All other featu
  * You also can use the "Collect Me" button in the Blizzard Mount Tab to start the add-on
 
 ## The Main Window
+When you start the Main Window the add-on will automatically build a mount, pet, title list based on your faction, class. By hovering over a mount or title with the mouse you will receive additional information where to get it in a tooltip.
 
-When you start the Main Window the add-on will automatically build a mount, pet, title list based on your faction, class.
-By hovering over a pet/mount/title with the mouse you will receive additional information where to get it.
-Ignore List
+### Ignore List
+You can add an item to the ignore list by Ctrl + right-clicking on them, if you don't want them or you can't get them by any reasons.
 
-You can add an item to the ignore list by right-clicking on them, if you don't want them or you can't get them by any reasons.
-Filters
+### Filters
+In addition to the Ignore List, you can add pre-configured filters. Those filters will hide mounts and titles from the missing list. This will allow you to keep the list small to bring in some general survey. By combining the filters and the ignore list you should have a good compromise of speed and detail.
 
-In addition to the Ignore List, you can add some pre-configured filters in the option menu. Those filters will hide companions, mounts and titles from both, the missing and the ignore list. This will allow you to keep the list small to bring in some general survey. By combining the filters and the ignore list you should have a good compromise of speed and detail.
-Priority-based random companion summoning
+#### Priority-based summoning
+The add-on can summon a random companion or mount by using the macros the addon creates
 
-The add-on can summon a random companion by using the slash command /cm randomcompanion. I highly recommend to use a macro for this.
-To manage the priority list, go into the CollectMe options and select the subcategory: Random Companion. There you'll find a list of every companion you have and you can assign them priorities between 0 and 10 (default value for new companions is 5).
-
-    * 0: If you set a companion to zero it will never be summoned.
-    * 1-10: The higher the priority, the higher the chance that the companion will be summoned.
+You can manage the priority lists in the main window. There you'll find a list of every companion and mount you have and you can assign them priorities between 0 and 10.
+ * 0: If you set a companion or mount to zero it will never be summoned (this is the default setting).
+ * 1-10: The higher the priority, the higher the chance that the companion or mount will be summoned.
 
 NOTE: The chance depends not only on the companion priority but on all priorities of all companions.
-Example
-
-    * Companion A) 5
-    * Companion B) 0
-    * Companion C) 10
-    * Companion D) 10
+##### Example
+ * Companion A) 5
+ * Companion B) 0
+ * Companion C) 10
+ * Companion D) 10
 
 That gives A a chance of 20% to be summoned. B will never be summoned (0 %). C and D have both a chance of 40% to be summoned.
-The Collect Me Summon Button
 
-By default you'll have a button where you can see the next companion which will be summoned. The companion is calculated by the priority list.
-By left-clicking the companion will be summoned.
-By right-clicking the companion will be skipped and a new companion will be calculated.
-By shift-left-clicking the companion it will be de-summoned if already summoned.
-You can simply drag the button to a place where you want. To lock it, go to the Collect Me Options. If you don't like the button and prefer the slash command instead you can easily hide the button in the options too.
-3D Model Preview
+##### Zone priorities for mounts
+Collect Me tries to autodetect wich mount would be best for the current zone (example vashj'r, non flyable zones) and build the pool based on this suggestion and your priorities and than randomly choose one. Let's take a look to AQ40 for an example. You have 2 Qiraj mounts and 10 normal ground mounts and you are in AQ40.
+Both Qiraj mounts have a priority of 0. In this case Collect Me would summon a random ground mount. If one Qiraj mount would have priority Collect Me would always take the Qiraj mount. If both Qiraj mounts would have a priority, Collect Me would randomly choose between those two mounts based on your priority.
+Zone Mounts always weight stronger than non zone mounts. Currently you can not influence that, but in a future release there will possibly be some options
 
-By left-clicking on a mount or a companion you can bring up a window with a 3d preview of the mount or companion.
-NOTE: You can only see models from your local cache. If the model has not been seen in-game, the preview window will remain empty. There is currently no possibility to workaround that fact.
-Additional Information
+## 3D Model Preview
+By left-clicking on a mount in the main window you can bring up a window with a 3d preview of the mount.
 
-    * Collect Me should work on all languages but the tool-tips with the Source-information will remain English. If someone likes to translate them, feel free to do it and send it to me so i can implement it.
-    * If you have a pet or mount which the add-on doesn't know, you will receive a message in the default chat frame. Please let me know, so that I can add the pet or mount to the add-on.
-    * I don't have the possibility to check the add-on on all possible professions/class/faction combos. So if you encounter any errors please let me know.
+## Reporting issues and feature requests
+ * If you have a feature request of a bug you can open a ticket on curseforge http://wow.curseforge.com/addons/collect_me/tickets/ or github https://github.com/Tschebel/CollectMe/issues
+ * For general questions you can use the comments on curse
+
+## Translation and help with that
+ * Collect Me only comes in english and partially in german but fully supports WowAce as translation library
+ * If you want to help and submit translations in your language you can do so by using GitHub https://github.com/Tschebel/CollectMe or if you don't are familiar with GitHub by sending an email
+
+## Additional Information
+ * If you have a mount or title which the add-on doesn't know, you will receive a message in the default chat frame. Please let me know, so that I can add them
 
 Thanks
-
-    * SkeeveSM for his add-on TheCollector which inspired me and where I've taken the base interface and some ideas and algorithms.
-    * warcraftpets.com
-    * warcraftmounts.com
-    * wowhead.com
+  * warcraftpets.com
+  * warcraftmounts.com
+  * wowhead.com
+  * wowace.com

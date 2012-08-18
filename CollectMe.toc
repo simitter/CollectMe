@@ -4,8 +4,8 @@
 ## Authors: Merla (Mergana), Tolerant, DesertDwarf, Excitor0, LaserLock
 ## X-Author-Server: Antonidas EU, Gorefiend
 ## X-Author-Faction: Alliance
-## eMail: merla AT wow-serenity DOT net
-## X-email: merla AT wow-serenity DOT net
+## eMail: admin AT tschebel DOT net
+## X-email: admin AT tschebel DOT net
 ## X-License: MIT modified with notification clause
 
 ## Interface: 50000
