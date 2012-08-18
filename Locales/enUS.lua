@@ -30,6 +30,9 @@ L["Auto summon on moving forward"] = true
 L["Disable auto summon in pvp"] = true
 L["Available companions"] = true
 L["Available mounts"] = true
+L["Use flying mounts in water too"] = true
+L["Don't dismount when clicking on macro"] = true
+L["Use flying mounts for ground too"] = true
 
 -- Mounts
 -- Common Mounts

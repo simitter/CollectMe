@@ -40,6 +40,11 @@ local defaults = {
             companions = {
                 auto = false,
                 disable_pvp = false
+            },
+            mounts = {
+                flying_in_water = false,
+                flying_on_ground = false,
+                no_dismount = false
             }
         }
     }
@@ -89,6 +94,7 @@ end
 
 function CollectMe:OnEnable()
     self:InitMacro("CollectMeRC", "INV_PET_BABYBLIZZARDBEAR", "/cm rc")
+    self:InitMacro("CollectMeRM", "ABILITY_MOUNT_BIGBLIZZARDBEAR", "/cm rm")
 end
 
 function CollectMe:InitMacro(name, icon, body)
@@ -330,6 +336,16 @@ function CollectMe:BuildOptions(container)
         local f = self:GetCheckboxOption(self.L["Disable auto summon in pvp"], self.db.profile.summon.companions.disable_pvp)
         f:SetCallback("OnValueChanged", function (container, event, value) self.db.profile.summon.companions.disable_pvp = value end)
         container:AddChild(f)
+    elseif self.active_tab == RANDOM_MOUNT then
+        local f = self:GetCheckboxOption(self.L["Don't dismount when clicking on macro"], self.db.profile.summon.mounts.no_dismount)
+        f:SetCallback("OnValueChanged", function (container, event, value) self.db.profile.summon.mounts.no_dismount = value end)
+        container:AddChild(f)
+        local f = self:GetCheckboxOption(self.L["Use flying mounts in water too"], self.db.profile.summon.mounts.flying_in_water)
+        f:SetCallback("OnValueChanged", function (container, event, value) self.db.profile.summon.mounts.flying_in_water = value end)
+        container:AddChild(f)
+        local f = self:GetCheckboxOption(self.L["Use flying mounts for ground too"], self.db.profile.summon.mounts.flying_on_ground)
+        f:SetCallback("OnValueChanged", function (container, event, value) self.db.profile.summon.mounts.flying_on_ground = value end)
+        container:AddChild(f)
     end
 end
 
@@ -337,7 +353,7 @@ function CollectMe:GetCheckboxOption(label, init_value)
     local f = AceGUI:Create("CheckBox")
     f.text:SetMaxLines(2)
     f:SetLabel(label)
-    f:SetPoint("Top", 15, 15)
+    f:SetHeight(35)
     f:SetValue(init_value)
     return f
 end
