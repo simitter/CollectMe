@@ -5,8 +5,8 @@ local MOUNT = 1
 local TITLE = 2
 local RANDOM_COMPANION = 3
 local RANDOM_MOUNT = 4
-local MOUNT_FILTERS = { "nlo", "tcg", "pvp", "bsm", "rfm", "ptm" }
-local TITLE_FILTERS = { "nlo", "pvp" }
+local MOUNT_FILTERS = { "nlo", "tcg", "pvp", "are", "bsm", "rfm", "ptm" }
+local TITLE_FILTERS = { "nlo", "pvp", "are" }
 
 local GROUND = 1
 local FLY = 2
@@ -24,13 +24,15 @@ local defaults = {
                 nlo = false,
                 tcg = false,
                 pvp = false,
+                are = false,
                 bsm = false,
                 rfm = false,
                 ptm = false
             },
             titles = {
                 nlo = false,
-                pvp = false
+                pvp = false,
+                are = false
             }
         },
         missing_message = {
