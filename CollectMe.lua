@@ -633,7 +633,7 @@ function CollectMe:DressUpFrameResetButton()
 end
 
 function CollectMe:AutoSummonCompanion()
-    if IsMounted() == nil and IsStealthed() == nil and self.db.profile.summon.companions.auto == true then
+    if UnitAffectingCombat("player") == nil and IsMounted() == nil and IsStealthed() == nil and self.db.profile.summon.companions.auto == true then
         if (not (UnitIsPVP("player") == 1 and self.db.profile.summon.companions.disable_pvp == true)) then
             local active = self:GetActive("CRITTER")
             if (active == nil) then
