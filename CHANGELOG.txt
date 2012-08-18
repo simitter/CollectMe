@@ -1,7 +1,15 @@
 ----
-**future.release**
-*Updated info for Recruit a Friend mounts
-*Added Obsidian Nightwing
+**2.0**
+*complete recode of the addon
+*new UI
+*removed companion list (replaced by Blizzard Pet Journal)
+*new filters and options
+*random mount summoning
+*removed pet summoning button (replaced by macro)
+*preview by using dressing room and display id's - no more cache
+*improved tooltips
+*mounts linkable to chat
+*full translation support
 
 ----
 **1.3.5**
@@ -23,7 +31,7 @@
 
 ----
 **1.3.2a**
-*Fixed bug introduced in 1.3.2 
+*Fixed bug introduced in 1.3.2
 
 ----
 **1.3.2**
@@ -100,7 +108,7 @@
 ----
 **1.2.1**
 *Updated ToC for 4.3
-*Corrected spelling in ToC description 
+*Corrected spelling in ToC description
 *Added Swift Forest Strider (Mount)
 *Added Darkmoon Dancing Bear (Mount)
 *Added Tyrael's Charger (Mount)
@@ -157,7 +165,7 @@
 *Corrected Crusader's Black Warhorse (Mount)
 *Corrected & Added Swift Horde Wolf (Mount) to no longer obtainable filter
 *Corrected & Added  Swift Alliance Steed (Mount) to no longer obtainable filter
-*Corrected & Added Crusader's White Warhorse (Mount) to no longer obtainable filter 
+*Corrected & Added Crusader's White Warhorse (Mount) to no longer obtainable filter
 *Fixed several spelling/grammar errors
 
 ----
@@ -223,7 +231,7 @@
 *Added Winged Guardian (Mount)
 
 ----
-**1.1.22**	
+**1.1.22**
 *Updated info for 13 companions
 *Updated info for three mounts
 *Added Cenarion Hatchling (Companion) to Blizzard Store filter
@@ -246,7 +254,7 @@
 *Added Pterrordax Hatchling (Companion)
 *Added Cenarion Hatchling (Companion)
 *Added Scooter the Snail (Companion)
- 
+
 ----
 **1.1.20**
 *Added Drake of the North Wind (Mount)
@@ -563,7 +571,7 @@
 **0.7.1**
 * fixed error which appeared on first log-in when updating from 0.6 to 0.7
 * fixed error that companions/mounts on filtered list showed up as unknown to the add-on
-* fixed error on tailoring and engineering mounts 
+* fixed error on tailoring and engineering mounts
 
 ----
 **0.7**

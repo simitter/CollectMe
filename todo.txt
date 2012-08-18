@@ -1,12 +1,6 @@
-- On some machines there are problems with the nextCompanion method when entering the world
-- Allow size to be set for pet summon button
-- Add tooltip to show names when mousing over summon button
-- Show global cooldown on pet summon button
-
----
 Excitor:
 
-- Add more complete info on locations for mounts that are not specific enough, 
+- Add more complete info on locations for mounts that are not specific enough,
   standardise the mount info 1-end (mounts)
 
 - Fix to long title, add tags to recognise titles with same name at glance.
@@ -16,8 +10,4 @@ Excitor:
 - Ashes of Alar info bug?
 - Missing BoP, BoA... info on mounts.
 - Remove Unique tag it's useless and clutters the visiblity of BoP, BoE... etc.
-
-
-
-
 
