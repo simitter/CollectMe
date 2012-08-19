@@ -4,7 +4,7 @@ if not L then return end
 -- UI
 L["Mounts"] = "Reittiere"
 L["Titles"] = "Titel"
-L["Active"] = "Aktiv"
+L["Missing"] = "Fehlend"
 L["Ignored"] = "Ignoriert"
 L["Filters"] = "Filter"
 L["Random Mount"] = "Zufälliges Reittier"

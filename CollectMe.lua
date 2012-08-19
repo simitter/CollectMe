@@ -39,6 +39,10 @@ local defaults = {
             mounts = false,
             titles = false
         },
+        hide_ignore = {
+            mounts = false,
+            titles = false
+        },
         random = {
             companions = {},
             mounts = {}
@@ -356,14 +360,17 @@ function CollectMe:BuildList(listcontainer)
         end
     end
 
-    listcontainer:AddChild(self:CreateHeading(self.L["Active"] .. " - " .. #active))
+    listcontainer:AddChild(self:CreateHeading(self.L["Missing"] .. " - " .. #active))
     for f = 1, #active, 1 do
         listcontainer:AddChild(active[f])
     end
 
-    listcontainer:AddChild(self:CreateHeading(self.L["Ignored"] .. " - " .. #ignored))
-    for f = 1, #ignored, 1 do
-        listcontainer:AddChild(ignored[f])
+    local hide_ignore = (self.active_tab == MOUNT and self.db.profile.hide_ignore.mounts or self.db.profile.hide_ignore.titles )
+    if hide_ignore == false then
+        listcontainer:AddChild(self:CreateHeading(self.L["Ignored"] .. " - " .. #ignored))
+        for f = 1, #ignored, 1 do
+            listcontainer:AddChild(ignored[f])
+        end
     end
 
     all_count = all_count - #self.ignored_db - filter_count
@@ -411,9 +418,15 @@ function CollectMe:BuildOptions(container)
         local f = self:GetCheckboxOption(self.L["Disable missing mount message"], self.db.profile.missing_message.mounts)
         f:SetCallback("OnValueChanged", function (container, event, value) self.db.profile.missing_message.mounts = value end)
         container:AddChild(f)
+        local f = self:GetCheckboxOption(self.L["Hide ignore list"], self.db.profile.hide_ignore.mounts)
+        f:SetCallback("OnValueChanged", function (container, event, value) self.db.profile.hide_ignore.mounts = value; self:BuildList(self.scroll) end)
+        container:AddChild(f)
     elseif self.active_tab == TITLE then
         local f = self:GetCheckboxOption(self.L["Disable missing title message"], self.db.profile.missing_message.titles)
         f:SetCallback("OnValueChanged", function (container, event, value) self.db.profile.missing_message.titles = value end)
+        container:AddChild(f)
+        local f = self:GetCheckboxOption(self.L["Hide ignore list"], self.db.profile.hide_ignore.titles)
+        f:SetCallback("OnValueChanged", function (container, event, value) self.db.profile.hide_ignore.titles = value; self:BuildList(self.scroll) end)
         container:AddChild(f)
     elseif self.active_tab == RANDOM_COMPANION then
         local f = self:GetCheckboxOption(self.L["Auto summon on moving forward"], self.db.profile.summon.companions.auto)

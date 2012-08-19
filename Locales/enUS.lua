@@ -4,7 +4,7 @@ if not L then return end
 -- UI
 L["Mounts"] = true
 L["Titles"] = true
-L["Active"] = true
+L["Missing"] = true
 L["Ignored"] = true
 L["Filters"] = true
 L["Random Mount"] = true
@@ -35,6 +35,7 @@ L["Available mounts"] = true
 L["Use flying mounts in water too"] = true
 L["Don't dismount when clicking on macro"] = true
 L["Use flying mounts for ground too"] = true
+L["Hide ignore list"] = true
 
 -- Mounts
 -- Common Mounts
