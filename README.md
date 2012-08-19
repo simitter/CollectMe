@@ -20,7 +20,7 @@ Collect Me creates two macros for mount and companion summoning. All other featu
  * /cm randomcompanion or /cm rc will summon a random companion bases on your priority list
  * /cm randommount or /cm rm will summon a random companion bases on your priority list
  * /cm options will open the profile settings
- * You also can use the "Collect Me" button in the Blizzard Mount Tab to open the addon
+ * You can also use the "Collect Me" button in the Blizzard Mount Tab to open the addon
 
 ## The Main Window
 When you start the Main Window the add-on will automatically build a mount, pet, title list based on your faction, class. By hovering over a mount or title with the mouse you will receive additional information on where to get it in a tooltip.
