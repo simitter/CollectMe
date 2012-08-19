@@ -623,10 +623,13 @@ end
 
  -- CONSOLE COMMAND HANDLER
 function CollectMe:SlashProcessor(input)
+
     if input == "rc" or input == "randomcompanion" then
         self:SummonRandomCompanion()
     elseif input == "rm" or input == "randommount" then
         self:SummonRandomMount()
+    elseif input == "options" then
+        InterfaceOptionsFrame_OpenToCategory(addon_name)
     elseif input == "debug zone" then
         self:Print(self:GetCurrentZone())
     elseif input == "debug title" then
