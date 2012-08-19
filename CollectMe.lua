@@ -469,14 +469,7 @@ function CollectMe:ItemRowClick(group, spell_id)
             if IsShiftKeyDown() == 1 and mount.link ~= nil then
                 ChatEdit_InsertLink(mount.link)
             elseif mount.display_id ~= nil then
-                DressUpBackgroundTopLeft:SetTexture(nil);
-                DressUpBackgroundTopRight:SetTexture(nil);
-                DressUpBackgroundBotLeft:SetTexture(nil);
-                DressUpBackgroundBotRight:SetTexture(nil);
-                DressUpModel:SetDisplayInfo(mount.display_id);
-                if not DressUpFrame:IsShown() then
-                    ShowUIPanel(DressUpFrame);
-                end
+                self:PreviewMount(mount.display_id)
             end
         end
     elseif group == "RightButton" and IsControlKeyDown() then
@@ -496,6 +489,19 @@ function CollectMe:ItemRowClick(group, spell_id)
         local status_table = self.scroll.localstatus
         status_table.offset = offset
         self.scroll:SetStatusTable(status_table)
+    end
+end
+
+function CollectMe:PreviewMount(display_id)
+    if display_id ~= nil then
+        DressUpBackgroundTopLeft:SetTexture(nil);
+        DressUpBackgroundTopRight:SetTexture(nil);
+        DressUpBackgroundBotLeft:SetTexture(nil);
+        DressUpBackgroundBotRight:SetTexture(nil);
+        DressUpModel:SetDisplayInfo(display_id);
+        if not DressUpFrame:IsShown() then
+            ShowUIPanel(DressUpFrame);
+        end
     end
 end
 
@@ -633,6 +639,13 @@ end
 
  -- HOOKS
 function CollectMe:DressUpItemLink(link)
+    local spell = tonumber(link:match("spell:(%d+)"));
+    if spell ~= nil then
+        local info = self:GetMountInfo(spell)
+        if info ~= nil then
+            self:PreviewMount(info.display_id)
+        end
+    end
     if IsDressableItem(link) then
         SetDressUpBackground(DressUpFrame, self.RACE);
         DressUpModel:SetUnit("player")

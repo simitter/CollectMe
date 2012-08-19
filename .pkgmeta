@@ -1,4 +1,5 @@
 package-as: CollectMe
+enable-nolib-creation: no
 
 manual-changelog:
     filename: CHANGELOG.md
