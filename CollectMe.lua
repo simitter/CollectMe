@@ -149,6 +149,14 @@ function CollectMe:BuildUI()
 
     self.tabs = tabs
     self.frame = f
+
+    local profilebutton = CreateFrame("Button", nil, self.frame.frame, "UIPanelButtonTemplate")
+    profilebutton:SetScript("OnClick", function() InterfaceOptionsFrame_OpenToCategory(addon_name) end)
+    profilebutton:ClearAllPoints()
+    profilebutton:SetPoint("RIGHT", self.frame.closebutton, "LEFT", 0, 0)
+    profilebutton:SetHeight(20)
+    profilebutton:SetWidth(100)
+    profilebutton:SetText(self.L["Profiles"])
 end
 
 function CollectMe:BuildTab(container)
@@ -623,7 +631,6 @@ end
 
  -- CONSOLE COMMAND HANDLER
 function CollectMe:SlashProcessor(input)
-
     if input == "rc" or input == "randomcompanion" then
         self:SummonRandomCompanion()
     elseif input == "rm" or input == "randommount" then

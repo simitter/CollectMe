@@ -36,6 +36,7 @@ L["Use flying mounts in water too"] = true
 L["Don't dismount when clicking on macro"] = true
 L["Use flying mounts for ground too"] = true
 L["Hide ignore list"] = true
+L["Profiles"] = true
 
 -- Mounts
 -- Common Mounts

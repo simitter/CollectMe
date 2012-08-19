@@ -237,7 +237,8 @@ local function Constructor()
         frame       = frame,
         type        = Type,
         statusbar   = statusbar,
-        tooltip     = tooltip
+        tooltip     = tooltip,
+        closebutton = closebutton
     }
     for method, func in pairs(methods) do
         widget[method] = func
