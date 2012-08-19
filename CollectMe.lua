@@ -1,4 +1,4 @@
-CollectMe = LibStub("AceAddon-3.0"):NewAddon("CollectMe", "AceConsole-3.0", "AceHook-3.0");
+CollectMe = LibStub("AceAddon-3.0"):NewAddon("CollectMe", "AceConsole-3.0", "AceHook-3.0", "AceEvent-3.0");
 local AceGUI = LibStub("AceGUI-3.0");
 local addon_name = "CollectMe"
 local MOUNT = 1
@@ -91,6 +91,8 @@ function CollectMe:OnInitialize()
     self.item_list = self.MOUNTS
     self.filter_list = MOUNT_FILTERS
 
+    self.cm_button_loaded = false
+
     self:BuildUI()
 
     self:RegisterChatCommand("collectme", "SlashProcessor")
@@ -101,7 +103,23 @@ function CollectMe:OnInitialize()
 
     self:SecureHook("MoveForwardStart", "AutoSummonCompanion")
     self:SecureHook("ToggleAutoRun", "AutoSummonCompanion")
+
+    self:RegisterEvent("ADDON_LOADED", "AddonLoadedListener")
 end
+
+function CollectMe:AddonLoadedListener(event, name)
+    if name == "Blizzard_PetJournal" and self.cm_button_loaded == false then
+        local cmbutton = CreateFrame("Button", "CollectMeOpenButton", MountJournal, "UIPanelButtonTemplate")
+        cmbutton:ClearAllPoints()
+        cmbutton:SetPoint("BOTTOMRIGHT", -8, 3)
+        cmbutton:SetHeight(22)
+        cmbutton:SetWidth(100)
+        cmbutton:SetText("Collect Me")
+        cmbutton:SetScript("OnClick", function() self.tabs:SelectTab(MOUNT); self.frame:Show() end)
+        self.cm_button_loaded = true
+    end
+end
+
 
 function CollectMe:OnEnable()
     self:InitMacro("CollectMeRC", "INV_PET_BABYBLIZZARDBEAR", "/cm rc")
