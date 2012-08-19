@@ -1,6 +1,9 @@
 package-as: CollectMe
 
-manual-changelog: CHANGELOG.txt
+manual-changelog:
+    filename: CHANGELOG.md
+    markup-type: markdown
+
 license-output: LICENSE.txt
 
 ignore:
