@@ -8,7 +8,4 @@ Excitor:
 
 - Tags to mounts that can be obtained through the Excotic Mystery bag.
 
-- Missing BoP, BoA... info on mounts.
-
-- Remove Unique tag it's useless and clutters the visiblity of BoP, BoE... etc.
 
