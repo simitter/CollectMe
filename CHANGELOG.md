@@ -11,6 +11,8 @@ __2.0__
  * Added feature to ctrl+left click mounts, companions in chat to view their models
  * Updated info for Recruit a Friend mounts (Mount)
  * Added Obsidian Nightwing (Mount)
+ * Added BoP, BoE and BoA tags to all mounts
+ * Added Filters for Titles.
 
 ***
 __1.3.5__
