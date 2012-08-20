@@ -135,7 +135,7 @@ function CollectMe:BuildMountDB()
     self:AddMount(88746, 35751, FLY)  -- Vitreous Stone Drake
     self:AddMount(88331, 35551, FLY)  -- Volcanic Stone Drake
     self:AddMount(54753, 28428)  -- White Polar Bear Mount
-    self:AddMount(39319, 21076, GROUND, { tcg = 1 } )  -- White Riding Camel
+    self:AddMount(39319, 21076, GROUND, { tcg = 1 })  -- White Riding Camel
     self:AddMount(102488, nil)  -- White Riding Talbuk
     self:AddMount(34897, 19377)  -- White War Talbuk
     self:AddMount(98727, 38260, FLY, { bsm = 1 })  -- Winged Guardian
