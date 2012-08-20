@@ -35,7 +35,7 @@ L["Available mounts"] = true
 L["Use flying mounts in water"] = true
 L["Don't dismount when clicking on macro"] = true
 L["Use flying mounts for ground"] = true
-L["Hide ignore list"] = true
+L["Hide ignored list"] = true
 L["Profiles"] = true
 
 -- Mounts
