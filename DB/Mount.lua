@@ -222,7 +222,7 @@ function CollectMe:BuildMountDB()
         self:AddMount(61425, 27237)  -- Traveler's Tundra Mammoth
         self:AddMount(65642, 14375)  -- Turbostrider
         self:AddMount(17454, 9476)  -- Unpainted Mechanostrider
-        self:AddMount(100332, 38668) -- Vicious War Steed
+        self:AddMount(100332, 38668, GROUND, { pvp = 1 }) -- Vicious War Steed
         self:AddMount(6898, 2786)   -- White Ram
         self:AddMount(17229, 10426)  -- Winterspring Frostsaber
         self:AddMount(59791, 27243)  -- Wooly Mammoth
@@ -303,7 +303,7 @@ function CollectMe:BuildMountDB()
         self:AddMount(61447, 27238) -- Traveler's Tundra Mammoth
         self:AddMount(10796, 6472) -- Turquoise Raptor
         self:AddMount(64659, 29102) -- Venomhide Ravasaur
-        self:AddMount(100333, 38607) -- Vicious War Wolf
+        self:AddMount(100333, 38607, GROUND, { pvp = 1 }) -- Vicious War Wolf
         self:AddMount(10799, 6473) -- Violet Raptor
         self:AddMount(64657, 12241) -- White Kodo
         self:AddMount(65645, 28605) -- White Skeletal Warhorse
