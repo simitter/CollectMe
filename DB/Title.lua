@@ -22,7 +22,7 @@ function CollectMe:BuildTitleDB()
     self:AddTitle(47)  -- the Explorer
     self:AddTitle(48)  -- the Diplomat
     self:AddTitle(49, {nlo = 1, are = 1})  -- Brutal Gladiator
-    self:AddTitle(50)  -- Arena Master
+    self:AddTitle(50, {are = 1})  -- Arena Master
     self:AddTitle(51)  -- Salty
     self:AddTitle(52)  -- Chef
     self:AddTitle(53, {nlo = 1})  -- the Supreme
@@ -77,8 +77,8 @@ function CollectMe:BuildTitleDB()
     self:AddTitle(105) -- Patron
     self:AddTitle(106, {nlo = 1}) -- Obsidian Slayer
     self:AddTitle(107) -- of the Nightfall
-    self:AddTitle(108) -- the Immortal
-    self:AddTitle(109) -- the Undying
+    self:AddTitle(108, {nlo = 1}) -- the Immortal
+    self:AddTitle(109, {nlo = 1}) -- the Undying
     self:AddTitle(110) -- Jenkins
     self:AddTitle(111) -- Bloodsail Admiral
     self:AddTitle(112) -- the Insane
@@ -86,8 +86,8 @@ function CollectMe:BuildTitleDB()
     self:AddTitle(123) -- Crusader
     self:AddTitle(124, {nlo = 1}) -- Death's Demise
     self:AddTitle(125, {nlo = 1}) -- the Celestial Defender
-    self:AddTitle(126) -- Conqueror of Ulduar
-    self:AddTitle(127) -- Champion of Ulduar
+    self:AddTitle(126, {nlo = 1}) -- Conqueror of Ulduar
+    self:AddTitle(127, {nlo = 1}) -- Champion of Ulduar
     self:AddTitle(128, { nlo = 1, are = 1 }) -- Vanquisher
     self:AddTitle(129) -- Starcaller
     self:AddTitle(130) -- the Astral Walker
@@ -96,7 +96,7 @@ function CollectMe:BuildTitleDB()
     self:AddTitle(133) -- the Pilgrim
     self:AddTitle(134, {nlo = 1, are = 1}) -- Relentless Gladiator
     self:AddTitle(135, {nlo = 1}) -- Grand Crusader
-    self:AddTitle(136) -- the Argent Defender
+    self:AddTitle(136, {nlo = 1}) -- the Argent Defender
     self:AddTitle(137) -- the Patient
     self:AddTitle(138) -- the Light of Dawn
     self:AddTitle(139) -- Bane of the Fallen King
@@ -110,7 +110,7 @@ function CollectMe:BuildTitleDB()
     self:AddTitle(149) -- Associate Professor
     self:AddTitle(150) -- Professor
     self:AddTitle(151) -- of the Four Winds
-    self:AddTitle(184) -- The Bloodthirsty
+    self:AddTitle(184, {pvp = 1}) -- The Bloodthirsty
     self:AddTitle(185) -- Defender of a Shattered World", -- [18
     self:AddTitle(186) -- Dragonslayer
     self:AddTitle(187) -- Blackwing's Bane
@@ -153,10 +153,10 @@ function CollectMe:BuildTitleDB()
         self:AddTitle(12, {nlo = 1, pvp = 1})   -- Marshal
         self:AddTitle(13, {nlo = 1, pvp = 1})   -- Field Marshal
         self:AddTitle(14, {nlo = 1, pvp = 1})   -- Grand Marshal
-        self:AddTitle(35)   -- Justicar
+        self:AddTitle(35, {pvp = 1})   -- Justicar
         self:AddTitle(44)   -- Flame Warden
         self:AddTitle(81)   -- of Gnomeregan
-        self:AddTitle(94)   -- of the Alliance
+        self:AddTitle(94, {pvp = 1})   -- of the Alliance
         self:AddTitle(113)  -- of the Exodar
         self:AddTitle(114)  -- of Darnassus
         self:AddTitle(115)  -- of Ironforge
@@ -196,9 +196,9 @@ function CollectMe:BuildTitleDB()
         self:AddTitle(26, {nlo = 1, pvp = 1})   -- General
         self:AddTitle(27, {nlo = 1, pvp = 1})   -- Warlord
         self:AddTitle(28, {nlo = 1, pvp = 1})   -- High Warlord
-        self:AddTitle(34)   -- Conqueror
+        self:AddTitle(34, {pvp = 1})   -- Conqueror
         self:AddTitle(45)   -- Flame Keeper
-        self:AddTitle(95)   -- of the Horde
+        self:AddTitle(95, {pvp = 1})   -- of the Horde
         self:AddTitle(117)   -- of Orgrimmar
         self:AddTitle(118)   -- of Sen'jin
         self:AddTitle(119)   -- of Silvermoon
