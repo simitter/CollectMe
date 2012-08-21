@@ -1,9 +1,5 @@
 Excitor:
-- Add more complete info on locations for mounts that are not specific enough,
-  standardise the mount info 1-end (mounts)
 
 - Drop percentages to the info on some mounts.
-
-- Fix to long title, add tags to recognise titles with same name at glance.
 
 
