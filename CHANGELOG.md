@@ -13,7 +13,7 @@ __2.0__
  * Added Obsidian Nightwing (Mount)
  * Added BoP, BoE and BoA tags to all mounts
  * Added Filters for Titles.
- * Added [SoEM] for mounts (Satchel of Exotic Mysteries)
+ * Added [SoEM] tags for mounts (Satchel of Exotic Mysteries)
 
 ***
 __1.3.5__
