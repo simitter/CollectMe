@@ -6,6 +6,4 @@ Excitor:
 
 - Fix to long title, add tags to recognise titles with same name at glance.
 
-- Tags to mounts that can be obtained through the Excotic Mystery bag.
-
 
