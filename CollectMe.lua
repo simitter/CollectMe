@@ -258,7 +258,7 @@ function CollectMe:SummonRandomCompanion()
         local call = math.random(1, #summonable)
         CallCompanion("CRITTER", summonable[call])
     else
-        self:Print(self.L["You don't have configured your companion priorities yet. Please open the random companion tab"])
+        self:Print(self.L["You haven't configured your companion priorities yet. Please open the random companion tab"])
     end
 end
 
@@ -322,7 +322,7 @@ function CollectMe:SummonRandomMount()
         elseif #fallback_mounts > 0 then
             self:Mount(fallback_mounts)
         else
-            self:Print(self.L["You don't have configured your mount priorities yet. Please open the random mount tab"])
+            self:Print(self.L["You haven't configured your mount priorities yet. Please open the random mount tab"])
         end
 
     elseif self.db.profile.summon.mounts.no_dismount == false then
@@ -444,14 +444,14 @@ function CollectMe:BuildOptions(container)
         local f = self:GetCheckboxOption(self.L["Disable missing mount message"], self.db.profile.missing_message.mounts)
         f:SetCallback("OnValueChanged", function (container, event, value) self.db.profile.missing_message.mounts = value end)
         container:AddChild(f)
-        local f = self:GetCheckboxOption(self.L["Hide ignore list"], self.db.profile.hide_ignore.mounts)
+        local f = self:GetCheckboxOption(self.L["Hide ignored list"], self.db.profile.hide_ignore.mounts)
         f:SetCallback("OnValueChanged", function (container, event, value) self.db.profile.hide_ignore.mounts = value; self:BuildList(self.scroll) end)
         container:AddChild(f)
     elseif self.active_tab == TITLE then
         local f = self:GetCheckboxOption(self.L["Disable missing title message"], self.db.profile.missing_message.titles)
         f:SetCallback("OnValueChanged", function (container, event, value) self.db.profile.missing_message.titles = value end)
         container:AddChild(f)
-        local f = self:GetCheckboxOption(self.L["Hide ignore list"], self.db.profile.hide_ignore.titles)
+        local f = self:GetCheckboxOption(self.L["Hide ignored list"], self.db.profile.hide_ignore.titles)
         f:SetCallback("OnValueChanged", function (container, event, value) self.db.profile.hide_ignore.titles = value; self:BuildList(self.scroll) end)
         container:AddChild(f)
     elseif self.active_tab == RANDOM_COMPANION then
@@ -465,10 +465,10 @@ function CollectMe:BuildOptions(container)
         local f = self:GetCheckboxOption(self.L["Don't dismount when clicking on macro"], self.db.profile.summon.mounts.no_dismount)
         f:SetCallback("OnValueChanged", function (container, event, value) self.db.profile.summon.mounts.no_dismount = value end)
         container:AddChild(f)
-        local f = self:GetCheckboxOption(self.L["Use flying mounts in water too"], self.db.profile.summon.mounts.flying_in_water)
+        local f = self:GetCheckboxOption(self.L["Use flying mounts in water"], self.db.profile.summon.mounts.flying_in_water)
         f:SetCallback("OnValueChanged", function (container, event, value) self.db.profile.summon.mounts.flying_in_water = value end)
         container:AddChild(f)
-        local f = self:GetCheckboxOption(self.L["Use flying mounts for ground too"], self.db.profile.summon.mounts.flying_on_ground)
+        local f = self:GetCheckboxOption(self.L["Use flying mounts for ground"], self.db.profile.summon.mounts.flying_on_ground)
         f:SetCallback("OnValueChanged", function (container, event, value) self.db.profile.summon.mounts.flying_on_ground = value end)
         container:AddChild(f)
     end
