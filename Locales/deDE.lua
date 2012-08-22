@@ -35,6 +35,8 @@ L["Available mounts"] = "Verfügbare Reittiere"
 L["Use flying mounts in water"] = "Benutze fliegende Reittiere auch im Wasser"
 L["Don't dismount when clicking on macro"] = "Beim Klick aufs Makro nicht vom Reittier absteigen"
 L["Use flying mounts for ground"] = "Benutze fliegende Reittiere auch als Bodenreittier"
+L["Hide ignored list"] = "Verstecke Ignorierliste"
+L["Profiles"] = "Profile"
 
 -- Mounts
 -- Common Mounts
@@ -120,8 +122,8 @@ L["mount_64659"] = "Ravasaur trainer Mor'vek has returned to Un'Goro and will of
 L["mount_64731"] = "Can be fished from Northrend Fishing Pools" -- Sea Turtle
 L["mount_63844"] = "Sold by the City Quartermasters at the Argent Tournament for 150 Champion's Seals" -- Argent Hippogryph
 L["mount_67466"] = "Sold by Dame Evniki Kapsalis, Crusader's Quartermaster at the Argent Tournament for 100 Champion's Seals. Requires level 40 and Riding 150. Must have the Argent Champion title. " -- Argent Warhorse
-L["mount_69395"] = "Rare drop from Onxyia in 10 or 25 man encounters" -- Onyxian Drake
-L["mount_59568"] = "Reward from 10-man Eye of Eternity (Malygos). Also contained in Satchel of Exotic Mysteries. Unique [BoP]" -- Blue Drake
+L["mount_69395"] = "Drops from Onxyia in 10 or 25 man encounters. [BoP]" -- Onyxian Drake
+L["mount_59568"] = "Reward from 10-man Eye of Eternity (Malygos). [SoEM] [BoP]" -- Blue Drake
 L["mount_66087"] = "This mount can be purchased from the Silver Covenant quartermaster at Argent Tournament for 150 Champion Seals and you must be exalted with Silver Covenant." -- Silver Covenant Hippogryph
 L["mount_65917"] = "Obtained from a lootcard of the WoW Trading Card 'El Pollo Grande'." -- Magic Rooster
 L["mount_72807"] = "Obtained from Glory of the Icecrown Raider (25 man) Achievement." -- Icebound Frostbrood Vanquisher
