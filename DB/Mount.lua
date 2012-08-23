@@ -60,10 +60,10 @@ function CollectMe:BuildMountDB()
     self:AddMount(36702, 19250)   -- Fiery Warhorse
     self:AddMount(101542, 38783, FLY)   -- Flametalon of Alysrazor
     self:AddMount(97359, 38018, FLY)   -- Flameward Hippogryph
-    self:AddMount(61451, 28082, FLY)   -- Flying Carpet
-    self:AddMount(44153, 22719, FLY)   -- Flying Machine
+    self:AddMount(61451, 28082, FLY, nil, nil, { tai = 300 })   -- Flying Carpet
+    self:AddMount(44153, 22719, FLY, nil, nil, { eng = 300 })   -- Flying Machine
     self:AddMount(84751, 34410)   -- Fossilized Raptor
-    self:AddMount(75596, 28063, FLY)   -- Frosty Flying Carpet
+    self:AddMount(75596, 28063, FLY, nil, nil, { tai = 425 })   -- Frosty Flying Carpet
     self:AddMount(65439, 25593, FLY, { are = 1, nlo = 1 })   -- Furious Gladiator's Frost Wyrm
     self:AddMount(49379, 24757)   -- Great Brewfest Kodo
     self:AddMount(61294, 28053, FLY)   -- Green Proto-Drake
@@ -77,7 +77,7 @@ function CollectMe:BuildMountDB()
     self:AddMount(63956, 28953, FLY)  -- Ironbound Proto-Drake
     self:AddMount(107845, 39563, FLY)  -- Life-Binder's Handmaiden
     self:AddMount(65917, 29344, GROUND, { tcg = 1 })  -- Magic Rooster
-    self:AddMount(61309, 28060, FLY)  -- Magnificent Flying Carpet
+    self:AddMount(61309, 28060, FLY, nil, nil, { tai = 425 })  -- Magnificent Flying Carpet
     self:AddMount(44744, 22620, FLY, { are = 1, nlo = 1})  -- Merciless Nether Drake
     self:AddMount(63796, 28890, FLY)  -- Mimiron's Head
     self:AddMount(93623, 37231, FLY, { tcg = 1 })  -- Mottled Drake
@@ -123,7 +123,7 @@ function CollectMe:BuildMountDB()
     self:AddMount(39318, 21077)  -- Tan Riding Talbuk
     self:AddMount(34899, 19376)  -- Tan War Talbuk
     self:AddMount(60002, 28045, FLY)  -- Time-Lost Proto-Drake
-    self:AddMount(44151, 22720, FLY)  -- Turbo-Charged Flying Machine
+    self:AddMount(44151, 22720, FLY, nil, nil, { eng = 375 })  -- Turbo-Charged Flying Machine
     self:AddMount(59571, 27796, FLY)  -- Twilight Drake
     self:AddMount(107844, 39562, FLY)  -- Twilight Harbinger
     self:AddMount(107203, 39530, FLY, { ptm = 1 })  -- Tyrael's Charger
@@ -353,7 +353,7 @@ function CollectMe:BuildMountDB()
     self:SortTable(self.MOUNTS)
 end
 
-function CollectMe:AddMount(spell_id, display_id, type, filters, zones)
+function CollectMe:AddMount(spell_id, display_id, type, filters, zones, professions)
     if spell_id ~= nil then
         local name, _, icon = GetSpellInfo(spell_id)
         local link = GetSpellLink(spell_id)
@@ -366,7 +366,8 @@ function CollectMe:AddMount(spell_id, display_id, type, filters, zones)
             display_id = display_id,
             type       = (type == nil and GROUND or type),
             filters    = filters,
-            zones      = zones
+            zones      = zones,
+            professions = professions
         })
 
         table.insert(self.MOUNT_SPELLS, spell_id)

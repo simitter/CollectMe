@@ -124,6 +124,34 @@ end
 function CollectMe:OnEnable()
     self:InitMacro("CollectMeRC", "INV_PET_BABYBLIZZARDBEAR", "/cm rc")
     self:InitMacro("CollectMeRM", "ABILITY_MOUNT_BIGBLIZZARDBEAR", "/cm rm")
+
+    if self.professions == nil then
+        self:UpdateProfessions()
+    end
+end
+
+function CollectMe:UpdateProfessions()
+    local first, second = GetProfessions()
+    self.professions = {}
+    if(first ~= nil) then
+        self:SetProfession(first)
+    end
+    if(second ~= nil) then
+        self:SetProfession(second)
+    end
+end
+
+function CollectMe:SetProfession(index)
+    local _, icon, skill = GetProfessionInfo(index)
+    local name
+    if string.find(icon, "Trade_Tailoring") ~= nil then
+        name = 'tai'
+    elseif string.find(icon, "Trade_Engineering") ~= nil then
+        name = 'eng'
+    end
+    if name ~= nil then
+        table.insert(self.professions, { name = name, skill = skill} )
+    end
 end
 
 function CollectMe:InitMacro(name, icon, body)
@@ -271,6 +299,7 @@ function CollectMe:SummonRandomMount()
     if not IsMounted() then
         local zone_mounts, type_mounts, fallback_mounts = {}, {}, {}
         local zone_id, is_swimming, is_flyable_area = self:GetCurrentZone(), IsSwimming(), IsFlyableArea()
+        local profession_count = #self.professions
         for i = 1, GetNumCompanions("MOUNT") do
             local _, name, spell_id = GetCompanionInfo("MOUNT", i);
 
@@ -287,28 +316,30 @@ function CollectMe:SummonRandomMount()
                     }
                 end
 
-                -- setting up zone table (aquatic handled by that too currently)
-                if(info.zones ~= nil and self:IsInTable(info.zones, zone_id)) then
-                    self:InsertMount(zone_mounts, spell_id, i)
-                end
-
-                if #zone_mounts == 0 then
-                    -- swimming mounts
-                    if is_swimming == 1 then
-                        if info.type == SWIM or (self.db.profile.summon.mounts.flying_in_water == true and info.type == FLY and is_flyable_area == 1) then
-                            self:InsertMount(type_mounts, spell_id, i)
-                        end
-                    -- flying mounts
-                    elseif is_flyable_area == 1 then
-                        if info.type == FLY then
-                            self:InsertMount(type_mounts, spell_id, i)
-                        end
+                if profession_count == 0 or info.professions == nil or self:ProfessionMount(info) == true then
+                    -- setting up zone table (aquatic handled by that too currently)
+                    if(info.zones ~= nil and self:IsInTable(info.zones, zone_id)) then
+                        self:InsertMount(zone_mounts, spell_id, i)
                     end
 
-                    if #type_mounts == 0 then
-                        -- fallback mounts
-                        if info.type == GROUND or (self.db.profile.summon.mounts.flying_on_ground  == true and info.type == FLY) then
-                            self:InsertMount(fallback_mounts, spell_id, i)
+                    if #zone_mounts == 0 then
+                        -- swimming mounts
+                        if is_swimming == 1 then
+                            if info.type == SWIM or (self.db.profile.summon.mounts.flying_in_water == true and info.type == FLY and is_flyable_area == 1) then
+                                self:InsertMount(type_mounts, spell_id, i)
+                            end
+                        -- flying mounts
+                        elseif is_flyable_area == 1 then
+                            if info.type == FLY then
+                                self:InsertMount(type_mounts, spell_id, i)
+                            end
+                        end
+
+                        if #type_mounts == 0 then
+                            -- fallback mounts
+                            if info.type == GROUND or (self.db.profile.summon.mounts.flying_on_ground  == true and info.type == FLY) then
+                                self:InsertMount(fallback_mounts, spell_id, i)
+                            end
                         end
                     end
                 end
@@ -322,12 +353,25 @@ function CollectMe:SummonRandomMount()
         elseif #fallback_mounts > 0 then
             self:Mount(fallback_mounts)
         else
-            self:Print(self.L["You haven't configured your mount priorities yet. Please open the random mount tab"])
+            if IsIndoors() == nil then
+                self:Print(self.L["You haven't configured your mount priorities yet. Please open the random mount tab"])
+            end
         end
 
     elseif self.db.profile.summon.mounts.no_dismount == false then
         Dismount()
     end
+end
+
+function CollectMe:ProfessionMount(info)
+    for i,v in pairs(info.professions) do
+        for j, v1 in pairs(self.professions) do
+            if i == v1.name and v1.skill >= v then
+                return true
+            end
+        end
+    end
+    return false
 end
 
 function CollectMe:Mount(t)
@@ -646,6 +690,11 @@ function CollectMe:SortTable(tbl)
     table.sort(tbl, function(a, b) return (string.lower(a.name) < string.lower(b.name)) end)
 end
 
+function CollectMe:PrintProfessions()
+    for i,v in ipairs(self.professions) do
+        self:Print(v.name ..' - '.. v.skill)
+    end
+end
 
  -- CONSOLE COMMAND HANDLER
 function CollectMe:SlashProcessor(input)
@@ -659,6 +708,8 @@ function CollectMe:SlashProcessor(input)
         self:Print(self:GetCurrentZone())
     elseif input == "debug title" then
         self:PrintAllTitles()
+    elseif input == "debug profession" then
+        self:PrintProfessions()
     else
         self.tabs:SelectTab(MOUNT)
         self.frame:Show()
