@@ -259,11 +259,10 @@ function CollectMe:BuildRandomList(listcontainer)
 
     for i = 1, count, 1 do
         local _, name, spell_id = GetCompanionInfo(type, i)
-        local f = AceGUI:Create("Slider")
+        local f = AceGUI:Create("CheckBox")
         f:SetLabel(name)
         f:SetFullWidth(true)
-        f:SetSliderValues(0, 10, 1)
-        local value = (random_db[spell_id] ~= nil and random_db[spell_id] or 0)
+        local value = ((random_db[spell_id] ~= nil and random_db[spell_id] ~= false) and true or false)
         f:SetValue(value)
         f:SetCallback("OnValueChanged", function (container, event, val) random_db[spell_id] = val end)
 
