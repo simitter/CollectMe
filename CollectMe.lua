@@ -316,7 +316,7 @@ function CollectMe:SummonRandomMount()
                     }
                 end
 
-                if profession_count == 0 or info.professions == nil or self:ProfessionMount(info) == true then
+                if info.professions == nil or self:ProfessionMount(info) == true then
                     -- setting up zone table (aquatic handled by that too currently)
                     if(info.zones ~= nil and self:IsInTable(info.zones, zone_id)) then
                         self:InsertMount(zone_mounts, spell_id, i)
