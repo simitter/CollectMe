@@ -122,7 +122,7 @@ end
 
 
 function CollectMe:OnEnable()
-    self:InitMacro("CollectMeRC", "INV_PET_BABYBLIZZARDBEAR", "/cm rc")
+    self:InitMacro("CollectMeRC", "INV_PET_BABYBLIZZARDBEAR", '/script if(GetMouseButtonClicked() == "RightButton") then DismissCompanion("CRITTER") else CollectMe:SummonRandomCompanion() end;')
     self:InitMacro("CollectMeRM", "ABILITY_MOUNT_BIGBLIZZARDBEAR", "/cm rm")
 
     if self.professions == nil then
@@ -274,10 +274,8 @@ function CollectMe:SummonRandomCompanion()
     local summonable = {};
     for i = 1, GetNumCompanions("CRITTER") do
         local _, _, spell_id = GetCompanionInfo("CRITTER", i);
-        if (self.db.profile.random.companions[spell_id] ~= nil and self.db.profile.random.companions[spell_id] ~= 0) then
-            for j = 1, self.db.profile.random.companions[spell_id] do
-                table.insert(summonable, i)
-            end
+        if (self.db.profile.random.companions[spell_id] ~= nil and self.db.profile.random.companions[spell_id] ~= false) then
+            table.insert(summonable, i)
         end
     end
 
