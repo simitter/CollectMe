@@ -123,7 +123,7 @@ end
 
 function CollectMe:OnEnable()
     self:InitMacro("CollectMeRC", "INV_PET_BABYBLIZZARDBEAR", '/script if(GetMouseButtonClicked() == "RightButton") then DismissCompanion("CRITTER") else CollectMe:SummonRandomCompanion() end;')
-    self:InitMacro("CollectMeRM", "ABILITY_MOUNT_BIGBLIZZARDBEAR", "/cm rm")
+    self:InitMacro("CollectMeRM", "ABILITY_MOUNT_BIGBLIZZARDBEAR", '/script if(GetMouseButtonClicked() == "RightButton") then Dismount() elseif(IsLeftShiftKeyDown()) then CollectMe:SummonRandomMount(1) else CollectMe:SummonRandomMount() end;')
 
     if self.professions == nil then
         self:UpdateProfessions()
@@ -292,7 +292,7 @@ function CollectMe:GetCurrentZone()
     return GetCurrentMapAreaID()
 end
 
-function CollectMe:SummonRandomMount()
+function CollectMe:SummonRandomMount(type)
     if not IsMounted() then
         local zone_mounts, type_mounts, fallback_mounts = {}, {}, {}
         local zone_id, is_swimming, is_flyable_area = self:GetCurrentZone(), IsSwimming(), IsFlyableArea()
@@ -331,19 +331,18 @@ function CollectMe:SummonRandomMount()
                                 table.insert(type_mounts, i)
                             end
                         end
-
-                        if #type_mounts == 0 then
-                            -- fallback mounts
-                            if info.type == GROUND or (self.db.profile.summon.mounts.flying_on_ground  == true and info.type == FLY) then
-                                table.insert(fallback_mounts, i)
-                            end
-                        end
+                    end
+                    if info.type == GROUND or (self.db.profile.summon.mounts.flying_on_ground  == true and info.type == FLY) then
+                        table.insert(fallback_mounts, i)
                     end
                 end
             end
         end
 
-        if #zone_mounts > 0 then
+
+        if type == GROUND and #fallback_mounts > 0 then
+            self:Mount(fallback_mounts)
+        elseif #zone_mounts > 0 then
             self:Mount(zone_mounts)
         elseif #type_mounts > 0 then
             self:Mount(type_mounts)
