@@ -5,6 +5,7 @@ __2.0__
  * Filters and options are now more easily accessible
  * Random mount summoning (using a macro)
  * Removed pet summoning button (replaced by a macro)
+ * Removed random summoning by priority - replaced random summoning of a list of chosen mounts/companions
  * Added preview by using dressing room and display id's - no more cache
  * Mounts linkable to chat
  * Added translation support (English, German currently implemented)

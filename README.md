@@ -1,5 +1,5 @@
 ## Introduction
-Collect Me keeps track of your mounts and titles in the game and can show you your missing mounts and titles with additional information on where to get them. It can also summon companions and mounts randomly with a priority list.
+Collect Me keeps track of your mounts and titles in the game and can show you your missing mounts and titles with additional information on where to get them. It can also summon companions and mounts randomly from a user defined list.
 
 ## Basic Features
 
@@ -7,13 +7,22 @@ Collect Me keeps track of your mounts and titles in the game and can show you yo
  * Filters for mounts and titles
  * Source-information of mounts and titles
  * 3D model preview of mounts
- * Zone- and priority-based random mount-summoning
- * Priority-based random pet-summoning
+ * User- and Zone-definded random mount-summoning
+ * Userdefinded random pet-summoning
  * Auto-summoning of companions on moving
  * WowAce profile support
 
 ## Usage
 Collect Me creates two macros for mount and companion summoning. All other features and settin can be accessed on the main window.
+
+## Macros
+ * CollectMeRC
+  * Left-Click: Summons a random companion
+  * Right-Click: Dismisses the current companion
+ * CollectMeRM
+  * Left-Click: Summons a random mount if player is not mounted. Dismounts player if he is mounted and it's not prevented by the players settings
+  * Right-Click: Always dismounts a player
+  * Left-Shift + Left-Click: Forces to mount a groundmount
 
 ## Slash Commands
  * /collectme or /cm will bring up the main window
@@ -31,25 +40,14 @@ You can add an item to the ignore list by Ctrl + right-clicking on them, if for 
 ### Filters
 In addition to the Ignore List, you can add pre-configured filters. Those filters will hide mounts and titles from the missing list. This will allow you to keep the list small to bring in some general survey. By combining the filters and the ignore list you should have a good compromise of speed and detail.
 
-#### Priority-based summoning
+### Random summoning
 The add-on can summon a random companion or mount by using the macros the addon creates.
 
-You can manage the priority lists in the main window. There you'll find a list of every companion and mount you have and you can assign them priorities between 0 and 10.
- * 0: If you set a companion or mount to 0 it will never be summoned (this is the default setting).
- * 1-10: The higher the priority, the higher the chance that the companion or mount will be summoned.
+You can define a set of mounts and companions from which CollectMe will choose randomly in the "Random Companion" and "Random Mount" Tab
 
-NOTE: The chance depends not only on the companion priority but on all priorities of all companions.
-##### Example
- * Companion A) 5
- * Companion B) 0
- * Companion C) 10
- * Companion D) 10
-
-That gives A a chance of 20% to be summoned. B will never be summoned (0 %). C and D have both a chance of 40% to be summoned.
-
-##### Zone priorities for mounts
-Collect Me tries to autodetect wich mount would be best for the current zone (example vashj'r, non flyable zones) and build the pool based on this suggestion and your priorities and than randomly choose one. Let's take a look to AQ40 for an example. You have 2 Qiraj mounts and 10 normal ground mounts and you are in AQ40.
-Both Qiraj mounts have a priority of 0. In this case Collect Me would summon a random ground mount. If one Qiraj mount would have priority Collect Me would always take the Qiraj mount. If both Qiraj mounts would have a priority, Collect Me would randomly choose between those two mounts based on your priority.
+#### Zone priorities for mounts
+Collect Me tries to autodetect wich mount would be best for the current zone (example vashj'r, non flyable zones) and build the pool based on this suggestion and your defined mounts and than randomly choose one. Let's take a look to AQ40 for an example. You have 2 Qiraj mounts and 10 normal ground mounts and you are in AQ40.
+Both Qiraj mounts are not added to the set for auto summoning. In this case Collect Me would summon a random ground mount. If one Qiraj mount would be enabled in your set Collect Me would always take the Qiraj mount. If both Qiraj mounts would be enabled, Collect Me would randomly choose between those two mounts.
 Zone Mounts always weigh stronger than non zone mounts. Currently you can not influence that, but in a future release some options may be added.
 
 ## 3D Model Preview
