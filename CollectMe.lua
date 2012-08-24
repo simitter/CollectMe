@@ -273,8 +273,8 @@ end
 function CollectMe:SummonRandomCompanion()
     local summonable = {};
     for i = 1, GetNumCompanions("CRITTER") do
-        local _, _, spell_id = GetCompanionInfo("CRITTER", i);
-        if (self.db.profile.random.companions[spell_id] ~= nil and self.db.profile.random.companions[spell_id] ~= false) then
+        local _, _, spell_id, _, is_summoned = GetCompanionInfo("CRITTER", i);
+        if (self.db.profile.random.companions[spell_id] ~= nil and self.db.profile.random.companions[spell_id] ~= false) and is_summoned == nil then
             table.insert(summonable, i)
         end
     end
