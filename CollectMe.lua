@@ -497,7 +497,7 @@ function CollectMe:BuildOptions(container)
         f:SetCallback("OnValueChanged", function (container, event, value) self.db.profile.summon.companions.disable_pvp = value end)
         container:AddChild(f)
     elseif self.active_tab == RANDOM_MOUNT then
-        local f = self:GetCheckboxOption(self.L["Don't dismount when clicking on macro"], self.db.profile.summon.mounts.no_dismount)
+        local f = self:GetCheckboxOption(self.L["Don't dismount when left-clicking on macro"], self.db.profile.summon.mounts.no_dismount)
         f:SetCallback("OnValueChanged", function (container, event, value) self.db.profile.summon.mounts.no_dismount = value end)
         container:AddChild(f)
         local f = self:GetCheckboxOption(self.L["Use flying mounts in water"], self.db.profile.summon.mounts.flying_in_water)
