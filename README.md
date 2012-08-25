@@ -7,7 +7,7 @@ Collect Me keeps track of your mounts and titles in the game and can show you yo
  * Filters for mounts and titles
  * Source-information of mounts and titles
  * 3D model preview of mounts
- * User- and Zone-definded random mount-summoning
+ * User- and Zone-defined random mount-summoning
  * Userdefinded random pet-summoning
  * Auto-summoning of companions on moving
  * WowAce profile support
@@ -43,7 +43,7 @@ In addition to the Ignore List, you can add pre-configured filters. Those filter
 ### Random summoning
 The add-on can summon a random companion or mount by using the macros the addon creates.
 
-You can define a set of mounts and companions from which CollectMe will choose randomly in the "Random Companion" and "Random Mount" Tab
+You can define a set of mounts and companions from which CollectMe will choose randomly in the "Random Companion" and "Random Mount" Tab.
 
 #### Zone priorities for mounts
 Collect Me tries to autodetect wich mount would be best for the current zone (example vashj'r, non flyable zones) and build the pool based on this suggestion and your defined mounts and than randomly choose one. Let's take a look to AQ40 for an example. You have 2 Qiraj mounts and 10 normal ground mounts and you are in AQ40.
