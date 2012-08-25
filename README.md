@@ -26,8 +26,8 @@ Collect Me creates two macros for mount and companion summoning. All other featu
 
 ## Slash Commands
  * /collectme or /cm will bring up the main window
- * /cm randomcompanion or /cm rc will summon a random companion bases on your priority list
- * /cm randommount or /cm rm will summon a random companion bases on your priority list
+ * /cm randomcompanion or /cm rc will summon a random companion bases on your defined set
+ * /cm randommount or /cm rm will summon a random companion bases on your defined set
  * /cm options will open the profile settings
  * You can also use the "Collect Me" button in the Blizzard Mount Tab to open the addon
 

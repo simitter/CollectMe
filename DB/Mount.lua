@@ -106,7 +106,7 @@ function CollectMe:BuildMountDB()
     self:AddMount(39317, 21075)  -- Silver Riding Talbuk
     self:AddMount(34898, 19378)  -- Silver War Talbuk
     self:AddMount(42776, 21973, GROUND, { tcg = 1 })  -- Spectral Tiger
-    self:AddMount(98718, 34955, AQUATIC)  -- Subdued Seahorse
+    self:AddMount(98718, 34955, AQUATIC, {}, { 614, 615, 610 })  -- Subdued Seahorse
     self:AddMount(43900, 22350)  -- Swift Brewfest Ram
     self:AddMount(102346, 1281)  -- Swift Forest Strider
     self:AddMount(102350, 1961)  -- Swift Lovebird
