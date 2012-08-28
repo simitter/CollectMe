@@ -56,7 +56,7 @@ function CollectMe:BuildMountDB()
     self:AddMount(88744, 35755, FLY)         -- Drake of the South Wind
     self:AddMount(88741, 35754, FLY)         -- Drake of the West Wind
     self:AddMount(110039, 39229, FLY)   -- Experiment 12-B
-    self:AddMount(113120, nil, FLY, { tcg = 1 })   -- Feldrake
+    self:AddMount(113120, 40568, FLY, { tcg = 1 })   -- Feldrake
     self:AddMount(36702, 19250)   -- Fiery Warhorse
     self:AddMount(101542, 38783, FLY)   -- Flametalon of Alysrazor
     self:AddMount(97359, 38018, FLY)   -- Flameward Hippogryph
@@ -81,7 +81,7 @@ function CollectMe:BuildMountDB()
     self:AddMount(44744, 22620, FLY, { are = 1, nlo = 1})  -- Merciless Nether Drake
     self:AddMount(63796, 28890, FLY)  -- Mimiron's Head
     self:AddMount(93623, 37231, FLY, { tcg = 1 })  -- Mottled Drake
-    self:AddMount(121820, nil, FLY, { rfm = 1 })  -- Obsidian Nightwing
+    self:AddMount(121820, 42498, FLY, { rfm = 1 })  -- Obsidian Nightwing
     self:AddMount(69395, 30346, FLY)  -- Onyxian Drake
     self:AddMount(41513, 21520, FLY)  -- Onyx Netherwing Drake
     self:AddMount(88718, 35740, FLY)  -- Phosphorescent Stone Drake
@@ -135,8 +135,8 @@ function CollectMe:BuildMountDB()
     self:AddMount(88746, 35751, FLY)  -- Vitreous Stone Drake
     self:AddMount(88331, 35551, FLY)  -- Volcanic Stone Drake
     self:AddMount(54753, 28428)  -- White Polar Bear Mount
-    self:AddMount(39319, 21076, GROUND, { tcg = 1 })  -- White Riding Camel
-    self:AddMount(102488, nil)  -- White Riding Talbuk
+    self:AddMount(39319, 37204, GROUND, { tcg = 1 })  -- White Riding Camel
+    self:AddMount(102488, 21076)  -- White Riding Talbuk
     self:AddMount(34897, 19377)  -- White War Talbuk
     self:AddMount(98727, 38260, FLY, { bsm = 1 })  -- Winged Guardian
     self:AddMount(74918, 31721, GROUND, { tcg = 1 })  -- Wooly White Rhino
