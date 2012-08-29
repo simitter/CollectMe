@@ -122,7 +122,7 @@ end
 
 
 function CollectMe:OnEnable()
-    self:InitMacro("CollectMeRC", "INV_PET_BABYBLIZZARDBEAR", '/script if(GetMouseButtonClicked() == "RightButton") then DismissCompanion("CRITTER") else CollectMe:SummonRandomCompanion() end;')
+    self:InitMacro("CollectMeRC", "INV_PET_BABYBLIZZARDBEAR", '/script if(GetMouseButtonClicked() == "RightButton") then  C_PetJournal.SummonPetByID(C_PetJournal.GetSummonedPetID()) else CollectMe:SummonRandomCompanion() end;')
     self:InitMacro("CollectMeRM", "ABILITY_MOUNT_BIGBLIZZARDBEAR", '/script if(GetMouseButtonClicked() == "RightButton") then Dismount() elseif(IsLeftShiftKeyDown()) then CollectMe:SummonRandomMount(1) else CollectMe:SummonRandomMount() end;')
 
     if self.professions == nil then
@@ -235,24 +235,41 @@ function CollectMe:BuildTab(container)
     if self.active_tab == MOUNT or self.active_tab == TITLE then
         self:BuildList(scroll)
         self:BuildFilters(filter)
-    elseif self.active_tab == RANDOM_COMPANION or self.active_tab == RANDOM_MOUNT then
+    elseif self.active_tab == RANDOM_COMPANION then
+        self:BuildRandomPetList(scroll)
+    elseif self.active_tab == RANDOM_MOUNT then
         self:BuildRandomList(scroll)
     end
 
     self:BuildOptions(filter)
 end
 
-function CollectMe:BuildRandomList(listcontainer)
-    local type, random_db, title
-    if self.active_tab == RANDOM_COMPANION then
-        type = "CRITTER"
-        random_db = self.db.profile.random.companions
-        title = self.L["Available companions"]
-    else
-        type = "MOUNT"
-        random_db = self.db.profile.random.mounts
-        title = self.L["Available mounts"]
+function CollectMe:BuildRandomPetList(listcontainer)
+    local count, owned = C_PetJournal.GetNumPets(false)
+    local random_db =  self.db.profile.random.companions
+
+    listcontainer:AddChild(self:CreateHeading(self.L["Available companions"] ..  " - " .. owned))
+    for i = 1,count do
+        local id, _, owned, my_name, level, _, _, name = C_PetJournal.GetPetInfoByIndex(i, false)
+        if name ~= nil and owned == true and C_PetJournal.PetIsSummonable(id) then
+            local f = AceGUI:Create("CheckBox")
+            if my_name ~= nil then
+                f:SetLabel(name .. " - " .. my_name)
+            else
+                f:SetLabel(name)
+            end
+            f:SetFullWidth(true)
+            local value = ((random_db[id] ~= nil and random_db[id] ~= false) and true or false)
+            f:SetValue(value)
+            f:SetCallback("OnValueChanged", function (container, event, val) random_db[id] = val end)
+            listcontainer:AddChild(f)
+        end
     end
+end
+
+
+function CollectMe:BuildRandomList(listcontainer)
+    local type, random_db, title = "MOUNT", self.db.profile.random.mounts, self.L["Available mounts"]
 
     local count = GetNumCompanions(type)
     listcontainer:AddChild(self:CreateHeading(title ..  " - " .. count))
@@ -272,16 +289,16 @@ end
 
 function CollectMe:SummonRandomCompanion()
     local summonable = {};
-    for i = 1, GetNumCompanions("CRITTER") do
-        local _, _, spell_id, _, is_summoned = GetCompanionInfo("CRITTER", i);
-        if (self.db.profile.random.companions[spell_id] ~= nil and self.db.profile.random.companions[spell_id] ~= false) and is_summoned == nil then
+
+    for i,v in pairs(self.db.profile.random.companions) do
+        if v == true and C_PetJournal.PetIsSummonable(i) then
             table.insert(summonable, i)
         end
     end
 
     if (#summonable > 0) then
         local call = math.random(1, #summonable)
-        CallCompanion("CRITTER", summonable[call])
+        C_PetJournal.SummonPetByID(summonable[call])
     else
         self:Print(self.L["You haven't configured your companion priorities yet. Please open the random companion tab"])
     end
