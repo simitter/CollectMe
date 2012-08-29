@@ -122,7 +122,7 @@ end
 
 
 function CollectMe:OnEnable()
-    self:InitMacro("CollectMeRC", "INV_PET_BABYBLIZZARDBEAR", '/script if(GetMouseButtonClicked() == "RightButton") then  C_PetJournal.SummonPetByID(C_PetJournal.GetSummonedPetID()) else CollectMe:SummonRandomCompanion() end;')
+    self:InitMacro("CollectMeRC", "INV_PET_BABYBLIZZARDBEAR", '/script if(GetMouseButtonClicked() == "RightButton") then C_PetJournal.SummonPetByID(C_PetJournal.GetSummonedPetID()) else CollectMe:SummonRandomCompanion() end;')
     self:InitMacro("CollectMeRM", "ABILITY_MOUNT_BIGBLIZZARDBEAR", '/script if(GetMouseButtonClicked() == "RightButton") then Dismount() elseif(IsLeftShiftKeyDown()) then CollectMe:SummonRandomMount(1) else CollectMe:SummonRandomMount() end;')
 
     if self.professions == nil then
