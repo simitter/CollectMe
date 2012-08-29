@@ -73,6 +73,7 @@ function CollectMe:BuildMountDB()
     self:AddMount(110051, 40029, FLY, { bsm = 1 })  -- Heart of the Aspects
     self:AddMount(48025, 25159, FLY)  -- Headless Horseman's Mount
     self:AddMount(72807, 31154, FLY)  -- Icebound Frostbrood Vanquisher
+    self:AddMount(124659, 43254, FLY) -- Imperial Quilen
     self:AddMount(72286, 31007, FLY)  -- Invincible
     self:AddMount(63956, 28953, FLY)  -- Ironbound Proto-Drake
     self:AddMount(107845, 39563, FLY)  -- Life-Binder's Handmaiden
