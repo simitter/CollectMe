@@ -2,4 +2,6 @@ Excitor:
 
 - Drop percentages to the info on some mounts.
 
+- A lot of the NLO filtered mounts are now obtainable through the AH they need to be checked.
+
 
