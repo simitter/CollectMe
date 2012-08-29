@@ -180,6 +180,7 @@ L["mount_61309"] = "Recipe is taught by Grand Master Tailoring Trainers. [BoE]" 
 L["mount_93623"] = "Loot card from the WoW Trading Card Game: Worldbreaker. [BoE]" -- Mottled Drake
 L["mount_113120"] = "Loot card from the WoW Trading Card Game: War of the Ancients. [BoE]" -- Feldrake
 L["mount_121820"] = "Obtained by using the Recruit a Friend Service. [BoA]" -- Obsidian Nightwing
+L["mount_124659"] = "Included in the Digital Deluxe version of Mists of Pandaria. [BoA]" -- Imperial Quilen
 
 -- Alliance Mounts
 L["mount_60114"] = "Verkauft von Mei Francis in Dalaran für 750G. [BoP]" -- Armored Brown Bear
