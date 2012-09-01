@@ -3,9 +3,9 @@ Excitor:
 - Drop percentages to the info on some mounts.
 
 - A lot of the NLO filtered mounts are now obtainable through the AH/trade they need to be checked.
+----------------------------
 
-//
-Temporary work:
+temp DB work:
 
     self:AddMount(127180, 22471) -- Albino Riding Crane
     self:AddMount(123886, 22471) -- Amber Scorpion
@@ -73,6 +73,77 @@ Temporary work:
     self:AddMount(132119, 22471) -- Violet Pandaren Phoenix
     self:AddMount(130137, 22471) -- White Riding Goat
     self:AddMount(123182, 22471) -- White Riding Yak
+
+
+temp locale work:
+
+L["mount_127180"] = "Reward from the achievement Leading the Cavalry (collect 50 Mounts. [BoP])" -- Albino Riding Crane
+L["mount_123886"] = "Reward from the achievement Leading the Cavalry (collect 50 Mounts. [BoP])" -- Amber Scorpio
+L["mount_132117"] = "Reward from the achievement Leading the Cavalry (collect 50 Mounts. [BoP])" -- Ashen Pandaren Phoenix
+L["mount_127170"] = "Reward from the achievement Leading the Cavalry (collect 50 Mounts. [BoP])" -- Astral Cloud Serpent
+L["mount_123992"] = "Reward from the achievement Leading the Cavalry (collect 50 Mounts. [BoP])" -- Azure Cloud Serpent
+L["mount_127174"] = "Reward from the achievement Leading the Cavalry (collect 50 Mounts. [BoP])" -- Azure Riding Crane
+L["mount_118089"] = "Reward from the achievement Leading the Cavalry (collect 50 Mounts. [BoP])" -- Azure Water Strider
+L["mount_127286"] = "Reward from the achievement Leading the Cavalry (collect 50 Mounts. [BoP])" -- Black Dragon Turtle
+L["mount_130138"] = "Reward from the achievement Leading the Cavalry (collect 50 Mounts. [BoP])" -- Black Riding Goat
+L["mount_127209"] = "Reward from the achievement Leading the Cavalry (collect 50 Mounts. [BoP])" -- Black Riding Yak
+L["mount_127220"] = "Reward from the achievement Leading the Cavalry (collect 50 Mounts. [BoP])" -- Blonde Riding Yak
+L["mount_127287"] = "Reward from the achievement Leading the Cavalry (collect 50 Mounts. [BoP])" -- Blue Dragon Turtle
+L["mount_129934"] = "Reward from the achievement Leading the Cavalry (collect 50 Mounts. [BoP])" -- Blue Shado-Pan Riding Tiger
+L["mount_127288"] = "Reward from the achievement Leading the Cavalry (collect 50 Mounts. [BoP])" -- Brown Dragon Turtle
+L["mount_130086"] = "Reward from the achievement Leading the Cavalry (collect 50 Mounts. [BoP])" -- Brown Riding Goat
+L["mount_127213"] = "Reward from the achievement Leading the Cavalry (collect 50 Mounts. [BoP])" -- Brown Riding Yak
+L["mount_124550"] = "Reward from the achievement Leading the Cavalry (collect 50 Mounts. [BoP])" -- Cataclysmic Gladiator's Twilight Drake
+L["mount_127156"] = "Reward from the achievement Leading the Cavalry (collect 50 Mounts. [BoP])" -- Crimson Cloud Serpent
+L["mount_60025"] = "Reward from the achievement Leading the Cavalry (collect 50 Mounts. [BoP])" -- Crimson Pandaren Phoenix
+L["mount_60025"] = "Reward from the achievement Leading the Cavalry (collect 50 Mounts. [BoP])" -- Crimson Riding Crane
+L["mount_60025"] = "Reward from the achievement Leading the Cavalry (collect 50 Mounts. [BoP])" -- Crimson Water Strider
+L["mount_60025"] = "Reward from the achievement Leading the Cavalry (collect 50 Mounts. [BoP])" -- Depleted-Kyparium Rocket
+L["mount_60025"] = "Reward from the achievement Leading the Cavalry (collect 50 Mounts. [BoP])" -- Emerald Pandaren Phoenix
+L["mount_60025"] = "Reward from the achievement Leading the Cavalry (collect 50 Mounts. [BoP])" -- Geosynchronous World Spinner
+L["mount_60025"] = "Reward from the achievement Leading the Cavalry (collect 50 Mounts. [BoP])" -- Golden Cloud Serpent
+L["mount_60025"] = "Reward from the achievement Leading the Cavalry (collect 50 Mounts. [BoP])" -- Golden Riding Crane
+L["mount_60025"] = "Reward from the achievement Leading the Cavalry (collect 50 Mounts. [BoP])" -- Golden Water Strider
+L["mount_60025"] = "Reward from the achievement Leading the Cavalry (collect 50 Mounts. [BoP])" -- Grand Expedition Yak
+L["mount_60025"] = "Reward from the achievement Leading the Cavalry (collect 50 Mounts. [BoP])" -- Great Black Dragon Turtle
+L["mount_60025"] = "Reward from the achievement Leading the Cavalry (collect 50 Mounts. [BoP])" -- Great Blue Dragon Turtle
+L["mount_60025"] = "Reward from the achievement Leading the Cavalry (collect 50 Mounts. [BoP])" -- Great Brown Dragon Turtle
+L["mount_60025"] = "Reward from the achievement Leading the Cavalry (collect 50 Mounts. [BoP])" -- Great Green Dragon Turtle
+L["mount_60025"] = "Reward from the achievement Leading the Cavalry (collect 50 Mounts. [BoP])" -- Great Purple Dragon Turtle
+L["mount_60025"] = "Reward from the achievement Leading the Cavalry (collect 50 Mounts. [BoP])" -- Great Red Dragon Turtle
+L["mount_60025"] = "Reward from the achievement Leading the Cavalry (collect 50 Mounts. [BoP])" -- Green Dragon Turtle
+L["mount_60025"] = "Reward from the achievement Leading the Cavalry (collect 50 Mounts. [BoP])" -- Green Shado-Pan Riding Tiger
+L["mount_60025"] = "Reward from the achievement Leading the Cavalry (collect 50 Mounts. [BoP])" -- Grey Riding Yak
+L["mount_60025"] = "Reward from the achievement Leading the Cavalry (collect 50 Mounts. [BoP])" -- Heavenly Azure Cloud Serpent
+L["mount_60025"] = "Reward from the achievement Leading the Cavalry (collect 50 Mounts. [BoP])" -- Heavenly Crimson Cloud Serpent
+L["mount_60025"] = "Reward from the achievement Leading the Cavalry (collect 50 Mounts. [BoP])" -- Heavenly Golden Cloud Serpent
+L["mount_60025"] = "Reward from the achievement Leading the Cavalry (collect 50 Mounts. [BoP])" -- Heavenly Jade Cloud Serpent
+L["mount_60025"] = "Reward from the achievement Leading the Cavalry (collect 50 Mounts. [BoP])" -- Heavenly Onyx Cloud Serpent
+L["mount_60025"] = "Reward from the achievement Leading the Cavalry (collect 50 Mounts. [BoP])" -- Jade Cloud Serpent
+L["mount_60025"] = "Reward from the achievement Leading the Cavalry (collect 50 Mounts. [BoP])" -- Jade Panther
+L["mount_60025"] = "Reward from the achievement Leading the Cavalry (collect 50 Mounts. [BoP])" -- Jade Water Strider
+L["mount_60025"] = "Reward from the achievement Leading the Cavalry (collect 50 Mounts. [BoP])" -- Jeweled Onyx Panther
+L["mount_60025"] = "Reward from the achievement Leading the Cavalry (collect 50 Mounts. [BoP])" -- Jungle Riding Crane
+L["mount_60025"] = "Reward from the achievement Leading the Cavalry (collect 50 Mounts. [BoP])" -- Onyx Cloud Serpent
+L["mount_60025"] = "Reward from the achievement Leading the Cavalry (collect 50 Mounts. [BoP])" -- Orange Water Strider
+L["mount_60025"] = "Reward from the achievement Leading the Cavalry (collect 50 Mounts. [BoP])" -- Pandaren Kite
+L["mount_60025"] = "Reward from the achievement Leading the Cavalry (collect 50 Mounts. [BoP])" -- Pandaren Kite
+L["mount_60025"] = "Reward from the achievement Leading the Cavalry (collect 50 Mounts. [BoP])" -- Purple Dragon Turtle
+L["mount_60025"] = "Reward from the achievement Leading the Cavalry (collect 50 Mounts. [BoP])" -- Red Dragon Turtle
+L["mount_60025"] = "Reward from the achievement Leading the Cavalry (collect 50 Mounts. [BoP])" -- Red Flying Cloud
+L["mount_60025"] = "Reward from the achievement Leading the Cavalry (collect 50 Mounts. [BoP])" -- Red Shado-Pan Riding Tiger
+L["mount_60025"] = "Reward from the achievement Leading the Cavalry (collect 50 Mounts. [BoP])" -- Regal Riding Crane
+L["mount_60025"] = "Reward from the achievement Leading the Cavalry (collect 50 Mounts. [BoP])" -- Ruby Panther
+L["mount_60025"] = "Reward from the achievement Leading the Cavalry (collect 50 Mounts. [BoP])" -- Sapphire Panther
+L["mount_60025"] = "Reward from the achievement Leading the Cavalry (collect 50 Mounts. [BoP])" -- Son of Galleon
+L["mount_60025"] = "Reward from the achievement Leading the Cavalry (collect 50 Mounts. [BoP])" -- Sunstone Panther
+L["mount_60025"] = "Reward from the achievement Leading the Cavalry (collect 50 Mounts. [BoP])" -- Thundering August Cloud Serpent
+L["mount_60025"] = "Reward from the achievement Leading the Cavalry (collect 50 Mounts. [BoP])" -- Thundering Jade Cloud Serpent
+L["mount_60025"] = "Reward from the achievement Leading the Cavalry (collect 50 Mounts. [BoP])" -- Thundering Ruby Cloud Serpent
+L["mount_60025"] = "Reward from the achievement Leading the Cavalry (collect 50 Mounts. [BoP])" -- Violet Pandaren Phoenix
+L["mount_60025"] = "Reward from the achievement Leading the Cavalry (collect 50 Mounts. [BoP])" -- White Riding Goat
+L["mount_60025"] = "Reward from the achievement Leading the Cavalry (collect 50 Mounts. [BoP])" -- White Riding Yak
+
 
 
 
