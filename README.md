@@ -20,15 +20,15 @@ Collect Me creates two macros for mount and companion summoning. All other featu
   * Left-Click: Summons a random companion
   * Right-Click: Dismisses the current companion
  * CollectMeRM
-  * Left-Click: Summons a random mount if player is not mounted. Dismounts player if he is mounted and it's not prevented by the players settings
-  * Right-Click: Always dismounts a player
-  * Left-Shift + Left-Click: Forces to mount a groundmount
+  * You can configure the behavior of this macro in the Random Mount Tab
+ * If the macros are not created or updated accordingly you can try to run /cm macro to create them
 
 ## Slash Commands
  * /collectme or /cm will bring up the main window
  * /cm randomcompanion or /cm rc will summon a random companion bases on your defined set
  * /cm randommount or /cm rm will summon a random companion bases on your defined set
  * /cm options will open the profile settings
+ * /cm macro will create or update the macro
  * You can also use the "Collect Me" button in the Blizzard Mount Tab to open the addon
 
 ## The Main Window

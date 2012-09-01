@@ -1,3 +1,8 @@
+## 2.0.1
+ * Fixed DressingRoom only able to equip a single item
+ * Added options to configure the behavior of the mount macro
+ * Added command to update the macro
+
 ***
 __2.0__
  * Complete recode of the addon, with a new UI

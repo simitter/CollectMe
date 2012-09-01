@@ -37,6 +37,13 @@ L["Don't dismount when left-clicking on macro"] = "Beim Linksklick aufs Makro ni
 L["Use flying mounts for ground"] = "Benutze fliegende Reittiere auch als Bodenreittier"
 L["Hide ignored list"] = "Verstecke Ignorierliste"
 L["Profiles"] = "Profile"
+L["Macro"] = "Macro"
+L["Left Click"] = "Linksklick"
+L["Right Click"] = "Rechtsklick"
+L["Shift + Left Click"] = "Shift + Linksklick"
+L["Dismount"] = "Abmounten"
+L["Mount / Dismount"] = "Aufmounten / Abmounten"
+L["Ground Mount / Dismount"] = "Auf Bodenmount aufmounten / Abmounten"
 
 -- Mounts
 -- Common Mounts

@@ -37,6 +37,14 @@ L["Don't dismount when left-clicking on macro"] = true
 L["Use flying mounts for ground"] = true
 L["Hide ignored list"] = true
 L["Profiles"] = true
+L["Macro"] = true
+L["Left Click"] = true
+L["Right Click"] = true
+L["Shift + Left Click"] = true
+L["Mount / Dismount"] = true
+L["Dismount"] = true
+L["Mount / Dismount"] = true
+L["Ground Mount / Dismount"] = true
 
 -- Mounts
 -- Common Mounts

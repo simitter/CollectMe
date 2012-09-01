@@ -55,7 +55,10 @@ local defaults = {
             mounts = {
                 flying_in_water = false,
                 flying_on_ground = false,
-                no_dismount = false
+                no_dismount = false,
+                macro_left = 1,
+                macro_right = 2,
+                macro_shift_left = 3
             }
         }
     }
@@ -133,7 +136,7 @@ end
 
 function CollectMe:UpdateMacros()
     self:InitMacro("CollectMeRC", "INV_PET_BABYBLIZZARDBEAR", '/script if(GetMouseButtonClicked() == "RightButton") then C_PetJournal.SummonPetByID(C_PetJournal.GetSummonedPetID()) else CollectMe:SummonRandomCompanion() end;')
-    self:InitMacro("CollectMeRM", "ABILITY_MOUNT_BIGBLIZZARDBEAR", '/script if(GetMouseButtonClicked() == "RightButton") then Dismount() elseif(IsLeftShiftKeyDown()) then CollectMe:SummonRandomMount(1) else CollectMe:SummonRandomMount() end;')
+    self:InitMacro("CollectMeRM", "ABILITY_MOUNT_BIGBLIZZARDBEAR", '/script CollectMe:HandleMountMacro();')
 end
 
 function CollectMe:UpdateProfessions()
@@ -528,7 +531,58 @@ function CollectMe:BuildOptions(container)
         local f = self:GetCheckboxOption(self.L["Use flying mounts for ground"], self.db.profile.summon.mounts.flying_on_ground)
         f:SetCallback("OnValueChanged", function (container, event, value) self.db.profile.summon.mounts.flying_on_ground = value end)
         container:AddChild(f)
+
+        container:AddChild(self:CreateHeading(self.L["Macro"]))
+
+        local f = self:CreateMacroDropdown(self.L["Left Click"], self.db.profile.summon.mounts.macro_left)
+        f:SetCallback("OnValueChanged", function (container, event, value) self.db.profile.summon.mounts.macro_left = value end)
+        container:AddChild(f)
+        local f = self:CreateMacroDropdown(self.L["Right Click"], self.db.profile.summon.mounts.macro_right)
+        f:SetCallback("OnValueChanged", function (container, event, value) self.db.profile.summon.mounts.macro_right = value end)
+        container:AddChild(f)
+        local f = self:CreateMacroDropdown(self.L["Shift + Left Click"], self.db.profile.summon.mounts.macro_shift_left)
+        f:SetCallback("OnValueChanged", function (container, event, value) self.db.profile.summon.mounts.macro_shift_left = value end)
+        container:AddChild(f)
+
     end
+end
+
+function CollectMe:HandleMountMacro()
+    if GetMouseButtonClicked() == "RightButton" then
+        value = self.db.profile.summon.mounts.macro_right
+    elseif IsShiftKeyDown() then
+        value = self.db.profile.summon.mounts.macro_shift_left
+    else
+        value = self.db.profile.summon.mounts.macro_left
+    end
+
+    if value == 1 then
+        self:SummonRandomMount()
+    elseif value == 2 then
+        if IsMounted() then
+            Dismount()
+        end
+    elseif value == 3 then
+        self:SummonRandomMount(1)
+    end
+end
+
+function CollectMe:CreateMacroDropdown(label, value)
+    local list = {}
+    list[1] = self.L["Mount / Dismount"]
+    list[2] = self.L["Dismount"]
+    list[3] = self.L["Ground Mount / Dismount"]
+
+    local f = AceGUI:Create("Dropdown")
+    f:SetLabel(label)
+    f:SetList(list)
+    f.label:ClearAllPoints()
+    f.label:SetPoint("LEFT", 10, 15)
+    f.dropdown:ClearAllPoints()
+    f.dropdown:SetPoint("TOPLEFT",f.frame,"TOPLEFT",-10,-15)
+    f.dropdown:SetPoint("BOTTOMRIGHT",f.frame,"BOTTOMRIGHT",17,0)
+    f:SetValue(value)
+    return f
 end
 
 function CollectMe:GetCheckboxOption(label, init_value)
