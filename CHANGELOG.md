@@ -2,6 +2,7 @@
  * Fixed DressingRoom only able to equip a single item
  * Added options to configure the behavior of the mount macro
  * Added command to update the macro
+ * Updated german translation
 
 ***
 __2.0__
