@@ -4,4 +4,75 @@ Excitor:
 
 - A lot of the NLO filtered mounts are now obtainable through the AH/trade they need to be checked.
 
+//
+Temporary work:
+
+    self:AddMount(127180, 22471) -- Albino Riding Crane
+    self:AddMount(123886, 22471) -- Amber Scorpion
+    self:AddMount(132117, 22471) -- Ashen Pandaren Phoenix
+    self:AddMount(127170, 22471) -- Astral Cloud Serpent
+    self:AddMount(123992, 22471) -- Azure Cloud Serpent
+    self:AddMount(127174, 22471) -- Azure Riding Crane
+    self:AddMount(118089, 22471) -- Azure Water Strider
+    self:AddMount(127286, 22471) -- Black Dragon Turtle
+    self:AddMount(130138, 22471) -- Black Riding Goat
+    self:AddMount(127209, 22471) -- Black Riding Yak
+    self:AddMount(127220, 22471) -- Blonde Riding Yak
+    self:AddMount(127287, 22471) -- Blue Dragon Turtle
+    self:AddMount(129934, 22471) -- Blue Shado-Pan Riding Tiger
+    self:AddMount(127288, 22471) -- Brown Dragon Turtle
+    self:AddMount(130086, 22471) -- Brown Riding Goat
+    self:AddMount(127213, 22471) -- Brown Riding Yak
+    self:AddMount(124550, 22471) -- Cataclysmic Gladiator's Twilight Drake
+    self:AddMount(127156, 22471) -- Crimson Cloud Serpent
+    self:AddMount(129552, 22471) -- Crimson Pandaren Phoenix
+    self:AddMount(123160, 22471) -- Crimson Riding Crane
+    self:AddMount(127271, 22471) -- Crimson Water Strider
+    self:AddMount(126507, 22471) -- Depleted-Kyparium Rocket
+    self:AddMount(132118, 22471) -- Emerald Pandaren Phoenix
+    self:AddMount(126508, 22471) -- Geosynchronous World Spinner
+    self:AddMount(123993, 22471) -- Golden Cloud Serpent
+    self:AddMount(127176, 22471) -- Golden Riding Crane
+    self:AddMount(127278, 22471) -- Golden Water Strider
+    self:AddMount(122708, 22471) -- Grand Expedition Yak
+    self:AddMount(127295, 22471) -- Great Black Dragon Turtle
+    self:AddMount(127302, 22471) -- Great Blue Dragon Turtle
+    self:AddMount(127308, 22471) -- Great Brown Dragon Turtle
+    self:AddMount(127293, 22471) -- Great Green Dragon Turtle
+    self:AddMount(127293, 22471) -- Great Purple Dragon Turtle
+    self:AddMount(120822, 22471) -- Great Red Dragon Turtle
+    self:AddMount(120395, 22471) -- Green Dragon Turtle
+    self:AddMount(129932, 22471) -- Green Shado-Pan Riding Tiger
+    self:AddMount(127216, 22471) -- Grey Riding Yak
+    self:AddMount(127169, 22471) -- Heavenly Azure Cloud Serpent
+    self:AddMount(127161, 22471) -- Heavenly Crimson Cloud Serpent
+    self:AddMount(127164, 22471) -- Heavenly Golden Cloud Serpent
+    self:AddMount(127165, 22471) -- Heavenly Jade Cloud Serpent
+    self:AddMount(127158, 22471) -- Heavenly Onyx Cloud Serpent
+    self:AddMount(113199, 22471) -- Jade Cloud Serpent
+    self:AddMount(121837, 22471) -- Jade Panther
+    self:AddMount(127274, 22471) -- Jade Water Strider
+    self:AddMount(120043, 22471) -- Jeweled Onyx Panther
+    self:AddMount(127178, 22471) -- Jungle Riding Crane
+    self:AddMount(127154, 22471) -- Onyx Cloud Serpent
+    self:AddMount(127272, 22471) -- Orange Water Strider
+    self:AddMount(118737, 22471) -- Pandaren Kite
+    self:AddMount(130985, 22471) -- Pandaren Kite
+    self:AddMount(127289, 22471) -- Purple Dragon Turtle
+    self:AddMount(127290, 22471) -- Red Dragon Turtle
+    self:AddMount(130092, 22471) -- Red Flying Cloud
+    self:AddMount(129935, 22471) -- Red Shado-Pan Riding Tiger
+    self:AddMount(127177, 22471) -- Regal Riding Crane
+    self:AddMount(121838, 22471) -- Ruby Panther
+    self:AddMount(121836, 22471) -- Sapphire Panther
+    self:AddMount(130965, 22471) -- Son of Galleon
+    self:AddMount(121839, 22471) -- Sunstone Panther
+    self:AddMount(129918, 22471) -- Thundering August Cloud Serpent
+    self:AddMount(124408, 22471) -- Thundering Jade Cloud Serpent
+    self:AddMount(132036, 22471) -- Thundering Ruby Cloud Serpent
+    self:AddMount(132119, 22471) -- Violet Pandaren Phoenix
+    self:AddMount(130137, 22471) -- White Riding Goat
+    self:AddMount(123182, 22471) -- White Riding Yak
+
+
 
