@@ -93,6 +93,8 @@ function CollectMe:OnInitialize()
 
     self.cm_button_loaded = false
 
+    self.display_mount = false
+
     self:BuildUI()
 
     self:RegisterChatCommand("collectme", "SlashProcessor")
@@ -571,6 +573,7 @@ end
 
 function CollectMe:PreviewMount(display_id)
     if display_id ~= nil then
+        self.display_mount = true
         DressUpBackgroundTopLeft:SetTexture(nil);
         DressUpBackgroundTopRight:SetTexture(nil);
         DressUpBackgroundBotLeft:SetTexture(nil);
@@ -733,8 +736,11 @@ function CollectMe:DressUpItemLink(link)
         end
     end
     if IsDressableItem(link) then
-        SetDressUpBackground(DressUpFrame, self.RACE);
-        DressUpModel:SetUnit("player")
+        if self.display_mount == true then
+            SetDressUpBackground(DressUpFrame, self.RACE);
+            DressUpModel:SetUnit("player")
+            self.display_mount = false
+        end
         DressUpModel:TryOn(link)
     end
 end
