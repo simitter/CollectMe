@@ -124,12 +124,16 @@ end
 
 
 function CollectMe:OnEnable()
-    self:InitMacro("CollectMeRC", "INV_PET_BABYBLIZZARDBEAR", '/script if(GetMouseButtonClicked() == "RightButton") then C_PetJournal.SummonPetByID(C_PetJournal.GetSummonedPetID()) else CollectMe:SummonRandomCompanion() end;')
-    self:InitMacro("CollectMeRM", "ABILITY_MOUNT_BIGBLIZZARDBEAR", '/script if(GetMouseButtonClicked() == "RightButton") then Dismount() elseif(IsLeftShiftKeyDown()) then CollectMe:SummonRandomMount(1) else CollectMe:SummonRandomMount() end;')
+    self:UpdateMacros()
 
     if self.professions == nil then
         self:UpdateProfessions()
     end
+end
+
+function CollectMe:UpdateMacros()
+    self:InitMacro("CollectMeRC", "INV_PET_BABYBLIZZARDBEAR", '/script if(GetMouseButtonClicked() == "RightButton") then C_PetJournal.SummonPetByID(C_PetJournal.GetSummonedPetID()) else CollectMe:SummonRandomCompanion() end;')
+    self:InitMacro("CollectMeRM", "ABILITY_MOUNT_BIGBLIZZARDBEAR", '/script if(GetMouseButtonClicked() == "RightButton") then Dismount() elseif(IsLeftShiftKeyDown()) then CollectMe:SummonRandomMount(1) else CollectMe:SummonRandomMount() end;')
 end
 
 function CollectMe:UpdateProfessions()
@@ -720,6 +724,8 @@ function CollectMe:SlashProcessor(input)
         self:PrintAllTitles()
     elseif input == "debug profession" then
         self:PrintProfessions()
+    elseif input == "macro" then
+        self:UpdateMacros()
     else
         self.tabs:SelectTab(MOUNT)
         self.frame:Show()
