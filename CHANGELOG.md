@@ -5,7 +5,6 @@
  * Updated german translation
 
 
-
 ## 2.0
  * Complete recode of the addon, with a new UI
  * Removed companion list (replaced by Blizzard Pet Journal)
@@ -25,12 +24,10 @@
  * Added [SoEM] tags for mounts (Satchel of Exotic Mysteries)
 
 
-
 ## 1.3.5
  * Added Amani Dragonhawk (Mount)
  * Updated Feldrak to TCG filter (Mount)
  * Fixed typo on Experiment 12-B info (Mount)
-
 
 
 ## 1.3.4
@@ -39,12 +36,10 @@
  * Updated info for Soul of the Aspects (Companion)
 
 
-
 ## 1.3.3
  * Fixed Searing Scorchling being filtered
  * Added Spectral Gryphon (Mount)
  * Added Spectral Wind Rider (Companion)
-
 
 
 ## 1.3.2a
