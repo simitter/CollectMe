@@ -4,7 +4,7 @@
  * Added command to update the macro
  * Updated german translation
 
-***
+
 ## 2.0
  * Complete recode of the addon, with a new UI
  * Removed companion list (replaced by Blizzard Pet Journal)
@@ -23,7 +23,7 @@
  * Added Filters for Titles.
  * Added [SoEM] tags for mounts (Satchel of Exotic Mysteries)
 
-***
+
 ## 1.3.5
  * Added Amani Dragonhawk (Mount)
  * Updated Feldrak to TCG filter (Mount)
