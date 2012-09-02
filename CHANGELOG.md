@@ -5,7 +5,7 @@
  * Updated german translation
 
 ***
-__2.0__
+## 2.0
  * Complete recode of the addon, with a new UI
  * Removed companion list (replaced by Blizzard Pet Journal)
  * Filters and options are now more easily accessible
@@ -24,29 +24,29 @@ __2.0__
  * Added [SoEM] tags for mounts (Satchel of Exotic Mysteries)
 
 ***
-__1.3.5__
+## 1.3.5
  * Added Amani Dragonhawk (Mount)
  * Updated Feldrak to TCG filter (Mount)
  * Fixed typo on Experiment 12-B info (Mount)
 
 ***
-__1.3.4__
+## 1.3.4
  * Updated info for Worg Pup (Companion)
  * Updated info for Smolderweb Hatchling (Companion)
  * Updated info for Soul of the Aspects (Companion)
 
 ***
-__1.3.3__
+## 1.3.3
  * Fixed Searing Scorchling being filtered
  * Added Spectral Gryphon (Mount)
  * Added Spectral Wind Rider (Companion)
 
 ***
-__1.3.2a__
+## 1.3.2a
  * Fixed bug introduced in 1.3.2
 
 ***
-__1.3.2__
+## 1.3.2
  * Updated info for Tuskarr Kite (Companion)
  * Updated info for Spectral Tiger Cub (Companion)
  * Added Feldrake (Mount)
@@ -54,19 +54,19 @@ __1.3.2__
  * Fixed several spelling & grammar errors (Title)
 
 ***
-__1.3.1__
+## 1.3.1
  * Fixed some title info (Title)
  * Updated info and added filter for Hearts of the Aspects (Mount)
 
 ***
-__1.3__
+## 1.3
  * Added a new title feature for managing and collecting titles (Title)
  * Updated several World Event companions to BoE (Companion)
  * Fixed profession filters (Mount)(they're actually implemented now sorry :(  )
  * Added Mottled Drake (Mount)
 
 ***
-__1.2.7__
+## 1.2.7
  * Updated info for Lunar Lantern (Companion)
  * Updated info for Festival Lantern (Companion)
  * Added Purple Puffer to the TCG filter (Companion)
@@ -74,7 +74,7 @@ __1.2.7__
  * Added an Engineering and a Tailoring filter for the mounts (profession mounts will no longer be automatically hidden)
 
 ***
-__1.2.6__
+## 1.2.6
  * Updated Mountain Horse to Alliance only (Mount)
  * Updated Swift Mountain Horse to Alliance only (Mount)
  * Added filter for Swift Shorestrider (Mount)
