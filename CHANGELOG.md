@@ -29,23 +29,23 @@
  * Updated Feldrak to TCG filter (Mount)
  * Fixed typo on Experiment 12-B info (Mount)
 
-***
+
 ## 1.3.4
  * Updated info for Worg Pup (Companion)
  * Updated info for Smolderweb Hatchling (Companion)
  * Updated info for Soul of the Aspects (Companion)
 
-***
+
 ## 1.3.3
  * Fixed Searing Scorchling being filtered
  * Added Spectral Gryphon (Mount)
  * Added Spectral Wind Rider (Companion)
 
-***
+
 ## 1.3.2a
  * Fixed bug introduced in 1.3.2
 
-***
+
 ## 1.3.2
  * Updated info for Tuskarr Kite (Companion)
  * Updated info for Spectral Tiger Cub (Companion)
@@ -53,19 +53,19 @@
  * Added Eyed of the Legion (Companion)
  * Fixed several spelling & grammar errors (Title)
 
-***
+
 ## 1.3.1
  * Fixed some title info (Title)
  * Updated info and added filter for Hearts of the Aspects (Mount)
 
-***
+
 ## 1.3
  * Added a new title feature for managing and collecting titles (Title)
  * Updated several World Event companions to BoE (Companion)
  * Fixed profession filters (Mount)(they're actually implemented now sorry :(  )
  * Added Mottled Drake (Mount)
 
-***
+
 ## 1.2.7
  * Updated info for Lunar Lantern (Companion)
  * Updated info for Festival Lantern (Companion)
@@ -73,7 +73,7 @@
  * Fixed missing Flametalon of Alysrazor (Mount)
  * Added an Engineering and a Tailoring filter for the mounts (profession mounts will no longer be automatically hidden)
 
-***
+
 ## 1.2.6
  * Updated Mountain Horse to Alliance only (Mount)
  * Updated Swift Mountain Horse to Alliance only (Mount)
@@ -81,27 +81,27 @@
  * Added filter for Corrupted Hippogryph (Mount)
  * Added filter for White Riding Camel (Mount)
 
-***
-__1.2.5__
+
+## 1.2.5
  * Corrected Sprite Darter Hatchling info (Companion)
  * Added Swift Shorestrider (Mount)
  * Added Corrupted Hippogryph (Mount)
  * Added White Riding Camel (Mount)
 
-***
-__1.2.4__
+
+## 1.2.4
  * Updated Clockwork Rocket Bot info (Companion)
  * Added Swift Lovebird (Mount)
  * Added Experiment 12-B (Mount)
  * Added Swift Springstrider (Mount)
  * Added Reins of the Twilight Harbinger (Mount)
 
-***
-__1.2.3__
+
+## 1.2.3
  * Fixed a bug introduced by 1.2.2
 
-***
-__1.2.2__
+
+## 1.2.2
  * Fixed spelling for Lil' Tarecgosa (Companion)
  * Added Sea Pony (Companion)
  * Added Fetish Shaman (Companion)
@@ -117,8 +117,8 @@ __1.2.2__
  * Added Life-Binder's Handmaiden (Mount)
  * Added Festival Blazing Drake (Mount)
 
-***
-__1.2.1__
+
+## 1.2.1
  * Updated ToC for 4.3
  * Corrected spelling in ToC description
  * Added Swift Forest Strider (Mount)
@@ -132,8 +132,8 @@ __1.2.1__
  * Added Darkmoon Balloon (Companion)
  * Added Purple Puffer (Companion)
 
-***
-__1.2__
+
+## 1.2
  * Added option to disable the missing companion/mount messages
  * Added Collect Me button to the mount and companion windows
  * Fixed companion counter to work with filters properly
