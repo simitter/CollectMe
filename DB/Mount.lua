@@ -117,7 +117,7 @@ function CollectMe:BuildMountDB()
     self:AddMount(42777, 21974, GROUND, { tcg = 1 })  -- Swift Spectral Tiger
     self:AddMount(102349, 16992)  -- Swift Springstrider
     self:AddMount(46628, 19483)  -- Swift White Hawkstrider
-    self:AddMount(49322, 24745, FLY, { rfm = 1, nlo = 1 })  -- Swift Zhevra
+    self:AddMount(49322, 24745, GROUND, { rfm = 1, nlo = 1 })  -- Swift Zhevra
     self:AddMount(96499, 37799)  -- Swift Zulian Panther
     self:AddMount(24252, 15290, GROUND, { nlo = 1 })  -- Swift Zulian Tiger
     self:AddMount(88749, 35134)  -- Tan Riding Camel
