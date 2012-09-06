@@ -796,6 +796,7 @@ function CollectMe:DressUpItemLink(link)
         end
     end
     if IsDressableItem(link) then
+        DressUpFrame.mode = "player";
         if self.display_mount == true then
             SetDressUpBackground(DressUpFrame, self.RACE);
             DressUpModel:SetUnit("player")
