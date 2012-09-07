@@ -1,3 +1,8 @@
+## 2.0.2
+ * Fixed a weapon preview bug
+ * Fixed Swift Zehvra being tagged as a flying mount.
+
+
 ## 2.0.1
  * Fixed DressingRoom only able to equip a single item
  * Added options to configure the behavior of the mount macro
