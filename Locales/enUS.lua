@@ -44,6 +44,8 @@ L["Shift + Left Click"] = true
 L["Dismount"] = true
 L["Mount / Dismount"] = true
 L["Ground Mount / Dismount"] = true
+L["Check all"] = true
+L["Uncheck all"] = true
 
 -- Mounts
 -- Common Mounts

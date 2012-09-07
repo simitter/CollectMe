@@ -44,6 +44,8 @@ L["Shift + Left Click"] = "Shift + Linksklick"
 L["Dismount"] = "Abmounten"
 L["Mount / Dismount"] = "Aufmounten / Abmounten"
 L["Ground Mount / Dismount"] = "Auf Bodenmount aufmounten / Abmounten"
+L["Check all"] = "Alle auswählen"
+L["Uncheck all"] = "Alle abwählen"
 
 -- Mounts
 -- Common Mounts

@@ -205,17 +205,50 @@ function CollectMe:BuildUI()
     self.tabs = tabs
     self.frame = f
 
-    local profilebutton = CreateFrame("Button", nil, self.frame.frame, "UIPanelButtonTemplate")
+    local profilebutton = self:CreateButton(self.L["Profiles"], self.frame.frame)
     profilebutton:SetScript("OnClick", function() InterfaceOptionsFrame_OpenToCategory(addon_name) end)
     profilebutton:ClearAllPoints()
     profilebutton:SetPoint("RIGHT", self.frame.closebutton, "LEFT", 0, 0)
-    profilebutton:SetHeight(20)
-    profilebutton:SetWidth(100)
-    profilebutton:SetText(self.L["Profiles"])
+
+    local checkbutton = self:CreateButton(self.L["Check all"], self.frame.frame)
+    checkbutton:SetScript("OnClick", function() CollectMe:BatchCheck(true) end)
+    checkbutton:SetWidth(120)
+    checkbutton:ClearAllPoints()
+    checkbutton:SetPoint("TOPLEFT", self.tabs.frame, "BOTTOMLEFT", 35, -3)
+    checkbutton:Hide()
+
+    local uncheckbutton = self:CreateButton(self.L["Uncheck all"], self.frame.frame)
+    uncheckbutton:SetScript("OnClick", function() CollectMe:BatchCheck(false) end)
+    uncheckbutton:SetWidth(120)
+    uncheckbutton:ClearAllPoints()
+    uncheckbutton:SetPoint("LEFT", checkbutton, "RIGHT", 0, 0)
+    uncheckbutton:Hide()
+
+    self.checkbutton, self.uncheckbutton = checkbutton, uncheckbutton
 end
+
+function CollectMe:HideCheckButtons()
+    self.checkbutton:Hide()
+    self.uncheckbutton:Hide()
+end
+
+function CollectMe:ShowCheckButtons()
+    self.checkbutton:Show()
+    self.uncheckbutton:Show()
+end
+
+function CollectMe:CreateButton(text, parent)
+    local f = CreateFrame("Button", nil, parent, "UIPanelButtonTemplate")
+    f:SetHeight(20)
+    f:SetWidth(100)
+    f:SetText(text)
+    return f
+end
+
 
 function CollectMe:BuildTab(container)
     self.frame.statusbar:Hide()
+    self:HideCheckButtons()
     container:SetLayout("Flow")
 
     local scrollcontainer = AceGUI:Create("SimpleGroup")
@@ -246,8 +279,10 @@ function CollectMe:BuildTab(container)
         self:BuildFilters(filter)
     elseif self.active_tab == RANDOM_COMPANION then
         self:BuildRandomPetList(scroll)
+        self:ShowCheckButtons()
     elseif self.active_tab == RANDOM_MOUNT then
         self:BuildRandomList(scroll)
+        self:ShowCheckButtons()
     end
 
     self:BuildOptions(filter)
@@ -544,6 +579,29 @@ function CollectMe:BuildOptions(container)
         f:SetCallback("OnValueChanged", function (container, event, value) self.db.profile.summon.mounts.macro_shift_left = value end)
         container:AddChild(f)
 
+    end
+end
+
+function CollectMe:BatchCheck(value)
+    if self.active_tab == RANDOM_MOUNT then
+        local random_db = self.db.profile.random.mounts
+        local count = GetNumCompanions("MOUNT")
+        for i = 1, count, 1 do
+            local _, name, spell_id = GetCompanionInfo("MOUNT", i)
+            random_db[spell_id] = value
+        end
+        self:SelectGroup(self.tabs, RANDOM_MOUNT)
+    elseif self.active_tab == RANDOM_COMPANION then
+        local count, owned = C_PetJournal.GetNumPets(false)
+        local random_db =  self.db.profile.random.companions
+
+        for i = 1,count do
+            local id, _, owned, my_name, level, _, _, name = C_PetJournal.GetPetInfoByIndex(i, false)
+            if name ~= nil and owned == true and C_PetJournal.PetIsSummonable(id) then
+                random_db[id] = value
+            end
+        end
+        self:SelectGroup(self.tabs, RANDOM_COMPANION)
     end
 end
 
