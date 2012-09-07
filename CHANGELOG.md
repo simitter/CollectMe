@@ -1,11 +1,9 @@
-## 2.0.3
- * 
- * 
-
 ## 2.0.2
  * Fixed a weapon preview bug
+ * Added Check/Uncheck all buttons
+ * Added /cancelform to the mount macro
  * Fixed Swift Zehvra being tagged as a flying mount
-
+ * Fixed White Riding Camel
 
 ## 2.0.1
  * Fixed DressingRoom only able to equip a single item
