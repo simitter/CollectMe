@@ -4,7 +4,7 @@
 
 ## 2.0.2
  * Fixed a weapon preview bug
- * Fixed Swift Zehvra being tagged as a flying mount.
+ * Fixed Swift Zehvra being tagged as a flying mount
 
 
 ## 2.0.1
