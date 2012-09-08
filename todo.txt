@@ -77,13 +77,13 @@ temp DB work:
 
 temp locale work:
 
-L["mount_127180"] = "Reward from the achievement Leading the Cavalry (collect 50 Mounts. [BoP])" -- Albino Riding Crane
-L["mount_123886"] = "Reward from the achievement Leading the Cavalry (collect 50 Mounts. [BoP])" -- Amber Scorpio
-L["mount_132117"] = "Reward from the achievement Leading the Cavalry (collect 50 Mounts. [BoP])" -- Ashen Pandaren Phoenix
-L["mount_127170"] = "Reward from the achievement Leading the Cavalry (collect 50 Mounts. [BoP])" -- Astral Cloud Serpent
-L["mount_123992"] = "Reward from the achievement Leading the Cavalry (collect 50 Mounts. [BoP])" -- Azure Cloud Serpent
-L["mount_127174"] = "Reward from the achievement Leading the Cavalry (collect 50 Mounts. [BoP])" -- Azure Riding Crane
-L["mount_118089"] = "Reward from the achievement Leading the Cavalry (collect 50 Mounts. [BoP])" -- Azure Water Strider
+L["mount_127180"] = "Reward from the achievement ??? (collect xx Mounts). [BoP]" -- !Albino Riding Crane
+L["mount_123886"] = "Klaxxi faction mount [BoP]" -- !Amber Scorpio
+L["mount_132117"] = "Obtained via challenge mode dungeon achievement Challenge Conqueror: Silver. [BoP]" -- !Ashen Pandaren Phoenix
+L["mount_127170"] = "Drops from 'Elegon' in the Mogu'shan Vaults Raid. [BoA]" -- Astral Cloud Serpent
+L["mount_123992"] = "?? [BoA]" -- Azure Cloud Serpent
+L["mount_127174"] = "Golden Lotus reputation reward. [BoP]" -- Azure Riding Crane
+L["mount_118089"] = "The Anglers exalted repuation reward. [BoP]" -- Azure Water Strider
 L["mount_127286"] = "Reward from the achievement Leading the Cavalry (collect 50 Mounts. [BoP])" -- Black Dragon Turtle
 L["mount_130138"] = "Reward from the achievement Leading the Cavalry (collect 50 Mounts. [BoP])" -- Black Riding Goat
 L["mount_127209"] = "Reward from the achievement Leading the Cavalry (collect 50 Mounts. [BoP])" -- Black Riding Yak
