@@ -136,7 +136,11 @@ end
 
 function CollectMe:UpdateMacros()
     self:InitMacro("CollectMeRC", "INV_PET_BABYBLIZZARDBEAR", '/script if(GetMouseButtonClicked() == "RightButton") then C_PetJournal.SummonPetByID(C_PetJournal.GetSummonedPetID()) else CollectMe:SummonRandomCompanion() end;')
-    self:InitMacro("CollectMeRM", "ABILITY_MOUNT_BIGBLIZZARDBEAR", '/cancelform\n/script CollectMe:HandleMountMacro();')
+    if self.CLASS == 'DRUID' then
+        self:InitMacro("CollectMeRM", "ABILITY_MOUNT_BIGBLIZZARDBEAR", '/cancelform\n/script CollectMe:HandleMountMacro();')
+    else
+        self:InitMacro("CollectMeRM", "ABILITY_MOUNT_BIGBLIZZARDBEAR", '/script CollectMe:HandleMountMacro();')
+    end
 end
 
 function CollectMe:UpdateProfessions()
