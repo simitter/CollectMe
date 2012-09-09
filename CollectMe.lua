@@ -103,7 +103,7 @@ function CollectMe:OnInitialize()
     self:RegisterChatCommand("collectme", "SlashProcessor")
     self:RegisterChatCommand("cm", "SlashProcessor")
 
-    self:SecureHook("DressUpItemLink")
+    self:Hook("DressUpItemLink", true)
     self:HookScript(DressUpFrameResetButton, "OnClick", "DressUpFrameResetButton")
 
     self:SecureHook("MoveForwardStart", "AutoSummonCompanion")
@@ -855,16 +855,13 @@ function CollectMe:DressUpItemLink(link)
         local info = self:GetMountInfo(spell)
         if info ~= nil then
             self:PreviewMount(info.display_id)
+            return true
         end
     end
-    if IsDressableItem(link) then
-        DressUpFrame.mode = "player";
-        if self.display_mount == true then
-            SetDressUpBackground(DressUpFrame, self.RACE);
-            DressUpModel:SetUnit("player")
-            self.display_mount = false
-        end
-        DressUpModel:TryOn(link)
+    if self.display_mount == true then
+        SetDressUpBackground(DressUpFrame, self.RACE);
+        DressUpModel:SetUnit("player")
+        self.display_mount = false
     end
 end
 

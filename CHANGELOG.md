@@ -1,5 +1,6 @@
 ## 2.0.3
  * Added White Stallion
+ * Fixed dual wield weapon preview bug
 
 ## 2.0.2
  * Fixed a weapon preview bug
