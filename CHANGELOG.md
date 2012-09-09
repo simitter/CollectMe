@@ -1,3 +1,6 @@
+## 2.0.3
+ * Added White Stallion
+
 ## 2.0.2
  * Fixed a weapon preview bug
  * Added Check/Uncheck all buttons

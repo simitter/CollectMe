@@ -225,6 +225,7 @@ function CollectMe:BuildMountDB()
         self:AddMount(17454, 9476)  -- Unpainted Mechanostrider
         self:AddMount(100332, 38668, GROUND, { pvp = 1 }) -- Vicious War Steed
         self:AddMount(6898, 2786)   -- White Ram
+        self:AddMount(16083, 2410, GROUND, { nlo = 1 })  -- White Stallion
         self:AddMount(17229, 10426)  -- Winterspring Frostsaber
         self:AddMount(59791, 27243)  -- Wooly Mammoth
     end
