@@ -37,18 +37,19 @@ Excitor:
     self:AddMount(122708, 42703) -- Grand Expedition Yak
     self:AddMount(127295, 43723) -- Great Black Dragon Turtle
     self:AddMount(127302, 43724) -- Great Blue Dragon Turtle
-    self:AddMount(127308, 22471) -- Great Brown Dragon Turtle
-    self:AddMount(127293, 22471) -- Great Green Dragon Turtle
-    self:AddMount(127293, 22471) -- Great Purple Dragon Turtle
-    self:AddMount(120822, 22471) -- Great Red Dragon Turtle
-    self:AddMount(120395, 22471) -- Green Dragon Turtle
-    self:AddMount(129932, 22471) -- Green Shado-Pan Riding Tiger
-    self:AddMount(127216, 22471) -- Grey Riding Yak
-    self:AddMount(127169, 22471) -- Heavenly Azure Cloud Serpent
-    self:AddMount(127161, 22471) -- Heavenly Crimson Cloud Serpent
-    self:AddMount(127164, 22471) -- Heavenly Golden Cloud Serpent
-    self:AddMount(127165, 22471) -- Heavenly Jade Cloud Serpent
-    self:AddMount(127158, 22471) -- Heavenly Onyx Cloud Serpent
+    self:AddMount(127308, 43725) -- Great Brown Dragon Turtle
+    self:AddMount(127293, 43722) -- Great Green Dragon Turtle
+    self:AddMount(127293, 43726) -- Great Purple Dragon Turtle
+    self:AddMount(120822, 42352) -- Great Red Dragon Turtle
+    self:AddMount(120395, 42250) -- Green Dragon Turtle
+    self:AddMount(129932, 44759) -- Green Shado-Pan Riding Tiger
+    self:AddMount(127216, 43711) -- Grey Riding Yak
+    self:AddMount(127169, 43697) -- Heavenly Azure Cloud Serpent
+    self:AddMount(127161, 43692) -- Heavenly Crimson Cloud Serpent
+    self:AddMount(127164, 43693) -- Heavenly Golden Cloud Serpent
+    self:AddMount(127165, 43695) -- Heavenly Jade Cloud Serpent
+    self:AddMount(127158, 43689) -- Heavenly Onyx Cloud Serpent
+
     self:AddMount(113199, 22471) -- Jade Cloud Serpent
     self:AddMount(121837, 22471) -- Jade Panther
     self:AddMount(127274, 22471) -- Jade Water Strider
