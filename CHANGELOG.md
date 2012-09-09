@@ -1,6 +1,7 @@
 ## 2.0.3
  * Added White Stallion
  * Fixed dual wield weapon preview bug
+ * Fixed a bug causing non druids to cancel their form as well (example Shadow Priests)
 
 ## 2.0.2
  * Fixed a weapon preview bug
