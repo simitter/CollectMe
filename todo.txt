@@ -161,6 +161,20 @@ L["mount_132119"] = "Reward from the achievement Leading the Cavalry (collect 50
 L["mount_130137"] = "Reward from the achievement Leading the Cavalry (collect 50 Mounts. [BoP])" -- White Riding Goat
 L["mount_123182"] = "Reward from the achievement Leading the Cavalry (collect 50 Mounts. [BoP])" -- White Riding Yak
 
+Temp title work:
+
+The Beloved: Raise 70 reputations to Exalted.
+Farmer : Exalted with the Tillers.
+the Fearless: Complete Heroic: Sha of Fear in Terrace of Endless Spring.
+Master of the Ways: Raise your cooking to 600 and complete Master of Pandaren Cooking.
+the Relic Hunter: From Is Another Man's Treasure. In addition to rare spawns bringing quirky flavor to MoP, there are rare objects hidden around Pandaria too like Blade of the Prime. Finding 20 of these will net you this title.
+the Scenaterdist: Complete Scenaterday/ Scenaterday--doing all the new Scenarios on a Saturday.
+Seeker of Knowledge: Unknown so far, perhaps tied to questing.
+Shado-Master : Complete The Shado-Master, doing a bunch of achievements tied to dailies with Shado-Pan, similar to The Flamebreaker from the Molten Front.
+the Tranquil Master: From Tranquil Master, requiring players to kill all the Sha-themed NPCs, which are from quests, dungeons, raids, and world spawns: Sha of Doubt, Sha of Violence, Sha of Anger, Sha of Despair, Sha of Hatred, Sha of Fear.
+the Undaunted: From Challenge Conqueror: Bronze, completing every Challenge Mode with a rating of Bronze or better.
+Zookeeper : Reward for completing World Safari, all the Pet Safari achievements, requiring you to collect and capture a ton of pets.
+
 
 
 
