@@ -4,6 +4,8 @@ Excitor:
 
 - A lot of the NLO filtered mounts are now obtainable through the AH/trade they need to be checked.
 
+- Update readme reflecting the companion features.
+
 - Title "!" info needs to be refined and then double checked.
 ----------------------------
 
