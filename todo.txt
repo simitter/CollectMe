@@ -88,14 +88,14 @@ L["mount_107844"] = "Reward from the achivement 'Glory of the Dragon Soul Raider
 L["mount_101573"] = "Loot card from the WoW Trading Card Game: Throne of the Tides. [BoE]" -- Swift Shorestrider
 L["mount_102514"] = "Loot card from the WoW Trading Card Game: Crown of Heaven. [BoE]" -- Corrupted Hippogryph
 L["mount_102488"] = "Loot card from the WoW Trading Card Game: Tomb of the Forgotten. [BoE]" -- White Riding Camel
-////
 
 
 -- temp locale work:
+//info not final needs lots of refining
 
-L["mount_127180"] = "Reward from the achievement ??? (collect xx Mounts). [BoP]" -- !Albino Riding Crane
-L["mount_123886"] = "Klaxxi faction mount [BoP]" -- !Amber Scorpio
-L["mount_132117"] = "Obtained via challenge mode dungeon achievement Challenge Conqueror: Silver. [BoP]" -- !Ashen Pandaren Phoenix
+L["mount_127180"] = "Reward from the achievement ??? (collect xx Mounts). [BoP]" -- Albino Riding Crane
+L["mount_123886"] = "Klaxxi faction mount [BoP]" -- Amber Scorpio
+L["mount_132117"] = "Obtained via challenge mode dungeon achievement Challenge Conqueror: Silver. [BoP]" -- Ashen Pandaren Phoenix
 L["mount_127170"] = "Drops from 'Elegon' in the Mogu'shan Vaults Raid. [BoA]" -- Astral Cloud Serpent
 L["mount_123992"] = "?? [BoA]" -- Azure Cloud Serpent
 L["mount_127174"] = "Golden Lotus reputation reward. [BoP]" -- Azure Riding Crane
@@ -152,13 +152,13 @@ L["mount_127177"] = "Reward from the achievement Leading the Cavalry (collect 50
 L["mount_121838"] = "Reward from the achievement Leading the Cavalry (collect 50 Mounts. [BoP])" -- Ruby Panther
 L["mount_121836"] = "Reward from the achievement Leading the Cavalry (collect 50 Mounts. [BoP])" -- Sapphire Panther
 L["mount_130965"] = "Reward from the achievement Leading the Cavalry (collect 50 Mounts. [BoP])" -- Son of Galleon
-L["mount_121839"] = "Reward from the achievement Leading the Cavalry (collect 50 Mounts. [BoP])" -- Sunstone Panther
-L["mount_129918"] = "Reward from the achievement Leading the Cavalry (collect 50 Mounts. [BoP])" -- Thundering August Cloud Serpent
-L["mount_124408"] = "Reward from the achievement Leading the Cavalry (collect 50 Mounts. [BoP])" -- Thundering Jade Cloud Serpent
-L["mount_132036"] = "Reward from the achievement Leading the Cavalry (collect 50 Mounts. [BoP])" -- Thundering Ruby Cloud Serpent
-L["mount_132119"] = "Reward from the achievement Leading the Cavalry (collect 50 Mounts. [BoP])" -- Violet Pandaren Phoenix
-L["mount_130137"] = "Reward from the achievement Leading the Cavalry (collect 50 Mounts. [BoP])" -- White Riding Goat
-L["mount_123182"] = "Reward from the achievement Leading the Cavalry (collect 50 Mounts. [BoP])" -- White Riding Yak
+L["mount_121839"] = "One of the new craftable mounts by jewelcrafters. [BoP]" -- Sunstone Panther
+L["mount_129918"] = "exalted with the August Celestials. [BoP]" -- Thundering August Cloud Serpent
+L["mount_124408"] = "lvl 90, exalted with guild.[BoP]" -- Thundering Jade Cloud Serpent
+L["mount_132036"] = "Drops off a level 92 rare spawn called Alani the Stormborn who is located flying around the Vale of Eternal Blossoms [BoP]" -- Thundering Ruby Cloud Serpent
+L["mount_132119"] = "Obtained via trading in an Ancestral Phoenix Egg which is obtained via challenge mode dungeon achievement 'Challenge Conqueror: Silver'. [BoP]" -- Violet Pandaren Phoenix
+L["mount_130137"] = "?? [BoP]" -- White Riding Goat
+L["mount_123182"] = "?? [BoP]" -- White Riding Yak
 
 Temp title work:
 //! info needs to be double checked later
