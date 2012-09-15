@@ -47,6 +47,8 @@ L["Mount / Dismount"] = true
 L["Ground Mount / Dismount"] = true
 L["Check all"] = true
 L["Uncheck all"] = true
+L["Family Filter"] = true
+L["Sources Filter"] = true
 
 -- Mounts
 -- Common Mounts

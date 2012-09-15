@@ -285,6 +285,7 @@ function CollectMe:BuildTab(container)
         self:BuildFilters(filter)
     elseif self.active_tab == COMPANION then
         self:BuildMissingCompanionList(scroll)
+        self:BuildMissingCompanionFilters(filter)
     elseif self.active_tab == RANDOM_COMPANION then
         self:BuildRandomPetList(scroll)
         self:ShowCheckButtons()
@@ -468,7 +469,7 @@ function CollectMe:BuildList(listcontainer)
             local f = self:CreateItemRow()
             if self.active_tab == MOUNT then
                 f:SetImage(v.icon)
-                f:SetImageSize(36, 36)
+                f:SetImageSize(20, 20)
             end
             f:SetText(v.name)
             f:SetCallback("OnClick", function (container, event, group) CollectMe:ItemRowClick(group, v.id) end)
@@ -516,6 +517,7 @@ function CollectMe:AddMissingRows(container, active, ignored, all_count, known_c
 end
 
 function CollectMe:BuildMissingCompanionList(listcontainer)
+    listcontainer:ReleaseChildren()
     local total, owned = C_PetJournal.GetNumPets(false)
 
     local active, ignored = {}, {}
@@ -525,10 +527,10 @@ function CollectMe:BuildMissingCompanionList(listcontainer)
         if owned ~= true then
             local f = self:CreateItemRow()
             f:SetImage(icon)
-            f:SetImageSize(36, 36)
+            f:SetImageSize(20, 20)
             f:SetText(name)
             f:SetCallback("OnClick", function (container, event, group) CollectMe:ItemRowClick(group, creature_id) end)
-            f:SetCallback("OnEnter", function (container, event, group) CollectMe:ItemRowEnter({ creature_id = creature_id, source = source }) end)
+            f:SetCallback("OnEnter", function (container, event, group) CollectMe:ItemRowEnter({ creature_id = creature_id, source = source, name = name }) end)
             f:SetCallback("OnLeave", function (container, event, group) CollectMe:ItemRowLeave() end)
             table.insert(active, f)
         end
@@ -563,6 +565,36 @@ function CollectMe:BuildFilters(filtercontainer)
         f:SetValue(self.filter_db[self.filter_list[i]])
         f:SetCallback("OnValueChanged", function (container, event, value) CollectMe:ToggleFilter(self.filter_list[i], value) end)
         filtercontainer:AddChild(f)
+    end
+end
+
+function CollectMe:BuildMissingCompanionFilters(container)
+    container:AddChild(self:CreateHeading(self.L["Source Filter"]))
+    local numSources = C_PetJournal.GetNumPetSources();
+    for i=1,numSources do
+        local f = AceGUI:Create("CheckBox")
+        f:SetLabel(_G["BATTLE_PET_SOURCE_"..i])
+        f:SetValue(C_PetJournal.IsPetSourceFiltered(i))
+        f:SetCallback("OnValueChanged", function (container, event, value)
+            value = not value
+            C_PetJournal.SetPetSourceFilter(i, value)
+            CollectMe:BuildMissingCompanionList(self.scroll)
+        end)
+        container:AddChild(f)
+    end
+
+    container:AddChild(self:CreateHeading(self.L["Family Filter"]))
+    local numTypes = C_PetJournal.GetNumPetTypes();
+    for i=1,numTypes do
+        local f = AceGUI:Create("CheckBox")
+        f:SetLabel(_G["BATTLE_PET_NAME_"..i])
+        f:SetValue(C_PetJournal.IsPetTypeFiltered(i))
+        f:SetCallback("OnValueChanged", function (container, event, value)
+            value = not value
+            C_PetJournal.SetPetTypeFilter(i, value)
+            CollectMe:BuildMissingCompanionList(self.scroll)
+        end)
+        container:AddChild(f)
     end
 end
 
@@ -754,8 +786,9 @@ function CollectMe:ItemRowEnter(v)
         tooltip:AddLine(" ")
         tooltip:AddLine(self.L["mount_" .. v.id], 0, 1, 0, 1)
     elseif self.active_tab == COMPANION then
-        tooltip:AddLine(v.creature_id)
-        tooltip:AddLine(v.source)
+        tooltip:AddLine(v.name, 1, 1 ,1)
+        tooltip:AddLine(" ")
+        tooltip:AddLine(v.source, 0, 1, 0, 1)
     else
         tooltip:AddLine(v.name)
         tooltip:AddLine(" ")
