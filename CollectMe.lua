@@ -521,15 +521,15 @@ function CollectMe:BuildMissingCompanionList(listcontainer)
     local active, ignored = {}, {}
 
     for i = 1,total do
-        local pet_id, species_id, owned, _, _, _, _, name, icon, _, creature_id, source = C_PetJournal.GetPetInfoByIndex(i, false)
+        local pet_id, _, owned, _, _, _, _, name, icon, _, creature_id, source = C_PetJournal.GetPetInfoByIndex(i, false)
         if owned ~= true then
             local f = self:CreateItemRow()
             f:SetImage(icon)
             f:SetImageSize(36, 36)
             f:SetText(name)
             f:SetCallback("OnClick", function (container, event, group) CollectMe:ItemRowClick(group, creature_id) end)
-            --f:SetCallback("OnEnter", function (container, event, group) CollectMe:ItemRowEnter(v) end)
-            --f:SetCallback("OnLeave", function (container, event, group) CollectMe:ItemRowLeave(v) end)
+            f:SetCallback("OnEnter", function (container, event, group) CollectMe:ItemRowEnter({ creature_id = creature_id, source = source }) end)
+            f:SetCallback("OnLeave", function (container, event, group) CollectMe:ItemRowLeave() end)
             table.insert(active, f)
         end
     end
@@ -753,6 +753,9 @@ function CollectMe:ItemRowEnter(v)
         tooltip:SetHyperlink(v.link)
         tooltip:AddLine(" ")
         tooltip:AddLine(self.L["mount_" .. v.id], 0, 1, 0, 1)
+    elseif self.active_tab == COMPANION then
+        tooltip:AddLine(v.creature_id)
+        tooltip:AddLine(v.source)
     else
         tooltip:AddLine(v.name)
         tooltip:AddLine(" ")
@@ -770,6 +773,8 @@ function CollectMe:ItemRowEnter(v)
     if self.active_tab == MOUNT then
         tooltip:AddLine(self.L["tooltip_preview"], 0.65, 0.65, 0)
         tooltip:AddLine(self.L["tooltip_link"], 0.65, 0.65, 0)
+    elseif self.active_tab == COMPANION then
+        tooltip:AddLine(self.L["tooltip_preview"], 0.65, 0.65, 0)
     end
     tooltip:AddLine(self.L["tooltip_toggle"], 0.65, 0.65, 0)
     tooltip:Show()
