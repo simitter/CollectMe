@@ -124,6 +124,7 @@ function CollectMe:BuildTitleDB()
     self:AddTitle(196) -- Destroyer's End
 
     -- mists of pandaria
+    self:AddTitle(195) -- Farmer
     self:AddTitle(197) -- the Beloved
     self:AddTitle(198) -- the Fearless
     self:AddTitle(199) -- Zookeeper
