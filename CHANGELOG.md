@@ -1,3 +1,10 @@
+
+## 2.1
+ * Added back the companion tab
+ * Added Mists of Pandria titles
+ * Added Mists of Panaria mounts
+ * Changed the amount of companion, mounts one can view on screen without scrolling
+
 ## 2.0.3
  * Added White Stallion
  * Fixed dual wield weapon preview bug
