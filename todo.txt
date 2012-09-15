@@ -175,7 +175,18 @@ Temp title work:
     self:AddTitle(207) -- Tamer
     self:AddTitle(208) -- Seeker of Knowledge
 
-
+L["title_194"] = "Reward for defeating Deathwing on heroic difficulty." -- Savior of Azeroth
+L["title_196"] = "Reward for defeating Deathwing on normal difficulty." -- Destroyer's End
+L["title_194"] = "Reward for defeating Deathwing on heroic difficulty." -- Savior of Azeroth
+L["title_196"] = "Reward for defeating Deathwing on normal difficulty." -- Destroyer's End
+L["title_194"] = "Reward for defeating Deathwing on heroic difficulty." -- Savior of Azeroth
+L["title_196"] = "Reward for defeating Deathwing on normal difficulty." -- Destroyer's End
+L["title_194"] = "Reward for defeating Deathwing on heroic difficulty." -- Savior of Azeroth
+L["title_196"] = "Reward for defeating Deathwing on normal difficulty." -- Destroyer's End
+L["title_194"] = "Reward for defeating Deathwing on heroic difficulty." -- Savior of Azeroth
+L["title_196"] = "Reward for defeating Deathwing on normal difficulty." -- Destroyer's End
+L["title_194"] = "Reward for defeating Deathwing on heroic difficulty." -- Savior of Azeroth
+L["title_196"] = "Reward for defeating Deathwing on normal difficulty." -- Destroyer's End
 
 The Beloved: Raise 70 reputations to Exalted.
 Farmer : Exalted with the Tillers.
