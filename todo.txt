@@ -162,43 +162,28 @@ L["mount_123182"] = "Reward from the achievement Leading the Cavalry (collect 50
 
 Temp title work:
 
-    self:AddTitle(197) -- the Beloved
-    self:AddTitle(198) -- the Fearless
-    self:AddTitle(199) -- Zookeeper
-    self:AddTitle(200) -- the Relic Hunter
-    self:AddTitle(201) -- the Undaunted
-    self:AddTitle(202) -- Master of the Ways
-    self:AddTitle(203) -- the Tranquil Master
-    self:AddTitle(204) -- Delver of the Vaults
-    self:AddTitle(205) -- Shadow-Master
-    self:AddTitle(206) -- the Scenaterdist
-    self:AddTitle(207) -- Tamer
-    self:AddTitle(208) -- Seeker of Knowledge
-
-L["title_194"] = "Reward for defeating Deathwing on heroic difficulty." -- Savior of Azeroth
-L["title_196"] = "Reward for defeating Deathwing on normal difficulty." -- Destroyer's End
-L["title_194"] = "Reward for defeating Deathwing on heroic difficulty." -- Savior of Azeroth
-L["title_196"] = "Reward for defeating Deathwing on normal difficulty." -- Destroyer's End
-L["title_194"] = "Reward for defeating Deathwing on heroic difficulty." -- Savior of Azeroth
-L["title_196"] = "Reward for defeating Deathwing on normal difficulty." -- Destroyer's End
-L["title_194"] = "Reward for defeating Deathwing on heroic difficulty." -- Savior of Azeroth
-L["title_196"] = "Reward for defeating Deathwing on normal difficulty." -- Destroyer's End
-L["title_194"] = "Reward for defeating Deathwing on heroic difficulty." -- Savior of Azeroth
-L["title_196"] = "Reward for defeating Deathwing on normal difficulty." -- Destroyer's End
-L["title_194"] = "Reward for defeating Deathwing on heroic difficulty." -- Savior of Azeroth
-L["title_196"] = "Reward for defeating Deathwing on normal difficulty." -- Destroyer's End
+L["title_197"] = "Reward for defeating Deathwing on heroic difficulty." -- the Beloved
+L["title_198"] = "Reward for defeating Deathwing on normal difficulty." -- the Fearless
+L["title_199"] = "Reward for defeating Deathwing on heroic difficulty." -- Zookeeper
+L["title_200"] = "R m Is Another Man's Treasure. In addition to rare spawns bringing quirky flavor to MoP, there are rare objects hidden around Pandaria too like Blade of the Prime. Finding 20 of these will net you this title." -- the Relic Hunter
+L["title_201"] = "Reward for defeating Deathwing on heroic difficulty." -- the Undaunted
+L["title_202"] = "Reward for defeating Deathwing on normal difficulty." -- Master of the Ways
+L["title_203"] = "Reward for defeating Deathwing on heroic difficulty." -- the Tranquil Master
+L["title_204"] = "Reward for defeating Deathwing on normal difficulty." -- Delver of the Vaults
+L["title_205"] = "Reward for defeating Deathwing on heroic difficulty." -- Shadow-Master
+L["title_206"] = "Reward for completing 'Scenaterday/ Scenaterday' doing all the new Scenarios on a Saturday." -- the Scenaterdist
+L["title_207"] = "Reward for defeating Deathwing on heroic difficulty." -- Tamer
+L["title_208"] = "Reward for completing World Safari, all the Pet Safari achievements, requiring you to collect and capture a ton of pets." -- Seeker of Knowledge
 
 The Beloved: Raise 70 reputations to Exalted.
 Farmer : Exalted with the Tillers.
 the Fearless: Complete Heroic: Sha of Fear in Terrace of Endless Spring.
 Master of the Ways: Raise your cooking to 600 and complete Master of Pandaren Cooking.
-the Relic Hunter: From Is Another Man's Treasure. In addition to rare spawns bringing quirky flavor to MoP, there are rare objects hidden around Pandaria too like Blade of the Prime. Finding 20 of these will net you this title.
-the Scenaterdist: Complete Scenaterday/ Scenaterday--doing all the new Scenarios on a Saturday.
 Seeker of Knowledge: Unknown so far, perhaps tied to questing.
 Shado-Master : Complete The Shado-Master, doing a bunch of achievements tied to dailies with Shado-Pan, similar to The Flamebreaker from the Molten Front.
 the Tranquil Master: From Tranquil Master, requiring players to kill all the Sha-themed NPCs, which are from quests, dungeons, raids, and world spawns: Sha of Doubt, Sha of Violence, Sha of Anger, Sha of Despair, Sha of Hatred, Sha of Fear.
 the Undaunted: From Challenge Conqueror: Bronze, completing every Challenge Mode with a rating of Bronze or better.
-Zookeeper : Reward for completing World Safari, all the Pet Safari achievements, requiring you to collect and capture a ton of pets.
+
 
 
 
