@@ -3,6 +3,8 @@ Excitor:
 - Drop percentages to the info on some mounts.
 
 - A lot of the NLO filtered mounts are now obtainable through the AH/trade they need to be checked.
+
+- Title "!" info needs to be refined and then double checked.
 ----------------------------
 
 -- temp DB work:
@@ -160,22 +162,6 @@ L["mount_132119"] = "Obtained via trading in an Ancestral Phoenix Egg which is o
 L["mount_130137"] = "?? [BoP]" -- White Riding Goat
 L["mount_123182"] = "?? [BoP]" -- White Riding Yak
 
-Temp title work:
-//! info needs to be double checked later
-
-L["title_197"] = "Raise 70 reputations to Exalted." -- the Beloved
-L["title_198"] = "Complete Heroic: Sha of Fear in Terrace of Endless Spring" -- the Fearless
-L["title_199"] = "!?" -- Zookeeper
-L["title_200"] = "Reward from  'Is Another Man's Treasure'. In addition to rare spawns bringing quirky flavor to MoP, there are rare objects hidden around Pandaria too like Blade of the Prime. Finding 20 of these will net you this title." -- the Relic Hunter
-L["title_201"] = "From Challenge Conqueror: Bronze, completing every Challenge Mode with a rating of Bronze or better." -- the Undaunted
-L["title_202"] = "Raise your cooking to 600 and complete Master of Pandaren Cooking." -- Master of the Ways
-L["title_203"] = "From Tranquil Master, requiring players to kill all the Sha-themed NPCs, which are from quests, dungeons, raids, and world spawns: Sha of Doubt, Sha of Violence, Sha of Anger, Sha of Despair, Sha of Hatred, Sha of Fear." -- the Tranquil Master
-L["title_204"] = "!Probably related to the Mogu'shan Vaults Raid Instance, maybe for completing it on Heroic difficulty" -- Delver of the Vaults
-L["title_205"] = "Complete The Shado-Master, doing a bunch of achievements tied to dailies with Shado-Pan, similar to The Flamebreaker from the Molten Front." -- Shadow-Master  // misspelled comment?
-L["title_206"] = "Reward for completing 'Scenaterday/ Scenaterday' doing all the new Scenarios on a Saturday." -- the Scenaterdist
-L["title_207"] = "!This title is awarded once you defeat all of the Pet Tamers across Azeroth" -- Tamer
-L["title_208"] = "Reward for completing World Safari, all the Pet Safari achievements, requiring you to collect and capture a ton of pets." -- Seeker of Knowledge
-L["title_195"] = "Exalted with the Tillers." -- Farmer
 
 
 
