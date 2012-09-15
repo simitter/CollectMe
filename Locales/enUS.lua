@@ -3,6 +3,7 @@ if not L then return end
 
 -- UI
 L["Mounts"] = true
+L["Companions"] = true
 L["Titles"] = true
 L["Missing"] = true
 L["Ignored"] = true

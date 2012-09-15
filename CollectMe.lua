@@ -5,6 +5,7 @@ local MOUNT = 1
 local TITLE = 2
 local RANDOM_COMPANION = 3
 local RANDOM_MOUNT = 4
+local COMPANION = 5
 local MOUNT_FILTERS = { "nlo", "tcg", "pvp", "are", "bsm", "rfm", "ptm" }
 local TITLE_FILTERS = { "nlo", "pvp", "are" }
 
@@ -202,7 +203,7 @@ function CollectMe:BuildUI()
     tinsert(UISpecialFrames, f.frame:GetName())
 
     local tabs = AceGUI:Create("TabGroup")
-    tabs:SetTabs({ {text = self.L["Mounts"], value = MOUNT}, {text = self.L["Titles"], value = TITLE}, {text = self.L["Random Companion"], value = RANDOM_COMPANION}, {text = self.L["Random Mount"], value = RANDOM_MOUNT}})
+    tabs:SetTabs({ {text = self.L["Mounts"], value = MOUNT}, {text = self.L["Companions"], value = COMPANION}, {text = self.L["Titles"], value = TITLE}, {text = self.L["Random Companion"], value = RANDOM_COMPANION}, {text = self.L["Random Mount"], value = RANDOM_MOUNT}})
     tabs:SetCallback("OnGroupSelected", function (container, event, group) CollectMe:SelectGroup(container, group) end)
     f:AddChild(tabs)
 
