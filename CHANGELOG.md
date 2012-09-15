@@ -1,6 +1,5 @@
-
 ## 2.1
- * Added back the companion tab
+ * Added back the ability to manage and track your companions.
  * Added Mists of Pandria titles
  * Added Mists of Panaria mounts
  * Changed the amount of companion, mounts one can view on screen without scrolling
