@@ -49,7 +49,6 @@ Excitor:
     self:AddMount(127164, 43693) -- Heavenly Golden Cloud Serpent
     self:AddMount(127165, 43695) -- Heavenly Jade Cloud Serpent
     self:AddMount(127158, 43689) -- Heavenly Onyx Cloud Serpent
-
     self:AddMount(113199, 40590) -- Jade Cloud Serpent
     self:AddMount(121837, 42502) -- Jade Panther
     self:AddMount(127274, 43714) -- Jade Water Strider
@@ -162,6 +161,21 @@ L["mount_130137"] = "Reward from the achievement Leading the Cavalry (collect 50
 L["mount_123182"] = "Reward from the achievement Leading the Cavalry (collect 50 Mounts. [BoP])" -- White Riding Yak
 
 Temp title work:
+
+    self:AddTitle(197) -- the Beloved
+    self:AddTitle(198) -- the Fearless
+    self:AddTitle(199) -- Zookeeper
+    self:AddTitle(200) -- the Relic Hunter
+    self:AddTitle(201) -- the Undaunted
+    self:AddTitle(202) -- Master of the Ways
+    self:AddTitle(203) -- the Tranquil Master
+    self:AddTitle(204) -- Delver of the Vaults
+    self:AddTitle(205) -- Shadow-Master
+    self:AddTitle(206) -- the Scenaterdist
+    self:AddTitle(207) -- Tamer
+    self:AddTitle(208) -- Seeker of Knowledge
+
+
 
 The Beloved: Raise 70 reputations to Exalted.
 Farmer : Exalted with the Tillers.
