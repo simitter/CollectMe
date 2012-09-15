@@ -89,7 +89,7 @@ local writedefaultproxy = setmetatable({}, {
 -- local L = LibStub("AceLocale-3.0"):NewLocale("TestLocale", "deDE")
 -- if not L then return end
 -- L["string1"] = "Zeichenkette1"
--- @return Locales Table to add localizations to, or nil if the current locale is not required.
+-- @return Locale Table to add localizations to, or nil if the current locale is not required.
 function AceLocale:NewLocale(application, locale, isDefault, silent)
 
 	-- GAME_LOCALE allows translators to test translations of addons without having that wow client installed

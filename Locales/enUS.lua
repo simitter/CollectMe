@@ -3,6 +3,7 @@ if not L then return end
 
 -- UI
 L["Mounts"] = true
+L["Companions"] = true
 L["Titles"] = true
 L["Missing"] = true
 L["Ignored"] = true
@@ -46,6 +47,8 @@ L["Mount / Dismount"] = true
 L["Ground Mount / Dismount"] = true
 L["Check all"] = true
 L["Uncheck all"] = true
+L["Family Filter"] = true
+L["Sources Filter"] = true
 
 -- Mounts
 -- Common Mounts
