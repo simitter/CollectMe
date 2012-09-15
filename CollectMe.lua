@@ -1,5 +1,6 @@
-CollectMe = LibStub("AceAddon-3.0"):NewAddon("CollectMe", "AceConsole-3.0", "AceHook-3.0", "AceEvent-3.0");
-local AceGUI = LibStub("AceGUI-3.0");
+CollectMe = LibStub("AceAddon-3.0"):NewAddon("CollectMe", "AceConsole-3.0", "AceHook-3.0", "AceEvent-3.0")
+local AceGUI = LibStub("AceGUI-3.0")
+
 local addon_name = "CollectMe"
 local MOUNT = 1
 local TITLE = 2
@@ -97,7 +98,7 @@ function CollectMe:OnInitialize()
 
     self.cm_button_loaded = false
 
-    self.display_mount = false
+    self.display_creature = false
 
     self:BuildUI()
 
@@ -282,6 +283,8 @@ function CollectMe:BuildTab(container)
     if self.active_tab == MOUNT or self.active_tab == TITLE then
         self:BuildList(scroll)
         self:BuildFilters(filter)
+    elseif self.active_tab == COMPANION then
+        self:BuildMissingCompanionList(scroll)
     elseif self.active_tab == RANDOM_COMPANION then
         self:BuildRandomPetList(scroll)
         self:ShowCheckButtons()
@@ -486,16 +489,20 @@ function CollectMe:BuildList(listcontainer)
         end
     end
 
-    listcontainer:AddChild(self:CreateHeading(self.L["Missing"] .. " - " .. #active))
+    self:AddMissingRows(listcontainer, active, ignored, all_count, known_count, filter_count)
+end
+
+function CollectMe:AddMissingRows(container, active, ignored, all_count, known_count, filter_count)
+    container:AddChild(self:CreateHeading(self.L["Missing"] .. " - " .. #active))
     for f = 1, #active, 1 do
-        listcontainer:AddChild(active[f])
+        container:AddChild(active[f])
     end
 
     local hide_ignore = (self.active_tab == MOUNT and self.db.profile.hide_ignore.mounts or self.db.profile.hide_ignore.titles )
     if hide_ignore == false then
-        listcontainer:AddChild(self:CreateHeading(self.L["Ignored"] .. " - " .. #ignored))
+        container:AddChild(self:CreateHeading(self.L["Ignored"] .. " - " .. #ignored))
         for f = 1, #ignored, 1 do
-            listcontainer:AddChild(ignored[f])
+            container:AddChild(ignored[f])
         end
     end
 
@@ -506,6 +513,28 @@ function CollectMe:BuildList(listcontainer)
     self.frame.statusbar:SetValue(known_count)
     self.frame.statusbar.value:SetText(known_count .. " / " .. all_count .. " (".. percent .. "%)")
     self.frame.statusbar:Show()
+end
+
+function CollectMe:BuildMissingCompanionList(listcontainer)
+    local total, owned = C_PetJournal.GetNumPets(false)
+
+    local active, ignored = {}, {}
+
+    for i = 1,total do
+        local pet_id, species_id, owned, _, _, _, _, name, icon, _, creature_id, source = C_PetJournal.GetPetInfoByIndex(i, false)
+        if owned ~= true then
+            local f = self:CreateItemRow()
+            f:SetImage(icon)
+            f:SetImageSize(36, 36)
+            f:SetText(name)
+            f:SetCallback("OnClick", function (container, event, group) CollectMe:ItemRowClick(group, creature_id) end)
+            --f:SetCallback("OnEnter", function (container, event, group) CollectMe:ItemRowEnter(v) end)
+            --f:SetCallback("OnLeave", function (container, event, group) CollectMe:ItemRowLeave(v) end)
+            table.insert(active, f)
+        end
+    end
+
+    self:AddMissingRows(listcontainer, active, ignored, total, owned, 0)
 end
 
 function CollectMe:IsFiltered(filters)
@@ -669,8 +698,15 @@ function CollectMe:ItemRowClick(group, spell_id)
             if IsShiftKeyDown() == 1 and mount.link ~= nil then
                 ChatEdit_InsertLink(mount.link)
             elseif mount.display_id ~= nil then
-                self:PreviewMount(mount.display_id)
+                self:PreviewCreature(mount.display_id)
             end
+        end
+    elseif self.active_tab == COMPANION and group == "LeftButton" then
+        local link = nil
+        if IsShiftKeyDown() == 1 and link ~= nil then
+            ChatEdit_InsertLink(link)
+        elseif spell_id ~= nil then
+            self:PreviewCreature(spell_id)
         end
     elseif group == "RightButton" and IsControlKeyDown() then
         local offset = self.scroll.localstatus.offset
@@ -692,14 +728,18 @@ function CollectMe:ItemRowClick(group, spell_id)
     end
 end
 
-function CollectMe:PreviewMount(display_id)
+function CollectMe:PreviewCreature(display_id)
     if display_id ~= nil then
-        self.display_mount = true
+        self.display_creature = true
         DressUpBackgroundTopLeft:SetTexture(nil);
         DressUpBackgroundTopRight:SetTexture(nil);
         DressUpBackgroundBotLeft:SetTexture(nil);
         DressUpBackgroundBotRight:SetTexture(nil);
-        DressUpModel:SetDisplayInfo(display_id);
+        if self.active_tab == COMPANION then
+            DressUpModel:SetCreature(display_id)
+        else
+            DressUpModel:SetDisplayInfo(display_id)
+        end
         if not DressUpFrame:IsShown() then
             ShowUIPanel(DressUpFrame);
         end
@@ -855,14 +895,14 @@ function CollectMe:DressUpItemLink(link)
     if spell ~= nil then
         local info = self:GetMountInfo(spell)
         if info ~= nil then
-            self:PreviewMount(info.display_id)
+            self:PreviewCreature(info.display_id)
             return true
         end
     end
-    if self.display_mount == true then
+    if self.display_creature == true then
         SetDressUpBackground(DressUpFrame, self.RACE);
         DressUpModel:SetUnit("player")
-        self.display_mount = false
+        self.display_creature = false
     end
 end
 
