@@ -19,7 +19,8 @@ local defaults = {
     profile = {
         ignored = {
             mounts = {},
-            titles = {}
+            titles = {},
+            companions = {}
         },
         filters = {
             mounts = {
@@ -191,6 +192,8 @@ function CollectMe:SelectGroup(container, group)
         self.ignored_db = self.db.profile.ignored.titles
         self.item_list = self.TITLES
         self.filter_list = TITLE_FILTERS
+    elseif group == COMPANION then
+        self.ignored_db = self.db.profile.ignored.companions
     end
 
     CollectMe:BuildTab(container)
@@ -532,7 +535,12 @@ function CollectMe:BuildMissingCompanionList(listcontainer)
             f:SetCallback("OnClick", function (container, event, group) CollectMe:ItemRowClick(group, creature_id) end)
             f:SetCallback("OnEnter", function (container, event, group) CollectMe:ItemRowEnter({ creature_id = creature_id, source = source, name = name }) end)
             f:SetCallback("OnLeave", function (container, event, group) CollectMe:ItemRowLeave() end)
-            table.insert(active, f)
+
+            if self:IsInTable(self.ignored_db, creature_id) then
+                table.insert(ignored, f)
+            else
+                table.insert(active, f)
+            end
         end
     end
 
@@ -734,15 +742,12 @@ function CollectMe:ItemRowClick(group, spell_id)
             end
         end
     elseif self.active_tab == COMPANION and group == "LeftButton" then
-        local link = nil
-        if IsShiftKeyDown() == 1 and link ~= nil then
-            ChatEdit_InsertLink(link)
-        elseif spell_id ~= nil then
+        if spell_id ~= nil then
             self:PreviewCreature(spell_id)
         end
     elseif group == "RightButton" and IsControlKeyDown() then
         local offset = self.scroll.localstatus.offset
-        local ignored_table = (self.active_tab ==  MOUNT and self.db.profile.ignored.mounts or self.db.profile.ignored.titles)
+        local ignored_table = self.ignored_db
 
         local position = self:IsInTable(ignored_table, spell_id)
         if position ~= false then
