@@ -50,30 +50,30 @@ Excitor:
     self:AddMount(127165, 43695) -- Heavenly Jade Cloud Serpent
     self:AddMount(127158, 43689) -- Heavenly Onyx Cloud Serpent
 
-    self:AddMount(113199, 22471) -- Jade Cloud Serpent
-    self:AddMount(121837, 22471) -- Jade Panther
-    self:AddMount(127274, 22471) -- Jade Water Strider
-    self:AddMount(120043, 22471) -- Jeweled Onyx Panther
-    self:AddMount(127178, 22471) -- Jungle Riding Crane
-    self:AddMount(127154, 22471) -- Onyx Cloud Serpent
-    self:AddMount(127272, 22471) -- Orange Water Strider
-    self:AddMount(118737, 22471) -- Pandaren Kite
-    self:AddMount(130985, 22471) -- Pandaren Kite
-    self:AddMount(127289, 22471) -- Purple Dragon Turtle
-    self:AddMount(127290, 22471) -- Red Dragon Turtle
-    self:AddMount(130092, 22471) -- Red Flying Cloud
-    self:AddMount(129935, 22471) -- Red Shado-Pan Riding Tiger
-    self:AddMount(127177, 22471) -- Regal Riding Crane
-    self:AddMount(121838, 22471) -- Ruby Panther
-    self:AddMount(121836, 22471) -- Sapphire Panther
-    self:AddMount(130965, 22471) -- Son of Galleon
-    self:AddMount(121839, 22471) -- Sunstone Panther
-    self:AddMount(129918, 22471) -- Thundering August Cloud Serpent
-    self:AddMount(124408, 22471) -- Thundering Jade Cloud Serpent
-    self:AddMount(132036, 22471) -- Thundering Ruby Cloud Serpent
-    self:AddMount(132119, 22471) -- Violet Pandaren Phoenix
-    self:AddMount(130137, 22471) -- White Riding Goat
-    self:AddMount(123182, 22471) -- White Riding Yak
+    self:AddMount(113199, 40590) -- Jade Cloud Serpent
+    self:AddMount(121837, 42502) -- Jade Panther
+    self:AddMount(127274, 43714) -- Jade Water Strider
+    self:AddMount(120043, 42185) -- Jeweled Onyx Panther
+    self:AddMount(127178, 43707) -- Jungle Riding Crane
+    self:AddMount(127154, 41990) -- Onyx Cloud Serpent
+    self:AddMount(127272, 43715) -- Orange Water Strider
+    self:AddMount(118737, 41903) -- Pandaren Kite
+    self:AddMount(130985, 45271) -- Pandaren Kite
+    self:AddMount(127289, 43910) -- Purple Dragon Turtle
+    self:AddMount(127290, 43721) -- Red Dragon Turtle
+    self:AddMount(130092, 44808) -- Red Flying Cloud
+    self:AddMount(129935, 44757) -- Red Shado-Pan Riding Tiger
+    self:AddMount(127177, 43706) -- Regal Riding Crane
+    self:AddMount(121838, 42499) -- Ruby Panther
+    self:AddMount(121836, 42500) -- Sapphire Panther
+    self:AddMount(130965, 45264) -- Son of Galleon
+    self:AddMount(121839, 42501) -- Sunstone Panther
+    self:AddMount(129918, 43686) -- Thundering August Cloud Serpent
+    self:AddMount(124408, 43562) -- Thundering Jade Cloud Serpent
+    self:AddMount(132036, 45797) -- Thundering Ruby Cloud Serpent
+    self:AddMount(132119, 45522) -- Violet Pandaren Phoenix
+    self:AddMount(130137, 44837) -- White Riding Goat
+    self:AddMount(123182, 41089) -- White Riding Yak
 
 
 -- Something to standardise after temp
