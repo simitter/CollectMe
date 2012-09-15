@@ -794,6 +794,11 @@ function CollectMe:ItemRowEnter(v)
         tooltip:AddLine(v.name, 1, 1 ,1)
         tooltip:AddLine(" ")
         tooltip:AddLine(v.source, 0, 1, 0, 1)
+        local info = self.L["companion_" .. v.creature_id]
+        if string.find(info, "companion_") == nil then
+            tooltip:AddLine(" ")
+            tooltip:AddLine(info, 0, 1, 0, 1)
+        end
     else
         tooltip:AddLine(v.name)
         tooltip:AddLine(" ")
