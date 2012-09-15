@@ -521,9 +521,8 @@ end
 
 function CollectMe:BuildMissingCompanionList(listcontainer)
     listcontainer:ReleaseChildren()
-    local total, owned = C_PetJournal.GetNumPets(false)
-
-    local active, ignored = {}, {}
+    local total = C_PetJournal.GetNumPets(false)
+    local active, ignored, owned_db = {}, {}, {}
 
     for i = 1,total do
         local pet_id, _, owned, _, _, _, _, name, icon, _, creature_id, source = C_PetJournal.GetPetInfoByIndex(i, false)
@@ -541,10 +540,14 @@ function CollectMe:BuildMissingCompanionList(listcontainer)
             else
                 table.insert(active, f)
             end
+        else
+            if not self:IsInTable(owned_db, creature_id) then
+                table.insert(owned_db, creature_id)
+            end
         end
     end
 
-    self:AddMissingRows(listcontainer, active, ignored, total, owned, 0)
+    self:AddMissingRows(listcontainer, active, ignored, #active + #ignored + #owned_db, #owned_db, 0)
 end
 
 function CollectMe:IsFiltered(filters)
