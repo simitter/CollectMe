@@ -1,5 +1,5 @@
 ## Title: CollectMe
-## Notes: Displays a list of mounts and titles which the character is missing and allows to summon companions and mounts
+## Notes: Displays a list of mounts, companions and titles which the character is missing and allows to summon companions and mounts
 
 ## Authors: Merla (Mergana), Tolerant, DesertDwarf, Excitor0, LaserLock
 ## X-Author-Server: Antonidas EU, Gorefiend
