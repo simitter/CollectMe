@@ -1,9 +1,9 @@
 ## 2.1
- * Added back the ability to manage and track your companions.
- * Added Mists of Pandria titles
- * Added Mists of Panaria mounts
- * Changed the amount of companion, mounts one can view on screen without scrolling
- * Show last open tab after reopening the main window
+ * Added back the ability to manage and track what companions you're missing
+ * Added Mists of Pandaria titles
+ * Added Mists of Pandaria mounts
+ * Changed the amount of companions, mounts one can view on screen without scrolling
+ * Showing of last open tab after reopening the main window from a previous session
 
 ## 2.0.3
  * Added White Stallion
