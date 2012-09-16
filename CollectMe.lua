@@ -123,7 +123,7 @@ function CollectMe:AddonLoadedListener(event, name)
         cmbutton:SetHeight(22)
         cmbutton:SetWidth(100)
         cmbutton:SetText("Collect Me")
-        cmbutton:SetScript("OnClick", function() self.tabs:SelectTab(MOUNT); self.frame:Show() end)
+        cmbutton:SetScript("OnClick", function() self.tabs:SelectTab(self.active_tab); self.frame:Show() end)
         self.cm_button_loaded = true
     end
 end
@@ -935,7 +935,7 @@ function CollectMe:SlashProcessor(input)
     elseif input == "macro" then
         self:UpdateMacros()
     else
-        self.tabs:SelectTab(MOUNT)
+        self.tabs:SelectTab(self.active_tab)
         self.frame:Show()
     end
 end

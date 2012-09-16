@@ -3,6 +3,7 @@
  * Added Mists of Pandria titles
  * Added Mists of Panaria mounts
  * Changed the amount of companion, mounts one can view on screen without scrolling
+ * Show last open tab after reopening the main window
 
 ## 2.0.3
  * Added White Stallion
