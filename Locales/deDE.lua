@@ -3,6 +3,7 @@ if not L then return end
 
 -- UI
 L["Mounts"] = "Reittiere"
+L["Companions"] = "Begleiter"
 L["Titles"] = "Titel"
 L["Missing"] = "Fehlend"
 L["Ignored"] = "Ignoriert"
@@ -46,6 +47,8 @@ L["Mount / Dismount"] = "Aufsteigen / Absteigen"
 L["Ground Mount / Dismount"] = "Auf Bodenmount aufmounten / Abmounten"
 L["Check all"] = "Alle auswählen"
 L["Uncheck all"] = "Alle abwählen"
+L["Family Filter"] = true
+L["Sources Filter"] = true
 
 -- Mounts
 -- Common Mounts
@@ -564,3 +567,16 @@ L["title_192"] = "Awarded per battlegroup at the end of arena season 10 based on
 L["title_193"] = "Awarded per battlegroup at the end of arena season 11 based on top ranked percentage. Top 0.0% - 0.5%." -- Cataclysmic Gladiator
 L["title_194"] = "Belohnung für das Besiegen von Todesschwinge im heroischen Modus." -- Savior of Azeroth
 L["title_196"] = "Belohnung für das Besiegen von Todesschwinge im normalen Modus." -- Destroyer's End
+L["title_195"] = "Exalted with the Tillers." -- Farmer
+L["title_197"] = "Raise 70 reputations to Exalted." -- the Beloved
+L["title_198"] = "Complete Heroic: Sha of Fear in Terrace of Endless Spring." -- the Fearless
+L["title_199"] = "Reward from 'World Safari'- - Catch every battle pet" -- Zookeeper
+L["title_200"] = "Reward from  'Is Another Man's Treasure'. In addition to rare spawns bringing quirky flavor to MoP, there are rare objects hidden around Pandaria too like Blade of the Prime. Finding 20 of these will net you this title." -- the Relic Hunter
+L["title_201"] = "From Challenge Conqueror: Bronze, completing every Challenge Mode with a rating of Bronze or better." -- the Undaunted
+L["title_202"] = "Raise your cooking to 600 and complete Master of Pandaren Cooking." -- Master of the Ways
+L["title_203"] = "From Tranquil Master, requiring players to kill all the Sha-themed NPCs." -- the Tranquil Master
+L["title_204"] = "!Probably related to the Mogu'shan Vaults Raid Instance, maybe for completing it on Heroic difficulty." -- Delver of the Vaults
+L["title_205"] = "Complete The Shado-Master, doing a bunch of achievements tied to dailies with Shado-Pan, similar to The Flamebreaker from the Molten Front." -- Shado-Master
+L["title_206"] = "Reward for completing 'Scenaterday/ Scenaterday' doing all the MoP Scenarios on a Saturday." -- the Scenaterdist
+L["title_207"] = "Reward for defeating all of the Pet Tamers across Azeroth." -- Tamer
+L["title_208"] = "!?." -- Seeker of Knowledge
