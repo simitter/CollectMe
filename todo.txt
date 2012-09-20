@@ -96,7 +96,7 @@ L["mount_102488"] = "Loot card from the WoW Trading Card Game: Tomb of the Forgo
 //info not final needs lots of refining
 
 L["mount_127180"] = "Reward from the achievement ??? (collect xx Mounts). [BoP]" -- Albino Riding Crane
-L["mount_123886"] = "Klaxxi faction mount [BoP]" -- Amber Scorpio
+L["mount_123886"] = "Klaxxi faction mount. [BoP]" -- Amber Scorpio
 L["mount_132117"] = "Obtained via challenge mode dungeon achievement Challenge Conqueror: Silver. [BoP]" -- Ashen Pandaren Phoenix
 L["mount_127170"] = "Drops from 'Elegon' in the Mogu'shan Vaults Raid. [BoA]" -- Astral Cloud Serpent
 L["mount_123992"] = "?? [BoA]" -- Azure Cloud Serpent
@@ -111,9 +111,9 @@ L["mount_129934"] = "This mount is obtainable after reaching exalted repuation w
 L["mount_127288"] = "Purchased from a Pandaren quartermaster once you've reached exalted repuation with the faction. [BoP]" -- Brown Dragon Turtle
 L["mount_130086"] = "Exalted with the Tillers. [BoP]" -- Brown Riding Goat
 L["mount_127213"] = "?? [BoP]" -- Brown Riding Yak
-L["mount_124550"] = "Reward from the a. [BoP]" -- Cataclysmic Gladiator's Twilight Drake
+L["mount_124550"] = "Awarded per battlegroup at the end of arena season 11 based on top ranked percentage. Top 0.0% - 0.5%. [BoP]" -- Cataclysmic Gladiator's Twilight Drake
 L["mount_127156"] = "Something to do with the Order of the Cloud Serpent. [BoP]" -- Crimson Cloud Serpent
-L["mount_129552"] = "Reward from the a. [BoP]" -- Crimson Pandaren Phoenix
+L["mount_129552"] = "??. [BoP]" -- Crimson Pandaren Phoenix
 L["mount_123160"] = "Exalted with Golden Lotus. [BoP]" -- Crimson Riding Crane
 L["mount_127271"] = "Exalted the Anglers. [BoP]" -- Crimson Water Strider
 L["mount_126507"] = "Craftable Engineering mount (Goblin). [BoP]" -- Depleted-Kyparium Rocket
