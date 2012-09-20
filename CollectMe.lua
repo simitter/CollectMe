@@ -122,8 +122,17 @@ function CollectMe:AddonLoadedListener(event, name)
         cmbutton:SetPoint("BOTTOMRIGHT", -8, 3)
         cmbutton:SetHeight(22)
         cmbutton:SetWidth(100)
-        cmbutton:SetText("Collect Me")
+        cmbutton:SetText(addon_name)
         cmbutton:SetScript("OnClick", function() self.tabs:SelectTab(self.active_tab); self.frame:Show() end)
+
+        local cmbutton2 = CreateFrame("Button", "CollectMeOpen2Button", PetJournal, "UIPanelButtonTemplate")
+        cmbutton2:ClearAllPoints()
+        cmbutton2:SetPoint("RIGHT", PetJournalFindBattle, "LEFT", -5, 0)
+        cmbutton2:SetHeight(22)
+        cmbutton2:SetWidth(100)
+        cmbutton2:SetText(addon_name)
+        cmbutton2:SetScript("OnClick", function() self.tabs:SelectTab(self.active_tab); self.frame:Show() end)
+
         self.cm_button_loaded = true
     end
 end
