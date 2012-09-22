@@ -77,88 +77,89 @@ Excitor:
     self:AddMount(123182, 41089) -- White Riding Yak
 
 
--- Something to standardise after temp
-///
-L["mount_107842"] = "Drops from the normal Madness of Deathwing encounter. (?%) [BoP]" -- Blazing Drake
-L["mount_107845"] = "Drops from the heroic Madness of Deathwing encounter. (?%) [BoP]" -- Life-Binder's Handmaiden
-L["mount_101821"] = "Won by the top 0.5% rated Arena groups in the battlegroup in Season 10. [BoP]" -- Ruthless Gladiator's Twilight Drake
-L["mount_110051"] = "Purchased from Blizzard's online store. [BoA]" -- Heart of the Aspects
-L["mount_102350"] = "Purchased from a Lovely Merchant in Thunder Bluff during the Love is in the Air event for 270 Love Tokens. [BoP]" -- Swift Lovebird
-L["mount_110039"] = "Drops from Ultraxion in the Dragon Soul raid. (?%) [BoP]" -- Experiment 12-B
-L["mount_102349"] = "Purchased for 500 Nobelgarden Chocolates during the Noblegarden event. It can also be obtained as a rare drop from the Brightly Colored Eggs. [BoP]" -- Swift Springstrider
-L["mount_107844"] = "Reward from the achivement 'Glory of the Dragon Soul Raider'. [BoP]" -- Twilight Harbinger
-L["mount_101573"] = "Loot card from the WoW Trading Card Game: Throne of the Tides. [BoE]" -- Swift Shorestrider
-L["mount_102514"] = "Loot card from the WoW Trading Card Game: Crown of Heaven. [BoE]" -- Corrupted Hippogryph
-L["mount_102488"] = "Loot card from the WoW Trading Card Game: Tomb of the Forgotten. [BoE]" -- White Riding Camel
 
 
 -- temp locale work:
 //info not final needs lots of refining
 
 L["mount_127180"] = "Reward from the achievement ??? (collect xx Mounts). [BoP]" -- Albino Riding Crane
-L["mount_123886"] = "Klaxxi faction mount. [BoP]" -- Amber Scorpio
-L["mount_132117"] = "Obtained via challenge mode dungeon achievement Challenge Conqueror: Silver. [BoP]" -- Ashen Pandaren Phoenix
-L["mount_127170"] = "Drops from 'Elegon' in the Mogu'shan Vaults Raid. [BoA]" -- Astral Cloud Serpent
+L["mount_123886"] = "Sold by ??? in ??? for ???G. You need to be exalted with Klaxxi. [BoP]" -- Amber Scorpio
+L["mount_132117"] = "Reward from the challenge mode dungeon achievement 'Challenge Conqueror: Silver'. [BoP]" -- Ashen Pandaren Phoenix
+L["mount_127170"] = "Drops from Elegon in the Mogu'shan Vaults raid. [BoA]" -- Astral Cloud Serpent
 L["mount_123992"] = "?? [BoA]" -- Azure Cloud Serpent
-L["mount_127174"] = "Golden Lotus reputation reward. [BoP]" -- Azure Riding Crane
-L["mount_118089"] = "The Anglers exalted repuation reward. [BoP]" -- Azure Water Strider
-L["mount_127286"] = "Purchased from a Pandaren quartermaster once you've reached exalted repuation with the faction. [BoP]" -- Black Dragon Turtle
-L["mount_130138"] = "Purchased from the Tillers faction after reaching exalted reputation. [BoP]" -- Black Riding Goat
+L["mount_127174"] = "Sold by ??? in ??? for ???G. You need to be exalted with Golden Lotus. [BoP]" -- Azure Riding Crane
+L["mount_118089"] = "Sold by ??? in ??? for ???G. You need to be exalted with The Anglers. [BoP]" -- Azure Water Strider
+L["mount_127286"] = "Sold by ??? in ??? for ???G. You need to be exalted with the Pandaren. [BoP]" -- Black Dragon Turtle
+L["mount_130138"] = "Sold by ??? in ??? for ???G. You need to be exalted with the Tillers. [BoP]" -- Black Riding Goat
 L["mount_127209"] = "?? [BoP]" -- Black Riding Yak
-L["mount_127220"] = "Sold by Uncle Bigpocket in Kun-lai summit. [BoP]" -- Blonde Riding Yak
-L["mount_127287"] = "Purchased from a Pandaren quartermaster once you've reached exalted repuation with the faction. [BoP]" -- Blue Dragon Turtle
-L["mount_129934"] = "This mount is obtainable after reaching exalted repuation with Shado-Pan. [BoP]" -- Blue Shado-Pan Riding Tiger
-L["mount_127288"] = "Purchased from a Pandaren quartermaster once you've reached exalted repuation with the faction. [BoP]" -- Brown Dragon Turtle
-L["mount_130086"] = "Exalted with the Tillers. [BoP]" -- Brown Riding Goat
+L["mount_127220"] = "Sold by Uncle Bigpocket <Used Salesgrummie> in The Grummie Bazaar in Kun-Lai Summit for ???G. [BoP]" -- Blonde Riding Yak
+L["mount_127287"] = "Sold by ??? in ??? for ???G. You need to be exalted with the Pandaren. [BoP]" -- Blue Dragon Turtle
+L["mount_129934"] = "Sold by ??? in ??? for ???G. You need to be exalted with Shado-Pan. [BoP]" -- Blue Shado-Pan Riding Tiger
+L["mount_127288"] = "Sold by ??? in ??? for ???G. You need to be exalted with the Pandaren. [BoP]" -- Brown Dragon Turtle
+L["mount_130086"] = "Sold by ??? in ??? for ???G. You need to be exalted with the Tillers. [BoP]" -- Brown Riding Goat
 L["mount_127213"] = "?? [BoP]" -- Brown Riding Yak
 L["mount_124550"] = "Awarded per battlegroup at the end of arena season 11 based on top ranked percentage. Top 0.0% - 0.5%. [BoP]" -- Cataclysmic Gladiator's Twilight Drake
-L["mount_127156"] = "Something to do with the Order of the Cloud Serpent. [BoP]" -- Crimson Cloud Serpent
+
+L["mount_127156"] = "!Something to do with the Order of the Cloud Serpent. [BoP]" -- Crimson Cloud Serpent
+
 L["mount_129552"] = "??. [BoP]" -- Crimson Pandaren Phoenix
-L["mount_123160"] = "Exalted with Golden Lotus. [BoP]" -- Crimson Riding Crane
-L["mount_127271"] = "Exalted the Anglers. [BoP]" -- Crimson Water Strider
-L["mount_126507"] = "Craftable Engineering mount (Goblin). [BoP]" -- Depleted-Kyparium Rocket
-L["mount_132118"] = "Obtained via challenge mode dungeon achievement: Challenge Conqueror: Silver. [BoP]" -- Emerald Pandaren Phoenix
-L["mount_126508"] = "Craftable Engineering mount (Gnomish). [BoP]" -- Geosynchronous World Spinner
-L["mount_123993"] = "Something to do with the Order of the Cloud Serpent. [BoP]" -- Jade Cloud Serpent [BoP]" -- Golden Cloud Serpent
-L["mount_127176"] = "Exalted with Golden Lotus. [BoP]" -- Golden Riding Crane
-L["mount_127278"] = "Exalted with The Anglers. [BoP]" -- Golden Water Strider
-L["mount_122708"] = "This mount can be brought from Uncle Bigpocket <Used Salesgrummie> for 60,000 gold (without discount). He is located at The Grummie Bazaar in Kun-Lai Summit. [BoP]" -- Grand Expedition Yak
-L["mount_127295"] = "Purchased from a Pandaren quartermaster once you've reached exalted repuation with the faction. [BoP]" -- Great Black Dragon Turtle
-L["mount_127302"] = "Purchased from a Pandaren quartermaster once you've reached exalted repuation with the faction. [BoP]" -- Great Blue Dragon Turtle
-L["mount_127308"] = "Purchased from a Pandaren quartermaster once you've reached exalted repuation with the faction. [BoP]" -- Great Brown Dragon Turtle
-L["mount_127293"] = "Purchased from a Pandaren quartermaster once you've reached exalted repuation with the faction. [BoP]" -- Great Green Dragon Turtle
-L["mount_127293"] = "Purchased from a Pandaren quartermaster once you've reached exalted repuation with the faction. [BoP]" -- Great Purple Dragon Turtle
-L["mount_120822"] = "Purchased from a Pandaren quartermaster once you've reached exalted repuation with the faction. [BoP]" -- Great Red Dragon Turtle
-L["mount_120395"] = "Purchased from a Pandaren quartermaster once you've reached exalted repuation with the faction. [BoP]" -- Green Dragon Turtle
-L["mount_129932"] = "This mount is obtainable after reaching exalted repuation with Shado-Pan. [BoP]" -- Green Shado-Pan Riding Tiger
-L["mount_127216"] = "Sold by Uncle Bigpocket in Kun-lai summit. [BoP]" -- Grey Riding Yak
-L["mount_127169"] = "Something to do with the Order of the Cloud Serpent. [BoP]" -- Heavenly Azure Cloud Serpent
-L["mount_127161"] = "Something to do with the Order of the Cloud Serpent. [BoP]" -- Heavenly Crimson Cloud Serpent
-L["mount_127164"] = "Something to do with the Order of the Cloud Serpent. [BoP]" -- Heavenly Golden Cloud Serpent
-L["mount_127165"] = "Something to do with the Order of the Cloud Serpent. [BoP]" -- Heavenly Jade Cloud Serpent
-L["mount_127158"] = "Drops from the Sha of Anger, a world boss. [BoP]" -- Heavenly Onyx Cloud Serpent
-L["mount_113199"] = "Something to do with the Order of the Cloud Serpent. [BoP]" -- Jade Cloud Serpent
-L["mount_121837"] = "One of the new craftable mounts by jewelcrafters. [BoP]" -- Jade Panther
-L["mount_127274"] = "Exalted with The Anglers. [BoP]" -- Jade Water Strider
-L["mount_120043"] = "Craftable by Jewelcrafters that have reached level 600 in the profession. [BoP]" -- Jeweled Onyx Panther
+L["mount_123160"] = "Sold by ??? in ??? for ???G. You need to be exalted with Golden Lotus. [BoP]" -- Crimson Riding Crane
+L["mount_127271"] = "Sold by ??? in ??? for ???G. You need to be exalted with the Anglers. [BoP]" -- Crimson Water Strider
+L["mount_126507"] = "Recipe to create it is taught by ??? (Goblin). [BoE]" -- Depleted-Kyparium Rocket
+L["mount_132118"] = "Obtained via challenge mode dungeon achievement 'Challenge Conqueror: Silver'. [BoP]" -- Emerald Pandaren Phoenix
+L["mount_126508"] = "Recipe to create it is taught by ??? (Gnomish). [BoE]" -- Geosynchronous World Spinner
+
+L["mount_123993"] = "!Something to do with the Order of the Cloud Serpent. [BoP]" -- Jade Cloud Serpent [BoP]" -- Golden Cloud Serpent
+
+L["mount_127176"] = "Sold by ??? in ??? for ???G. You need to be exalted with Golden Lotus. [BoP]" -- Golden Riding Crane
+L["mount_127278"] = "Sold by ??? in ??? for ???G. You need to be exalted with the Anglers. [BoP]" -- Golden Water Strider
+L["mount_122708"] = "Sold by Uncle Bigpocket <Used Salesgrummie> in The Grummie Bazaar in Kun-Lai Summit for 60,000G. [BoP]" -- Grand Expedition Yak
+L["mount_127295"] = "Sold by ??? in ??? for ???G. You need to be exalted with the Pandaren. [BoP]" -- Great Black Dragon Turtle
+L["mount_127302"] = "Sold by ??? in ??? for ???G. You need to be exalted with the Pandaren. [BoP]" -- Great Blue Dragon Turtle
+L["mount_127308"] = "Sold by ??? in ??? for ???G. You need to be exalted with the Pandaren. [BoP]" -- Great Brown Dragon Turtle
+L["mount_127293"] = "Sold by ??? in ??? for ???G. You need to be exalted with the Pandaren. [BoP]" -- Great Green Dragon Turtle
+L["mount_127293"] = "Sold by ??? in ??? for ???G. You need to be exalted with the Pandaren. [BoP]" -- Great Purple Dragon Turtle
+L["mount_120822"] = "Sold by ??? in ??? for ???G. You need to be exalted with the Pandaren. [BoP]" -- Great Red Dragon Turtle
+L["mount_120395"] = "Sold by ??? in ??? for ???G. You need to be exalted with the Pandaren. [BoP]" -- Green Dragon Turtle
+L["mount_129932"] = "Sold by ??? in ??? for ???G. You need to be exalted with Shado-Pan. [BoP]" -- Green Shado-Pan Riding Tiger
+L["mount_127216"] = "Sold by Uncle Bigpocket <Used Salesgrummie> in The Grummie Bazaar in Kun-Lai Summit for ???G. [BoP]" -- Grey Riding Yak
+
+L["mount_127169"] = "!Something to do with the Order of the Cloud Serpent. [BoP]" -- Heavenly Azure Cloud Serpent
+L["mount_127161"] = "!Something to do with the Order of the Cloud Serpent. [BoP]" -- Heavenly Crimson Cloud Serpent
+L["mount_127164"] = "!Something to do with the Order of the Cloud Serpent. [BoP]" -- Heavenly Golden Cloud Serpent
+L["mount_127165"] = "!Something to do with the Order of the Cloud Serpent. [BoP]" -- Heavenly Jade Cloud Serpent
+
+L["mount_127158"] = "Drops from the Sha of Anger world boss. [BoP]" -- Heavenly Onyx Cloud Serpent
+
+L["mount_113199"] = "!Something to do with the Order of the Cloud Serpent. [BoP]" -- Jade Cloud Serpent
+
+L["mount_121837"] = "Craftable mount by Jewelcrafters. [BoP]" -- Jade Panther
+L["mount_127274"] = "Sold by ??? in ??? for ???G. You need to be exalted with the Anglers. [BoP]" -- Jade Water Strider
+L["mount_120043"] = "Craftable mount by Jewelcrafters. [BoP]" -- Jeweled Onyx Panther
 L["mount_127178"] = "?? [BoP]" -- Jungle Riding Crane
-L["mount_127154"] = "Something to do with the Order of the Cloud Serpent. [BoP]" -- Onyx Cloud Serpent
-L["mount_127272"] = "Exalted The Anglers. [BoP]" -- Orange Water Strider
-L["mount_118737"] = "Reward for being exalted with the new MoP factions. [BoP]" -- Pandaren Kite
-L["mount_130985"] = "Reward for being exalted with the new MoP factions. [BoP]" -- Pandaren Kite
-L["mount_127289"] = "Purchased from a Pandaren quartermaster once you've reached exalted repuation with the faction. [BoP]" -- Purple Dragon Turtle
-L["mount_127290"] = "Purchased from a Pandaren quartermaster once you've reached exalted repuation with the faction. [BoP]" -- Red Dragon Turtle
-L["mount_130092"] = "Sold by the Lorewarkers quartermaster Tan Shin Tiao in the Seat of Knowledge above Mogu'shan palace. Requires exalted reputation. [BoP]" -- Red Flying Cloud
-L["mount_129935"] = "This mount is obtainable after reaching exalted repuation with Shado-Pan. [BoP]" -- Red Shado-Pan Riding Tiger
-L["mount_127177"] = "Exatled repuation Golden Lotus. [BoP]" -- Regal Riding Crane
-L["mount_121838"] = "One of the new craftable mounts by jewelcrafters. [BoP]" -- Ruby Panther
-L["mount_121836"] = "One of the new craftable mounts by jewelcrafters. [BoP]" -- Sapphire Panther
-L["mount_130965"] = "This mount drops from the world boss Salyis' Warband. [BoP]" -- Son of Galleon
-L["mount_121839"] = "One of the new craftable mounts by jewelcrafters. [BoP]" -- Sunstone Panther
-L["mount_129918"] = "Exalted with the August Celestials. [BoP]" -- Thundering August Cloud Serpent
-L["mount_124408"] = "lvl 90, exalted with guild.[BoP]" -- Thundering Jade Cloud Serpent
-L["mount_132036"] = "Drops off a level 92 rare spawn called Alani the Stormborn who is located flying around the Vale of Eternal Blossoms [BoP]" -- Thundering Ruby Cloud Serpent
-L["mount_132119"] = "Obtained via trading in an Ancestral Phoenix Egg which is obtained via challenge mode dungeon achievement 'Challenge Conqueror: Silver'. [BoP]" -- Violet Pandaren Phoenix
+
+L["mount_127154"] = "!Something to do with the Order of the Cloud Serpent. [BoP]" -- Onyx Cloud Serpent
+
+L["mount_127272"] = "Sold by ??? in ??? for ???G. You need to be exalted with the Anglers. [BoP]" -- Orange Water Strider
+
+L["mount_118737"] = "Reward for obtaining the achievement '??' being exalted with all of the Mists of Pandaria factions. [BoP]" -- Pandaren Kite
+L["mount_130985"] = "Reward for obtaining the achievement '??' being exalted with all of the Mists of Pandaria factions. [BoP]" -- Pandaren Kite
+L["mount_127289"] = "Sold by ??? in ??? for ???G. You need to be exalted with the Pandaren. [BoP]" -- Purple Dragon Turtle
+L["mount_127290"] = "Sold by ??? in ??? for ???G. You need to be exalted with the Pandaren. [BoP]" -- Red Dragon Turtle
+
+L["mount_130092"] = "Sold by the Lorewarkers quartermaster in Tan Shin Tiao in the Seat of Knowledge above Mogu'shan palace for ???G. You need to be exalted with the ???. [BoP]" -- Red Flying Cloud
+L["mount_129935"] = "Sold by ??? in ??? for ???G. You need to be exalted with Shado-Pan. [BoP]" -- Red Shado-Pan Riding Tiger
+L["mount_127177"] = "Sold by ??? in ??? for ???G. You need to be exalted with Golden Lotus. [BoP]" -- Regal Riding Crane
+L["mount_121838"] = "Craftable mount by Jewelcrafters. [BoP]" -- Ruby Panther
+L["mount_121836"] = "Craftable mount by Jewelcrafters. [BoP]" -- Sapphire Panther
+L["mount_130965"] = "Drops from the Salyis' Warband world boss. [BoP]" -- Son of Galleon
+L["mount_121839"] = "Craftable mount by Jewelcrafters. [BoP]" -- Sunstone Panther
+L["mount_129918"] = "Sold by ??? in ??? for ???G. You need to be exalted with the August Celestials. [BoP]" -- Thundering August Cloud Serpent
+
+L["mount_124408"] = "!Mists of Pandaria guild exalted [BoP]" -- Thundering Jade Cloud Serpent
+
+L["mount_132036"] = "Drops off a rare spawn called Alani the Stormborn located in the Vale of Eternal Blossoms. [BoP]" -- Thundering Ruby Cloud Serpent
+L["mount_132119"] = "Reward from the challenge mode dungeon achievement 'Challenge Conqueror: Silver'. [BoP]" -- Violet Pandaren Phoenix
 L["mount_130137"] = "?? [BoP]" -- White Riding Goat
 L["mount_123182"] = "?? [BoP]" -- White Riding Yak
 
