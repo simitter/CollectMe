@@ -47,8 +47,8 @@ L["Mount / Dismount"] = "Aufsteigen / Absteigen"
 L["Ground Mount / Dismount"] = "Auf Bodenmount aufmounten / Abmounten"
 L["Check all"] = "Alle auswählen"
 L["Uncheck all"] = "Alle abwählen"
-L["Family Filter"] = true
-L["Sources Filter"] = true
+L["Family Filter"] = "Familienfilter"
+L["Sources Filter"] = "Quellenfilter"
 
 -- Mounts
 -- Common Mounts
@@ -194,6 +194,71 @@ L["mount_113120"] = "Erhalten durch eine Beutekarte des WoW Trading Card Game:  
 L["mount_121820"] = "Erhalten durch Werbt einen Freund. [BoA]" -- Obsidian Nightwing
 L["mount_124659"] = "In der Digital Deluxe Version von Mists of Pandaria enthalten. [BoA]" -- Imperial Quilen
 
+-- L["mount_127180"] = "?? [BoP]" -- Albino Riding Crane
+L["mount_123886"] = "Sold by Ambersmith Zikk <Klaxxi Quartermaster> in Klaxxi'vess in the Dread Wastes for 10000G. You need to be exalted with Klaxxi. [BoP]" -- Amber Scorpio
+L["mount_132117"] = "Reward from the challenge mode dungeon achievement 'Challenge Conqueror: Silver'. [BoP]" -- Ashen Pandaren Phoenix
+L["mount_127170"] = "Drops from Elegon in the Mogu'shan Vaults raid. [BoA]" -- Astral Cloud Serpent
+L["mount_123992"] = "Purchased from the the Order of the Cloud Serpent for 3000G. Requires exalted reputation. [BoA]" -- Azure Cloud Serpent
+L["mount_127174"] = "Sold by Jaluu the Generous <The Golden Lotus Quartermaster> in Vale of Eternal Blossoms for 500G. You need to be exalted with Golden Lotus. [BoP]" -- Azure Riding Crane
+L["mount_118089"] = "Sold by Nat Pagle <The Angler Quartermaster> in Angler's Wharf in Krasarang Wilds for 5000G. You need to be exalted with The Anglers. [BoP]" -- Azure Water Strider
+L["mount_127286"] = "Sold by Old Whitenose (Alliance) in Stormwind and Turtlemaster Odai in Orgrimmar for 1G. You need to be exalted with the Pandaren. [BoP]" -- Black Dragon Turtle
+L["mount_130138"] = "Sold by Gina Mudclaw <Tillers Quartermaster> in Valley of the Four Winds for 500G. You need to be exalted with the Tillers. [BoP]" -- Black Riding Goat
+-- L["mount_127209"] = "?? [BoP]" -- Black Riding Yak
+L["mount_127220"] = "Sold by Uncle Bigpocket <Used Salesgrummie> in The Grummie Bazaar in Kun-Lai Summit for 3000G. [BoP]" -- Blonde Riding Yak
+L["mount_127287"] = "Sold by Old Whitenose (Alliance) in Stormwind and Turtlemaster Odai in Orgrimmar for 1G. You need to be exalted with the Pandaren. [BoP]" -- Blue Dragon Turtle
+L["mount_129934"] = "Sold by Rushi the Fox <Shado-Pan Quartermaster> in Townlong Steppes for 1500G. You need to be exalted with Shado-Pan. [BoP]" -- Blue Shado-Pan Riding Tiger
+L["mount_127288"] = "Sold by Old Whitenose (Alliance) in Stormwind and Turtlemaster Odai in Orgrimmar for 1G. You need to be exalted with the Pandaren. [BoP]" -- Brown Dragon Turtle
+L["mount_130086"] = "Sold by Gina Mudclaw <Tillers Quartermaster> in Valley of the Four Winds for 500G. You need to be exalted with the Tillers. [BoP]" -- Brown Riding Goat
+-- L["mount_127213"] = "?? [BoP]" -- Brown Riding Yak
+L["mount_124550"] = "Awarded per battlegroup at the end of arena season 11 based on top ranked percentage. Top 0.0% - 0.5%. [BoP]" -- Cataclysmic Gladiator's Twilight Drake
+-- L["mount_127156"] = "?? [BoP]" -- Crimson Cloud Serpent
+-- L["mount_129552"] = "??. [BoP]" -- Crimson Pandaren Phoenix
+L["mount_123160"] = "Sold by Jaluu the Generous <The Golden Lotus Quartermaster> in Vale of Eternal Blossoms for 500G. You need to be exalted with Golden Lotus. [BoP]" -- Crimson Riding Crane
+L["mount_127271"] = "Sold by Nat Pagle <The Angler Quartermaster> in Angler's Wharf in Krasarang Wilds for 5000G. You need to be exalted with The Anglers. [BoP]" -- Crimson Water Strider
+-- L["mount_126507"] = "Recipe to create it is taught by ??? (Goblin). [BoE]" -- Depleted-Kyparium Rocket
+L["mount_132118"] = "Obtained via challenge mode dungeon achievement 'Challenge Conqueror: Silver'. [BoP]" -- Emerald Pandaren Phoenix
+-- L["mount_126508"] = "Recipe to create it is taught by ??? (Gnomish). [BoE]" -- Geosynchronous World Spinner
+L["mount_123993"] = "Purchased from the the Order of the Cloud Serpent for 3000G. Requires exalted reputation." -- Golden Cloud Serpent
+L["mount_127176"] = "Sold by Jaluu the Generous <The Golden Lotus Quartermaster> in Vale of Eternal Blossoms for 500G. You need to be exalted with Golden Lotus. [BoP]" -- Golden Riding Crane
+L["mount_127278"] = "Sold by Nat Pagle <The Angler Quartermaster> in Angler's Wharf in Krasarang Wilds for 5000G. You need to be exalted with The Anglers. [BoP]" -- Golden Water Strider
+L["mount_122708"] = "Sold by Uncle Bigpocket <Used Salesgrummie> in The Grummie Bazaar in Kun-Lai Summit for 60000G. [BoP]" -- Grand Expedition Yak
+L["mount_127295"] = "Sold by Old Whitenose (Alliance) in Stormwind and Turtlemaster Odai in Orgrimmar for 10G. You need to be exalted with the Pandaren. [BoP]" -- Great Black Dragon Turtle
+L["mount_127302"] = "Sold by Old Whitenose (Alliance) in Stormwind and Turtlemaster Odai in Orgrimmar for 10G. You need to be exalted with the Pandaren. [BoP]" -- Great Blue Dragon Turtle
+L["mount_127308"] = "Sold by Old Whitenose (Alliance) in Stormwind and Turtlemaster Odai in Orgrimmar for 10G. You need to be exalted with the Pandaren. [BoP]" -- Great Brown Dragon Turtle
+L["mount_127293"] = "Sold by Old Whitenose (Alliance) in Stormwind and Turtlemaster Odai in Orgrimmar for 10G. You need to be exalted with the Pandaren. [BoP]" -- Great Green Dragon Turtle
+L["mount_127293"] = "Sold by Old Whitenose (Alliance) in Stormwind and Turtlemaster Odai in Orgrimmar for 10G. You need to be exalted with the Pandaren. [BoP]" -- Great Purple Dragon Turtle
+L["mount_120822"] = "Sold by Old Whitenose (Alliance) in Stormwind and Turtlemaster Odai in Orgrimmar for 10G. You need to be exalted with the Pandaren. [BoP]" -- Great Red Dragon Turtle
+L["mount_120395"] = "Sold by Old Whitenose (Alliance) in Stormwind and Turtlemaster Odai in Orgrimmar for 10G. You need to be exalted with the Pandaren. [BoP]" -- Green Dragon Turtle
+L["mount_129932"] = "Sold by Rushi the Fox <Shado-Pan Quartermaster> in Townlong Steppes for 1500G. You need to be exalted with Shado-Pan. [BoP]" -- Green Shado-Pan Riding Tiger
+L["mount_127216"] = "Sold by Uncle Bigpocket <Used Salesgrummie> in The Grummie Bazaar in Kun-Lai Summit for 3000G. [BoP]" -- Grey Riding Yak
+-- L["mount_127169"] = "??. [BoP]" -- Heavenly Azure Cloud Serpent
+-- L["mount_127161"] = "??. [BoP]" -- Heavenly Crimson Cloud Serpent
+-- L["mount_127164"] = "??. [BoP]" -- Heavenly Golden Cloud Serpent
+-- L["mount_127165"] = "?? [BoP]" -- Heavenly Jade Cloud Serpent
+L["mount_127158"] = "Drops from the Sha of Anger world boss. [BoP]" -- Heavenly Onyx Cloud Serpent
+L["mount_113199"] = "Purchased from the the Order of the Cloud Serpent for 3000G. Requires exalted reputation. [BoP]" -- Jade Cloud Serpent
+L["mount_121837"] = "Craftable mount by Jewelcrafters. [BoP]" -- Jade Panther
+L["mount_127274"] = "Sold by Nat Pagle <The Angler Quartermaster> in Angler's Wharf in Krasarang Wilds for 5000G. You need to be exalted with The Anglers. [BoP]" -- Jade Water Strider
+L["mount_120043"] = "Craftable mount by Jewelcrafters. [BoP]" -- Jeweled Onyx Panther
+-- L["mount_127178"] = "?? [BoP]" -- Jungle Riding Crane
+-- L["mount_127154"] = "??. [BoP]" -- Onyx Cloud Serpent
+L["mount_127272"] = "Sold by Nat Pagle <The Angler Quartermaster> in Angler's Wharf in Krasarang Wilds for 5000G. You need to be exalted with The Anglers. [BoP]" -- Orange Water Strider
+L["mount_127289"] = "Sold by Old Whitenose (Alliance) in Stormwind and Turtlemaster Odai in Orgrimmar for 1G. You need to be exalted with the Pandaren. [BoP]" -- Purple Dragon Turtle
+L["mount_127290"] = "Sold by Old Whitenose (Alliance) in Stormwind and Turtlemaster Odai in Orgrimmar for 1G. You need to be exalted with the Pandaren. [BoP]" -- Red Dragon Turtle
+L["mount_130092"] = "Sold by Tan Shin Tiao <Lorewalkers Quartermaster> in Tan Shin Tiao in the Seat of Knowledge above Mogu'shan palace for 600G. You need to be exalted with the ???. [BoP]" -- Red Flying Cloud
+L["mount_129935"] = "Sold by Rushi the Fox <Shado-Pan Quartermaster> in Townlong Steppes for 1500G. You need to be exalted with Shado-Pan. [BoP]" -- Red Shado-Pan Riding Tiger
+L["mount_127177"] = "Sold by Jaluu the Generous <The Golden Lotus Quartermaster> in Vale of Eternal Blossoms for 500G. You need to be exalted with Golden Lotus. [BoP]" -- Regal Riding Crane
+L["mount_121838"] = "Craftable mount by Jewelcrafters. [BoP]" -- Ruby Panther
+L["mount_121836"] = "Craftable mount by Jewelcrafters. [BoP]" -- Sapphire Panther
+L["mount_130965"] = "Drops from the Salyis' Warband world boss. [BoP]" -- Son of Galleon
+L["mount_121839"] = "Craftable mount by Jewelcrafters. [BoP]" -- Sunstone Panther
+L["mount_129918"] = "Sold by Sage Whiteheart (Alliance) and Sage Lotusbloom (Horde) in Valley of Eternal Blossom for 10000G. You need to be exalted with the August Celestials. [BoP]" -- Thundering August Cloud Serpent
+L["mount_124408"] = "Sold by the guild vendor for 10,000g once your guild has unlocked Guild Glory of the Pandaria Raider. [BoP]" -- Thundering Jade Cloud Serpent
+L["mount_132036"] = "Drops off a rare spawn called Alani the Stormborn located in the Vale of Eternal Blossoms. [BoP]" -- Thundering Ruby Cloud Serpent
+L["mount_132119"] = "Reward from the challenge mode dungeon achievement 'Challenge Conqueror: Silver'. [BoP]" -- Thunder- Violet Pandaren Phoenix
+-- L["mount_130137"] = "?? [BoP]" -- White Riding Goat
+-- L["mount_123182"] = "?? [BoP]" -- White Riding Yak
+
 -- Alliance Mounts
 L["mount_60114"] = "Verkauft von Mei Francis in Dalaran für 750G. [BoP]" -- Armored Brown Bear
 L["mount_61229"] = "Verkauft von Mei Francis in Dalaran für 2000G. [BoP]" -- Armored Snowy Gryphon
@@ -273,6 +338,7 @@ L["mount_103196"] = "Verkauft von Astrid Langstrumpf in der Nähe der Heulenden 
 L["mount_103195"] = "Verkauft von Astrid Langstrumpf in der Nähe der Heulenden Eiche in Darnassus für 1G.. [BoP]" -- Mountain Horse
 L["mount_107516"] = "Erhalten durch die Rolle der Auferstehung eingeführt mit Patch 4.3.3. [BoA]" -- Spectral Gryphon
 L["mount_16083"] = "Old 100% Ground Mount. Removed in favor of armored 100% mounts [BoP]" -- White Stallion
+L["mount_130985"] = "Reward for obtaining the achievement 'Pandared Ambassador' being exalted with all of the Mists of Pandaria factions. [BoP]" -- Pandaren Kite
 
 -- Horde Mounts
 L["mount_61230"] = "Verkauft von Mei Francis in Dalaran für 2000G. [BoP]" -- Armored Blue Wind Rider
@@ -351,6 +417,7 @@ L["mount_56921"] = "Sold by Pogg, Hellscream's Reach Quartermaster. Requires Lev
 L["mount_93644"] = "Available for Horde after Guild reaches level 25 and you reach Exalted reputation with your guild, 1500g. [BoA]" -- Kor'kron Annihilator
 L["mount_100333"] = "Reward from the achivement 'Veteran of the Horde' and other higher achivements. [BoP]" -- Vicious War Wolf
 L["mount_107517"] = "Obtained through the new Scroll of Resurrection system implemented in 4.3.3. [BoA]" -- Spectral Wind Rider
+L["mount_118737"] = "Reward for obtaining the achievement 'Pandared Ambassador' being exalted with all of the Mists of Pandaria factions. [BoP]" -- Pandaren Kite
 
 -- Paladin Mounts
 L["mount_23214"] = "Erlernbar beim Paladinlehrer ab Stufe 61 oder durch die Paladinquest mit Stufe 60 zu erhalten. [BoP]" -- Alliance Charger
