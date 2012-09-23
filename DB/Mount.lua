@@ -146,6 +146,70 @@ function CollectMe:BuildMountDB()
     self:AddMount(75973, 31992, FLY, { rfm = 1, nlo = 1 })  -- X-53 Touring Rocket
     self:AddMount(26055, 15680, GROUND, {}, { 766 })  -- Yellow Qiraji Battle Tank
     self:AddMount(71810, 31047, FLY, { are = 1, nlo = 1}) -- Wrathful Gladiator's Frost Wyrm
+    self:AddMount(127180, 43708) -- Albino Riding Crane
+    self:AddMount(123886, 43090) -- Amber Scorpion
+    self:AddMount(132117, 45521, FLY) -- Ashen Pandaren Phoenix
+    self:AddMount(127170, 46087, FLY) -- Astral Cloud Serpent
+    self:AddMount(123992, 41989, FLY) -- Azure Cloud Serpent
+    self:AddMount(127174, 43704) -- Azure Riding Crane
+    self:AddMount(118089, 41711) -- Azure Water Strider
+    self:AddMount(127286, 43717) -- Black Dragon Turtle
+    self:AddMount(130138, 44836) -- Black Riding Goat
+    self:AddMount(127209, 43709) -- Black Riding Yak
+    self:AddMount(127220, 43712) -- Blonde Riding Yak
+    self:AddMount(127287, 43718) -- Blue Dragon Turtle
+    self:AddMount(129934, 43900) -- Blue Shado-Pan Riding Tiger
+    self:AddMount(127288, 43719) -- Brown Dragon Turtle
+    self:AddMount(130086, 44807) -- Brown Riding Goat
+    self:AddMount(127213, 43710) -- Brown Riding Yak
+    self:AddMount(124550, 38757, FLY, { are = 1}) -- Cataclysmic Gladiator's Twilight Drake
+    self:AddMount(127156, 41592, FLY) -- Crimson Cloud Serpent
+    self:AddMount(129552, 44633, FLY) -- Crimson Pandaren Phoenix
+    self:AddMount(123160, 42837) -- Crimson Riding Crane
+    self:AddMount(127271, 43713) -- Crimson Water Strider
+    self:AddMount(126507, 43637, FLY) -- Depleted-Kyparium Rocket
+    self:AddMount(132118, 45520, FLY) -- Emerald Pandaren Phoenix
+    self:AddMount(126508, 43638, FLY) -- Geosynchronous World Spinner
+    self:AddMount(123993, 41991, FLY) -- Golden Cloud Serpent
+    self:AddMount(127176, 43705) -- Golden Riding Crane
+    self:AddMount(127278, 43716) -- Golden Water Strider
+    self:AddMount(122708, 42703) -- Grand Expedition Yak
+    self:AddMount(127295, 43723) -- Great Black Dragon Turtle
+    self:AddMount(127302, 43724) -- Great Blue Dragon Turtle
+    self:AddMount(127308, 43725) -- Great Brown Dragon Turtle
+    self:AddMount(127293, 43722) -- Great Green Dragon Turtle
+    self:AddMount(127293, 43726) -- Great Purple Dragon Turtle
+    self:AddMount(120822, 42352) -- Great Red Dragon Turtle
+    self:AddMount(120395, 42250) -- Green Dragon Turtle
+    self:AddMount(129932, 44759) -- Green Shado-Pan Riding Tiger
+    self:AddMount(127216, 43711) -- Grey Riding Yak
+    self:AddMount(127169, 43697, FLY) -- Heavenly Azure Cloud Serpent
+    self:AddMount(127161, 43692, FLY) -- Heavenly Crimson Cloud Serpent
+    self:AddMount(127164, 43693, FLY) -- Heavenly Golden Cloud Serpent
+    self:AddMount(127165, 43695, FLY) -- Heavenly Jade Cloud Serpent
+    self:AddMount(127158, 43689, FLY) -- Heavenly Onyx Cloud Serpent
+    self:AddMount(113199, 40590, FLY) -- Jade Cloud Serpent
+    self:AddMount(121837, 42502) -- Jade Panther
+    self:AddMount(127274, 43714) -- Jade Water Strider
+    self:AddMount(120043, 42185, FLY) -- Jeweled Onyx Panther
+    self:AddMount(127178, 43707) -- Jungle Riding Crane
+    self:AddMount(127154, 41990, FLY) -- Onyx Cloud Serpent
+    self:AddMount(127272, 43715) -- Orange Water Strider
+    self:AddMount(127289, 43910) -- Purple Dragon Turtle
+    self:AddMount(127290, 43721) -- Red Dragon Turtle
+    self:AddMount(130092, 44808, FLY) -- Red Flying Cloud
+    self:AddMount(129935, 44757) -- Red Shado-Pan Riding Tiger
+    self:AddMount(127177, 43706) -- Regal Riding Crane
+    self:AddMount(121838, 42499) -- Ruby Panther
+    self:AddMount(121836, 42500) -- Sapphire Panther
+    self:AddMount(130965, 45264) -- Son of Galleon
+    self:AddMount(121839, 42501, FLY) -- Sunstone Panther
+    self:AddMount(129918, 43686, FLY) -- Thundering August Cloud Serpent
+    self:AddMount(124408, 43562, FLY) -- Thundering Jade Cloud Serpent
+    self:AddMount(132036, 45797, FLY) -- Thundering Ruby Cloud Serpent
+    self:AddMount(132119, 45522, FLY) -- Violet Pandaren Phoenix
+    self:AddMount(130137, 44837) -- White Riding Goat
+    self:AddMount(123182, 41089) -- White Riding Yak
 
     -- Alliance Mounts
     if self.FACTION == "Alliance" then
@@ -228,6 +292,7 @@ function CollectMe:BuildMountDB()
         self:AddMount(16083, 2410, GROUND, { nlo = 1 })  -- White Stallion
         self:AddMount(17229, 10426)  -- Winterspring Frostsaber
         self:AddMount(59791, 27243)  -- Wooly Mammoth
+        self:AddMount(130985, 45271, FLY) -- Pandaren Kite
     end
 
     -- Horde Mounts
@@ -310,6 +375,7 @@ function CollectMe:BuildMountDB()
         self:AddMount(64657, 12241) -- White Kodo
         self:AddMount(65645, 28605) -- White Skeletal Warhorse
         self:AddMount(59793, 27244) -- Wooly Mammoth
+        self:AddMount(118737, 41903, FLY) -- Pandaren Kite
     end
 
     -- Paladin Mounts for Humans and Dwarfs
