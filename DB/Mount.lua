@@ -178,7 +178,7 @@ function CollectMe:BuildMountDB()
     self:AddMount(127302, 43724) -- Great Blue Dragon Turtle
     self:AddMount(127308, 43725) -- Great Brown Dragon Turtle
     self:AddMount(127293, 43722) -- Great Green Dragon Turtle
-    self:AddMount(127293, 43726) -- Great Purple Dragon Turtle
+    self:AddMount(127310, 43726) -- Great Purple Dragon Turtle
     self:AddMount(120822, 42352) -- Great Red Dragon Turtle
     self:AddMount(120395, 42250) -- Green Dragon Turtle
     self:AddMount(129932, 44759) -- Green Shado-Pan Riding Tiger
