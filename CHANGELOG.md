@@ -2,6 +2,7 @@
  * Added info for the engineering profession mounts.
  * Added some missing info for certain mounts.
  * Added drop chance percentages to info for certain mounts.
+ * Fixed an issue with mount priorities message while in combat
 
 ## 2.1
  * Added back the ability to manage and track what companions you're missing
