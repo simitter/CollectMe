@@ -1,3 +1,8 @@
+## 2.1.1
+ * Added info for the engineering profession mounts.
+ * Added some missing info for certain mounts.
+ * Added drop chance percentages to info for certain mounts.
+
 ## 2.1
  * Added back the ability to manage and track what companions you're missing
  * Added Mists of Pandaria titles
