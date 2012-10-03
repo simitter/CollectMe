@@ -531,6 +531,7 @@ end
 function CollectMe:BuildMissingCompanionList(listcontainer)
     listcontainer:ReleaseChildren()
     C_PetJournal.SetSearchFilter("")
+    C_PetJournal.SetFlagFilter(LE_PET_JOURNAL_FLAG_NOT_COLLECTED, true)
     local total = C_PetJournal.GetNumPets(false)
     local active, ignored, owned_db = {}, {}, {}
 

@@ -1,3 +1,7 @@
+## 2.1.2
+ * Fixed an issue which caused the display of an empty missing companion list
+ * Fixed Mount Great Purple Dragon Turtle
+
 ## 2.1.1
  * Added info for the engineering profession mounts.
  * Added some missing info for certain mounts.
