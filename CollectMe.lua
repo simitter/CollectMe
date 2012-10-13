@@ -993,6 +993,9 @@ function CollectMe:AutoSummonCompanion()
         end
     end
     if (UnitIsPVP("player") == 1 and self.db.profile.summon.companions.disable_pvp == true) then
-        C_PetJournal.SummonPetByID(C_PetJournal.GetSummonedPetID())
+        local active = C_PetJournal.GetSummonedPetID()
+        if active ~= nil then
+            C_PetJournal.SummonPetByID(active)
+        end
     end
 end
