@@ -1,5 +1,6 @@
 ## 2.1.2
- * Fixed an issue which caused the display of an empty missing companion list
+ * Fixed several issues which caused the display of an empty missing or summon random companion list
+ * Fixed an issue which caused autosummon on moving to consider only not captured pets
  * Fixed Mount Great Purple Dragon Turtle
 
 ## 2.1.1

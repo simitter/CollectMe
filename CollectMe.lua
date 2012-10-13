@@ -986,13 +986,13 @@ end
 function CollectMe:AutoSummonCompanion()
     if UnitAffectingCombat("player") == nil and IsMounted() == nil and IsStealthed() == nil and self.db.profile.summon.companions.auto == true then
         if (not (UnitIsPVP("player") == 1 and self.db.profile.summon.companions.disable_pvp == true)) then
-            local active = self:GetActive("CRITTER")
+            local active = C_PetJournal.GetSummonedPetID()
             if (active == nil) then
                 self:SummonRandomCompanion()
             end
         end
     end
     if (UnitIsPVP("player") == 1 and self.db.profile.summon.companions.disable_pvp == true) then
-        DismissCompanion("CRITTER")
+        C_PetJournal.SummonPetByID(C_PetJournal.GetSummonedPetID())
     end
 end
