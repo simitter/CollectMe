@@ -310,6 +310,11 @@ function CollectMe:BuildTab(container)
 end
 
 function CollectMe:BuildRandomPetList(listcontainer)
+    local collected_filter, favorite_filter = not C_PetJournal.IsFlagFiltered(LE_PET_JOURNAL_FLAG_COLLECTED), not C_PetJournal.IsFlagFiltered(LE_PET_JOURNAL_FLAG_FAVORITES)
+    C_PetJournal.SetSearchFilter("")
+    C_PetJournal.SetFlagFilter(LE_PET_JOURNAL_FLAG_COLLECTED, true)
+    C_PetJournal.SetFlagFilter(LE_PET_JOURNAL_FLAG_FAVORITES, false)
+
     local count, owned = C_PetJournal.GetNumPets(false)
     local random_db =  self.db.profile.random.companions
 
@@ -330,6 +335,9 @@ function CollectMe:BuildRandomPetList(listcontainer)
             listcontainer:AddChild(f)
         end
     end
+
+    C_PetJournal.SetFlagFilter(LE_PET_JOURNAL_FLAG_COLLECTED, collected_filter)
+    C_PetJournal.SetFlagFilter(LE_PET_JOURNAL_FLAG_FAVORITES, favorite_filter)
 end
 
 
@@ -530,6 +538,7 @@ end
 
 function CollectMe:BuildMissingCompanionList(listcontainer)
     listcontainer:ReleaseChildren()
+    local collected_filter = not C_PetJournal.IsFlagFiltered(LE_PET_JOURNAL_FLAG_NOT_COLLECTED)
     C_PetJournal.SetSearchFilter("")
     C_PetJournal.SetFlagFilter(LE_PET_JOURNAL_FLAG_NOT_COLLECTED, true)
     local total = C_PetJournal.GetNumPets(false)
@@ -558,6 +567,7 @@ function CollectMe:BuildMissingCompanionList(listcontainer)
         end
     end
 
+    C_PetJournal.SetFlagFilter(LE_PET_JOURNAL_FLAG_NOT_COLLECTED, collected_filter)
     self:AddMissingRows(listcontainer, active, ignored, #active + #ignored + #owned_db, #owned_db, 0)
 end
 
