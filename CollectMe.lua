@@ -147,7 +147,7 @@ function CollectMe:OnEnable()
 end
 
 function CollectMe:UpdateMacros()
-    self:InitMacro("CollectMeRC", "INV_PET_BABYBLIZZARDBEAR", '/script if(GetMouseButtonClicked() == "RightButton") then C_PetJournal.SummonPetByID(C_PetJournal.GetSummonedPetID()) else CollectMe:SummonRandomCompanion() end;')
+    self:InitMacro("CollectMeRC", "INV_PET_BABYBLIZZARDBEAR", '/script CollectMe:HandlePetMacro();')
     if self.CLASS == 'DRUID' then
         self:InitMacro("CollectMeRM", "ABILITY_MOUNT_BIGBLIZZARDBEAR", '/cancelform\n/script CollectMe:HandleMountMacro();')
     else
@@ -723,6 +723,21 @@ function CollectMe:HandleMountMacro()
     end
 end
 
+function CollectMe:HandlePetMacro()
+    if GetMouseButtonClicked() == "RightButton" then
+        self:DismissPet()
+    else
+        self:SummonRandomCompanion()
+    end
+end
+
+function CollectMe:DismissPet()
+    local active = C_PetJournal.GetSummonedPetID()
+    if active ~= nil then
+        C_PetJournal.SummonPetByID(active)
+    end
+end
+
 function CollectMe:CreateMacroDropdown(label, value)
     local list = {}
     list[1] = self.L["Mount / Dismount"]
@@ -993,9 +1008,6 @@ function CollectMe:AutoSummonCompanion()
         end
     end
     if (UnitIsPVP("player") == 1 and self.db.profile.summon.companions.disable_pvp == true) then
-        local active = C_PetJournal.GetSummonedPetID()
-        if active ~= nil then
-            C_PetJournal.SummonPetByID(active)
-        end
+        self:DismissPet()
     end
 end
