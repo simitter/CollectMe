@@ -6,3 +6,6 @@ Excitor:
 
 - Updated ?? for titles, mounts.
 ----------------------------
+
+- missing companion code usage of CompanionDB module
+- performance upgrade for lists
