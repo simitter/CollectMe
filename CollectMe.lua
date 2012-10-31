@@ -96,6 +96,7 @@ function CollectMe:OnInitialize()
     self.ignored_db = self.db.profile.ignored.mounts
     self.item_list = self.MOUNTS
     self.filter_list = MOUNT_FILTERS
+    self.gametooltip_visible = false
 
     self.cm_button_loaded = false
 
@@ -113,6 +114,8 @@ function CollectMe:OnInitialize()
     self:SecureHook("ToggleAutoRun", "AutoSummonCompanion")
 
     self:RegisterEvent("ADDON_LOADED", "AddonLoadedListener")
+
+    self:SecureHookScript(GameTooltip, "OnShow", "TooltipHook")
 end
 
 function CollectMe:AddonLoadedListener(event, name)
@@ -310,34 +313,25 @@ function CollectMe:BuildTab(container)
 end
 
 function CollectMe:BuildRandomPetList(listcontainer)
-    local collected_filter, favorite_filter = not C_PetJournal.IsFlagFiltered(LE_PET_JOURNAL_FLAG_COLLECTED), not C_PetJournal.IsFlagFiltered(LE_PET_JOURNAL_FLAG_FAVORITES)
-    C_PetJournal.SetSearchFilter("")
-    C_PetJournal.SetFlagFilter(LE_PET_JOURNAL_FLAG_COLLECTED, true)
-    C_PetJournal.SetFlagFilter(LE_PET_JOURNAL_FLAG_FAVORITES, false)
-
-    local count, owned = C_PetJournal.GetNumPets(false)
+    local companions = self.CompanionDB:GetCompanions()
     local random_db =  self.db.profile.random.companions
 
-    listcontainer:AddChild(self:CreateHeading(self.L["Available companions"] ..  " - " .. owned))
-    for i = 1,count do
-        local id, _, owned, my_name, level, _, _, name = C_PetJournal.GetPetInfoByIndex(i, false)
-        if name ~= nil and owned == true and C_PetJournal.PetIsSummonable(id) then
+    listcontainer:AddChild(self:CreateHeading(self.L["Available companions"] ..  " - " .. #companions))
+    for i,v in ipairs(companions) do
+        if C_PetJournal.PetIsSummonable(v.pet_id) then
             local f = AceGUI:Create("CheckBox")
-            if my_name ~= nil then
-                f:SetLabel(name .. " - " .. my_name)
-            else
-                f:SetLabel(name)
+            local name = v.name
+            if v.custom_name ~= nil then
+                name = name .. " - " .. v.custom_name
             end
+            f:SetLabel(self:ColorizeByQuality(name .." - " .. v.level, v.quality))
             f:SetFullWidth(true)
-            local value = ((random_db[id] ~= nil and random_db[id] ~= false) and true or false)
+            local value = ((random_db[v.pet_id] ~= nil and random_db[v.pet_id] ~= false) and true or false)
             f:SetValue(value)
-            f:SetCallback("OnValueChanged", function (container, event, val) random_db[id] = val end)
+            f:SetCallback("OnValueChanged", function (container, event, val) random_db[v.pet_id] = val end)
             listcontainer:AddChild(f)
         end
     end
-
-    C_PetJournal.SetFlagFilter(LE_PET_JOURNAL_FLAG_COLLECTED, collected_filter)
-    C_PetJournal.SetFlagFilter(LE_PET_JOURNAL_FLAG_FAVORITES, favorite_filter)
 end
 
 
@@ -1011,3 +1005,28 @@ function CollectMe:AutoSummonCompanion()
         self:DismissPet()
     end
 end
+
+function CollectMe:ColorizeByQuality(text, quality)
+    local color = "|C" .. select(4, GetItemQualityColor(quality))
+    return color .. text .. FONT_COLOR_CODE_CLOSE;
+end
+
+function CollectMe:TooltipHook(tooltip)
+    if self.gametooltip_visible == true then
+        return
+    end
+
+    self.gametooltip_visible = true
+    if (tooltip and tooltip.GetUnit) then
+        local _, unit = tooltip:GetUnit()
+        if (unit and UnitIsWildBattlePet(unit)) then
+            local creature_id = tonumber(strsub(UnitGUID(unit), 7, 10), 16)
+
+            -- todo tooltip line
+
+            tooltip:Show()
+        end
+    end
+    self.gametooltip_visible = false
+end
+

@@ -1,3 +1,7 @@
+## 2.1.3
+ * The random companion tab now shows the level and the quality of your companions
+ * Fixed several issues with Summon/Dismiss Companion
+
 ## 2.1.2
  * Fixed several issues which caused the display of an empty missing or summon random companion list
  * Fixed an issue which caused autosummon on moving to consider only not captured pets
