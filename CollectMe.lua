@@ -63,6 +63,12 @@ local defaults = {
                 macro_right = 2,
                 macro_shift_left = 3
             }
+        },
+        tooltip = {
+            companions = {
+                hide = false,
+                quality_check = true
+            }
         }
     }
 }
@@ -324,7 +330,7 @@ function CollectMe:BuildRandomPetList(listcontainer)
             if v.custom_name ~= nil then
                 name = name .. " - " .. v.custom_name
             end
-            f:SetLabel(self:ColorizeByQuality(name .." - " .. v.level, v.quality))
+            f:SetLabel(self:ColorizeByQuality(name .." - " .. v.level, v.color))
             f:SetFullWidth(true)
             local value = ((random_db[v.pet_id] ~= nil and random_db[v.pet_id] ~= false) and true or false)
             f:SetValue(value)
@@ -640,6 +646,13 @@ function CollectMe:BuildOptions(container)
         container:AddChild(f)
         local f = self:GetCheckboxOption(self.L["Hide ignored list"], self.db.profile.hide_ignore.titles)
         f:SetCallback("OnValueChanged", function (container, event, value) self.db.profile.hide_ignore.titles = value; self:BuildList(self.scroll) end)
+        container:AddChild(f)
+    elseif self.active_tab == COMPANION then
+        local f = self:GetCheckboxOption(self.L["Disable tooltip notice for missing companions"], self.db.profile.tooltip.companions.hide)
+        f:SetCallback("OnValueChanged", function (container, event, value)  self.db.profile.tooltip.companions.hide = value end)
+        container:AddChild(f)
+        local f = self:GetCheckboxOption(self.L["Perform quality check in pet battles"],  self.db.profile.tooltip.companions.quality_check)
+        f:SetCallback("OnValueChanged", function (container, event, value)  self.db.profile.tooltip.companions.quality_check = value; self:BuildList(self.scroll) end)
         container:AddChild(f)
     elseif self.active_tab == RANDOM_COMPANION then
         local f = self:GetCheckboxOption(self.L["Auto summon on moving forward"], self.db.profile.summon.companions.auto)
@@ -1012,7 +1025,7 @@ function CollectMe:ColorizeByQuality(text, quality)
 end
 
 function CollectMe:TooltipHook(tooltip)
-    if self.gametooltip_visible == true then
+    if self.gametooltip_visible == true or self.db.profile.tooltip.companions.hide == true then
         return
     end
 
@@ -1021,9 +1034,22 @@ function CollectMe:TooltipHook(tooltip)
         local _, unit = tooltip:GetUnit()
         if (unit and UnitIsWildBattlePet(unit)) then
             local creature_id = tonumber(strsub(UnitGUID(unit), 7, 10), 16)
-
-            -- todo tooltip line
-
+            local line
+            for i,v in ipairs(self.CompanionDB:GetCompanions()) do
+                if(creature_id == v.creature_id) then
+                    if line == nil then
+                        line = self.L["My companions"] .. ": "
+                    else
+                        line = line .. ", "
+                    end
+                    line = line .. self:ColorizeByQuality(_G["BATTLE_PET_BREED_QUALITY" .. v.quality] .. " (" .. v.level .. ")" , v.color)
+                end
+            end
+            if line ~= nil then
+                tooltip:AddLine(line)
+            else
+                tooltip:AddLine(RED_FONT_COLOR_CODE .. self.L["Missing companion"] .. FONT_COLOR_CODE_CLOSE)
+            end
             tooltip:Show()
         end
     end

@@ -49,6 +49,10 @@ L["Check all"] = true
 L["Uncheck all"] = true
 L["Family Filter"] = true
 L["Sources Filter"] = true
+L["My companions"] = true
+L["Missing companion"] = true
+L["Disable tooltip notice for missing companions"] = true
+L["Perform quality check in pet battles"] = true
 
 -- Mounts
 -- Common Mounts

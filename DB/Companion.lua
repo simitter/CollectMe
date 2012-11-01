@@ -22,7 +22,8 @@ local function _UpdateDB(frame)
                 local quality = select(5, C_PetJournal.GetPetStats(pet_id))
                 tinsert(self.companions, {
                     pet_id = pet_id,
-                    quality = (quality - 1),
+                    quality = quality,
+                    color = (quality - 1),
                     creature_id = creature_id,
                     level = level,
                     name = name,

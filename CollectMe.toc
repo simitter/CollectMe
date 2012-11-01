@@ -9,7 +9,7 @@
 ## X-License: MIT modified with notification clause
 
 ## Interface: 50001
-## Version: 2.1.3
+## Version: 2.2
 
 ## X-credits: wowwiki
 

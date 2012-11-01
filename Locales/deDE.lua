@@ -49,6 +49,11 @@ L["Check all"] = "Alle auswählen"
 L["Uncheck all"] = "Alle abwählen"
 L["Family Filter"] = "Familienfilter"
 L["Sources Filter"] = "Quellenfilter"
+L["My companions"] = "Meine Begleiter"
+L["Missing companion"] = "Fehlender Begleiter"
+L["Disable tooltip notice for missing companions"] = "Tooltiperweiterung für fehlende Begleiter ausschalten"
+L["Perform quality check in pet battles"] = "Qualitätscheck in Pet Battles verwenden"
+
 
 -- Mounts
 -- Common Mounts

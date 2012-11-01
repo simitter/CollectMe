@@ -1,4 +1,4 @@
-## 2.1.3
+## 2.2
  * The random companion tab now shows the level and the quality of your companions
  * Fixed several issues with Summon/Dismiss Companion
 
