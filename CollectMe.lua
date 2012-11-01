@@ -1087,7 +1087,7 @@ function CollectMe:CheckEnemyQuality()
                     already_printed = false
                 })
 
-                index = CollectMe:IsInEnemyTable(enemy_species_id)
+                index = CollectMe:IsInEnemyTable(enemy_species_id, enemy_quality)
             end
 
             for j,v in ipairs(self.CompanionDB:GetCompanions()) do
