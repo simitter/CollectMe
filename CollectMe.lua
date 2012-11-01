@@ -122,6 +122,7 @@ function CollectMe:OnInitialize()
     self:RegisterEvent("ADDON_LOADED", "AddonLoadedListener")
 
     self:SecureHookScript(GameTooltip, "OnShow", "TooltipHook")
+    self:RegisterEvent("PET_BATTLE_OPENING_START", "ResetEnemyTable")
     self:RegisterEvent("PET_BATTLE_PET_CHANGED", "CheckEnemyQuality")
 end
 
@@ -1057,12 +1058,37 @@ function CollectMe:TooltipHook(tooltip)
     self.gametooltip_visible = false
 end
 
+function CollectMe:ResetEnemyTable()
+    self.enemyTable = {}
+end
+
+function CollectMe:IsInEnemyTable(id)
+    for i = 1, #self.enemyTable do
+        if self.enemyTable[i].enemy_species_id == id then
+            return i
+        end
+    end
+
+    return false
+end
+
 function CollectMe:CheckEnemyQuality()
     if self.db.profile.tooltip.companions.quality_check == true then
         for i=1, C_PetBattles.GetNumPets(2) do
             local enemy_species_id = C_PetBattles.GetPetSpeciesID(LE_BATTLE_PET_ENEMY, i)
             local enemy_quality = C_PetBattles.GetBreedQuality(LE_BATTLE_PET_ENEMY,i)
             local quality = -1
+
+            local index = CollectMe:IsInEnemyTable(enemy_species_id)
+            if index == false then
+                tinsert(self.enemyTable, {
+                    enemy_species_id = enemy_species_id,
+                    already_printed = false
+                })
+
+                index = CollectMe:IsInEnemyTable(enemy_species_id)
+            end
+
             for j,v in ipairs(self.CompanionDB:GetCompanions()) do
                 if v.species_id == enemy_species_id then
                     if quality < v.quality then
@@ -1070,10 +1096,15 @@ function CollectMe:CheckEnemyQuality()
                     end
                 end
             end
-            if quality == -1 then
-                self:Print(C_PetBattles.GetName(2,i).." - " .. self:ColorizeByQuality(_G["BATTLE_PET_BREED_QUALITY" .. enemy_quality], enemy_quality - 1) .. " - " .. RED_FONT_COLOR_CODE .. self.L["Missing companion"] .. FONT_COLOR_CODE_CLOSE)
-            elseif quality < enemy_quality then
-                self:Print(C_PetBattles.GetName(2,i).." - " .. self:ColorizeByQuality(_G["BATTLE_PET_BREED_QUALITY" .. enemy_quality], enemy_quality - 1) .. " - " .. RED_FONT_COLOR_CODE .. self.L["This companion has a higher quality than yours"] .. FONT_COLOR_CODE_CLOSE)
+
+            if self.enemyTable[index].already_printed == false then
+                if quality == -1 then
+                    self:Print(C_PetBattles.GetName(2,i).." - " .. self:ColorizeByQuality(_G["BATTLE_PET_BREED_QUALITY" .. enemy_quality], enemy_quality - 1) .. " - " .. RED_FONT_COLOR_CODE .. self.L["Missing companion"] .. FONT_COLOR_CODE_CLOSE)
+                elseif quality < enemy_quality then
+                    self:Print(C_PetBattles.GetName(2,i).." - " .. self:ColorizeByQuality(_G["BATTLE_PET_BREED_QUALITY" .. enemy_quality], enemy_quality - 1) .. " - " .. RED_FONT_COLOR_CODE .. self.L["This companion has a higher quality than yours"] .. FONT_COLOR_CODE_CLOSE)
+                end
+
+                self.enemyTable[index].already_printed = true
             end
         end
     end
