@@ -1062,9 +1062,9 @@ function CollectMe:ResetEnemyTable()
     self.enemyTable = {}
 end
 
-function CollectMe:IsInEnemyTable(id)
+function CollectMe:IsInEnemyTable(id, quality)
     for i = 1, #self.enemyTable do
-        if self.enemyTable[i].enemy_species_id == id then
+        if self.enemyTable[i].enemy_species_id == id and self.enemyTable[i].enemy_quality == quality then
             return i
         end
     end
@@ -1079,10 +1079,11 @@ function CollectMe:CheckEnemyQuality()
             local enemy_quality = C_PetBattles.GetBreedQuality(LE_BATTLE_PET_ENEMY,i)
             local quality = -1
 
-            local index = CollectMe:IsInEnemyTable(enemy_species_id)
+            local index = CollectMe:IsInEnemyTable(enemy_species_id, enemy_quality)
             if index == false then
                 tinsert(self.enemyTable, {
                     enemy_species_id = enemy_species_id,
+                    enemy_quality = enemy_quality,
                     already_printed = false
                 })
 
