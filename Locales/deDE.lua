@@ -53,7 +53,7 @@ L["My companions"] = "Meine Begleiter"
 L["Missing companion"] = "Fehlender Begleiter"
 L["Disable tooltip notice for missing companions"] = "Tooltiperweiterung für fehlende Begleiter ausschalten"
 L["Perform quality check in pet battles"] = "Qualitätscheck in Pet Battles verwenden"
-
+L["This companion has a higher quality than yours"] = "Dieser Begleiter hat eine höhere Qualität als deiner"
 
 -- Mounts
 -- Common Mounts

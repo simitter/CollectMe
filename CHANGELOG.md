@@ -1,4 +1,6 @@
 ## 2.2
+ * Tooltips of wild battle pets now have information if this companion is missing in your collection
+ * While in pet battles, chat messages will inform you if the enemy pet is missing from your collection or if it has a higher quality than the same companion of your collection
  * The random companion tab now shows the level and the quality of your companions
  * Fixed several issues with Summon/Dismiss Companion
 

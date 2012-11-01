@@ -17,11 +17,12 @@ local function _UpdateDB(frame)
     if (owned ~= #self.companions) then
         self.companions = {}
         for i = 1,num do
-            local pet_id, _, owned, custom_name, level, _, _, name, icon, _, creature_id = C_PetJournal.GetPetInfoByIndex(i, false)
-            if (owned) then
+            local pet_id, species_id, owned, custom_name, level, _, _, name, icon, _, creature_id = C_PetJournal.GetPetInfoByIndex(i, false)
+            if owned then
                 local quality = select(5, C_PetJournal.GetPetStats(pet_id))
                 tinsert(self.companions, {
                     pet_id = pet_id,
+                    species_id = species_id,
                     quality = quality,
                     color = (quality - 1),
                     creature_id = creature_id,

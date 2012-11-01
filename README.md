@@ -7,7 +7,8 @@ Collect Me keeps track of your mounts, companions and titles in the game and can
  * Filters
  * Source-information
  * 3D model previews
- * Tooltip on wild bettle pets for missing companions
+ * Tooltip on wild battle pets for missing companions
+ * Chat messages in pet battles for missing and higher quality companions
  * User- and Zone-defined random mount-summoning
  * Userdefinded random pet-summoning
  * Auto-summoning of companions when moving

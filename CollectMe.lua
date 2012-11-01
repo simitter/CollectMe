@@ -122,6 +122,7 @@ function CollectMe:OnInitialize()
     self:RegisterEvent("ADDON_LOADED", "AddonLoadedListener")
 
     self:SecureHookScript(GameTooltip, "OnShow", "TooltipHook")
+    self:RegisterEvent("PET_BATTLE_PET_CHANGED", "CheckEnemyQuality")
 end
 
 function CollectMe:AddonLoadedListener(event, name)
@@ -1056,3 +1057,24 @@ function CollectMe:TooltipHook(tooltip)
     self.gametooltip_visible = false
 end
 
+function CollectMe:CheckEnemyQuality()
+    if self.db.profile.tooltip.companions.quality_check == true then
+        for i=1, C_PetBattles.GetNumPets(2) do
+            local enemy_species_id = C_PetBattles.GetPetSpeciesID(LE_BATTLE_PET_ENEMY, i)
+            local enemy_quality = C_PetBattles.GetBreedQuality(LE_BATTLE_PET_ENEMY,i)
+            local quality = -1
+            for j,v in ipairs(self.CompanionDB:GetCompanions()) do
+                if v.species_id == enemy_species_id then
+                    if quality < v.quality then
+                        quality = v.quality
+                    end
+                end
+            end
+            if quality == -1 then
+                self:Print(C_PetBattles.GetName(2,i).." - " .. self:ColorizeByQuality(_G["BATTLE_PET_BREED_QUALITY" .. enemy_quality], enemy_quality - 1) .. " - " .. RED_FONT_COLOR_CODE .. self.L["Missing companion"] .. FONT_COLOR_CODE_CLOSE)
+            elseif quality < enemy_quality then
+                self:Print(C_PetBattles.GetName(2,i).." - " .. self:ColorizeByQuality(_G["BATTLE_PET_BREED_QUALITY" .. enemy_quality], enemy_quality - 1) .. " - " .. RED_FONT_COLOR_CODE .. self.L["This companion has a higher quality than yours"] .. FONT_COLOR_CODE_CLOSE)
+            end
+        end
+    end
+end

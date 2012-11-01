@@ -53,6 +53,7 @@ L["My companions"] = true
 L["Missing companion"] = true
 L["Disable tooltip notice for missing companions"] = true
 L["Perform quality check in pet battles"] = true
+L["This companion has a higher quality than yours"] = true
 
 -- Mounts
 -- Common Mounts
