@@ -373,7 +373,7 @@ function CollectMe:SummonRandomCompanion()
 
     if (#summonable > 0) then
         local call = math.random(1, #summonable)
-        C_PetJournal.SummonPetByID(summonable[call])
+        C_PetJournal.SummonPetByGUID(summonable[call])
     else
         self:Print(self.L["You haven't configured your companion priorities yet. Please open the random companion tab"])
     end
@@ -741,9 +741,9 @@ function CollectMe:HandlePetMacro()
 end
 
 function CollectMe:DismissPet()
-    local active = C_PetJournal.GetSummonedPetID()
+    local active = C_PetJournal.GetSummonedPetGUID()
     if active ~= nil then
-        C_PetJournal.SummonPetByID(active)
+        C_PetJournal.SummonPetByGUID(active)
     end
 end
 
@@ -1010,7 +1010,7 @@ end
 function CollectMe:AutoSummonCompanion()
     if UnitAffectingCombat("player") == nil and IsMounted() == nil and IsStealthed() == nil and self.db.profile.summon.companions.auto == true then
         if (not (UnitIsPVP("player") == 1 and self.db.profile.summon.companions.disable_pvp == true)) then
-            local active = C_PetJournal.GetSummonedPetID()
+            local active = C_PetJournal.GetSummonedPetGUID()
             if (active == nil) then
                 self:SummonRandomCompanion()
             end
