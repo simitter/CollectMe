@@ -198,7 +198,7 @@ L["mount_93623"] = "Loot card from the WoW Trading Card Game: Worldbreaker. [BoE
 L["mount_113120"] = "Loot card from the WoW Trading Card Game: War of the Ancients. [BoE]" -- Feldrake
 L["mount_121820"] = "Obtained by using the Recruit a Friend Service. [BoA]" -- Obsidian Nightwing
 L["mount_124659"] = "Included in the Digital Deluxe version of Mists of Pandaria. [BoA]" -- Imperial Quilen
-L["mount_133023"] = "Reward from the We're Going To Need More Sattles Achievement (collect 100 mounts)." -- Jade Pandaren Kite
+L["mount_133023"] = "Reward from the We're Going To Need More Saddles Achievement (collect 150 mounts)." -- Jade Pandaren Kite
 
 -- L["mount_127180"] = "?? [BoP]" -- Albino Riding Crane
 L["mount_123886"] = "Sold by Ambersmith Zikk <Klaxxi Quartermaster> in Klaxxi'vess in the Dread Wastes for 10000G. You need to be exalted with Klaxxi. [BoP]" -- Amber Scorpio
