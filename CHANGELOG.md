@@ -1,4 +1,5 @@
 ## 2.2.2
+ * Fixed CollectMe Buttons in Pet- and MountJournal
  * Added mounts: Teal Kodo, Jade Pandaren Kite
 
 ## 2.2.1
