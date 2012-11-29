@@ -198,6 +198,7 @@ L["mount_93623"] = "Loot card from the WoW Trading Card Game: Worldbreaker. [BoE
 L["mount_113120"] = "Loot card from the WoW Trading Card Game: War of the Ancients. [BoE]" -- Feldrake
 L["mount_121820"] = "Obtained by using the Recruit a Friend Service. [BoA]" -- Obsidian Nightwing
 L["mount_124659"] = "Included in the Digital Deluxe version of Mists of Pandaria. [BoA]" -- Imperial Quilen
+L["mount_133023"] = "Reward from the We're Going To Need More Sattles Achievement (collect 100 mounts)." -- Jade Pandaren Kite
 
 -- L["mount_127180"] = "?? [BoP]" -- Albino Riding Crane
 L["mount_123886"] = "Sold by Ambersmith Zikk <Klaxxi Quartermaster> in Klaxxi'vess in the Dread Wastes for 10000G. You need to be exalted with Klaxxi. [BoP]" -- Amber Scorpio
@@ -423,6 +424,7 @@ L["mount_93644"] = "Horde mount purchased from the guild vendor. Requires your g
 L["mount_100333"] = "Reward from the achivement 'Veteran of the Horde' and other higher achivements. [BoP]" -- Vicious War Wolf
 L["mount_107517"] = "Obtained through the new Scroll of Resurrection system implemented in 4.3.3. [BoA]" -- Spectral Wind Rider
 L["mount_118737"] = "Reward for obtaining the achievement 'Pandared Ambassador' being exalted with all of the Mists of Pandaria factions. [BoP]" -- Pandaren Kite
+L["mount_18992"] = "Old 100% Ground Mount. Removed in favor of armored 100% mounts [BoP]" -- Teal Kodo
 
 -- Paladin Mounts
 L["mount_23214"] = "Taught by the Paladin Trainer at Level 61 or obtained by completing the Level 60 Paladin Quest Line. [BoP]" -- Alliance Charger

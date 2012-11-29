@@ -210,6 +210,7 @@ function CollectMe:BuildMountDB()
     self:AddMount(132119, 45522, FLY) -- Violet Pandaren Phoenix
     self:AddMount(130137, 44837) -- White Riding Goat
     self:AddMount(123182, 41089) -- White Riding Yak
+    self:AddMount(133023, 42147, FLY) -- Jade Pandaren Kite
 
     -- Alliance Mounts
     if self.FACTION == "Alliance" then
@@ -376,6 +377,7 @@ function CollectMe:BuildMountDB()
         self:AddMount(65645, 28605) -- White Skeletal Warhorse
         self:AddMount(59793, 27244) -- Wooly Mammoth
         self:AddMount(118737, 41903, FLY) -- Pandaren Kite
+        self:AddMount(18992, 12242, GROUND, { nlo = 1 }) -- Teal Kodo
     end
 
     -- Paladin Mounts for Humans and Dwarfs

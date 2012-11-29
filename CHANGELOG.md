@@ -1,3 +1,6 @@
+## 2.2.2
+ * Added mounts: Teal Kodo, Jade Pandaren Kite
+
 ## 2.2.1
  * Fixed 5.1 bugs
  * NOTE: With 5.1 petids were changed with guids so you're random summon list has to be configured from start
