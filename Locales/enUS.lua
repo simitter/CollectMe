@@ -345,6 +345,8 @@ L["mount_103195"] = "Purchased from Astrid Langstrump located near the entrance 
 L["mount_107516"] = "Obtained through the new Scroll of Resurrection system implemented in 4.3.3. [BoA]" -- Spectral Gryphon
 L["mount_16083"] = "Old 100% Ground Mount. Removed in favor of armored 100% mounts [BoP]" -- White Stallion
 L["mount_130985"] = "Reward for obtaining the achievement 'Pandared Ambassador' being exalted with all of the Mists of Pandaria factions. [BoP]" -- Pandaren Kite
+L["mount_136163"] = "??. [BoA]" -- Grand Gryphon
+L["mount_135416"] = "??. [BoA]" -- Grand Armored Gryphon
 
 -- Horde Mounts
 L["mount_61230"] = "Sold by Mei Francis in Dalaran for 2000G. [BoP]" -- Armored Blue Wind Rider
@@ -424,7 +426,9 @@ L["mount_93644"] = "Horde mount purchased from the guild vendor. Requires your g
 L["mount_100333"] = "Reward from the achivement 'Veteran of the Horde' and other higher achivements. [BoP]" -- Vicious War Wolf
 L["mount_107517"] = "Obtained through the new Scroll of Resurrection system implemented in 4.3.3. [BoA]" -- Spectral Wind Rider
 L["mount_118737"] = "Reward for obtaining the achievement 'Pandared Ambassador' being exalted with all of the Mists of Pandaria factions. [BoP]" -- Pandaren Kite
-L["mount_18992"] = "Old 100% Ground Mount. Removed in favor of armored 100% mounts [BoP]" -- Teal Kodo
+L["mount_18992"] = "Old 100% Ground Mount. Removed in favor of armored 100% mounts. [BoP]" -- Teal Kodo
+L["mount_136164"] = "??. [BoA]" -- Grand Wyvern
+L["mount_135418"] = "??. [BoA]" -- Grand Armored Wyvern
 
 -- Paladin Mounts
 L["mount_23214"] = "Taught by the Paladin Trainer at Level 61 or obtained by completing the Level 60 Paladin Quest Line. [BoP]" -- Alliance Charger
