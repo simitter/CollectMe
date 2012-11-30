@@ -238,6 +238,8 @@ function CollectMe:BuildMountDB()
         self:AddMount(32235, 17697, FLY) -- Golden Gryphon
         self:AddMount(90621, 36213) -- Golden King
         self:AddMount(61465, 27241) -- Grand Black War Mammoth
+        self:AddMount(135416, nil, FLY) -- Grand Armored Gryphon
+        self:AddMount(136163, nil, FLY) -- Grand Gryphon
         self:AddMount(61470, 27242) -- Grand Ice Mammoth
         self:AddMount(35710, 19869) -- Gray Elekk
         self:AddMount(6777, 2736)  -- Gray Ram
@@ -322,6 +324,9 @@ function CollectMe:BuildMountDB()
         self:AddMount(23509, 14776, GROUND, { pvp = 1 }) -- Frostwolf Howler
         self:AddMount(61467, 27240) -- Grand Black War Mammoth
         self:AddMount(61469, 27239) -- Grand Ice Mammoth
+        self:AddMount(135418, nil, FLY) -- Grand Armored Wyvern
+        self:AddMount(136164, nil, FLY) -- Grand Wyvern
+        
         self:AddMount(18989, 12246) -- Gray Kodo
         self:AddMount(23249, 14578) -- Great Brown Kodo
         self:AddMount(65641, 28556) -- Great Golden Kodo
