@@ -1,6 +1,7 @@
 ## 2.2.2
+ * Improved performance
  * Fixed CollectMe Buttons in Pet- and MountJournal
- * Added mounts: Teal Kodo, Jade Pandaren Kite
+ * Added 5.1 Mounts and Teal Kodo
 
 ## 2.2.1
  * Fixed 5.1 bugs
