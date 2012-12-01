@@ -1,5 +1,7 @@
-## 2.2.2
+## 2.2.3
  * Improved performance
+
+## 2.2.2
  * Fixed CollectMe Buttons in Pet- and MountJournal
  * Added 5.1 Mounts and Teal Kodo
 
