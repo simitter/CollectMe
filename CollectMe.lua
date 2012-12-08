@@ -557,6 +557,9 @@ function CollectMe:BuildMissingCompanionList(listcontainer)
 
     for i = 1,total do
         local pet_id, _, owned, _, _, _, _, name, icon, _, creature_id, source = C_PetJournal.GetPetInfoByIndex(i, false)
+        if name == "Darkmoon Glowfly" then
+            self:Print(creature_id)
+        end
         if owned ~= true then
             local f = self:CreateItemRow()
             f:SetImage(icon)
@@ -1083,6 +1086,10 @@ end
 
 function CollectMe:CheckEnemyQuality()
     if self.db.profile.tooltip.companions.quality_check == true then
+        local trapable, trap_error = C_PetBattles.IsTrapAvailable()
+        if trap_error == 6 or trap_error == 7 then
+            return
+        end
         for i=1, C_PetBattles.GetNumPets(2) do
             local enemy_species_id = C_PetBattles.GetPetSpeciesID(LE_BATTLE_PET_ENEMY, i)
             local enemy_quality = C_PetBattles.GetBreedQuality(LE_BATTLE_PET_ENEMY,i)
