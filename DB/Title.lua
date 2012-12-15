@@ -119,7 +119,7 @@ function CollectMe:BuildTitleDB()
     self:AddTitle(190) -- Firelord
     self:AddTitle(191, {nlo = 1, are = 1}) -- Vicious Gladiator
     self:AddTitle(192, {nlo = 1, are = 1}) -- Ruthless Gladiator
-    self:AddTitle(193, {pvp = 1}) -- Cataclysmic Gladiator
+    self:AddTitle(193, {are = 1, nlo = 1}) -- Cataclysmic Gladiator
     self:AddTitle(194) -- Savior of Azeroth
     self:AddTitle(196) -- Destroyer's End
 
@@ -137,6 +137,8 @@ function CollectMe:BuildTitleDB()
     self:AddTitle(206) -- the Scenaterdist
     self:AddTitle(207) -- Tamer
     self:AddTitle(208) -- Seeker of Knowledge
+    self:AddTitle(209) -- Brawler
+    self:AddTitle(218) -- the Wakener
 
     -- Alliance Titles
     if self.FACTION == "Alliance" then
