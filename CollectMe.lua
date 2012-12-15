@@ -557,9 +557,6 @@ function CollectMe:BuildMissingCompanionList(listcontainer)
 
     for i = 1,total do
         local pet_id, _, owned, _, _, _, _, name, icon, _, creature_id, source = C_PetJournal.GetPetInfoByIndex(i, false)
-        if name == "Darkmoon Glowfly" then
-            self:Print(creature_id)
-        end
         if owned ~= true then
             local f = self:CreateItemRow()
             f:SetImage(icon)

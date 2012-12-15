@@ -1,5 +1,6 @@
 ## 2.2.4
  * Fixed capture notice on npc battles
+ * Added 5.1 titles
 
 ## 2.2.3
  * Improved performance
