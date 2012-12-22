@@ -980,6 +980,8 @@ function CollectMe:SlashProcessor(input)
         self:SummonRandomMount()
     elseif input == "options" then
         InterfaceOptionsFrame_OpenToCategory(addon_name)
+    elseif input == "companion zone" then
+        self:CompanionsInZone()
     elseif input == "debug zone" then
         self:Print(self:GetCurrentZone())
     elseif input == "debug title" then
@@ -1121,5 +1123,16 @@ function CollectMe:CheckEnemyQuality()
                 self.enemyTable[index].already_printed = true
             end
         end
+    end
+end
+
+function CollectMe:CompanionsInZone()
+    local zone = self:GetCurrentZone()
+    local known, unknown = self.CompanionDB:GetCompanionsInZone(zone)
+    for i,v in ipairs(known) do
+        self:Print("known "..v.name)
+    end
+    for i,v in ipairs(unknown) do
+        self:Print("unknown "..v.name)
     end
 end

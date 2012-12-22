@@ -251,7 +251,7 @@ CollectMe.ZoneDB.instances = {
     }
 }
 
-CollectMe.ZoneDB.SpeciesToZoneId = {
+CollectMe.ZoneDB.species_to_zone = {
     [1163]={[281]=281},
     [1160]={[32]=32},
     [1164]={[475]=475},
@@ -652,9 +652,5 @@ CollectMe.ZoneDB.SpeciesToZoneId = {
 }
 
 function CollectMe.ZoneDB:getZonesForSpecies(species_id)
-    return self.SpeciesToZoneId[species_id]
-end
-
-function CollectMe.ZoneDB:getSpeciesForZone(zone_id)
-
+    return self.species_to_zone[species_id]
 end

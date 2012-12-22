@@ -54,6 +54,21 @@ function CollectMe.CompanionDB:GetMissingCompanions()
     return self.missing_companions
 end
 
+function CollectMe.CompanionDB:ZoneSearch(companions, zone_id)
+    local companions_in_zone = {}
+    for i,v in ipairs(companions) do
+        if v.zones ~= nil and v.zones[zone_id] ~= nil then
+            tinsert(companions_in_zone, v)
+        end
+    end
+    return companions_in_zone
+end
+
+
+function CollectMe.CompanionDB:GetCompanionsInZone(zone_id)
+    return self:ZoneSearch(self.companions, zone_id), self:ZoneSearch(self.missing_companions, zone_id)
+end
+
 function CollectMe.CompanionDB:OnInitialize()
     self.companions = {}
     self.missing_companions = {}
