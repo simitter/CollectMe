@@ -28,4 +28,5 @@ CollectMeFrame.lua
 CollectMe.lua
 DB\Mount.lua
 DB\Title.lua
+DB\Zone.lua
 DB\Companion.lua
