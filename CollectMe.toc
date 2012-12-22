@@ -30,3 +30,4 @@ DB\Mount.lua
 DB\Title.lua
 DB\Zone.lua
 DB\Companion.lua
+src\CompanionZoneDisplay.lua
