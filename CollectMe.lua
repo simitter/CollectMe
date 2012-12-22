@@ -95,7 +95,6 @@ function CollectMe:OnInitialize()
     options.args.profiles = LibStub("AceDBOptions-3.0"):GetOptionsTable(self.db)
 
     self:BuildMountDB()
-    self:BuildTitleDB()
 
     self.active_tab = MOUNT
     self.filter_db = self.db.profile.filters.mounts
@@ -219,7 +218,7 @@ function CollectMe:SelectGroup(container, group)
     elseif group == TITLE then
         self.filter_db = self.db.profile.filters.titles
         self.ignored_db = self.db.profile.ignored.titles
-        self.item_list = self.TITLES
+        self.item_list = self.TitleDB:Get()
         self.filter_list = TITLE_FILTERS
     elseif group == COMPANION then
         self.ignored_db = self.db.profile.ignored.companions
@@ -483,7 +482,7 @@ function CollectMe:BuildList(listcontainer)
         self:RefreshKnownMounts()
     elseif self.active_tab == TITLE and self.db.profile.missing_message.titles == false then
         for i = 1, GetNumTitles(), 1 do
-            if IsTitleKnown(i) == 1 and self:IsInTable(self.TITLE_SPELLS, i) == false then
+            if IsTitleKnown(i) == 1 and self:IsInTable(self.TitleDB.title_spells, i) == false then
                 local name = GetTitleName(i)
                 if name ~= nil then
                     self:Print(self.L["Title"] .. " " .. name:gsub("^%s*(.-)%s*$", "%1") .. "("..i..") " .. self.L["is missing"] .. ". " .. self.L["Please inform the author"])
@@ -947,15 +946,6 @@ function CollectMe:IsInTable(t, spell_id)
     return false
 end
 
-function CollectMe:PrintAllTitles()
-    for i = 1, GetNumTitles(), 1 do
-        local name = GetTitleName(i)
-        if name ~= nil then
-            self:Print(i.. " - " ..name)
-        end
-    end
-end
-
 -- no round in math library? seriously????
 function CollectMe:round(num, idp)
     local mult = 10^(idp or 0)
@@ -985,7 +975,7 @@ function CollectMe:SlashProcessor(input)
     elseif input == "debug zone" then
         self:Print(self:GetCurrentZone())
     elseif input == "debug title" then
-        self:PrintAllTitles()
+        self.TitleDB:PrintAll()
     elseif input == "debug profession" then
         self:PrintProfessions()
     elseif input == "macro" then
