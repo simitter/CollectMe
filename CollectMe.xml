@@ -1,0 +1,11 @@
+<Ui xsi:schemaLocation="http://www.blizzard.com/wow/ui/ ..\FrameXML\UI.xsd">
+    <Script file="src\CollectMeLabel.lua"/>
+    <Script file="src\CollectMeFrame.lua"/>
+    <Script file="CollectMe.lua"/>
+    <Script file="DB\Zone.lua"/>
+    <Script file="DB\Mount.lua"/>
+    <Script file="DB\Title.lua"/>
+    <Script file="DB\Companion.lua"/>
+    <Script file="src\UI.lua"/>
+    <Script file="src\CompanionZoneDisplay.lua"/>
+</Ui>

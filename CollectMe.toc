@@ -22,12 +22,4 @@
 
 embeds.xml
 locales.xml
-
-CollectMeLabel.lua
-CollectMeFrame.lua
-CollectMe.lua
-DB\Mount.lua
-DB\Title.lua
-DB\Zone.lua
-DB\Companion.lua
-src\CompanionZoneDisplay.lua
+CollectMe.xml

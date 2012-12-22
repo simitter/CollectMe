@@ -4,6 +4,8 @@ function CollectMe.TitleDB:OnInitialize()
     self.titles = {}
     self.title_spells = {}
 
+    self.filters = { "nlo", "pvp", "are" }
+
     self:Build()
 end
 
@@ -242,10 +244,6 @@ function CollectMe.TitleDB:Add(id, filters)
                 name       = name:gsub("^%s*(.-)%s*$", "%1"),
                 filters    = filters
             })
-
-            if id == 81 then
-                self:Print("damn?")
-            end
             table.insert(self.title_spells, id)
         end
     end
