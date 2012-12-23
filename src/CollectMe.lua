@@ -238,7 +238,7 @@ function CollectMe:BuildData(no_filters)
     end
 
     if not no_filters then
-        --self:BuildOptions()
+        self:BuildOptions()
     end
 end
 
@@ -534,23 +534,16 @@ function CollectMe:BuildMissingCompanionFilters(container)
     end
 end
 
-function CollectMe:BuildOptions(container)
-    container:AddChild(self:CreateHeading(self.L["Options"]))
+function CollectMe:BuildOptions()
+    self.UI:AddToFilter(self.UI:CreateHeading(self.L["Options"]))
 
     if self.UI.active_group == self.MOUNT then
-        local f = self:GetCheckboxOption(self.L["Disable missing mount message"], self.db.profile.missing_message.mounts)
-        f:SetCallback("OnValueChanged", function (container, event, value) self.db.profile.missing_message.mounts = value end)
-        container:AddChild(f)
-        local f = self:GetCheckboxOption(self.L["Hide ignored list"], self.db.profile.hide_ignore.mounts)
-        f:SetCallback("OnValueChanged", function (container, event, value) self.db.profile.hide_ignore.mounts = value; self:BuildList(self.scroll) end)
-        container:AddChild(f)
+        self.UI:CreateFilterCheckbox(self.L["Disable missing mount message"], self.db.profile.missing_message.mounts, { OnValueChanged = function (container, event, value)  self.db.profile.missing_message.mounts = value end })
+        self.UI:CreateFilterCheckbox(self.L["Hide ignored list"], self.db.profile.hide_ignore.mounts, { OnValueChanged = function (container, event, value)  self.db.profile.hide_ignore.mounts = value; self.UI:ReloadScroll() end })
     elseif self.UI.active_group == self.TITLE then
-        local f = self:GetCheckboxOption(self.L["Disable missing title message"], self.db.profile.missing_message.titles)
-        f:SetCallback("OnValueChanged", function (container, event, value) self.db.profile.missing_message.titles = value end)
-        container:AddChild(f)
-        local f = self:GetCheckboxOption(self.L["Hide ignored list"], self.db.profile.hide_ignore.titles)
-        f:SetCallback("OnValueChanged", function (container, event, value) self.db.profile.hide_ignore.titles = value; self:BuildList(self.scroll) end)
-        container:AddChild(f)
+        self.UI:CreateFilterCheckbox(self.L["Disable missing title message"], self.db.profile.missing_message.titles, { OnValueChanged = function (container, event, value)  self.db.profile.missing_message.titles = value end })
+        self.UI:CreateFilterCheckbox(self.L["Hide ignored list"], self.db.profile.hide_ignore.titles, { OnValueChanged = function (container, event, value)  self.db.profile.hide_ignore.titles = value; self.UI:ReloadScroll() end })
+    --[[
     elseif self.UI.active_group == self.COMPANION then
         local f = self:GetCheckboxOption(self.L["Disable tooltip notice for missing companions"], self.db.profile.tooltip.companions.hide)
         f:SetCallback("OnValueChanged", function (container, event, value)  self.db.profile.tooltip.companions.hide = value end)
@@ -586,8 +579,7 @@ function CollectMe:BuildOptions(container)
         container:AddChild(f)
         local f = self:CreateMacroDropdown(self.L["Shift + Left Click"], self.db.profile.summon.mounts.macro_shift_left)
         f:SetCallback("OnValueChanged", function (container, event, value) self.db.profile.summon.mounts.macro_shift_left = value end)
-        container:AddChild(f)
-
+        container:AddChild(f)]]
     end
 end
 
@@ -667,15 +659,6 @@ function CollectMe:CreateMacroDropdown(label, value)
     return f
 end
 
-function CollectMe:GetCheckboxOption(label, init_value)
-    local f = AceGUI:Create("CheckBox")
-    f.text:SetMaxLines(2)
-    f:SetLabel(label)
-    f:SetHeight(35)
-    f:SetValue(init_value)
-    return f
-end
-
 function CollectMe:ToggleFilter(filter, value)
     self.filter_db[filter] = value
     self.UI:ReloadScroll()
@@ -696,7 +679,6 @@ function CollectMe:ItemRowClick(group, spell_id)
             self:PreviewCreature(spell_id)
         end
     elseif group == "RightButton" and IsControlKeyDown() then
-        local offset = self.UI.scroll.localstatus.offset
         local ignored_table = self.ignored_db
 
         local position = self:IsInTable(ignored_table, spell_id)
@@ -706,12 +688,7 @@ function CollectMe:ItemRowClick(group, spell_id)
             table.insert(ignored_table, spell_id)
         end
 
-        self.UI:SelectTab(self.UI.active_group)
-
-        -- SetScroll doe not calculate position accurately
-        local status_table = self.UI.scroll.localstatus
-        status_table.offset = offset
-        self.UI.scroll:SetStatusTable(status_table)
+        self.UI:ReloadScroll()
     end
 end
 

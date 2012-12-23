@@ -163,7 +163,7 @@ function CollectMe.UI:CreateButton(text, parent)
     return f
 end
 
-function CollectMe.UI:CreateCheckbox(label, value, callbacks)
+function CollectMe.UI:CreateCheckbox(label, value, callbacks, max_lines, height)
     local f = AceGUI:Create("CheckBox")
 
     if label ~= nil then
@@ -171,6 +171,12 @@ function CollectMe.UI:CreateCheckbox(label, value, callbacks)
     end
     if value ~= nil then
         f:SetValue(value)
+    end
+    if max_lines ~= nil then
+        f:SetMaxLines(max_lines)
+    end
+    if height ~= nil then
+        f:SetHeight(height)
     end
 
     f:SetPoint("Top", 15, 15)
