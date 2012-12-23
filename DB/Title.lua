@@ -1,4 +1,4 @@
-CollectMe.TitleDB = CollectMe:NewModule("TitleDB", "AceConsole-3.0")
+CollectMe.TitleDB = CollectMe:NewModule("TitleDB")
 
 function CollectMe.TitleDB:OnInitialize()
     self.titles = {}
@@ -257,7 +257,19 @@ function CollectMe.TitleDB:PrintAll()
     for i = 1, GetNumTitles(), 1 do
         local name = GetTitleName(i)
         if name ~= nil then
-            self:Print(i.. " - " ..name)
+            CollectMe:Print(i.. " - " ..name)
         end
     end
 end
+
+function CollectMe.TitleDB:PrintUnkown()
+    for i = 1, GetNumTitles(), 1 do
+        if IsTitleKnown(i) == 1 and CollectMe:IsInTable(self.title_spells, i) == false then
+            local name = GetTitleName(i)
+            if name ~= nil then
+                CollectMe:Print(CollectMe.L["Title"] .. " " .. name:gsub("^%s*(.-)%s*$", "%1") .. "("..i..") " .. CollectMe.L["is missing"] .. ". " .. CollectMe.L["Please inform the author"])
+            end
+        end
+    end
+end
+

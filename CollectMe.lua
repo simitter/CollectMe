@@ -1,5 +1,4 @@
 CollectMe = LibStub("AceAddon-3.0"):NewAddon("CollectMe", "AceConsole-3.0", "AceHook-3.0", "AceEvent-3.0")
-local AceGUI = LibStub("AceGUI-3.0")
 
 local addon_name = "CollectMe"
 local MOUNT_FILTERS = { "nlo", "tcg", "pvp", "are", "bsm", "rfm", "ptm" }
@@ -75,7 +74,7 @@ local options = {
 }
 
 function CollectMe:OnInitialize()
-    self.COLLECTME_VERSION = GetAddOnMetadata("CollectMe", "Version")
+    self.VERSION = GetAddOnMetadata("CollectMe", "Version")
     self.L = LibStub("AceLocale-3.0"):GetLocale("CollectMe", true)
 
     self.MOUNT = 1
@@ -96,7 +95,6 @@ function CollectMe:OnInitialize()
 
     self:BuildMountDB()
 
-    self.active_tab = MOUNT
     self.filter_db = self.db.profile.filters.mounts
     self.ignored_db = self.db.profile.ignored.mounts
     self.item_list = self.MOUNTS
@@ -106,8 +104,6 @@ function CollectMe:OnInitialize()
     self.cm_button_loaded = false
 
     self.display_creature = false
-
-    self:BuildUI()
 
     self:RegisterChatCommand("collectme", "SlashProcessor")
     self:RegisterChatCommand("cm", "SlashProcessor")
@@ -207,93 +203,36 @@ function CollectMe:InitMacro(name, icon, body)
     end
 end
 
-function CollectMe:SelectGroup(container, group)
-    container:ReleaseChildren()
-    self.active_tab = group
-    if group == self.MOUNT then
+function CollectMe:GetData()
+    if self.UI.active_group == self.MOUNT then
         self.filter_db = self.db.profile.filters.mounts
         self.ignored_db = self.db.profile.ignored.mounts
         self.item_list = self.MOUNTS
         self.filter_list = MOUNT_FILTERS
-    elseif group == self.TITLE then
+        self:BuildList()
+        self:BuildFilters()
+    elseif self.UI.active_group == self.TITLE then
         self.filter_db = self.db.profile.filters.titles
         self.ignored_db = self.db.profile.ignored.titles
         self.item_list = self.TitleDB:Get()
         self.filter_list = self.TitleDB.filters
-    elseif group == self.COMPANION then
+        self:BuildList()
+        self:BuildFilters()
+    elseif self.UI.active_group == self.COMPANION then
         self.ignored_db = self.db.profile.ignored.companions
+        self:BuildMissingCompanionList()
+        self:BuildMissingCompanionFilters()
+    elseif self.UI.active_group == self.RANDOM_COMPANION then
+        self:BuildRandomPetList()
+        self.UI:ShowCheckButtons()
+    elseif self.UI.active_group == self.RANDOM_MOUNT then
+        self:BuildRandomList()
+        self.UI:ShowCheckButtons()
     end
 
-    CollectMe:BuildTab(container)
+    self:BuildOptions()
 end
 
-function CollectMe:BuildUI()
-
-end
-
-function CollectMe:HideCheckButtons()
-    self.checkbutton:Hide()
-    self.uncheckbutton:Hide()
-end
-
-function CollectMe:ShowCheckButtons()
-    self.checkbutton:Show()
-    self.uncheckbutton:Show()
-end
-
-function CollectMe:CreateButton(text, parent)
-    local f = CreateFrame("Button", nil, parent, "UIPanelButtonTemplate")
-    f:SetHeight(20)
-    f:SetWidth(100)
-    f:SetText(text)
-    return f
-end
-
-
-function CollectMe:BuildTab(container)
-    self.frame.statusbar:Hide()
-    self:HideCheckButtons()
-    container:SetLayout("Flow")
-
-    local scrollcontainer = AceGUI:Create("SimpleGroup")
-    scrollcontainer:SetRelativeWidth(0.6)
-    scrollcontainer:SetFullHeight(true)
-    scrollcontainer:SetLayout("Fill")
-    container:AddChild(scrollcontainer)
-
-    local filtercontainer = AceGUI:Create("SimpleGroup")
-    filtercontainer:SetRelativeWidth(0.4)
-    filtercontainer:SetFullHeight(true)
-    filtercontainer:SetLayout("Fill")
-    container:AddChild(filtercontainer)
-
-    local scroll = AceGUI:Create("ScrollFrame")
-    scroll:SetFullHeight(true)
-    scroll:SetLayout("Flow")
-    scrollcontainer:AddChild(scroll)
-    self.scroll = scroll
-
-    local filter = AceGUI:Create("ScrollFrame")
-    filter:SetFullHeight(true)
-    filter:SetLayout("Flow")
-    filtercontainer:AddChild(filter)
-
-    if self.active_tab == self.MOUNT or self.active_tab == self.TITLE then
-        self:BuildList(scroll)
-        self:BuildFilters(filter)
-    elseif self.active_tab == self.COMPANION then
-        self:BuildMissingCompanionList(scroll)
-        self:BuildMissingCompanionFilters(filter)
-    elseif self.active_tab == self.RANDOM_COMPANION then
-        self:BuildRandomPetList(scroll)
-        self:ShowCheckButtons()
-    elseif self.active_tab == self.RANDOM_MOUNT then
-        self:BuildRandomList(scroll)
-        self:ShowCheckButtons()
-    end
-
-    self:BuildOptions(filter)
-end
 
 function CollectMe:BuildRandomPetList(listcontainer)
     local companions = self.CompanionDB:GetCompanions()
@@ -442,42 +381,24 @@ function CollectMe:Mount(t)
     CallCompanion("MOUNT", t[call]);
 end
 
-function CollectMe:BuildList(listcontainer)
-    listcontainer:ReleaseChildren()
+function CollectMe:BuildList()
 
-    if self.active_tab == self.MOUNT then
+    if self.UI.active_group == self.MOUNT then
         self:RefreshKnownMounts()
-    elseif self.active_tab == self.TITLE and self.db.profile.missing_message.titles == false then
-        for i = 1, GetNumTitles(), 1 do
-            if IsTitleKnown(i) == 1 and self:IsInTable(self.TitleDB.title_spells, i) == false then
-                local name = GetTitleName(i)
-                if name ~= nil then
-                    self:Print(self.L["Title"] .. " " .. name:gsub("^%s*(.-)%s*$", "%1") .. "("..i..") " .. self.L["is missing"] .. ". " .. self.L["Please inform the author"])
-                end
-            end
-        end
+    elseif self.UI.active_group == self.TITLE and self.db.profile.missing_message.titles == false then
+        self.TitleDB:PrintUnkown()
     end
 
     local active, ignored = {}, {}
     local all_count, known_count, filter_count = #self.item_list, 0, 0
 
     for i,v in ipairs(self.item_list) do
-        if (self.active_tab == self.MOUNT and not self:IsInTable(self.known_mounts, v.id)) or (self.active_tab == self.TITLE and IsTitleKnown(v.id) ~= 1) then
-            local f = self:CreateItemRow()
-            if self.active_tab == self.MOUNT then
-                f:SetImage(v.icon)
-                f:SetImageSize(20, 20)
-            end
-            f:SetText(v.name)
-            f:SetCallback("OnClick", function (container, event, group) CollectMe:ItemRowClick(group, v.id) end)
-            f:SetCallback("OnEnter", function (container, event, group) CollectMe:ItemRowEnter(v) end)
-            f:SetCallback("OnLeave", function (container, event, group) CollectMe:ItemRowLeave(v) end)
-
+        if (self.UI.active_group == self.MOUNT and not self:IsInTable(self.known_mounts, v.id)) or (self.UI.active_group == self.TITLE and IsTitleKnown(v.id) ~= 1) then
             if self:IsInTable(self.ignored_db, v.id) then
-                table.insert(ignored, f)
+                table.insert(ignored, v)
             else
                 if not self:IsFiltered(v.filters) then
-                    table.insert(active, f)
+                    table.insert(active, v)
                 else
                     filter_count = filter_count + 1
                 end
@@ -487,30 +408,43 @@ function CollectMe:BuildList(listcontainer)
         end
     end
 
-    self:AddMissingRows(listcontainer, active, ignored, all_count, known_count, filter_count)
+    self:AddMissingRows(active, ignored, all_count, known_count, filter_count)
 end
 
-function CollectMe:AddMissingRows(container, active, ignored, all_count, known_count, filter_count)
-    container:AddChild(self:CreateHeading(self.L["Missing"] .. " - " .. #active))
-    for f = 1, #active, 1 do
-        container:AddChild(active[f])
+function CollectMe:AddMissingRows(active, ignored, all_count, known_count, filter_count)
+--[[
+
+    local f = self.UI:CreateLabel(v.name, v.icon, )
+    if self.UI.active_group == self.MOUNT then
+        f:SetImage(v.icon)
+        f:SetImageSize(20, 20)
     end
+    f:SetText(v.name)
+    f:SetCallback("OnClick", function (container, event, group) CollectMe:ItemRowClick(group, v.id) end)
+    f:SetCallback("OnEnter", function (container, event, group) CollectMe:ItemRowEnter(v) end)
+    f:SetCallback("OnLeave", function (container, event, group) CollectMe:ItemRowLeave(v) end)
 
-    local hide_ignore = (self.active_tab == self.MOUNT and self.db.profile.hide_ignore.mounts or self.db.profile.hide_ignore.titles )
-    if hide_ignore == false then
-        container:AddChild(self:CreateHeading(self.L["Ignored"] .. " - " .. #ignored))
-        for f = 1, #ignored, 1 do
-            container:AddChild(ignored[f])
-        end
-    end
+]]--
+    self.UI:AddToScroll(self.UI:CreateHeading(self.L["Missing"] .. " - " .. #active))
+    --for f = 1, #active, 1 do
+    --    container:AddChild(active[f])
+    --end
 
-    all_count = all_count - #self.ignored_db - filter_count
-    local percent = self:round(known_count / all_count * 100, 2)
+    --local hide_ignore = (self.UI.active_group == self.MOUNT and self.db.profile.hide_ignore.mounts or self.db.profile.hide_ignore.titles )
+    --if hide_ignore == false then
+     --   container:AddChild(self:CreateHeading(self.L["Ignored"] .. " - " .. #ignored))
+     --   for f = 1, #ignored, 1 do
+     --       container:AddChild(ignored[f])
+     --   end
+   -- end
 
-    self.frame.statusbar:SetMinMaxValues(0, all_count)
-    self.frame.statusbar:SetValue(known_count)
-    self.frame.statusbar.value:SetText(known_count .. " / " .. all_count .. " (".. percent .. "%)")
-    self.frame.statusbar:Show()
+    --all_count = all_count - #self.ignored_db - filter_count
+    --local percent = self:round(known_count / all_count * 100, 2)
+
+    --self.frame.statusbar:SetMinMaxValues(0, all_count)
+    --self.frame.statusbar:SetValue(known_count)
+    --self.frame.statusbar.value:SetText(known_count .. " / " .. all_count .. " (".. percent .. "%)")
+    --self.frame.statusbar:Show()
 end
 
 function CollectMe:BuildMissingCompanionList(listcontainer)
@@ -610,35 +544,35 @@ end
 function CollectMe:BuildOptions(container)
     container:AddChild(self:CreateHeading(self.L["Options"]))
 
-    if self.active_tab == self.MOUNT then
+    if self.UI.active_group == self.MOUNT then
         local f = self:GetCheckboxOption(self.L["Disable missing mount message"], self.db.profile.missing_message.mounts)
         f:SetCallback("OnValueChanged", function (container, event, value) self.db.profile.missing_message.mounts = value end)
         container:AddChild(f)
         local f = self:GetCheckboxOption(self.L["Hide ignored list"], self.db.profile.hide_ignore.mounts)
         f:SetCallback("OnValueChanged", function (container, event, value) self.db.profile.hide_ignore.mounts = value; self:BuildList(self.scroll) end)
         container:AddChild(f)
-    elseif self.active_tab == self.TITLE then
+    elseif self.UI.active_group == self.TITLE then
         local f = self:GetCheckboxOption(self.L["Disable missing title message"], self.db.profile.missing_message.titles)
         f:SetCallback("OnValueChanged", function (container, event, value) self.db.profile.missing_message.titles = value end)
         container:AddChild(f)
         local f = self:GetCheckboxOption(self.L["Hide ignored list"], self.db.profile.hide_ignore.titles)
         f:SetCallback("OnValueChanged", function (container, event, value) self.db.profile.hide_ignore.titles = value; self:BuildList(self.scroll) end)
         container:AddChild(f)
-    elseif self.active_tab == self.COMPANION then
+    elseif self.UI.active_group == self.COMPANION then
         local f = self:GetCheckboxOption(self.L["Disable tooltip notice for missing companions"], self.db.profile.tooltip.companions.hide)
         f:SetCallback("OnValueChanged", function (container, event, value)  self.db.profile.tooltip.companions.hide = value end)
         container:AddChild(f)
         local f = self:GetCheckboxOption(self.L["Perform quality check in pet battles"],  self.db.profile.tooltip.companions.quality_check)
         f:SetCallback("OnValueChanged", function (container, event, value)  self.db.profile.tooltip.companions.quality_check = value; self:BuildList(self.scroll) end)
         container:AddChild(f)
-    elseif self.active_tab == self.RANDOM_COMPANION then
+    elseif self.UI.active_group == self.RANDOM_COMPANION then
         local f = self:GetCheckboxOption(self.L["Auto summon on moving forward"], self.db.profile.summon.companions.auto)
         f:SetCallback("OnValueChanged", function (container, event, value) self.db.profile.summon.companions.auto = value end)
         container:AddChild(f)
         local f = self:GetCheckboxOption(self.L["Disable auto summon in pvp"], self.db.profile.summon.companions.disable_pvp)
         f:SetCallback("OnValueChanged", function (container, event, value) self.db.profile.summon.companions.disable_pvp = value end)
         container:AddChild(f)
-    elseif self.active_tab == self.RANDOM_MOUNT then
+    elseif self.UI.active_group == self.RANDOM_MOUNT then
         local f = self:GetCheckboxOption(self.L["Don't dismount when left-clicking on macro"], self.db.profile.summon.mounts.no_dismount)
         f:SetCallback("OnValueChanged", function (container, event, value) self.db.profile.summon.mounts.no_dismount = value end)
         container:AddChild(f)
@@ -665,7 +599,7 @@ function CollectMe:BuildOptions(container)
 end
 
 function CollectMe:BatchCheck(value)
-    if self.active_tab == self.RANDOM_MOUNT then
+    if self.UI.active_group == self.RANDOM_MOUNT then
         local random_db = self.db.profile.random.mounts
         local count = GetNumCompanions("MOUNT")
         for i = 1, count, 1 do
@@ -673,7 +607,7 @@ function CollectMe:BatchCheck(value)
             random_db[spell_id] = value
         end
         self:SelectGroup(self.tabs, RANDOM_MOUNT)
-    elseif self.active_tab == self.RANDOM_COMPANION then
+    elseif self.UI.active_group == self.RANDOM_COMPANION then
         local count, owned = C_PetJournal.GetNumPets(false)
         local random_db =  self.db.profile.random.companions
 
@@ -755,7 +689,7 @@ function CollectMe:ToggleFilter(filter, value)
 end
 
 function CollectMe:ItemRowClick(group, spell_id)
-    if self.active_tab == self.MOUNT and group == "LeftButton" then
+    if self.UI.active_group == self.MOUNT and group == "LeftButton" then
         local mount = self:GetMountInfo(spell_id)
         if mount ~= nil then
             if IsShiftKeyDown() == 1 and mount.link ~= nil then
@@ -764,7 +698,7 @@ function CollectMe:ItemRowClick(group, spell_id)
                 self:PreviewCreature(mount.display_id)
             end
         end
-    elseif self.active_tab == self.COMPANION and group == "LeftButton" then
+    elseif self.UI.active_group == self.COMPANION and group == "LeftButton" then
         if spell_id ~= nil then
             self:PreviewCreature(spell_id)
         end
@@ -779,7 +713,7 @@ function CollectMe:ItemRowClick(group, spell_id)
             table.insert(ignored_table, spell_id)
         end
 
-        self.tabs:SelectTab(self.active_tab)
+        self.tabs:SelectTab(self.UI.active_group)
 
         -- SetScroll doe not calculate position accurately
         local status_table = self.scroll.localstatus
@@ -795,7 +729,7 @@ function CollectMe:PreviewCreature(display_id)
         DressUpBackgroundTopRight:SetTexture(nil);
         DressUpBackgroundBotLeft:SetTexture(nil);
         DressUpBackgroundBotRight:SetTexture(nil);
-        if self.active_tab == self.COMPANION then
+        if self.UI.active_group == self.COMPANION then
             DressUpModel:SetCreature(display_id)
         else
             DressUpModel:SetDisplayInfo(display_id)
@@ -809,11 +743,11 @@ end
 function CollectMe:ItemRowEnter(v)
     local tooltip = self.frame.tooltip
     tooltip:SetOwner(UIParent, "ANCHOR_CURSOR")
-    if self.active_tab == self.MOUNT then
+    if self.UI.active_group == self.MOUNT then
         tooltip:SetHyperlink(v.link)
         tooltip:AddLine(" ")
         tooltip:AddLine(self.L["mount_" .. v.id], 0, 1, 0, 1)
-    elseif self.active_tab == self.COMPANION then
+    elseif self.UI.active_group == self.COMPANION then
         tooltip:AddLine(v.name, 1, 1 ,1)
         tooltip:AddLine(" ")
         tooltip:AddLine(v.source, 0, 1, 0, 1)
@@ -836,10 +770,10 @@ function CollectMe:ItemRowEnter(v)
     end
 
     tooltip:AddLine(" ")
-    if self.active_tab == self.MOUNT then
+    if self.UI.active_group == self.MOUNT then
         tooltip:AddLine(self.L["tooltip_preview"], 0.65, 0.65, 0)
         tooltip:AddLine(self.L["tooltip_link"], 0.65, 0.65, 0)
-    elseif self.active_tab == self.COMPANION then
+    elseif self.UI.active_group == self.COMPANION then
         tooltip:AddLine(self.L["tooltip_preview"], 0.65, 0.65, 0)
     end
     tooltip:AddLine(self.L["tooltip_toggle"], 0.65, 0.65, 0)
@@ -848,16 +782,6 @@ end
 
 function CollectMe:ItemRowLeave(v)
     self.frame.tooltip:Hide()
-end
-
-function CollectMe:CreateItemRow()
-    local f = AceGUI:Create("CollectMeLabel")
-    f:SetHighlight("Interface\\QuestFrame\\UI-QuestTitleHighlight")
-    f:SetFontObject(SystemFont_Shadow_Med1)
-    f:SetPoint("Top", 10, 10)
-    f:SetFullWidth(true)
-
-    return f
 end
 
 function CollectMe:GetMountInfo(spell_id)
@@ -882,14 +806,6 @@ function CollectMe:RefreshKnownMounts()
             end
         end
     end
-end
-
-function CollectMe:CreateHeading(text)
-    local heading = AceGUI:Create("Heading")
-    heading:SetText(text)
-    heading:SetFullWidth(true)
-
-    return heading
 end
 
 function CollectMe:GetActive(type)
@@ -948,7 +864,7 @@ function CollectMe:SlashProcessor(input)
     elseif input == "macro" then
         self:UpdateMacros()
     else
-        self.tabs:SelectTab(self.active_tab)
+        self.tabs:SelectTab(self.UI.active_group)
         self.frame:Show()
     end
 end
