@@ -74,6 +74,7 @@ local options = {
 }
 
 function CollectMe:OnInitialize()
+    self.ADDON_NAME = addon_name
     self.VERSION = GetAddOnMetadata("CollectMe", "Version")
     self.L = LibStub("AceLocale-3.0"):GetLocale("CollectMe", true)
 
@@ -101,8 +102,6 @@ function CollectMe:OnInitialize()
     self.filter_list = MOUNT_FILTERS
     self.gametooltip_visible = false
 
-    self.cm_button_loaded = false
-
     self.display_creature = false
 
     self:RegisterChatCommand("collectme", "SlashProcessor")
@@ -114,44 +113,11 @@ function CollectMe:OnInitialize()
     self:SecureHook("MoveForwardStart", "AutoSummonCompanion")
     self:SecureHook("ToggleAutoRun", "AutoSummonCompanion")
 
-    self:RegisterEvent("ADDON_LOADED", "AddonLoadedListener")
-
     self:SecureHookScript(GameTooltip, "OnShow", "TooltipHook")
     self:RegisterEvent("PET_BATTLE_OPENING_START", "ResetEnemyTable")
     self:RegisterEvent("PET_BATTLE_PET_CHANGED", "CheckEnemyQuality")
 
-    self:AddButtons()
 end
-
-function CollectMe:AddButtons()
-    if self.cm_button_loaded == false and IsAddOnLoaded("Blizzard_PetJournal") then
-        local cmbutton = CreateFrame("Button", "CollectMeOpenButton", MountJournal, "UIPanelButtonTemplate")
-        cmbutton:ClearAllPoints()
-        cmbutton:SetPoint("BOTTOMRIGHT", -8, 3)
-        cmbutton:SetHeight(22)
-        cmbutton:SetWidth(100)
-        cmbutton:SetText(addon_name)
-        cmbutton:SetScript("OnClick", function() self.tabs:SelectTab(MOUNT); self.frame:Show() end)
-
-        local cmbutton2 = CreateFrame("Button", "CollectMeOpen2Button", PetJournal, "UIPanelButtonTemplate")
-        cmbutton2:ClearAllPoints()
-        cmbutton2:SetPoint("RIGHT", PetJournalFindBattle, "LEFT", -5, 0)
-        cmbutton2:SetHeight(22)
-        cmbutton2:SetWidth(100)
-        cmbutton2:SetText(addon_name)
-        cmbutton2:SetScript("OnClick", function() self.tabs:SelectTab(COMPANION); self.frame:Show() end)
-
-        self.cm_button_loaded = true
-    end
-
-end
-
-function CollectMe:AddonLoadedListener(event, name)
-    if name == "Blizzard_PetJournal" and self.cm_button_loaded == false then
-        self:AddButtons()
-    end
-end
-
 
 function CollectMe:OnEnable()
     self:UpdateMacros()

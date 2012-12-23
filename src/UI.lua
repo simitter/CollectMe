@@ -1,11 +1,21 @@
-CollectMe.UI = CollectMe:NewModule("UI", "AceConsole-3.0")
+CollectMe.UI = CollectMe:NewModule("UI", "AceEvent-3.0")
 local AceGUI = LibStub("AceGUI-3.0")
 
 function CollectMe.UI:OnInitialize()
     self.active_group = CollectMe.TITLE
 
+    self.cm_button_loaded = false
+    self:RegisterEvent("ADDON_LOADED", "AddonLoadedListener")
+
     self:Build()
-    self:Show()
+    self:Show(CollectMe.TITLE)
+    self:AddCollectMeButtons()
+end
+
+function CollectMe.UI:AddonLoadedListener(event, name)
+    if name == "Blizzard_PetJournal" and self.cm_button_loaded == false then
+        self:AddCollectMeButtons()
+    end
 end
 
 function CollectMe.UI:Build()
@@ -51,8 +61,10 @@ function CollectMe.UI:ReloadScroll()
     CollectMe:BuildData(true)
 end
 
-function CollectMe.UI:Show()
-    self:SelectTab(CollectMe.TITLE)
+function CollectMe.UI:Show(group)
+    if group ~= nil then
+        self:SelectTab(group)
+    end
     self.frame:Show()
 end
 
@@ -192,4 +204,26 @@ end
 function CollectMe.UI:ShowCheckButtons()
     self.checkbutton:Show()
     self.uncheckbutton:Show()
+end
+
+function CollectMe.UI:AddCollectMeButtons()
+    if self.cm_button_loaded == false and IsAddOnLoaded("Blizzard_PetJournal") then
+        local cmbutton = CreateFrame("Button", "CollectMeOpenButton", MountJournal, "UIPanelButtonTemplate")
+        cmbutton:ClearAllPoints()
+        cmbutton:SetPoint("BOTTOMRIGHT", -8, 3)
+        cmbutton:SetHeight(22)
+        cmbutton:SetWidth(100)
+        cmbutton:SetText(CollectMe.ADDON_NAME)
+        cmbutton:SetScript("OnClick", function() self:Show(CollectMe.MOUNT); end)
+
+        local cmbutton2 = CreateFrame("Button", "CollectMeOpen2Button", PetJournal, "UIPanelButtonTemplate")
+        cmbutton2:ClearAllPoints()
+        cmbutton2:SetPoint("RIGHT", PetJournalFindBattle, "LEFT", -5, 0)
+        cmbutton2:SetHeight(22)
+        cmbutton2:SetWidth(100)
+        cmbutton2:SetText(CollectMe.ADDON_NAME)
+        cmbutton2:SetScript("OnClick", function() self:Show(CollectMe.COMPANION); self.frame:Show() end)
+
+        self.cm_button_loaded = true
+    end
 end
