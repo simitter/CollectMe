@@ -210,14 +210,14 @@ function CollectMe:BuildData()
         self.item_list = self.MOUNTS
         self.filter_list = MOUNT_FILTERS
         self:BuildList()
-        self:BuildFilters()
+        --self:BuildFilters()
     elseif self.UI.active_group == self.TITLE then
         self.filter_db = self.db.profile.filters.titles
         self.ignored_db = self.db.profile.ignored.titles
         self.item_list = self.TitleDB:Get()
         self.filter_list = self.TitleDB.filters
         self:BuildList()
-        self:BuildFilters()
+        --self:BuildFilters()
     elseif self.UI.active_group == self.COMPANION then
         self.ignored_db = self.db.profile.ignored.companions
         self:BuildMissingCompanionList()
@@ -230,7 +230,7 @@ function CollectMe:BuildData()
         self.UI:ShowCheckButtons()
     end
 
-    self:BuildOptions()
+    --self:BuildOptions()
 end
 
 
@@ -692,7 +692,7 @@ function CollectMe:ItemRowClick(group, spell_id)
             self:PreviewCreature(spell_id)
         end
     elseif group == "RightButton" and IsControlKeyDown() then
-        local offset = self.scroll.localstatus.offset
+        local offset = self.UI.scroll.localstatus.offset
         local ignored_table = self.ignored_db
 
         local position = self:IsInTable(ignored_table, spell_id)
@@ -702,12 +702,12 @@ function CollectMe:ItemRowClick(group, spell_id)
             table.insert(ignored_table, spell_id)
         end
 
-        self.tabs:SelectTab(self.UI.active_group)
+        self.UI:SelectTab(self.UI.active_group)
 
         -- SetScroll doe not calculate position accurately
-        local status_table = self.scroll.localstatus
+        local status_table = self.UI.scroll.localstatus
         status_table.offset = offset
-        self.scroll:SetStatusTable(status_table)
+        self.UI.scroll:SetStatusTable(status_table)
     end
 end
 
@@ -730,7 +730,7 @@ function CollectMe:PreviewCreature(display_id)
 end
 
 function CollectMe:ItemRowEnter(v)
-    local tooltip = self.frame.tooltip
+    local tooltip = self.UI.frame.tooltip
     tooltip:SetOwner(UIParent, "ANCHOR_CURSOR")
     if self.UI.active_group == self.MOUNT then
         tooltip:SetHyperlink(v.link)
@@ -769,8 +769,8 @@ function CollectMe:ItemRowEnter(v)
     tooltip:Show()
 end
 
-function CollectMe:ItemRowLeave(v)
-    self.frame.tooltip:Hide()
+function CollectMe:ItemRowLeave()
+    self.UI.frame.tooltip:Hide()
 end
 
 function CollectMe:GetMountInfo(spell_id)

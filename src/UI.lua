@@ -42,12 +42,19 @@ function CollectMe.UI:Build()
     uncheckbutton:Hide()
 
     self.frame = f
+    self.tabs = tabs
     self.checkbutton, self.uncheckbutton = checkbutton, uncheckbutton
 end
 
 function CollectMe.UI:Show()
+    self:SelectTab(CollectMe.TITLE)
     self.frame:Show()
 end
+
+function CollectMe.UI:SelectTab(group)
+    self.tabs:SelectTab(group)
+end
+
 
 function CollectMe.UI:SelectGroup(container, group)
     container:ReleaseChildren()
