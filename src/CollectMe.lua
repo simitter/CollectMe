@@ -102,13 +102,8 @@ function CollectMe:OnInitialize()
     self.filter_list = MOUNT_FILTERS
     self.gametooltip_visible = false
 
-    self.display_creature = false
-
     self:RegisterChatCommand("collectme", "SlashProcessor")
     self:RegisterChatCommand("cm", "SlashProcessor")
-
-    self:Hook("DressUpItemLink", true)
-    self:HookScript(DressUpFrameResetButton, "OnClick", "DressUpFrameResetButton")
 
     self:SecureHook("MoveForwardStart", "AutoSummonCompanion")
     self:SecureHook("ToggleAutoRun", "AutoSummonCompanion")
@@ -637,12 +632,12 @@ function CollectMe:ItemRowClick(group, spell_id)
             if IsShiftKeyDown() == 1 and mount.link ~= nil then
                 ChatEdit_InsertLink(mount.link)
             elseif mount.display_id ~= nil then
-                self:PreviewCreature(mount.display_id)
+                self.ModelPreview:PreviewCreature(mount.display_id)
             end
         end
     elseif self.UI.active_group == self.COMPANION and group == "LeftButton" then
         if spell_id ~= nil then
-            self:PreviewCreature(spell_id)
+            self.ModelPreview:PreviewCreature(spell_id)
         end
     elseif group == "RightButton" and IsControlKeyDown() then
         local ignored_table = self.ignored_db
@@ -655,24 +650,6 @@ function CollectMe:ItemRowClick(group, spell_id)
         end
 
         self.UI:ReloadScroll()
-    end
-end
-
-function CollectMe:PreviewCreature(display_id)
-    if display_id ~= nil then
-        self.display_creature = true
-        DressUpBackgroundTopLeft:SetTexture(nil);
-        DressUpBackgroundTopRight:SetTexture(nil);
-        DressUpBackgroundBotLeft:SetTexture(nil);
-        DressUpBackgroundBotRight:SetTexture(nil);
-        if self.UI.active_group == self.COMPANION then
-            DressUpModel:SetCreature(display_id)
-        else
-            DressUpModel:SetDisplayInfo(display_id)
-        end
-        if not DressUpFrame:IsShown() then
-            ShowUIPanel(DressUpFrame);
-        end
     end
 end
 
@@ -806,27 +783,6 @@ function CollectMe:SlashProcessor(input)
 end
 
  -- HOOKS
-function CollectMe:DressUpItemLink(link)
-    local spell = tonumber(link:match("spell:(%d+)"));
-    if spell ~= nil then
-        local info = self:GetMountInfo(spell)
-        if info ~= nil then
-            self:PreviewCreature(info.display_id)
-            return true
-        end
-    end
-    if self.display_creature == true then
-        SetDressUpBackground(DressUpFrame, self.RACE);
-        DressUpModel:SetUnit("player")
-        self.display_creature = false
-    end
-end
-
-function CollectMe:DressUpFrameResetButton()
-     SetDressUpBackground(DressUpFrame, self.RACE);
-     DressUpModel:SetUnit("player");
-end
-
 function CollectMe:AutoSummonCompanion()
     if UnitAffectingCombat("player") == nil and IsMounted() == nil and IsStealthed() == nil and self.db.profile.summon.companions.auto == true then
         if (not (UnitIsPVP("player") == 1 and self.db.profile.summon.companions.disable_pvp == true)) then
