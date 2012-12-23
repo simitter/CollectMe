@@ -81,8 +81,18 @@ function CollectMe.UI:SelectGroup(container, group)
     filtercontainer:AddChild(filter)
     self.filter = filter
 
-    CollectMe:GetData()
+    CollectMe:BuildData()
 end
+
+function CollectMe.UI:UpdateStatusBar(all, active)
+    local percent = CollectMe:round(active / all * 100, 2)
+
+    self.frame.statusbar:SetMinMaxValues(0, all)
+    self.frame.statusbar:SetValue(active)
+    self.frame.statusbar.value:SetText(active .. " / " .. all .. " (".. percent .. "%)")
+    self.frame.statusbar:Show()
+end
+
 
 function CollectMe.UI:AddToScroll(f)
     self.scroll:AddChild(f)
@@ -96,12 +106,30 @@ function CollectMe.UI:CreateHeading(text)
     return heading
 end
 
-function CollectMe.UI:CreateLabel()
+function CollectMe.UI:CreateScrollLabel(...)
+    self:AddToScroll(self:CreateLabel(...))
+end
+
+function CollectMe.UI:CreateLabel(text, icon, callbacks)
     local f = AceGUI:Create("CollectMeLabel")
     f:SetHighlight("Interface\\QuestFrame\\UI-QuestTitleHighlight")
     f:SetFontObject(SystemFont_Shadow_Med1)
     f:SetPoint("Top", 10, 10)
     f:SetFullWidth(true)
+
+    if text ~= nil then
+        f:SetText(text)
+    end
+    if icon ~= nil then
+        f:SetImage(icon)
+        f:SetImageSize(20, 20)
+    end
+
+    if callbacks ~= nil then
+        for i,v in pairs(callbacks) do
+            f:SetCallback(i, v)
+        end
+    end
 
     return f
 end

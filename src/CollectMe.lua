@@ -203,7 +203,7 @@ function CollectMe:InitMacro(name, icon, body)
     end
 end
 
-function CollectMe:GetData()
+function CollectMe:BuildData()
     if self.UI.active_group == self.MOUNT then
         self.filter_db = self.db.profile.filters.mounts
         self.ignored_db = self.db.profile.ignored.mounts
@@ -412,39 +412,28 @@ function CollectMe:BuildList()
 end
 
 function CollectMe:AddMissingRows(active, ignored, all_count, known_count, filter_count)
---[[
-
-    local f = self.UI:CreateLabel(v.name, v.icon, )
-    if self.UI.active_group == self.MOUNT then
-        f:SetImage(v.icon)
-        f:SetImageSize(20, 20)
-    end
-    f:SetText(v.name)
-    f:SetCallback("OnClick", function (container, event, group) CollectMe:ItemRowClick(group, v.id) end)
-    f:SetCallback("OnEnter", function (container, event, group) CollectMe:ItemRowEnter(v) end)
-    f:SetCallback("OnLeave", function (container, event, group) CollectMe:ItemRowLeave(v) end)
-
-]]--
     self.UI:AddToScroll(self.UI:CreateHeading(self.L["Missing"] .. " - " .. #active))
-    --for f = 1, #active, 1 do
-    --    container:AddChild(active[f])
-    --end
+    self:BuildItemRow(active)
 
-    --local hide_ignore = (self.UI.active_group == self.MOUNT and self.db.profile.hide_ignore.mounts or self.db.profile.hide_ignore.titles )
-    --if hide_ignore == false then
-     --   container:AddChild(self:CreateHeading(self.L["Ignored"] .. " - " .. #ignored))
-     --   for f = 1, #ignored, 1 do
-     --       container:AddChild(ignored[f])
-     --   end
-   -- end
+    local hide_ignore = (self.UI.active_group == self.MOUNT and self.db.profile.hide_ignore.mounts or self.db.profile.hide_ignore.titles )
+    if hide_ignore == false then
+        self.UI:AddToScroll(self.UI:CreateHeading(self.L["Ignored"] .. " - " .. #ignored))
+        self:BuildItemRow(ignored)
+    end
 
-    --all_count = all_count - #self.ignored_db - filter_count
-    --local percent = self:round(known_count / all_count * 100, 2)
+    all_count = all_count - #self.ignored_db - filter_count
+    self.UI:UpdateStatusBar(all_count, known_count)
+end
 
-    --self.frame.statusbar:SetMinMaxValues(0, all_count)
-    --self.frame.statusbar:SetValue(known_count)
-    --self.frame.statusbar.value:SetText(known_count .. " / " .. all_count .. " (".. percent .. "%)")
-    --self.frame.statusbar:Show()
+function CollectMe:BuildItemRow(items)
+    for i,v in ipairs(items) do
+        local callbacks = {
+            OnClick = function (container, event, group) CollectMe:ItemRowClick(group, v.id) end,
+            OnEnter = function (container, event, group) CollectMe:ItemRowEnter(v) end ,
+            OnLeave = function (container, event, group) CollectMe:ItemRowLeave(v) end ,
+        }
+        self.UI:CreateScrollLabel(v.name, v.icon, callbacks)
+    end
 end
 
 function CollectMe:BuildMissingCompanionList(listcontainer)
