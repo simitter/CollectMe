@@ -46,6 +46,11 @@ function CollectMe.UI:Build()
     self.checkbutton, self.uncheckbutton = checkbutton, uncheckbutton
 end
 
+function CollectMe.UI:ReloadScroll()
+    self.scroll:ReleaseChildren()
+    CollectMe:BuildData(true)
+end
+
 function CollectMe.UI:Show()
     self:SelectTab(CollectMe.TITLE)
     self.frame:Show()
@@ -54,7 +59,6 @@ end
 function CollectMe.UI:SelectTab(group)
     self.tabs:SelectTab(group)
 end
-
 
 function CollectMe.UI:SelectGroup(container, group)
     container:ReleaseChildren()
@@ -100,9 +104,12 @@ function CollectMe.UI:UpdateStatusBar(all, active)
     self.frame.statusbar:Show()
 end
 
-
 function CollectMe.UI:AddToScroll(f)
     self.scroll:AddChild(f)
+end
+
+function CollectMe.UI:AddToFilter(f)
+    self.filter:AddChild(f)
 end
 
 function CollectMe.UI:CreateHeading(text)
@@ -115,6 +122,10 @@ end
 
 function CollectMe.UI:CreateScrollLabel(...)
     self:AddToScroll(self:CreateLabel(...))
+end
+
+function CollectMe.UI:CreateFilterCheckbox(...)
+    self:AddToFilter(self:CreateCheckbox(...))
 end
 
 function CollectMe.UI:CreateLabel(text, icon, callbacks)
@@ -132,13 +143,16 @@ function CollectMe.UI:CreateLabel(text, icon, callbacks)
         f:SetImageSize(20, 20)
     end
 
+    self:AddCallbacks(f, callbacks)
+    return f
+end
+
+function CollectMe.UI:AddCallbacks(f, callbacks)
     if callbacks ~= nil then
         for i,v in pairs(callbacks) do
             f:SetCallback(i, v)
         end
     end
-
-    return f
 end
 
 function CollectMe.UI:CreateButton(text, parent)
@@ -146,6 +160,21 @@ function CollectMe.UI:CreateButton(text, parent)
     f:SetHeight(20)
     f:SetWidth(100)
     f:SetText(text)
+    return f
+end
+
+function CollectMe.UI:CreateCheckbox(label, value, callbacks)
+    local f = AceGUI:Create("CheckBox")
+
+    if label ~= nil then
+        f:SetLabel(label)
+    end
+    if value ~= nil then
+        f:SetValue(value)
+    end
+
+    f:SetPoint("Top", 15, 15)
+    self:AddCallbacks(f, callbacks)
     return f
 end
 

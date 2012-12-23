@@ -203,25 +203,32 @@ function CollectMe:InitMacro(name, icon, body)
     end
 end
 
-function CollectMe:BuildData()
+function CollectMe:BuildData(no_filters)
     if self.UI.active_group == self.MOUNT then
         self.filter_db = self.db.profile.filters.mounts
         self.ignored_db = self.db.profile.ignored.mounts
         self.item_list = self.MOUNTS
         self.filter_list = MOUNT_FILTERS
         self:BuildList()
-        --self:BuildFilters()
+        if not no_filters then
+            self:BuildFilters()
+        end
     elseif self.UI.active_group == self.TITLE then
         self.filter_db = self.db.profile.filters.titles
         self.ignored_db = self.db.profile.ignored.titles
         self.item_list = self.TitleDB:Get()
         self.filter_list = self.TitleDB.filters
         self:BuildList()
-        --self:BuildFilters()
+        if not no_filters then
+            self:BuildFilters()
+        end
+
     elseif self.UI.active_group == self.COMPANION then
         self.ignored_db = self.db.profile.ignored.companions
         self:BuildMissingCompanionList()
-        self:BuildMissingCompanionFilters()
+        if not no_filters then
+            self:BuildMissingCompanionFilters()
+        end
     elseif self.UI.active_group == self.RANDOM_COMPANION then
         self:BuildRandomPetList()
         self.UI:ShowCheckButtons()
@@ -230,7 +237,9 @@ function CollectMe:BuildData()
         self.UI:ShowCheckButtons()
     end
 
-    --self:BuildOptions()
+    if not no_filters then
+        --self:BuildOptions()
+    end
 end
 
 
@@ -487,16 +496,11 @@ function CollectMe:IsFiltered(filters)
     return false
 end
 
-function CollectMe:BuildFilters(filtercontainer)
-    filtercontainer:AddChild(self:CreateHeading(self.L["Filters"]))
+function CollectMe:BuildFilters()
+    self.UI:AddToFilter(self.UI:CreateHeading(self.L["Filters"]))
 
     for i = 1, #self.filter_list, 1 do
-        local f = AceGUI:Create("CheckBox")
-        f:SetLabel(self.L["filters_" .. self.filter_list[i]])
-        f:SetPoint("Top", 15, 15)
-        f:SetValue(self.filter_db[self.filter_list[i]])
-        f:SetCallback("OnValueChanged", function (container, event, value) CollectMe:ToggleFilter(self.filter_list[i], value) end)
-        filtercontainer:AddChild(f)
+        self.UI:CreateFilterCheckbox(self.L["filters_" .. self.filter_list[i]], self.filter_db[self.filter_list[i]], { OnValueChanged = function (container, event, value) CollectMe:ToggleFilter(self.filter_list[i], value) end })
     end
 end
 
@@ -674,7 +678,7 @@ end
 
 function CollectMe:ToggleFilter(filter, value)
     self.filter_db[filter] = value
-    self:BuildList(self.scroll)
+    self.UI:ReloadScroll()
 end
 
 function CollectMe:ItemRowClick(group, spell_id)
