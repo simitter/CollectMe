@@ -2,13 +2,12 @@ CollectMe.UI = CollectMe:NewModule("UI", "AceEvent-3.0")
 local AceGUI = LibStub("AceGUI-3.0")
 
 function CollectMe.UI:OnInitialize()
-    self.active_group = CollectMe.TITLE
+    self.active_group = false
 
     self.cm_button_loaded = false
     self:RegisterEvent("ADDON_LOADED", "AddonLoadedListener")
 
     self:Build()
-    self:Show(CollectMe.TITLE)
     self:AddCollectMeButtons()
 end
 
@@ -64,6 +63,8 @@ end
 function CollectMe.UI:Show(group)
     if group ~= nil then
         self:SelectTab(group)
+    elseif self.active_group == false then
+        self:SelectTab(CollectMe.MOUNT)
     end
     self.frame:Show()
 end

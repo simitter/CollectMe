@@ -1,4 +1,4 @@
-CollectMe.CompanionDB = CollectMe:NewModule("CompanionDB", "AceEvent-3.0", "AceConsole-3.0")
+CollectMe.CompanionDB = CollectMe:NewModule("CompanionDB", "AceEvent-3.0")
 local LibPetJournal = LibStub("LibPetJournal-2.0")
 
 function CollectMe.CompanionDB:Update()

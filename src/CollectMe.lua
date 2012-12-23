@@ -1,12 +1,5 @@
 CollectMe = LibStub("AceAddon-3.0"):NewAddon("CollectMe", "AceConsole-3.0", "AceHook-3.0", "AceEvent-3.0")
-
 local addon_name = "CollectMe"
-local MOUNT_FILTERS = { "nlo", "tcg", "pvp", "are", "bsm", "rfm", "ptm" }
-
-local GROUND = 1
-local FLY = 2
-local SWIM = 3
-local AQUATIC = 4
 
 local defaults = {
     profile = {
@@ -94,12 +87,10 @@ function CollectMe:OnInitialize()
     self.db = LibStub("AceDB-3.0"):New("CollectMeDB", defaults)
     options.args.profiles = LibStub("AceDBOptions-3.0"):GetOptionsTable(self.db)
 
-    self:BuildMountDB()
-
     self.filter_db = self.db.profile.filters.mounts
     self.ignored_db = self.db.profile.ignored.mounts
-    self.item_list = self.MOUNTS
-    self.filter_list = MOUNT_FILTERS
+    self.item_list = self.MountDB:Get()
+    self.filter_list = self.MountDB.filters
     self.gametooltip_visible = false
 
     self:RegisterChatCommand("collectme", "SlashProcessor")
@@ -168,8 +159,8 @@ function CollectMe:BuildData(no_filters)
     if self.UI.active_group == self.MOUNT then
         self.filter_db = self.db.profile.filters.mounts
         self.ignored_db = self.db.profile.ignored.mounts
-        self.item_list = self.MOUNTS
-        self.filter_list = MOUNT_FILTERS
+        self.item_list = self.MountDB:Get()
+        self.filter_list = self.MountDB.filters
         self:BuildList()
         if not no_filters then
             self:BuildFilters()
@@ -280,7 +271,7 @@ function CollectMe:SummonRandomMount(type)
             if self.db.profile.random.mounts[spell_id] ~= nil and self.db.profile.random.mounts[spell_id] ~= false and IsUsableSpell(spell_id) ~= nil then
 
                 -- get info table from mount db
-                local info = self:GetMountInfo(spell_id)
+                local info = self.MountDB:GetInfo(spell_id)
                 if info == nil then
                     info = {
                         type = GROUND, --mount not known, assuming it' is a ground mount
@@ -352,9 +343,8 @@ function CollectMe:Mount(t)
 end
 
 function CollectMe:BuildList()
-
     if self.UI.active_group == self.MOUNT then
-        self:RefreshKnownMounts()
+        self.MountDB:RefreshKnown()
     elseif self.UI.active_group == self.TITLE and self.db.profile.missing_message.titles == false then
         self.TitleDB:PrintUnkown()
     end
@@ -363,7 +353,7 @@ function CollectMe:BuildList()
     local all_count, known_count, filter_count = #self.item_list, 0, 0
 
     for i,v in ipairs(self.item_list) do
-        if (self.UI.active_group == self.MOUNT and not self:IsInTable(self.known_mounts, v.id)) or (self.UI.active_group == self.TITLE and IsTitleKnown(v.id) ~= 1) then
+        if (self.UI.active_group == self.MOUNT and not self.MountDB:IsKnown(v.id)) or (self.UI.active_group == self.TITLE and IsTitleKnown(v.id) ~= 1) then
             if self:IsInTable(self.ignored_db, v.id) then
                 table.insert(ignored, v)
             else
@@ -627,7 +617,7 @@ end
 
 function CollectMe:ItemRowClick(group, spell_id)
     if self.UI.active_group == self.MOUNT and group == "LeftButton" then
-        local mount = self:GetMountInfo(spell_id)
+        local mount = self.MountDB:GetInfo(spell_id)
         if mount ~= nil then
             if IsShiftKeyDown() == 1 and mount.link ~= nil then
                 ChatEdit_InsertLink(mount.link)
@@ -697,30 +687,6 @@ function CollectMe:ItemRowLeave()
     self.UI.frame.tooltip:Hide()
 end
 
-function CollectMe:GetMountInfo(spell_id)
-    for i,v in ipairs(self.MOUNTS) do
-        if v.id == spell_id then
-            return v
-        end
-    end
-    return nil
-end
-
-function CollectMe:RefreshKnownMounts()
-    self.known_mount_count = GetNumCompanions("Mount")
-    self.known_mounts = {}
-
-    for i = 1, self.known_mount_count, 1 do
-        local _, name, spell_id = GetCompanionInfo("Mount", i)
-        table.insert(self.known_mounts, spell_id);
-        if self.db.profile.missing_message.mounts == false then
-            if not self:IsInTable(self.MOUNT_SPELLS, spell_id) then
-                self:Print(self.L["Mount"] .. " " .. name .. "("..spell_id..") " .. self.L["is missing"] .. ". " .. self.L["Please inform the author"])
-            end
-        end
-    end
-end
-
 function CollectMe:GetActive(type)
     for i = 1, GetNumCompanions(type) do
         local _, _, spell_id, _, summoned = GetCompanionInfo("CRITTER", i);
@@ -752,12 +718,6 @@ function CollectMe:SortTable(tbl)
     table.sort(tbl, function(a, b) return (string.lower(a.name) < string.lower(b.name)) end)
 end
 
-function CollectMe:PrintProfessions()
-    for i,v in ipairs(self.professions) do
-        self:Print(v.name ..' - '.. v.skill)
-    end
-end
-
  -- CONSOLE COMMAND HANDLER
 function CollectMe:SlashProcessor(input)
     if input == "rc" or input == "randomcompanion" then
@@ -768,17 +728,12 @@ function CollectMe:SlashProcessor(input)
         InterfaceOptionsFrame_OpenToCategory(addon_name)
     elseif input == "companion zone" then
         self:CompanionsInZone()
-    elseif input == "debug zone" then
-        self:Print(self:GetCurrentZone())
     elseif input == "debug title" then
         self.TitleDB:PrintAll()
-    elseif input == "debug profession" then
-        self:PrintProfessions()
     elseif input == "macro" then
         self:UpdateMacros()
     else
-        self.tabs:SelectTab(self.UI.active_group)
-        self.frame:Show()
+        self.UI:Show()
     end
 end
 
