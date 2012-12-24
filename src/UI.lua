@@ -24,7 +24,7 @@ function CollectMe.UI:Build()
     f:SetTitle("Collect Me " .. CollectMe.VERSION)
     f:SetWidth(570)
     f:SetLayout("Fill")
-    --tinsert(UISpecialFrames, f.frame:GetName())
+    tinsert(UISpecialFrames, f.frame:GetName())
 
     local tabs = AceGUI:Create("TabGroup")
     tabs:SetTabs({ {text = self.L["Mounts"], value = CollectMe.MOUNT}, {text = self.L["Companions"], value = CollectMe.COMPANION}, {text = self.L["Titles"], value = CollectMe.TITLE}, {text = self.L["Random Companion"], value = CollectMe.RANDOM_COMPANION}, {text = self.L["Random Mount"], value = CollectMe.RANDOM_MOUNT}})
@@ -32,7 +32,7 @@ function CollectMe.UI:Build()
     f:AddChild(tabs)
 
     local profilebutton = self:CreateButton(self.L["Profiles"], f.frame)
-    profilebutton:SetScript("OnClick", function() InterfaceOptionsFrame_OpenToCategory(addon_name) end)
+    profilebutton:SetScript("OnClick", function() InterfaceOptionsFrame_OpenToCategory(CollectMe.ADDON_NAME) end)
     profilebutton:ClearAllPoints()
     profilebutton:SetPoint("RIGHT", f.closebutton, "LEFT", 0, 0)
 
