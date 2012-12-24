@@ -94,9 +94,6 @@ function CollectMe:OnInitialize()
 
     self:RegisterChatCommand("collectme", "SlashProcessor")
     self:RegisterChatCommand("cm", "SlashProcessor")
-
-    self:SecureHook("MoveForwardStart", "AutoSummonCompanion")
-    self:SecureHook("ToggleAutoRun", "AutoSummonCompanion")
 end
 
 function CollectMe:OnEnable()
@@ -224,23 +221,6 @@ function CollectMe:BuildRandomList(listcontainer)
         f:SetCallback("OnValueChanged", function (container, event, val) random_db[spell_id] = val end)
 
         listcontainer:AddChild(f)
-    end
-end
-
-function CollectMe:SummonRandomCompanion()
-    local summonable = {};
-
-    for i,v in pairs(self.db.profile.random.companions) do
-        if v == true and C_PetJournal.PetIsSummonable(i) then
-            table.insert(summonable, i)
-        end
-    end
-
-    if (#summonable > 0) then
-        local call = math.random(1, #summonable)
-        C_PetJournal.SummonPetByGUID(summonable[call])
-    else
-        self:Print(self.L["You haven't configured your companion priorities yet. Please open the random companion tab"])
     end
 end
 
@@ -548,16 +528,9 @@ end
 
 function CollectMe:HandlePetMacro()
     if GetMouseButtonClicked() == "RightButton" then
-        self:DismissPet()
+        self.RandomCompanion:Dismiss()
     else
-        self:SummonRandomCompanion()
-    end
-end
-
-function CollectMe:DismissPet()
-    local active = C_PetJournal.GetSummonedPetGUID()
-    if active ~= nil then
-        C_PetJournal.SummonPetByGUID(active)
+        self.RandomCompanion:Summon()
     end
 end
 
@@ -703,21 +676,6 @@ function CollectMe:SlashProcessor(input)
         self:UpdateMacros()
     else
         self.UI:Show()
-    end
-end
-
- -- HOOKS
-function CollectMe:AutoSummonCompanion()
-    if UnitAffectingCombat("player") == nil and IsMounted() == nil and IsStealthed() == nil and self.db.profile.summon.companions.auto == true then
-        if (not (UnitIsPVP("player") == 1 and self.db.profile.summon.companions.disable_pvp == true)) then
-            local active = C_PetJournal.GetSummonedPetGUID()
-            if (active == nil) then
-                self:SummonRandomCompanion()
-            end
-        end
-    end
-    if (UnitIsPVP("player") == 1 and self.db.profile.summon.companions.disable_pvp == true) then
-        self:DismissPet()
     end
 end
 

@@ -11,5 +11,7 @@
     <Script file="src\Tooltip.lua"/>
     <Script file="src\PetBattle.lua"/>
     <Script file="src\Macro.lua"/>
+    <Script file="src\RandomCompanion.lua"/>
+    <Script file="src\RandomMount.lua"/>
     <Script file="src\CompanionZoneDisplay.lua"/>
 </Ui>
