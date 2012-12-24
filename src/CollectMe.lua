@@ -96,28 +96,6 @@ function CollectMe:OnInitialize()
     self:RegisterChatCommand("cm", "SlashProcessor")
 end
 
-function CollectMe:OnEnable()
-    self:UpdateMacros()
-end
-
-function CollectMe:UpdateMacros()
-    self:InitMacro("CollectMeRC", "INV_PET_BABYBLIZZARDBEAR", '/script CollectMe:HandlePetMacro();')
-    if self.CLASS == 'DRUID' then
-        self:InitMacro("CollectMeRM", "ABILITY_MOUNT_BIGBLIZZARDBEAR", '/cancelform\n/script CollectMe:HandleMountMacro();')
-    else
-        self:InitMacro("CollectMeRM", "ABILITY_MOUNT_BIGBLIZZARDBEAR", '/script CollectMe:HandleMountMacro();')
-    end
-end
-
-function CollectMe:InitMacro(name, icon, body)
-    local index = GetMacroIndexByName(name)
-    if index == 0 then
-        local id = CreateMacro(name, icon, body, nil);
-    else
-        EditMacro(index, nil, nil, body)
-    end
-end
-
 function CollectMe:BuildData(no_filters)
     if self.UI.active_group == self.MOUNT then
         self.filter_db = self.db.profile.filters.mounts
@@ -370,34 +348,6 @@ function CollectMe:BatchCheck(value)
             end
         end
         self.UI:ReloadScroll()
-    end
-end
-
-function CollectMe:HandleMountMacro()
-    if GetMouseButtonClicked() == "RightButton" then
-        value = self.db.profile.summon.mounts.macro_right
-    elseif IsShiftKeyDown() then
-        value = self.db.profile.summon.mounts.macro_shift_left
-    else
-        value = self.db.profile.summon.mounts.macro_left
-    end
-
-    if value == 1 then
-        self.RandomMount:Summon()
-    elseif value == 2 then
-        if IsMounted() then
-            Dismount()
-        end
-    elseif value == 3 then
-        self.RandomMount:Summon(self.MountDB.GROUND)
-    end
-end
-
-function CollectMe:HandlePetMacro()
-    if GetMouseButtonClicked() == "RightButton" then
-        self.RandomCompanion:Dismiss()
-    else
-        self.RandomCompanion:Summon()
     end
 end
 
