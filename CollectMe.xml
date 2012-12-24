@@ -9,6 +9,7 @@
     <Script file="src\UI.lua"/>
     <Script file="src\ModelPreview.lua"/>
     <Script file="src\Tooltip.lua"/>
+    <Script file="src\PetBattle.lua"/>
     <Script file="src\Macro.lua"/>
     <Script file="src\CompanionZoneDisplay.lua"/>
 </Ui>
