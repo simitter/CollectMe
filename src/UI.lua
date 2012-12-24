@@ -186,7 +186,7 @@ function CollectMe.UI:CreateCheckbox(label, value, callbacks, max_lines, height)
         f:SetValue(value)
     end
     if max_lines ~= nil then
-        f:SetMaxLines(max_lines)
+        f.text:SetMaxLines(max_lines)
     end
     if height ~= nil then
         f:SetHeight(height)

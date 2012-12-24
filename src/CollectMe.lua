@@ -478,19 +478,15 @@ function CollectMe:BuildOptions()
     self.UI:AddToFilter(self.UI:CreateHeading(self.L["Options"]))
 
     if self.UI.active_group == self.MOUNT then
-        self.UI:CreateFilterCheckbox(self.L["Disable missing mount message"], self.db.profile.missing_message.mounts, { OnValueChanged = function (container, event, value)  self.db.profile.missing_message.mounts = value end })
-        self.UI:CreateFilterCheckbox(self.L["Hide ignored list"], self.db.profile.hide_ignore.mounts, { OnValueChanged = function (container, event, value)  self.db.profile.hide_ignore.mounts = value; self.UI:ReloadScroll() end })
+        self.UI:CreateFilterCheckbox(self.L["Disable missing mount message"], self.db.profile.missing_message.mounts, { OnValueChanged = function (container, event, value) self.db.profile.missing_message.mounts = value end })
+        self.UI:CreateFilterCheckbox(self.L["Hide ignored list"], self.db.profile.hide_ignore.mounts, { OnValueChanged = function (container, event, value) self.db.profile.hide_ignore.mounts = value; self.UI:ReloadScroll() end })
     elseif self.UI.active_group == self.TITLE then
-        self.UI:CreateFilterCheckbox(self.L["Disable missing title message"], self.db.profile.missing_message.titles, { OnValueChanged = function (container, event, value)  self.db.profile.missing_message.titles = value end })
-        self.UI:CreateFilterCheckbox(self.L["Hide ignored list"], self.db.profile.hide_ignore.titles, { OnValueChanged = function (container, event, value)  self.db.profile.hide_ignore.titles = value; self.UI:ReloadScroll() end })
-    --[[
+        self.UI:CreateFilterCheckbox(self.L["Disable missing title message"], self.db.profile.missing_message.titles, { OnValueChanged = function (container, event, value) self.db.profile.missing_message.titles = value end })
+        self.UI:CreateFilterCheckbox(self.L["Hide ignored list"], self.db.profile.hide_ignore.titles, { OnValueChanged = function (container, event, value) self.db.profile.hide_ignore.titles = value; self.UI:ReloadScroll() end })
     elseif self.UI.active_group == self.COMPANION then
-        local f = self:GetCheckboxOption(self.L["Disable tooltip notice for missing companions"], self.db.profile.tooltip.companions.hide)
-        f:SetCallback("OnValueChanged", function (container, event, value)  self.db.profile.tooltip.companions.hide = value end)
-        container:AddChild(f)
-        local f = self:GetCheckboxOption(self.L["Perform quality check in pet battles"],  self.db.profile.tooltip.companions.quality_check)
-        f:SetCallback("OnValueChanged", function (container, event, value)  self.db.profile.tooltip.companions.quality_check = value; self:BuildList(self.scroll) end)
-        container:AddChild(f)
+        self.UI:CreateFilterCheckbox(self.L["Disable tooltip notice for missing companions"], self.db.profile.tooltip.companions.hide, { OnValueChanged = function (container, event, value) self.db.profile.tooltip.companions.hide = value end }, 2)
+        self.UI:CreateFilterCheckbox(self.L["Perform quality check in pet battles"], self.db.profile.tooltip.companions.quality_check, { OnValueChanged = function (container, event, value) self.db.profile.tooltip.companions.quality_check = value end }, 2)
+        --[[
     elseif self.UI.active_group == self.RANDOM_COMPANION then
         local f = self:GetCheckboxOption(self.L["Auto summon on moving forward"], self.db.profile.summon.companions.auto)
         f:SetCallback("OnValueChanged", function (container, event, value) self.db.profile.summon.companions.auto = value end)
