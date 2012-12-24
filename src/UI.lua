@@ -145,6 +145,10 @@ function CollectMe.UI:CreateScrollCheckbox(...)
     self:AddToScroll(self:CreateCheckbox(...))
 end
 
+function CollectMe.UI:CreateFilterDropdown(...)
+    self:AddToFilter(self:CreateDropdown(...))
+end
+
 function CollectMe.UI:CreateLabel(text, icon, callbacks)
     local f = AceGUI:Create("CollectMeLabel")
     f:SetHighlight("Interface\\QuestFrame\\UI-QuestTitleHighlight")
@@ -198,6 +202,21 @@ function CollectMe.UI:CreateCheckbox(label, value, callbacks, max_lines, height)
 
     f:SetFullWidth(true)
     f:SetPoint("Top", 15, 15)
+    self:AddCallbacks(f, callbacks)
+    return f
+end
+
+function CollectMe.UI:CreateDropdown(label, list, value, callbacks)
+    local f = AceGUI:Create("Dropdown")
+    f:SetLabel(label)
+    f:SetList(list)
+    f.label:ClearAllPoints()
+    f.label:SetPoint("LEFT", 10, 15)
+    f.dropdown:ClearAllPoints()
+    f.dropdown:SetPoint("TOPLEFT",f.frame,"TOPLEFT",-10,-15)
+    f.dropdown:SetPoint("BOTTOMRIGHT",f.frame,"BOTTOMRIGHT",17,0)
+    f:SetValue(value)
+
     self:AddCallbacks(f, callbacks)
     return f
 end

@@ -452,29 +452,19 @@ function CollectMe:BuildOptions()
     elseif self.UI.active_group == self.RANDOM_COMPANION then
         self.UI:CreateFilterCheckbox(self.L["Auto summon on moving forward"], self.db.profile.summon.companions.auto, { OnValueChanged = function (container, event, value) self.db.profile.summon.companions.auto = value end }, 2)
         self.UI:CreateFilterCheckbox(self.L["Disable auto summon in pvp"], self.db.profile.summon.companions.disable_pvp, { OnValueChanged = function (container, event, value) self.db.profile.summon.companions.disable_pvp = value end }, 2)
-        --[[
     elseif self.UI.active_group == self.RANDOM_MOUNT then
-        local f = self:GetCheckboxOption(self.L["Don't dismount when left-clicking on macro"], self.db.profile.summon.mounts.no_dismount)
-        f:SetCallback("OnValueChanged", function (container, event, value) self.db.profile.summon.mounts.no_dismount = value end)
-        container:AddChild(f)
-        local f = self:GetCheckboxOption(self.L["Use flying mounts in water"], self.db.profile.summon.mounts.flying_in_water)
-        f:SetCallback("OnValueChanged", function (container, event, value) self.db.profile.summon.mounts.flying_in_water = value end)
-        container:AddChild(f)
-        local f = self:GetCheckboxOption(self.L["Use flying mounts for ground"], self.db.profile.summon.mounts.flying_on_ground)
-        f:SetCallback("OnValueChanged", function (container, event, value) self.db.profile.summon.mounts.flying_on_ground = value end)
-        container:AddChild(f)
+        self.UI:CreateFilterCheckbox(self.L["Don't dismount when left-clicking on macro"], self.db.profile.summon.mounts.no_dismount, { OnValueChanged = function (container, event, value) self.db.profile.summon.mounts.no_dismount = value end }, 2)
+        self.UI:CreateFilterCheckbox(self.L["Use flying mounts in water"], self.db.profile.summon.mounts.flying_in_water, { OnValueChanged = function (container, event, value) self.db.profile.summon.mounts.flying_in_water = value end }, 2)
+        self.UI:CreateFilterCheckbox(self.L["Use flying mounts for ground"], self.db.profile.summon.mounts.flying_on_ground, { OnValueChanged = function (container, event, value) self.db.profile.summon.mounts.flying_on_ground = value end }, 2)
 
-        container:AddChild(self:CreateHeading(self.L["Macro"]))
-
-        local f = self:CreateMacroDropdown(self.L["Left Click"], self.db.profile.summon.mounts.macro_left)
-        f:SetCallback("OnValueChanged", function (container, event, value) self.db.profile.summon.mounts.macro_left = value end)
-        container:AddChild(f)
-        local f = self:CreateMacroDropdown(self.L["Right Click"], self.db.profile.summon.mounts.macro_right)
-        f:SetCallback("OnValueChanged", function (container, event, value) self.db.profile.summon.mounts.macro_right = value end)
-        container:AddChild(f)
-        local f = self:CreateMacroDropdown(self.L["Shift + Left Click"], self.db.profile.summon.mounts.macro_shift_left)
-        f:SetCallback("OnValueChanged", function (container, event, value) self.db.profile.summon.mounts.macro_shift_left = value end)
-        container:AddChild(f)]]
+        self.UI:AddToFilter(self.UI:CreateHeading(self.L["Macro"]))
+        local list = {}
+        list[1] = self.L["Mount / Dismount"]
+        list[2] = self.L["Dismount"]
+        list[3] = self.L["Ground Mount / Dismount"]
+        self.UI:CreateFilterDropdown(self.L["Left Click"], list, self.db.profile.summon.mounts.macro_left, { OnValueChanged = function (container, event, value) self.db.profile.summon.mounts.macro_left = value end })
+        self.UI:CreateFilterDropdown(self.L["Right Click"], list, self.db.profile.summon.mounts.macro_right, { OnValueChanged = function (container, event, value) self.db.profile.summon.mounts.macro_right = value end })
+        self.UI:CreateFilterDropdown(self.L["Shift + Left Click"], list, self.db.profile.summon.mounts.macro_shift_left, { OnValueChanged = function (container, event, value) self.db.profile.summon.mounts.macro_shift_left = value end })
     end
 end
 
@@ -525,24 +515,6 @@ function CollectMe:HandlePetMacro()
     else
         self.RandomCompanion:Summon()
     end
-end
-
-function CollectMe:CreateMacroDropdown(label, value)
-    local list = {}
-    list[1] = self.L["Mount / Dismount"]
-    list[2] = self.L["Dismount"]
-    list[3] = self.L["Ground Mount / Dismount"]
-
-    local f = AceGUI:Create("Dropdown")
-    f:SetLabel(label)
-    f:SetList(list)
-    f.label:ClearAllPoints()
-    f.label:SetPoint("LEFT", 10, 15)
-    f.dropdown:ClearAllPoints()
-    f.dropdown:SetPoint("TOPLEFT",f.frame,"TOPLEFT",-10,-15)
-    f.dropdown:SetPoint("BOTTOMRIGHT",f.frame,"BOTTOMRIGHT",17,0)
-    f:SetValue(value)
-    return f
 end
 
 function CollectMe:ToggleFilter(filter, value)
