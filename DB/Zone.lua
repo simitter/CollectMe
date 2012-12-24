@@ -654,3 +654,8 @@ CollectMe.ZoneDB.species_to_zone = {
 function CollectMe.ZoneDB:getZonesForSpecies(species_id)
     return self.species_to_zone[species_id]
 end
+
+function CollectMe.ZoneDB:Current()
+    SetMapToCurrentZone()
+    return GetCurrentMapAreaID()
+end

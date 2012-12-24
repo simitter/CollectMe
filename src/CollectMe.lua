@@ -98,10 +98,6 @@ end
 
 function CollectMe:OnEnable()
     self:UpdateMacros()
-
-    if self.professions == nil then
-        self:UpdateProfessions()
-    end
 end
 
 function CollectMe:UpdateMacros()
@@ -110,30 +106,6 @@ function CollectMe:UpdateMacros()
         self:InitMacro("CollectMeRM", "ABILITY_MOUNT_BIGBLIZZARDBEAR", '/cancelform\n/script CollectMe:HandleMountMacro();')
     else
         self:InitMacro("CollectMeRM", "ABILITY_MOUNT_BIGBLIZZARDBEAR", '/script CollectMe:HandleMountMacro();')
-    end
-end
-
-function CollectMe:UpdateProfessions()
-    local first, second = GetProfessions()
-    self.professions = {}
-    if(first ~= nil) then
-        self:SetProfession(first)
-    end
-    if(second ~= nil) then
-        self:SetProfession(second)
-    end
-end
-
-function CollectMe:SetProfession(index)
-    local _, icon, skill = GetProfessionInfo(index)
-    local name
-    if string.find(icon, "Trade_Tailoring") ~= nil then
-        name = 'tai'
-    elseif string.find(icon, "Trade_Engineering") ~= nil then
-        name = 'eng'
-    end
-    if name ~= nil then
-        table.insert(self.professions, { name = name, skill = skill} )
     end
 end
 
@@ -215,94 +187,6 @@ function CollectMe:BuildRandomList()
         local value = ((random_db[spell_id] ~= nil and random_db[spell_id] ~= false) and true or false)
         self.UI:CreateScrollCheckbox(name, value, { OnValueChanged = function (container, event, val) random_db[spell_id] = val end})
     end
-end
-
-function CollectMe:GetCurrentZone()
-    SetMapToCurrentZone()
-    return GetCurrentMapAreaID()
-end
-
-function CollectMe:SummonRandomMount(type)
-    if not IsMounted() then
-        local zone_mounts, type_mounts, fallback_mounts = {}, {}, {}
-        local zone_id, is_swimming, is_flyable_area = self:GetCurrentZone(), IsSwimming(), IsFlyableArea()
-        local profession_count = #self.professions
-        for i = 1, GetNumCompanions("MOUNT") do
-            local _, name, spell_id = GetCompanionInfo("MOUNT", i);
-
-            -- check if current mount is in priority pool and if it is usable here
-            if self.db.profile.random.mounts[spell_id] ~= nil and self.db.profile.random.mounts[spell_id] ~= false and IsUsableSpell(spell_id) ~= nil then
-
-                -- get info table from mount db
-                local info = self.MountDB:GetInfo(spell_id)
-                if info == nil then
-                    info = {
-                        type = GROUND, --mount not known, assuming it' is a ground mount
-                        name    = name,
-                        id      = spell_id
-                    }
-                end
-
-                if info.professions == nil or self:ProfessionMount(info) == true then
-                    -- setting up zone table (aquatic handled by that too currently)
-                    if(info.zones ~= nil and self:IsInTable(info.zones, zone_id)) then
-                        table.insert(zone_mounts, i)
-                    end
-
-                    if #zone_mounts == 0 then
-                        -- swimming mounts
-                        if is_swimming == 1 then
-                            if info.type == SWIM or (self.db.profile.summon.mounts.flying_in_water == true and info.type == FLY and is_flyable_area == 1) then
-                                table.insert(type_mounts, i)
-                            end
-                        -- flying mounts
-                        elseif is_flyable_area == 1 then
-                            if info.type == FLY then
-                                table.insert(type_mounts, i)
-                            end
-                        end
-                    end
-                    if info.type == GROUND or (self.db.profile.summon.mounts.flying_on_ground  == true and info.type == FLY) then
-                        table.insert(fallback_mounts, i)
-                    end
-                end
-            end
-        end
-
-
-        if type == GROUND and #fallback_mounts > 0 then
-            self:Mount(fallback_mounts)
-        elseif #zone_mounts > 0 then
-            self:Mount(zone_mounts)
-        elseif #type_mounts > 0 then
-            self:Mount(type_mounts)
-        elseif #fallback_mounts > 0 then
-            self:Mount(fallback_mounts)
-        else
-            if IsIndoors() == nil and UnitAffectingCombat("player") == nil then
-                self:Print(self.L["You haven't configured your mount priorities yet. Please open the random mount tab"])
-            end
-        end
-
-    elseif self.db.profile.summon.mounts.no_dismount == false then
-        Dismount()
-    end
-end
-
-function CollectMe:ProfessionMount(info)
-    for i,v in pairs(info.professions) do
-        for j, v1 in pairs(self.professions) do
-            if i == v1.name and v1.skill >= v then
-                return true
-            end
-        end
-    end
-    return false
-end
-
-function CollectMe:Mount(t)
-    local call = math.random(1, #t);
-    CallCompanion("MOUNT", t[call]);
 end
 
 function CollectMe:BuildList()
@@ -499,13 +383,13 @@ function CollectMe:HandleMountMacro()
     end
 
     if value == 1 then
-        self:SummonRandomMount()
+        self.RandomMount:Summon()
     elseif value == 2 then
         if IsMounted() then
             Dismount()
         end
     elseif value == 3 then
-        self:SummonRandomMount(1)
+        self.RandomMount:Summon(self.MountDB.GROUND)
     end
 end
 
@@ -594,16 +478,6 @@ function CollectMe:ItemRowLeave()
     self.UI.frame.tooltip:Hide()
 end
 
-function CollectMe:GetActive(type)
-    for i = 1, GetNumCompanions(type) do
-        local _, _, spell_id, _, summoned = GetCompanionInfo("CRITTER", i);
-        if (summoned ~= nil) then
-            return spell_id
-        end
-    end
-    return nil;
-end
-
 -- checks is element is in table returns position if true, false otherwise
 function CollectMe:IsInTable(t, spell_id)
     for i = 1, #t do
@@ -628,9 +502,9 @@ end
  -- CONSOLE COMMAND HANDLER
 function CollectMe:SlashProcessor(input)
     if input == "rc" or input == "randomcompanion" then
-        self:SummonRandomCompanion()
+        self.RandomCompanion:Summon()
     elseif input == "rm" or input == "randommount" then
-        self:SummonRandomMount()
+        self.RandomMount:Summon()
     elseif input == "options" then
         InterfaceOptionsFrame_OpenToCategory(addon_name)
     elseif input == "companion zone" then
@@ -650,7 +524,7 @@ function CollectMe:ColorizeByQuality(text, quality)
 end
 
 function CollectMe:CompanionsInZone()
-    local zone = self:GetCurrentZone()
+    local zone = self.ZoneDB:Current()
     local known, unknown = self.CompanionDB:GetCompanionsInZone(zone)
     for i,v in ipairs(known) do
         self:Print("known "..v.name)
