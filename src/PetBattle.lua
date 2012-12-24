@@ -43,7 +43,7 @@ function CollectMe.PetBattle:CheckEnemyQuality()
                 index = self:IsInEnemyTable(enemy_species_id, enemy_quality)
             end
 
-            for j,v in ipairs(CollectMe.CompanionDB:GetCompanions()) do
+            for j,v in ipairs(CollectMe.CompanionDB:Get()) do
                 if v.species_id == enemy_species_id then
                     if quality < v.quality then
                         quality = v.quality

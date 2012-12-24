@@ -190,7 +190,7 @@ end
 
 
 function CollectMe:BuildRandomPetList()
-    local companions = self.CompanionDB:GetCompanions()
+    local companions = self.CompanionDB:Get()
     local random_db =  self.db.profile.random.companions
 
     self.UI:AddToScroll(self.UI:CreateHeading(self.L["Available companions"] ..  " - " .. #companions))
@@ -517,18 +517,16 @@ function CollectMe:BatchCheck(value)
             local _, name, spell_id = GetCompanionInfo("MOUNT", i)
             random_db[spell_id] = value
         end
-        self:SelectGroup(self.tabs, RANDOM_MOUNT)
+        self.UI:ReloadScroll()
     elseif self.UI.active_group == self.RANDOM_COMPANION then
-        local count, owned = C_PetJournal.GetNumPets(false)
         local random_db =  self.db.profile.random.companions
 
-        for i = 1,count do
-            local id, _, owned, my_name, level, _, _, name = C_PetJournal.GetPetInfoByIndex(i, false)
-            if name ~= nil and owned == true and C_PetJournal.PetIsSummonable(id) then
-                random_db[id] = value
+        for i,v in pairs(self.CompanionDB:Get()) do
+            if v.pet_id ~= nil and C_PetJournal.PetIsSummonable(v.pet_id) then
+                random_db[v.pet_id] = value
             end
         end
-        self:SelectGroup(self.tabs, RANDOM_COMPANION)
+        self.UI:ReloadScroll()
     end
 end
 

@@ -46,7 +46,7 @@ function CollectMe.CompanionDB:IsSpeciesKnown(species_id)
     return true
 end
 
-function CollectMe.CompanionDB:GetCompanions()
+function CollectMe.CompanionDB:Get()
     return self.companions
 end
 
