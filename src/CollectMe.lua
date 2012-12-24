@@ -205,22 +205,15 @@ function CollectMe:BuildRandomPetList()
 end
 
 
-function CollectMe:BuildRandomList(listcontainer)
+function CollectMe:BuildRandomList()
     local type, random_db, title = "MOUNT", self.db.profile.random.mounts, self.L["Available mounts"]
-
     local count = GetNumCompanions(type)
-    listcontainer:AddChild(self:CreateHeading(title ..  " - " .. count))
 
+    self.UI:AddToScroll(self.UI:CreateHeading(title ..  " - " .. count))
     for i = 1, count, 1 do
         local _, name, spell_id = GetCompanionInfo(type, i)
-        local f = AceGUI:Create("CheckBox")
-        f:SetLabel(name)
-        f:SetFullWidth(true)
         local value = ((random_db[spell_id] ~= nil and random_db[spell_id] ~= false) and true or false)
-        f:SetValue(value)
-        f:SetCallback("OnValueChanged", function (container, event, val) random_db[spell_id] = val end)
-
-        listcontainer:AddChild(f)
+        self.UI:CreateScrollCheckbox(name, value, { OnValueChanged = function (container, event, val) random_db[spell_id] = val end})
     end
 end
 
