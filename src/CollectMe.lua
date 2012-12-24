@@ -387,17 +387,21 @@ end
 
 function CollectMe:BuildItemRow(items)
     for i,v in ipairs(items) do
-        local callbacks = {
-            OnClick = function (container, event, group) CollectMe:ItemRowClick(group, v.id) end,
-            OnEnter = function (container, event, group) CollectMe:ItemRowEnter(v) end ,
-            OnLeave = function (container, event, group) CollectMe:ItemRowLeave(v) end ,
-        }
+        local callbacks
+        if not v.callbacks then
+            callbacks = {
+                OnClick = function (container, event, group) CollectMe:ItemRowClick(group, v.id) end,
+                OnEnter = function (container, event, group) CollectMe:ItemRowEnter(v) end ,
+                OnLeave = function (container, event, group) CollectMe:ItemRowLeave(v) end ,
+            }
+        else
+            callbacks = v.callbacks
+        end
         self.UI:CreateScrollLabel(v.name, v.icon, callbacks)
     end
 end
 
-function CollectMe:BuildMissingCompanionList(listcontainer)
-    listcontainer:ReleaseChildren()
+function CollectMe:BuildMissingCompanionList()
     local collected_filter = not C_PetJournal.IsFlagFiltered(LE_PET_JOURNAL_FLAG_NOT_COLLECTED)
     C_PetJournal.SetSearchFilter("")
     C_PetJournal.SetFlagFilter(LE_PET_JOURNAL_FLAG_NOT_COLLECTED, true)
@@ -407,18 +411,19 @@ function CollectMe:BuildMissingCompanionList(listcontainer)
     for i = 1,total do
         local pet_id, _, owned, _, _, _, _, name, icon, _, creature_id, source = C_PetJournal.GetPetInfoByIndex(i, false)
         if owned ~= true then
-            local f = self:CreateItemRow()
-            f:SetImage(icon)
-            f:SetImageSize(20, 20)
-            f:SetText(name)
-            f:SetCallback("OnClick", function (container, event, group) CollectMe:ItemRowClick(group, creature_id) end)
-            f:SetCallback("OnEnter", function (container, event, group) CollectMe:ItemRowEnter({ creature_id = creature_id, source = source, name = name }) end)
-            f:SetCallback("OnLeave", function (container, event, group) CollectMe:ItemRowLeave() end)
-
+            local v = {
+                name = name,
+                icon = icon,
+                callbacks = {
+                    OnClick = function (container, event, group) CollectMe:ItemRowClick(group, creature_id) end,
+                    OnEnter = function (container, event, group) CollectMe:ItemRowEnter({ creature_id = creature_id, source = source, name = name }) end,
+                    OnLeave = function (container, event, group) CollectMe:ItemRowLeave() end
+                }
+            }
             if self:IsInTable(self.ignored_db, creature_id) then
-                table.insert(ignored, f)
+                table.insert(ignored, v)
             else
-                table.insert(active, f)
+                table.insert(active, v)
             end
         else
             if not self:IsInTable(owned_db, creature_id) then
@@ -428,7 +433,7 @@ function CollectMe:BuildMissingCompanionList(listcontainer)
     end
 
     C_PetJournal.SetFlagFilter(LE_PET_JOURNAL_FLAG_NOT_COLLECTED, collected_filter)
-    self:AddMissingRows(listcontainer, active, ignored, #active + #ignored + #owned_db, #owned_db, 0)
+    self:AddMissingRows(active, ignored, #active + #ignored + #owned_db, #owned_db, 0)
 end
 
 function CollectMe:IsFiltered(filters)
