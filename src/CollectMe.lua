@@ -189,24 +189,20 @@ function CollectMe:BuildData(no_filters)
 end
 
 
-function CollectMe:BuildRandomPetList(listcontainer)
+function CollectMe:BuildRandomPetList()
     local companions = self.CompanionDB:GetCompanions()
     local random_db =  self.db.profile.random.companions
 
-    listcontainer:AddChild(self:CreateHeading(self.L["Available companions"] ..  " - " .. #companions))
+    self.UI:AddToScroll(self.UI:CreateHeading(self.L["Available companions"] ..  " - " .. #companions))
     for i,v in ipairs(companions) do
         if C_PetJournal.PetIsSummonable(v.pet_id) then
-            local f = AceGUI:Create("CheckBox")
             local name = v.name
             if v.custom_name ~= nil then
                 name = name .. " - " .. v.custom_name
             end
-            f:SetLabel(self:ColorizeByQuality(name .." - " .. v.level, v.color))
-            f:SetFullWidth(true)
             local value = ((random_db[v.pet_id] ~= nil and random_db[v.pet_id] ~= false) and true or false)
-            f:SetValue(value)
-            f:SetCallback("OnValueChanged", function (container, event, val) random_db[v.pet_id] = val end)
-            listcontainer:AddChild(f)
+
+            self.UI:CreateScrollCheckbox(self:ColorizeByQuality(name .." - " .. v.level, v.color), value, { OnValueChanged = function (container, event, val) random_db[v.pet_id] = val end})
         end
     end
 end

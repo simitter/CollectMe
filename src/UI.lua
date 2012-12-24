@@ -141,6 +141,10 @@ function CollectMe.UI:CreateFilterCheckbox(...)
     self:AddToFilter(self:CreateCheckbox(...))
 end
 
+function CollectMe.UI:CreateScrollCheckbox(...)
+    self:AddToScroll(self:CreateCheckbox(...))
+end
+
 function CollectMe.UI:CreateLabel(text, icon, callbacks)
     local f = AceGUI:Create("CollectMeLabel")
     f:SetHighlight("Interface\\QuestFrame\\UI-QuestTitleHighlight")
@@ -192,6 +196,7 @@ function CollectMe.UI:CreateCheckbox(label, value, callbacks, max_lines, height)
         f:SetHeight(height)
     end
 
+    f:SetFullWidth(true)
     f:SetPoint("Top", 15, 15)
     self:AddCallbacks(f, callbacks)
     return f
