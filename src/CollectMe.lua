@@ -91,7 +91,6 @@ function CollectMe:OnInitialize()
     self.ignored_db = self.db.profile.ignored.mounts
     self.item_list = self.MountDB:Get()
     self.filter_list = self.MountDB.filters
-    self.gametooltip_visible = false
 
     self:RegisterChatCommand("collectme", "SlashProcessor")
     self:RegisterChatCommand("cm", "SlashProcessor")
@@ -99,7 +98,6 @@ function CollectMe:OnInitialize()
     self:SecureHook("MoveForwardStart", "AutoSummonCompanion")
     self:SecureHook("ToggleAutoRun", "AutoSummonCompanion")
 
-    self:SecureHookScript(GameTooltip, "OnShow", "TooltipHook")
     self:RegisterEvent("PET_BATTLE_OPENING_START", "ResetEnemyTable")
     self:RegisterEvent("PET_BATTLE_PET_CHANGED", "CheckEnemyQuality")
 
@@ -740,38 +738,6 @@ end
 function CollectMe:ColorizeByQuality(text, quality)
     local color = "|C" .. select(4, GetItemQualityColor(quality))
     return color .. text .. FONT_COLOR_CODE_CLOSE;
-end
-
-function CollectMe:TooltipHook(tooltip)
-    if self.gametooltip_visible == true or self.db.profile.tooltip.companions.hide == true then
-        return
-    end
-
-    self.gametooltip_visible = true
-    if (tooltip and tooltip.GetUnit) then
-        local _, unit = tooltip:GetUnit()
-        if (unit and UnitIsWildBattlePet(unit)) then
-            local creature_id = tonumber(strsub(UnitGUID(unit), 7, 10), 16)
-            local line
-            for i,v in ipairs(self.CompanionDB:GetCompanions()) do
-                if(creature_id == v.creature_id) then
-                    if line == nil then
-                        line = self.L["My companions"] .. ": "
-                    else
-                        line = line .. ", "
-                    end
-                    line = line .. self:ColorizeByQuality(_G["BATTLE_PET_BREED_QUALITY" .. v.quality] .. " (" .. v.level .. ")" , v.color)
-                end
-            end
-            if line ~= nil then
-                tooltip:AddLine(line)
-            else
-                tooltip:AddLine(RED_FONT_COLOR_CODE .. self.L["Missing companion"] .. FONT_COLOR_CODE_CLOSE)
-            end
-            tooltip:Show()
-        end
-    end
-    self.gametooltip_visible = false
 end
 
 function CollectMe:ResetEnemyTable()
