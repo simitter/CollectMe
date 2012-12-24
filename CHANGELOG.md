@@ -1,3 +1,6 @@
+## 2.3
+ * Added a textbox for searching through all lists
+
 ## 2.2.4
  * Fixed capture notice on npc battles
  * Added 5.1 titles

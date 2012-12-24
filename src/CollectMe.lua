@@ -139,6 +139,7 @@ end
 function CollectMe:BuildRandomPetList()
     local companions = self.CompanionDB:Get()
     local random_db =  self.db.profile.random.companions
+    local search = self.UI:GetSearchText():lower()
 
     self.UI:AddToScroll(self.UI:CreateHeading(self.L["Available companions"] ..  " - " .. #companions))
     for i,v in ipairs(companions) do
@@ -147,9 +148,10 @@ function CollectMe:BuildRandomPetList()
             if v.custom_name ~= nil then
                 name = name .. " - " .. v.custom_name
             end
-            local value = ((random_db[v.pet_id] ~= nil and random_db[v.pet_id] ~= false) and true or false)
-
-            self.UI:CreateScrollCheckbox(self:ColorizeByQuality(name .." - " .. v.level, v.color), value, { OnValueChanged = function (container, event, val) random_db[v.pet_id] = val end})
+            if name:lower():find(search) ~= nil then
+                local value = ((random_db[v.pet_id] ~= nil and random_db[v.pet_id] ~= false) and true or false)
+                self.UI:CreateScrollCheckbox(self:ColorizeByQuality(name .." - " .. v.level, v.color), value, { OnValueChanged = function (container, event, val) random_db[v.pet_id] = val end})
+            end
         end
     end
 end
@@ -158,12 +160,15 @@ end
 function CollectMe:BuildRandomList()
     local type, random_db, title = "MOUNT", self.db.profile.random.mounts, self.L["Available mounts"]
     local count = GetNumCompanions(type)
+    local search = self.UI:GetSearchText():lower()
 
     self.UI:AddToScroll(self.UI:CreateHeading(title ..  " - " .. count))
     for i = 1, count, 1 do
         local _, name, spell_id = GetCompanionInfo(type, i)
-        local value = ((random_db[spell_id] ~= nil and random_db[spell_id] ~= false) and true or false)
-        self.UI:CreateScrollCheckbox(name, value, { OnValueChanged = function (container, event, val) random_db[spell_id] = val end})
+        if name:lower():find(search) ~= nil then
+            local value = ((random_db[spell_id] ~= nil and random_db[spell_id] ~= false) and true or false)
+            self.UI:CreateScrollCheckbox(name, value, { OnValueChanged = function (container, event, val) random_db[spell_id] = val end})
+        end
     end
 end
 
@@ -211,18 +216,21 @@ function CollectMe:AddMissingRows(active, ignored, all_count, known_count, filte
 end
 
 function CollectMe:BuildItemRow(items)
+    local search = self.UI:GetSearchText():lower()
     for i,v in ipairs(items) do
-        local callbacks
-        if not v.callbacks then
-            callbacks = {
-                OnClick = function (container, event, group) CollectMe:ItemRowClick(group, v.id) end,
-                OnEnter = function (container, event, group) CollectMe:ItemRowEnter(v) end ,
-                OnLeave = function (container, event, group) CollectMe:ItemRowLeave(v) end ,
-            }
-        else
-            callbacks = v.callbacks
+        if v.name:lower():find(search) ~= nil then
+            local callbacks
+            if not v.callbacks then
+                callbacks = {
+                    OnClick = function (container, event, group) CollectMe:ItemRowClick(group, v.id) end,
+                    OnEnter = function (container, event, group) CollectMe:ItemRowEnter(v) end ,
+                    OnLeave = function (container, event, group) CollectMe:ItemRowLeave(v) end ,
+                }
+            else
+                callbacks = v.callbacks
+            end
+            self.UI:CreateScrollLabel(v.name, v.icon, callbacks)
         end
-        self.UI:CreateScrollLabel(v.name, v.icon, callbacks)
     end
 end
 

@@ -23,13 +23,31 @@ function CollectMe.UI:Build()
     local f = AceGUI:Create("CollectMe")
     f:SetTitle("Collect Me " .. CollectMe.VERSION)
     f:SetWidth(570)
-    f:SetLayout("Fill")
+    f:SetLayout("List")
     tinsert(UISpecialFrames, f.frame:GetName())
+
+    local search_box = AceGUI:Create("EditBox")
+    search_box:DisableButton(true)
+    search_box:SetWidth(412)
+    search_box:SetCallback("OnEnterPressed", function() self:ReloadScroll() end)
+    f:AddChild(search_box)
+
+    local okaybutton = self:CreateButton(self.L["Search"], f.frame)
+    okaybutton:SetScript("OnClick", function() self:ReloadScroll() end)
+    okaybutton:SetWidth(120)
+    okaybutton:ClearAllPoints()
+    okaybutton:SetPoint("LEFT", search_box.frame, "RIGHT", 0, -1)
+
+    local container = AceGUI:Create("SimpleGroup")
+    container:SetLayout("Fill")
+    container:SetFullWidth(true)
+    container:SetHeight(407)
+    f:AddChild(container)
 
     local tabs = AceGUI:Create("TabGroup")
     tabs:SetTabs({ {text = self.L["Mounts"], value = CollectMe.MOUNT}, {text = self.L["Companions"], value = CollectMe.COMPANION}, {text = self.L["Titles"], value = CollectMe.TITLE}, {text = self.L["Random Companion"], value = CollectMe.RANDOM_COMPANION}, {text = self.L["Random Mount"], value = CollectMe.RANDOM_MOUNT}})
     tabs:SetCallback("OnGroupSelected", function (container, event, group) self:SelectGroup(container, group) end)
-    f:AddChild(tabs)
+    container:AddChild(tabs)
 
     local profilebutton = self:CreateButton(self.L["Profiles"], f.frame)
     profilebutton:SetScript("OnClick", function() InterfaceOptionsFrame_OpenToCategory(CollectMe.ADDON_NAME) end)
@@ -52,6 +70,7 @@ function CollectMe.UI:Build()
 
     self.frame = f
     self.tabs = tabs
+    self.search_box = search_box
     self.checkbutton, self.uncheckbutton = checkbutton, uncheckbutton
 end
 
@@ -251,4 +270,8 @@ function CollectMe.UI:AddCollectMeButtons()
 
         self.cm_button_loaded = true
     end
+end
+
+function CollectMe.UI:GetSearchText()
+    return self.search_box:GetText()
 end
