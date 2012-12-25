@@ -1,5 +1,6 @@
 ## 2.3
  * Added a textbox for searching through all lists
+ * Added zone based filtering of missing companions (titles and mounts may follow in a future release) - data provided by Nullberri of PetJournalEnhanced
 
 ## 2.2.4
  * Fixed capture notice on npc battles

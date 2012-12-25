@@ -1,4 +1,4 @@
--- data provided by Nullberri of PetJournal Enhanced
+-- data provided by Nullberri of PetJournalEnhanced
 
 CollectMe.ZoneDB = CollectMe:NewModule("ZoneDB")
 
@@ -663,7 +663,7 @@ function CollectMe.ZoneDB:IsSpeciesInZone(species_id, zones)
     if not self.species_to_zone[species_id] then
         return false
     end
-    if not type(zones) ~= "table" then
+    if type(zones) ~= "table" then
         zones = { zones }
     end
     for i = 1,#zones do
