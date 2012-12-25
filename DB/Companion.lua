@@ -47,11 +47,7 @@ function CollectMe.CompanionDB:IsSpeciesKnown(species_id)
 end
 
 function CollectMe.CompanionDB:Get()
-    return self.companions
-end
-
-function CollectMe.CompanionDB:GetMissingCompanions()
-    return self.missing_companions
+    return self.companions, self.missing_companions
 end
 
 function CollectMe.CompanionDB:ZoneSearch(companions, zone_id)
@@ -63,7 +59,6 @@ function CollectMe.CompanionDB:ZoneSearch(companions, zone_id)
     end
     return companions_in_zone
 end
-
 
 function CollectMe.CompanionDB:GetCompanionsInZone(zone_id)
     return self:ZoneSearch(self.companions, zone_id), self:ZoneSearch(self.missing_companions, zone_id)
