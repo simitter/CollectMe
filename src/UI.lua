@@ -225,16 +225,26 @@ function CollectMe.UI:CreateCheckbox(label, value, callbacks, max_lines, height)
     return f
 end
 
-function CollectMe.UI:CreateDropdown(label, list, value, callbacks)
+function CollectMe.UI:CreateDropdown(label, list, value, callbacks, multiselect, order)
     local f = AceGUI:Create("Dropdown")
     f:SetLabel(label)
-    f:SetList(list)
+    f:SetList(list, order)
+    if multiselect ~= nil then
+        f:SetMultiselect(multiselect)
+    end
     f.label:ClearAllPoints()
     f.label:SetPoint("LEFT", 10, 15)
     f.dropdown:ClearAllPoints()
     f.dropdown:SetPoint("TOPLEFT",f.frame,"TOPLEFT",-10,-15)
     f.dropdown:SetPoint("BOTTOMRIGHT",f.frame,"BOTTOMRIGHT",17,0)
-    f:SetValue(value)
+    if type(value) == "table" then
+        for i = 1,#value do
+            f:SetValue(value[i])
+            f:SetItemValue(value[i], true)
+        end
+    else
+        f:SetValue(value)
+    end
 
     self:AddCallbacks(f, callbacks)
     return f
@@ -275,3 +285,4 @@ end
 function CollectMe.UI:GetSearchText()
     return self.search_box:GetText()
 end
+

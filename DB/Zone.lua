@@ -2,6 +2,10 @@
 
 CollectMe.ZoneDB = CollectMe:NewModule("ZoneDB")
 
+function CollectMe.ZoneDB:OnInitialize()
+    self.list, self.order = {}, {}
+end
+
 CollectMe.ZoneDB.continents = {
     [1] = {--	Kalimdor
         772,--	Ahn'Qiraj: The Fallen Kingdom
@@ -655,13 +659,40 @@ function CollectMe.ZoneDB:GetZonesForSpecies(species_id)
     return self.species_to_zone[species_id]
 end
 
-function CollectMe.ZoneDB:IsSpeciesInZone(species_id, zone_id)
-    if not self.species_to_zone[species_id] or not self.species_to_zone[species_id][zone_id] then
+function CollectMe.ZoneDB:IsSpeciesInZone(species_id, zones)
+    if not self.species_to_zone[species_id] then
         return false
     end
-    return true
+    if not type(zones) ~= "table" then
+        zones = { zones }
+    end
+    for i = 1,#zones do
+        if self.species_to_zone[species_id][zones[i]] ~= nil then
+            return true
+        end
+    end
+    return false
 end
 
+function CollectMe.ZoneDB:GetList()
+    if #self.list == 0 then
+        local tbl = {}
+        for i = 1,6 do
+            for j,v in ipairs(self.continents[i]) do
+                table.insert(tbl, {v, GetMapNameByID(v)})
+            end
+        end
+        for j,v in ipairs(self.instances) do
+            table.insert(tbl, {v, GetMapNameByID(v)})
+        end
+        table.sort(tbl, function(a, b) return a[2] < b[2] end)
+        for i,v in pairs(tbl) do
+            self.list[v[1]] = v[2]
+            table.insert(self.order, v[1])
+        end
+    end
+    return self.list, self.order
+end
 
 function CollectMe.ZoneDB:Current()
     SetMapToCurrentZone()

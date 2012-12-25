@@ -24,7 +24,8 @@ local defaults = {
                 are = false
             },
             companions = {
-                czo = false
+                czo = false,
+                zones = {}
             }
         },
         missing_message = {
@@ -245,11 +246,14 @@ function CollectMe:BuildMissingCompanionList()
     C_PetJournal.SetFlagFilter(LE_PET_JOURNAL_FLAG_NOT_COLLECTED, true)
     local total = C_PetJournal.GetNumPets(false)
     local active, ignored, owned_db = {}, {}, {}
-    local current_zone = self.ZoneDB:Current()
+    local zones = self:CloneTable(self.db.profile.filters.companions.zones)
+    if self.db.profile.filters.companions.czo == true then
+        table.insert(zones, self.ZoneDB:Current())
+    end
 
     for i = 1,total do
         local pet_id, species_id, owned, _, _, _, _, name, icon, _, creature_id, source = C_PetJournal.GetPetInfoByIndex(i, false)
-        if self.db.profile.filters.companions.czo == false or self.ZoneDB:IsSpeciesInZone(species_id, current_zone) then
+        if #zones == 0 or self.ZoneDB:IsSpeciesInZone(species_id, zones) then
             if owned ~= true then
                 local v = {
                     name = name,
@@ -304,6 +308,8 @@ end
 function CollectMe:BuildMissingCompanionFilters()
     self.UI:AddToFilter(self.UI:CreateHeading(self.L["Zone Filter"]))
     self.UI:CreateFilterCheckbox(self.L["Current Zone"], self.db.profile.filters.companions.czo, { OnValueChanged = function (container, event, value) self.db.profile.filters.companions.czo = value; self.UI:ReloadScroll() end })
+    local list, order = CollectMe.ZoneDB:GetList()
+    self.UI:CreateFilterDropdown(self.L["Select Zones"], list, self.db.profile.filters.companions.zones, { OnValueChanged = function (container, event, value) local pos = self:IsInTable(self.db.profile.filters.companions.zones, value); if not pos then table.insert(self.db.profile.filters.companions.zones, value) else table.remove(self.db.profile.filters.companions.zones, pos) end; self.UI:ReloadScroll() end }, true, order)
 
     self.UI:AddToFilter(self.UI:CreateHeading(self.L["Source Filter"]))
     local numSources = C_PetJournal.GetNumPetSources();
@@ -510,4 +516,19 @@ function CollectMe:ZoneChangeListener()
     if self.db.profile.filters.companions.czo == true and self.UI.active_group == self.COMPANION then
         self.UI:ReloadScroll()
     end
+end
+
+function CollectMe:CloneTable(orig)
+    local orig_type = type(orig)
+    local copy
+    if orig_type == 'table' then
+        copy = {}
+        for orig_key, orig_value in next, orig, nil do
+            copy[self:CloneTable(orig_key)] = self:CloneTable(orig_value)
+        end
+        setmetatable(copy, self:CloneTable(getmetatable(orig)))
+    else -- number, string, boolean, etc
+        copy = orig
+    end
+    return copy
 end
