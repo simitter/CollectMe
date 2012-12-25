@@ -22,6 +22,9 @@ local defaults = {
                 nlo = false,
                 pvp = false,
                 are = false
+            },
+            companions = {
+                czo = false
             }
         },
         missing_message = {
@@ -94,6 +97,8 @@ function CollectMe:OnInitialize()
 
     self:RegisterChatCommand("collectme", "SlashProcessor")
     self:RegisterChatCommand("cm", "SlashProcessor")
+
+    self:RegisterEvent("ZONE_CHANGED_NEW_AREA", "ZoneChangeListener")
 end
 
 function CollectMe:BuildData(no_filters)
@@ -240,27 +245,30 @@ function CollectMe:BuildMissingCompanionList()
     C_PetJournal.SetFlagFilter(LE_PET_JOURNAL_FLAG_NOT_COLLECTED, true)
     local total = C_PetJournal.GetNumPets(false)
     local active, ignored, owned_db = {}, {}, {}
+    local current_zone = self.ZoneDB:Current()
 
     for i = 1,total do
-        local pet_id, _, owned, _, _, _, _, name, icon, _, creature_id, source = C_PetJournal.GetPetInfoByIndex(i, false)
-        if owned ~= true then
-            local v = {
-                name = name,
-                icon = icon,
-                callbacks = {
-                    OnClick = function (container, event, group) CollectMe:ItemRowClick(group, creature_id) end,
-                    OnEnter = function (container, event, group) CollectMe:ItemRowEnter({ creature_id = creature_id, source = source, name = name }) end,
-                    OnLeave = function (container, event, group) CollectMe:ItemRowLeave() end
+        local pet_id, species_id, owned, _, _, _, _, name, icon, _, creature_id, source = C_PetJournal.GetPetInfoByIndex(i, false)
+        if self.db.profile.filters.companions.czo == false or self.ZoneDB:IsSpeciesInZone(species_id, current_zone) then
+            if owned ~= true then
+                local v = {
+                    name = name,
+                    icon = icon,
+                    callbacks = {
+                        OnClick = function (container, event, group) CollectMe:ItemRowClick(group, creature_id) end,
+                        OnEnter = function (container, event, group) CollectMe:ItemRowEnter({ creature_id = creature_id, source = source, name = name }) end,
+                        OnLeave = function (container, event, group) CollectMe:ItemRowLeave() end
+                    }
                 }
-            }
-            if self:IsInTable(self.ignored_db, creature_id) then
-                table.insert(ignored, v)
+                if self:IsInTable(self.ignored_db, creature_id) then
+                    table.insert(ignored, v)
+                else
+                    table.insert(active, v)
+                end
             else
-                table.insert(active, v)
-            end
-        else
-            if not self:IsInTable(owned_db, creature_id) then
-                table.insert(owned_db, creature_id)
+                if not self:IsInTable(owned_db, creature_id) then
+                    table.insert(owned_db, creature_id)
+                end
             end
         end
     end
@@ -294,6 +302,9 @@ function CollectMe:BuildFilters()
 end
 
 function CollectMe:BuildMissingCompanionFilters()
+    self.UI:AddToFilter(self.UI:CreateHeading(self.L["Zone Filter"]))
+    self.UI:CreateFilterCheckbox(self.L["Current Zone"], self.db.profile.filters.companions.czo, { OnValueChanged = function (container, event, value) self.db.profile.filters.companions.czo = value; self.UI:ReloadScroll() end })
+
     self.UI:AddToFilter(self.UI:CreateHeading(self.L["Source Filter"]))
     local numSources = C_PetJournal.GetNumPetSources();
     for i=1,numSources do
@@ -438,6 +449,9 @@ end
 
 -- checks is element is in table returns position if true, false otherwise
 function CollectMe:IsInTable(t, spell_id)
+    if not t then
+        return false
+    end
     for i = 1, #t do
         if t[i] == spell_id then
             return i
@@ -489,5 +503,11 @@ function CollectMe:CompanionsInZone()
     end
     for i,v in ipairs(unknown) do
         self:Print("unknown "..v.name)
+    end
+end
+
+function CollectMe:ZoneChangeListener()
+    if self.db.profile.filters.companions.czo == true and self.UI.active_group == self.COMPANION then
+        self.UI:ReloadScroll()
     end
 end

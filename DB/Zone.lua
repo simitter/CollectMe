@@ -651,9 +651,17 @@ CollectMe.ZoneDB.species_to_zone = {
     [1154]={[772]=772},
 }
 
-function CollectMe.ZoneDB:getZonesForSpecies(species_id)
+function CollectMe.ZoneDB:GetZonesForSpecies(species_id)
     return self.species_to_zone[species_id]
 end
+
+function CollectMe.ZoneDB:IsSpeciesInZone(species_id, zone_id)
+    if not self.species_to_zone[species_id] or not self.species_to_zone[species_id][zone_id] then
+        return false
+    end
+    return true
+end
+
 
 function CollectMe.ZoneDB:Current()
     SetMapToCurrentZone()

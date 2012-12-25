@@ -21,7 +21,7 @@ function CollectMe.CompanionDB:Update()
             name = name,
             custom_name = customName,
             icon = icon,
-            zones = CollectMe.ZoneDB:getZonesForSpecies(speciesID)
+            zones = CollectMe.ZoneDB:GetZonesForSpecies(speciesID)
         })
     end
 
@@ -33,7 +33,7 @@ function CollectMe.CompanionDB:Update()
                 creature_id = creatureID,
                 name = name,
                 icon = icon,
-                zones = CollectMe.ZoneDB:getZonesForSpecies(species_id)
+                zones = CollectMe.ZoneDB:GetZonesForSpecies(species_id)
             })
         end
     end
