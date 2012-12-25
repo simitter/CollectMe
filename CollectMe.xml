@@ -13,5 +13,5 @@
     <Script file="src\Macro.lua"/>
     <Script file="src\RandomCompanion.lua"/>
     <Script file="src\RandomMount.lua"/>
-    <Script file="src\CompanionZoneDisplay.lua"/>
+    <Script file="src\LdbDisplay.lua"/>
 </Ui>
