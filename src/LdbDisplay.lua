@@ -10,7 +10,7 @@ function CollectMe.LdbDisplay:OnInitialize()
         text = CollectMe.L["Collectables in this zone"],
 
         OnClick = function()
-            GameTooltip:FadeOut()
+            GameTooltip:Hide()
             CollectMe.UI:Show(CollectMe.COMPANION)
         end,
 
@@ -20,11 +20,11 @@ function CollectMe.LdbDisplay:OnInitialize()
             end
             GameTooltip:SetOwner( this, "ANCHOR_NONE" )
             GameTooltip:ClearAllPoints()
-            local cx, cy = this:GetCenter()
+            local _, cy = this:GetCenter()
             if cy < GetScreenHeight() / 2 then
-                GameTooltip:SetPoint( "BOTTOM", this, "TOP", dx, dy )
+                GameTooltip:SetPoint( "BOTTOM", this, "TOP" )
             else
-                GameTooltip:SetPoint( "TOP", this, "BOTTOM", dx, dy )
+                GameTooltip:SetPoint( "TOP", this, "BOTTOM" )
             end
 
             self:UpdateTooltip()
@@ -32,7 +32,7 @@ function CollectMe.LdbDisplay:OnInitialize()
         end,
 
         OnLeave = function()
-            GameTooltip:FadeOut()
+            GameTooltip:Hide()
         end
     })
 
@@ -66,7 +66,10 @@ end
 function CollectMe.LdbDisplay:UpdateText()
     local text = ""
     if self.missing_count > 0 then
-        text = text .. RED_FONT_COLOR_CODE .. self.missing_count .. " " .. self.L["missing"] .. FONT_COLOR_CODE_CLOSE .. " / "
+        text = text .. RED_FONT_COLOR_CODE .. self.missing_count .. " " .. self.L["missing"] .. FONT_COLOR_CODE_CLOSE
+        if self.unique_collected_count > 0 then
+            text = text .. " / "
+        end
     end
     if self.unique_collected_count > 0 then
         text = text .. GREEN_FONT_COLOR_CODE .. self.unique_collected_count .. " " .. self.L["collected"] .. FONT_COLOR_CODE_CLOSE

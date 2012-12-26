@@ -1,6 +1,7 @@
 ## 2.3
  * Added a textbox for searching through all lists
  * Added zone based filtering of missing companions (titles and mounts may follow in a future release) - data provided by Nullberri of PetJournalEnhanced
+ * Added LDB plugin for missing companions in current zone (a broker display addon is needed to use this feature)
 
 ## 2.2.4
  * Fixed capture notice on npc battles

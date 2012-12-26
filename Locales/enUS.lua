@@ -58,6 +58,8 @@ L["Disable tooltip notice for missing companions"] = true
 L["Perform quality check in pet battles"] = true
 L["This companion has a higher quality than yours"] = true
 L["Search"] = true
+L["Collectables in this zone"] = true
+L["Companions in"] = true
 
 -- Mounts
 -- Common Mounts

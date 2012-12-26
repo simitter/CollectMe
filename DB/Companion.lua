@@ -37,6 +37,7 @@ function CollectMe.CompanionDB:Update()
             })
         end
     end
+    CollectMe.LdbDisplay:ZoneChangeListener()
 end
 
 function CollectMe.CompanionDB:IsSpeciesKnown(species_id)
