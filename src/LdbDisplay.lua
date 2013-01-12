@@ -66,13 +66,13 @@ end
 function CollectMe.LdbDisplay:UpdateText()
     local text = ""
     if self.missing_count > 0 then
-        text = text .. RED_FONT_COLOR_CODE .. self.missing_count .. " " .. self.L["missing"] .. FONT_COLOR_CODE_CLOSE
+        text = text .. RED_FONT_COLOR_CODE .. self.missing_count .. FONT_COLOR_CODE_CLOSE
         if self.unique_collected_count > 0 then
-            text = text .. " / "
+            text = text .. "/"
         end
     end
     if self.unique_collected_count > 0 then
-        text = text .. GREEN_FONT_COLOR_CODE .. self.unique_collected_count .. " " .. self.L["collected"] .. FONT_COLOR_CODE_CLOSE
+        text = text .. GREEN_FONT_COLOR_CODE .. self.unique_collected_count .. FONT_COLOR_CODE_CLOSE
         text = text .. " ("
         for i = 1,#self.quality_counts do
             if i ~= 1 then
