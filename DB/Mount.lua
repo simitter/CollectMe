@@ -219,6 +219,7 @@ function CollectMe.MountDB:Build()
     self:Add(130137, 44837) -- White Riding Goat
     self:Add(123182, 41089) -- White Riding Yak
     self:Add(133023, 42147, self.FLY) -- Jade Pandaren Kite
+    self:Add(134573, 46729, self.FLY, { bsm = 1 }) -- Swift Windsteed
 
     -- Alliance Mounts
     if CollectMe.FACTION == "Alliance" then
