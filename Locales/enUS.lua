@@ -270,6 +270,7 @@ L["mount_132036"] = "Drops off a rare spawn called Alani the Stormborn located i
 L["mount_132119"] = "Reward from the challenge mode dungeon achievement 'Challenge Conqueror: Silver'. [BoP]" -- Thunder- Violet Pandaren Phoenix
 L["mount_130137"] = "No know method of obtaining. [BoP]" -- White Riding Goat
 L["mount_123182"] = "No know method of obtaining. [BoP]" -- White Riding Yak
+L["mount_134573"] = "Purchased from Blizzard's online store. [BoA]" -- Swift Windsteed
 
 -- Alliance Mounts
 L["mount_60114"] = "Sold by Mei Francis in Dalaran for 750G. [BoP]" -- Armored Brown Bear
