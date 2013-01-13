@@ -1,3 +1,8 @@
+## 2.3.1
+ * Added Swift Windsteed
+ * Fixed zone filtering in AQ40
+ * Shorten LDB Text
+
 ## 2.3
  * Added a textbox for searching through all lists
  * Added zone based filtering of missing companions (titles and mounts may follow in a future release) - data provided by Nullberri of PetJournalEnhanced
