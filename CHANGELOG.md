@@ -1,3 +1,7 @@
+
+## 2.3.2
+* Fixed info for Swift Windsteed
+
 ## 2.3.1
  * Added Swift Windsteed
  * Fixed zone filtering in AQ40
