@@ -5,6 +5,16 @@ Excitor:
 - A lot of the NLO filtered mounts are now obtainable through the AH/trade they need to be checked.
 
 - Updated ?? for titles, mounts.
+//work 5.2
+40  Mount		Reins of the Cobalt Primordial Direhorn
+40	Mount		Reins of the Slate Primordial Direhorn
+40	Mount		Reins of the Amber Primordial Direhorn
+40	Mount		Reins of the Jade Primordial Direhorn
+40	Mount		Reins of the Bone-White Primal Raptor
+40	Mount		Reins of the Red Primal Raptor
+40	Mount		Reins of the Black Primal Raptor
+40	Mount		Reins of the Green Primal Raptor
+
 ----------------------------
 
 - missing companion code usage of CompanionDB module
