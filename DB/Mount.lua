@@ -225,14 +225,14 @@ function CollectMe.MountDB:Build()
     if CollectMe.FACTION == "Alliance" then
         self:Add(60114, 27820) -- Armored Brown Bear
         self:Add(61229, 27913, self.FLY) -- Armored Snowy Gryphon
-        self:Add(22719, 14372, self.GROUND, { pvp = 1 }) -- Black Battlestrider
+        self:Add(22719, 14372, self.GROUND, { pvp = 1 }):SetProperty(22719, "obtain_zones", {301}) -- Black Battlestrider
         self:Add(470, 2402)   -- Black Stallion Bridle
         self:Add(60118, 27818) -- Black War Bear
-        self:Add(48027, 23928, self.GROUND, { pvp = 1 }) -- Black War Elekk
+        self:Add(48027, 23928, self.GROUND, { pvp = 1 }):SetProperty(48027, "obtain_zones", {301}) -- Black War Elekk
         self:Add(59785, 27247) -- Black War Mammoth
-        self:Add(22720, 14577, self.GROUND, { pvp = 1 }) -- Black War Ram
-        self:Add(22717, 14337, self.GROUND, { pvp = 1 }) -- Black War Steed
-        self:Add(22723, 14330, self.GROUND, { pvp = 1 }) -- Black War Tiger
+        self:Add(22720, 14577, self.GROUND, { pvp = 1 }):SetProperty(22720, "obtain_zones", {301}) -- Black War Ram
+        self:Add(22717, 14337, self.GROUND, { pvp = 1 }):SetProperty(22717, "obtain_zones", {301}) -- Black War Steed
+        self:Add(22723, 14330, self.GROUND, { pvp = 1 }):SetProperty(22723, "obtain_zones", {301}) -- Black War Tiger
         self:Add(61996, 27525, self.FLY) -- Blue Dragonhawk
         self:Add(10969, 6569) -- Blue Mechanostrider
         self:Add(34406, 17063) -- Brown Elekk
@@ -437,7 +437,7 @@ function CollectMe.MountDB:Build()
     CollectMe:SortTable(self.mounts)
 end
 
-function CollectMe.MountDB:Add(spell_id, display_id, type, filters, zones, professions)
+function CollectMe.MountDB:Add(spell_id, display_id, type, filters, zones, professions, obtain_zones)
     if spell_id ~= nil then
         local name, _, icon = GetSpellInfo(spell_id)
         local link = GetSpellLink(spell_id)
@@ -451,15 +451,40 @@ function CollectMe.MountDB:Add(spell_id, display_id, type, filters, zones, profe
             type       = (type == nil and self.GROUND or type),
             filters    = filters,
             zones      = zones,
-            professions = professions
+            professions = professions,
+            obtain_zones = (obtain_zones == nil and {} or obtain_zones)
         })
 
         table.insert(self.mount_spells, spell_id)
+    end
+    return self
+end
+
+function CollectMe.MountDB:SetProperty(spell_id, property, value)
+    for i,v in ipairs(self.mounts) do
+        if v.id == spell_id then
+            v[property] = value
+            return self
+        end
     end
 end
 
 function CollectMe.MountDB:Get()
     return self.mounts, self.mount_spells
+end
+
+function CollectMe.MountDB:ObtainableInZone(id, zones)
+    local info = self:GetInfo(id)
+    if info ~= nil then
+        for i,v in ipairs(info.obtain_zones) do
+            for j,v1 in ipairs(zones) do
+                if v == v1 then
+                    return true
+                end
+            end
+        end
+    end
+    return false
 end
 
 function CollectMe.MountDB:GetInfo(spell_id)
