@@ -21,7 +21,7 @@ function CollectMe.MountDB:Build()
     self:Add(75207, 34956, self.AQUATIC, {}, { 614, 615, 610 }) -- Abyssal Seahorse
     self:Add(60025, 25836, self.FLY) -- Albino Drake
     self:Add(96503, 37800, self.FLY, { tcg = 1 }) -- Amani Dragonhawk
-    self:Add(98204, 38261) -- Amani Battle Bear
+    self:Add(98204, 38261):SetProperty(98204, "obtain_zones", {781})-- Amani Battle Bear
     self:Add(43688, 22464, self.GROUND, { nlo = 1 }) -- Amani War Bear
     self:Add(63844, 22471) -- Argent Hippogryph
     self:Add(67466, 28918) -- Argent Warhorse
