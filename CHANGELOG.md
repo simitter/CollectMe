@@ -1,6 +1,11 @@
-
 ## 2.3.2
-* Fixed info for Swift Windsteed
+ * Fixed info for Swift Windsteed (Mount)
+ * Fixed info for Albino Riding Crane (Mount)
+ * Fixed info for Crimson Riding Crane (Mount)
+ * Fixed info for several Water Strider mounts (Mount)
+ * Added filters for unknown method of obtaining Yaks, Clound Serpents, Water Striders, Riding Cranes (Mount)
+ * Removed [BoE] tags from Tailoring mounts (Mount)
+ * Fixed duplicate LICENSE.TXT in zip
 
 ## 2.3.1
  * Added Swift Windsteed

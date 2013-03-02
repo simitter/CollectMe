@@ -11,6 +11,7 @@ local defaults = {
         filters = {
             mounts = {
                 nlo = false,
+                umo = false,
                 tcg = false,
                 pvp = false,
                 are = false,
