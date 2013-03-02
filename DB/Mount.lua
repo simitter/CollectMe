@@ -1,3 +1,5 @@
+-- todo rework array key usage for more performant access
+
 CollectMe.MountDB = CollectMe:NewModule("MountDB")
 
 function CollectMe.MountDB:OnInitialize()
@@ -485,6 +487,21 @@ function CollectMe.MountDB:ObtainableInZone(id, zones)
         end
     end
     return false
+end
+
+function CollectMe.MountDB:GetZoneMounts(zones)
+    local obtainable = {}
+    for index, info in ipairs(self:Get()) do
+        for i,v in ipairs(info.obtain_zones) do
+            for j,v1 in ipairs(zones) do
+                if v == v1 then
+                    obtainable[info.id] = info
+                    break
+                end
+            end
+        end
+    end
+    return obtainable
 end
 
 function CollectMe.MountDB:GetInfo(spell_id)

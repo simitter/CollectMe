@@ -60,6 +60,35 @@ function CollectMe.LdbDisplay:UpdateData()
             self.unique_collected_count = self.unique_collected_count + 1
         end
     end
+
+   -- self.collected_mounts, self.missing_mounts = {}, {}
+   -- local current_filter_list, current_filter_db = CollectMe.filter_list, CollectMe.filter_db
+
+    --CollectMe.filter_list, CollectMe.filter_db = CollectMe.MountDB.filters, CollectMe.db.profile.filters.mounts
+
+    --for i,v in pairs(CollectMe.MountDB:GetZoneMounts({CollectMe.ZoneDB:Current()})) do
+    --    if not CollectMe:IsFiltered(v.filters) then
+    --        print(v.name)
+    --    end
+    --end
+
+--
+-- --    CollectMe.filter_list, CollectMe.filter_db = current_filter_list, current_filter_db
+
+    --if (self.UI.active_group == self.MOUNT and not self.MountDB:IsKnown(v.id) and (#zones == 0 or self.MountDB:ObtainableInZone(v.id, zones))) or (self.UI.active_group == self.TITLE and IsTitleKnown(v.id) ~= 1) then
+    --    if self:IsInTable(self.ignored_db, v.id) then
+    --        table.insert(ignored, v)
+    --    else
+    --        if not self:IsFiltered(v.filters) then
+    --            table.insert(active, v)
+    --        else
+    --            filter_count = filter_count + 1
+    --        end
+    --    end
+    --else
+    --    known_count = known_count +1
+    --end
+
     self.loaded = true
 end
 
