@@ -192,7 +192,7 @@ function CollectMe.MountDB:Build()
     self:Add(129932, 44759) -- Green Shado-Pan Riding Tiger
     self:Add(127216, 43711) -- Grey Riding Yak
     self:Add(127169, 43697, self.FLY, { nlo = 1 }) -- Heavenly Azure Cloud Serpent
-    self:Add(127161, 43692, self.FLY, { nlo = 1 }) -- Heavenly Crimson Cloud Serpent
+    self:Add(127161, 43692, self.FLY) -- Heavenly Crimson Cloud Serpent
     self:Add(127164, 43693, self.FLY, { nlo = 1 }) -- Heavenly Golden Cloud Serpent
     self:Add(127165, 43695, self.FLY, { nlo = 1 }) -- Heavenly Jade Cloud Serpent
     self:Add(127158, 43689, self.FLY) -- Heavenly Onyx Cloud Serpent
