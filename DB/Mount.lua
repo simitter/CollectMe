@@ -163,13 +163,13 @@ function CollectMe.MountDB:Build()
     self:Add(118089, 41711) -- Azure Water Strider
     self:Add(127286, 43717) -- Black Dragon Turtle
     self:Add(130138, 44836) -- Black Riding Goat
-    self:Add(127209, 43709) -- Black Riding Yak
+    self:Add(127209, 43709, { nlo = 1 }) -- Black Riding Yak
     self:Add(127220, 43712) -- Blonde Riding Yak
     self:Add(127287, 43718) -- Blue Dragon Turtle
     self:Add(129934, 43900) -- Blue Shado-Pan Riding Tiger
     self:Add(127288, 43719) -- Brown Dragon Turtle
     self:Add(130086, 44807) -- Brown Riding Goat
-    self:Add(127213, 43710) -- Brown Riding Yak
+    self:Add(127213, 43710, { nlo = 1 }) -- Brown Riding Yak
     self:Add(124550, 38757, self.FLY, { are = 1}) -- Cataclysmic Gladiator's Twilight Drake
     self:Add(127156, 41592, self.FLY) -- Crimson Cloud Serpent
     self:Add(129552, 44633, self.FLY) -- Crimson Pandaren Phoenix
@@ -191,10 +191,10 @@ function CollectMe.MountDB:Build()
     self:Add(120395, 42250) -- Green Dragon Turtle
     self:Add(129932, 44759) -- Green Shado-Pan Riding Tiger
     self:Add(127216, 43711) -- Grey Riding Yak
-    self:Add(127169, 43697, self.FLY) -- Heavenly Azure Cloud Serpent
-    self:Add(127161, 43692, self.FLY) -- Heavenly Crimson Cloud Serpent
-    self:Add(127164, 43693, self.FLY) -- Heavenly Golden Cloud Serpent
-    self:Add(127165, 43695, self.FLY) -- Heavenly Jade Cloud Serpent
+    self:Add(127169, 43697, self.FLY, { nlo = 1 }) -- Heavenly Azure Cloud Serpent
+    self:Add(127161, 43692, self.FLY, { nlo = 1 }) -- Heavenly Crimson Cloud Serpent
+    self:Add(127164, 43693, self.FLY, { nlo = 1 }) -- Heavenly Golden Cloud Serpent
+    self:Add(127165, 43695, self.FLY, { nlo = 1 }) -- Heavenly Jade Cloud Serpent
     self:Add(127158, 43689, self.FLY) -- Heavenly Onyx Cloud Serpent
     self:Add(113199, 40590, self.FLY) -- Jade Cloud Serpent
     self:Add(121837, 42502) -- Jade Panther
@@ -217,7 +217,7 @@ function CollectMe.MountDB:Build()
     self:Add(132036, 45797, self.FLY) -- Thundering Ruby Cloud Serpent
     self:Add(132119, 45522, self.FLY) -- Violet Pandaren Phoenix
     self:Add(130137, 44837) -- White Riding Goat
-    self:Add(123182, 41089) -- White Riding Yak
+    self:Add(123182, 41089, { nlo = 1 }) -- White Riding Yak
     self:Add(133023, 42147, self.FLY) -- Jade Pandaren Kite
     self:Add(134573, 46729, self.FLY, { bsm = 1 }) -- Swift Windsteed
 
