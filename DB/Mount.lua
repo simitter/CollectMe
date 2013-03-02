@@ -174,13 +174,13 @@ function CollectMe.MountDB:Build()
     self:Add(127156, 41592, self.FLY) -- Crimson Cloud Serpent
     self:Add(129552, 44633, self.FLY) -- Crimson Pandaren Phoenix
     self:Add(123160, 42837) -- Crimson Riding Crane
-    self:Add(127271, 43713) -- Crimson Water Strider
+    self:Add(127271, 43713, { nlo = 1 }) -- Crimson Water Strider
     self:Add(126507, 43637, self.FLY) -- Depleted-Kyparium Rocket
     self:Add(132118, 45520, self.FLY) -- Emerald Pandaren Phoenix
     self:Add(126508, 43638, self.FLY) -- Geosynchronous World Spinner
     self:Add(123993, 41991, self.FLY) -- Golden Cloud Serpent
     self:Add(127176, 43705) -- Golden Riding Crane
-    self:Add(127278, 43716) -- Golden Water Strider
+    self:Add(127278, 43716, { nlo = 1 }) -- Golden Water Strider
     self:Add(122708, 42703) -- Grand Expedition Yak
     self:Add(127295, 43723) -- Great Black Dragon Turtle
     self:Add(127302, 43724) -- Great Blue Dragon Turtle
@@ -198,11 +198,11 @@ function CollectMe.MountDB:Build()
     self:Add(127158, 43689, self.FLY) -- Heavenly Onyx Cloud Serpent
     self:Add(113199, 40590, self.FLY) -- Jade Cloud Serpent
     self:Add(121837, 42502) -- Jade Panther
-    self:Add(127274, 43714) -- Jade Water Strider
+    self:Add(127274, 43714, { nlo = 1 }) -- Jade Water Strider
     self:Add(120043, 42185, self.FLY) -- Jeweled Onyx Panther
     self:Add(127178, 43707) -- Jungle Riding Crane
     self:Add(127154, 41990, self.FLY) -- Onyx Cloud Serpent
-    self:Add(127272, 43715) -- Orange Water Strider
+    self:Add(127272, 43715, { nlo = 1 }) -- Orange Water Strider
     self:Add(127289, 43910) -- Purple Dragon Turtle
     self:Add(127290, 43721) -- Red Dragon Turtle
     self:Add(130092, 44808, self.FLY) -- Red self.FLYing Cloud
