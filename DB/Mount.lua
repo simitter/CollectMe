@@ -11,7 +11,7 @@ function CollectMe.MountDB:OnInitialize()
     self.known_mounts = {}
     self.known_mount_count = 0
 
-    self.filters = { "nlo", "tcg", "pvp", "are", "bsm", "rfm", "ptm" }
+    self.filters = { "nlo", "umo", "tcg", "pvp", "are", "bsm", "rfm", "ptm" }
 
     self:Build()
 end

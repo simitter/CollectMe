@@ -11,6 +11,7 @@ L["Filters"] = true
 L["Random Mount"] = true
 L["Random Companion"] = true
 L["filters_nlo"] = "No longer obtainable"
+L["filters_umo"] = "Unknown method of obtaining"
 L["filters_tcg"] = "Trading Card Game"
 L["filters_pvp"] = "PvP Battleground / Honor"
 L["filters_are"] = "PvP Arena"
