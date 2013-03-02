@@ -4,6 +4,7 @@ CollectMe.ZoneDB = CollectMe:NewModule("ZoneDB")
 
 function CollectMe.ZoneDB:OnInitialize()
     self.list, self.order = {}, {}
+    self.loaded = false
 end
 
 CollectMe.ZoneDB.continents = {
@@ -673,7 +674,7 @@ function CollectMe.ZoneDB:IsSpeciesInZone(species_id, zones)
 end
 
 function CollectMe.ZoneDB:GetList()
-    if #self.list == 0 then
+    if self.loaded == false then
         local tbl = {}
         for i = 1,6 do
             for j,v in ipairs(self.continents[i]) do
@@ -688,6 +689,7 @@ function CollectMe.ZoneDB:GetList()
             self.list[v[1]] = v[2]
             table.insert(self.order, v[1])
         end
+        self.loaded = true
     end
     return self.list, self.order
 end
