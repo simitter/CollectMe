@@ -254,7 +254,7 @@ function CollectMe:BuildMissingCompanionList()
 
     for i = 1,total do
         local pet_id, species_id, owned, _, _, _, _, name, icon, _, creature_id, source = C_PetJournal.GetPetInfoByIndex(i, false)
-        if #zones == 0 or self.ZoneDB:IsSpeciesInZone(species_id, zones) then
+        if next(zones) == nil or self.ZoneDB:IsSpeciesInZone(species_id, zones) then
             if owned ~= true then
                 local v = {
                     name = name,

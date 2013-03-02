@@ -4,6 +4,7 @@ CollectMe.ZoneDB = CollectMe:NewModule("ZoneDB")
 
 function CollectMe.ZoneDB:OnInitialize()
     self.list, self.order = {}, {}
+    self.loaded = false
 end
 
 CollectMe.ZoneDB.continents = {
@@ -144,115 +145,113 @@ CollectMe.ZoneDB.continents = {
     }
 }
 CollectMe.ZoneDB.instances = {
-    ["Instances"] = {
-        401,--	Alterac Valley
-        461,--	Arathi Basin
-        482,--	Eye of the Storm
-        540,--	Isle of Conquest
-        512,--	Strand of the Ancients
-        736,--	The Battle for Gilneas
-        626,--	Twin Peaks
-        443,--	Warsong Gulch
-        688,--	Blackfathom Deeps
-        704,--	Blackrock Depths
-        721,--	Blackrock Spire
-        699,--	Dire Maul
-        691,--	Gnomeregan
-        750,--	Maraudon
-        680,--	Ragefire Chasm
-        760,--	Razorfen Downs
-        761,--	Razorfen Kraul
-        762,--	Scarlet Monastery
-        763,--	Scholomance
-        764,--	Shadowfang Keep
-        765,--	Stratholme
-        756,--	The Deadmines
-        690,--	The Stockade
-        687,--	The Temple of Atal'Hakkar
-        692,--	Uldaman
-        749,--	Wailing Caverns
-        686,--	Zul'Farrak
-        755,--	Blackwing Lair
-        696,--	Molten Core
-        717,--	Ruins of Ahn'Qiraj
-        766,--	Temple of Ahn'Qiraj
-        722,--	Auchenai Crypts
-        797,--	Hellfire Ramparts
-        798,--	Magisters' Terrace
-        732,--	Mana-Tombs
-        734,--	Old Hillsbrad Foothills
-        723,--	Sethekk Halls
-        724,--	Shadow Labyrinth
-        731,--	The Arcatraz
-        733,--	The Black Morass
-        725,--	The Blood Furnace
-        729,--	The Botanica
-        730,--	The Mechanar
-        710,--	The Shattered Halls
-        728,--	The Slave Pens
-        727,--	The Steamvault
-        726,--	The Underbog
-        796,--	Black Temple
-        776,--	Gruul's Lair
-        775,--	Hyjal Summit
-        799,--	Karazhan
-        779,--	Magtheridon's Lair
-        780,--	Serpentshrine Cavern
-        789,--	Sunwell Plateau
-        782,--	The Eye
-        522,--	Ahn'kahet: The Old Kingdom
-        533,--	Azjol-Nerub
-        534,--	Drak'Tharon Keep
-        530,--	Gundrak
-        525,--	Halls of Lightning
-        603,--	Halls of Reflection
-        526,--	Halls of Stone
-        602,--	Pit of Saron
-        521,--	The Culling of Stratholme
-        601,--	The Forge of Souls
-        520,--	The Nexus
-        528,--	The Oculus
-        536,--	The Violet Hold
-        542,--	Trial of the Champion
-        523,--	Utgarde Keep
-        524,--	Utgarde Pinnacle
-        604,--	Icecrown Citadel
-        535,--	Naxxramas
-        718,--	Onyxia's Lair
-        527,--	The Eye of Eternity
-        531,--	The Obsidian Sanctum
-        609,--	The Ruby Sanctum
-        543,--	Trial of the Crusader
-        529,--	Ulduar
-        532,--	Vault of Archavon
-        753,--	Blackrock Caverns
-        820,--	End Time
-        757,--	Grim Batol
-        759,--	Halls of Origination
-        819,--	Hour of Twilight
-        747,--	Lost City of the Tol'vir
-        768,--	The Stonecore
-        769,--	The Vortex Pinnacle
-        767,--	Throne of the Tides
-        816,--	Well of Eternity
-        781,--	Zul'Aman
-        793,--	Zul'Gurub
-        752,--	Baradin Hold
-        754,--	Blackwing Descent
-        824,--	Dragon Soul
-        800,--	Firelands
-        758,--	The Bastion of Twilight
-        773,--	Throne of the Four Winds
-        875,--	Gate of the Setting Sun MoP
-        885,--	Mogu'Shan Palace MoP
-        877,--	Shado-pan Monastery MoP
-        887,--	Siege of Niuzao Temple MoP
-        876,--	Stormstout Brewery MoP
-        867,--	Temple of the Jade Serpent MoP
-        897,--	Heart of Fear MoP
-        896,--	Mogu'shan Vaults MoP
-        886,--	Terrace of Endless Spring MoP
-    }
+    401,--	Alterac Valley
+    461,--	Arathi Basin
+    482,--	Eye of the Storm
+    540,--	Isle of Conquest
+    512,--	Strand of the Ancients
+    736,--	The Battle for Gilneas
+    626,--	Twin Peaks
+    443,--	Warsong Gulch
+    688,--	Blackfathom Deeps
+    704,--	Blackrock Depths
+    721,--	Blackrock Spire
+    699,--	Dire Maul
+    691,--	Gnomeregan
+    750,--	Maraudon
+    680,--	Ragefire Chasm
+    760,--	Razorfen Downs
+    761,--	Razorfen Kraul
+    762,--	Scarlet Monastery
+    763,--	Scholomance
+    764,--	Shadowfang Keep
+    765,--	Stratholme
+    756,--	The Deadmines
+    690,--	The Stockade
+    687,--	The Temple of Atal'Hakkar
+    692,--	Uldaman
+    749,--	Wailing Caverns
+    686,--	Zul'Farrak
+    755,--	Blackwing Lair
+    696,--	Molten Core
+    717,--	Ruins of Ahn'Qiraj
+    766,--	Temple of Ahn'Qiraj
+    722,--	Auchenai Crypts
+    797,--	Hellfire Ramparts
+    798,--	Magisters' Terrace
+    732,--	Mana-Tombs
+    734,--	Old Hillsbrad Foothills
+    723,--	Sethekk Halls
+    724,--	Shadow Labyrinth
+    731,--	The Arcatraz
+    733,--	The Black Morass
+    725,--	The Blood Furnace
+    729,--	The Botanica
+    730,--	The Mechanar
+    710,--	The Shattered Halls
+    728,--	The Slave Pens
+    727,--	The Steamvault
+    726,--	The Underbog
+    796,--	Black Temple
+    776,--	Gruul's Lair
+    775,--	Hyjal Summit
+    799,--	Karazhan
+    779,--	Magtheridon's Lair
+    780,--	Serpentshrine Cavern
+    789,--	Sunwell Plateau
+    782,--	The Eye
+    522,--	Ahn'kahet: The Old Kingdom
+    533,--	Azjol-Nerub
+    534,--	Drak'Tharon Keep
+    530,--	Gundrak
+    525,--	Halls of Lightning
+    603,--	Halls of Reflection
+    526,--	Halls of Stone
+    602,--	Pit of Saron
+    521,--	The Culling of Stratholme
+    601,--	The Forge of Souls
+    520,--	The Nexus
+    528,--	The Oculus
+    536,--	The Violet Hold
+    542,--	Trial of the Champion
+    523,--	Utgarde Keep
+    524,--	Utgarde Pinnacle
+    604,--	Icecrown Citadel
+    535,--	Naxxramas
+    718,--	Onyxia's Lair
+    527,--	The Eye of Eternity
+    531,--	The Obsidian Sanctum
+    609,--	The Ruby Sanctum
+    543,--	Trial of the Crusader
+    529,--	Ulduar
+    532,--	Vault of Archavon
+    753,--	Blackrock Caverns
+    820,--	End Time
+    757,--	Grim Batol
+    759,--	Halls of Origination
+    819,--	Hour of Twilight
+    747,--	Lost City of the Tol'vir
+    768,--	The Stonecore
+    769,--	The Vortex Pinnacle
+    767,--	Throne of the Tides
+    816,--	Well of Eternity
+    781,--	Zul'Aman
+    793,--	Zul'Gurub
+    752,--	Baradin Hold
+    754,--	Blackwing Descent
+    824,--	Dragon Soul
+    800,--	Firelands
+    758,--	The Bastion of Twilight
+    773,--	Throne of the Four Winds
+    875,--	Gate of the Setting Sun MoP
+    885,--	Mogu'Shan Palace MoP
+    877,--	Shado-pan Monastery MoP
+    887,--	Siege of Niuzao Temple MoP
+    876,--	Stormstout Brewery MoP
+    867,--	Temple of the Jade Serpent MoP
+    897,--	Heart of Fear MoP
+    896,--	Mogu'shan Vaults MoP
+    886,--	Terrace of Endless Spring MoP
 }
 
 CollectMe.ZoneDB.species_to_zone = {
@@ -675,7 +674,7 @@ function CollectMe.ZoneDB:IsSpeciesInZone(species_id, zones)
 end
 
 function CollectMe.ZoneDB:GetList()
-    if #self.list == 0 then
+    if self.loaded == false then
         local tbl = {}
         for i = 1,6 do
             for j,v in ipairs(self.continents[i]) do
@@ -690,6 +689,7 @@ function CollectMe.ZoneDB:GetList()
             self.list[v[1]] = v[2]
             table.insert(self.order, v[1])
         end
+        self.loaded = true
     end
     return self.list, self.order
 end
