@@ -154,7 +154,7 @@ function CollectMe.MountDB:Build()
     self:Add(75973, 31992, self.FLY, { rfm = 1, nlo = 1 })  -- X-53 Touring Rocket
     self:Add(26055, 15680, self.GROUND, {}, { 766 })  -- Yellow Qiraji Battle Tank
     self:Add(71810, 31047, self.FLY, { are = 1, nlo = 1}) -- Wrathful Gladiator's Frost Wyrm
-    self:Add(127180, 43708) -- Albino Riding Crane
+    self:Add(127180, 43708, { umo = 1 }) -- Albino Riding Crane
     self:Add(123886, 43090) -- Amber Scorpion
     self:Add(132117, 45521, self.FLY) -- Ashen Pandaren Phoenix
     self:Add(127170, 46087, self.FLY) -- Astral Cloud Serpent
@@ -173,7 +173,7 @@ function CollectMe.MountDB:Build()
     self:Add(124550, 38757, self.FLY, { are = 1}) -- Cataclysmic Gladiator's Twilight Drake
     self:Add(127156, 41592, self.FLY) -- Crimson Cloud Serpent
     self:Add(129552, 44633, self.FLY) -- Crimson Pandaren Phoenix
-    self:Add(123160, 42837) -- Crimson Riding Crane
+    self:Add(123160, 42837, { umo = 1 }) -- Crimson Riding Crane
     self:Add(127271, 43713, { umo = 1 }) -- Crimson Water Strider
     self:Add(126507, 43637, self.FLY) -- Depleted-Kyparium Rocket
     self:Add(132118, 45520, self.FLY) -- Emerald Pandaren Phoenix
@@ -200,7 +200,7 @@ function CollectMe.MountDB:Build()
     self:Add(121837, 42502) -- Jade Panther
     self:Add(127274, 43714, { umo = 1 }) -- Jade Water Strider
     self:Add(120043, 42185, self.FLY) -- Jeweled Onyx Panther
-    self:Add(127178, 43707) -- Jungle Riding Crane
+    self:Add(127178, 43707, { umo = 1 }) -- Jungle Riding Crane
     self:Add(127154, 41990, self.FLY) -- Onyx Cloud Serpent
     self:Add(127272, 43715, { umo = 1 }) -- Orange Water Strider
     self:Add(127289, 43910) -- Purple Dragon Turtle
