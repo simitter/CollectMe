@@ -2,8 +2,9 @@
 * Fixed duplicate LICENSE.TXT in zip
 * Fixed info for Swift Windsteed (Mount)
 * Fixed info for Albino Riding Crane (Mount)
-* Added filters for non obtainable Yaks, Clound Serpents (Mount)
-* Removed [BoE] tags from Tailoring mounts
+* Fixed info for several Water Strider mounts (Mount)
+* Added filters for non obtainable Yaks, Clound Serpents, Water Striders (Mount)
+* Removed [BoE] tags from Tailoring mounts (Mount)
 
 ## 2.3.1
  * Added Swift Windsteed
