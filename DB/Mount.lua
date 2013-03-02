@@ -437,6 +437,7 @@ function CollectMe.MountDB:Build()
     end
 
     CollectMe:SortTable(self.mounts)
+    self:RefreshKnown(true)
 end
 
 function CollectMe.MountDB:Add(spell_id, display_id, type, filters, zones, professions, obtain_zones)
@@ -495,7 +496,7 @@ function CollectMe.MountDB:GetZoneMounts(zones)
         for i,v in ipairs(info.obtain_zones) do
             for j,v1 in ipairs(zones) do
                 if v == v1 then
-                    obtainable[info.id] = info
+                    tinsert(obtainable, info)
                     break
                 end
             end
@@ -513,14 +514,14 @@ function CollectMe.MountDB:GetInfo(spell_id)
     return nil
 end
 
-function CollectMe.MountDB:RefreshKnown()
+function CollectMe.MountDB:RefreshKnown(no_message)
     self.known_mount_count = GetNumCompanions("Mount")
     self.known_mounts = {}
 
     for i = 1, self.known_mount_count, 1 do
         local _, name, spell_id = GetCompanionInfo("Mount", i)
         table.insert(self.known_mounts, spell_id);
-        if CollectMe.db.profile.missing_message.mounts == false then
+        if CollectMe.db.profile.missing_message.mounts == false and no_message == nil then
             if not CollectMe:IsInTable(self.mount_spells, spell_id) then
                 CollectMe:Print(CollectMe.L["Mount"] .. " " .. name .. "("..spell_id..") " .. CollectMe.L["is missing"] .. ". " .. CollectMe.L["Please inform the author"])
             end

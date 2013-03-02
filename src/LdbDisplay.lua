@@ -61,33 +61,20 @@ function CollectMe.LdbDisplay:UpdateData()
         end
     end
 
-   -- self.collected_mounts, self.missing_mounts = {}, {}
-   -- local current_filter_list, current_filter_db = CollectMe.filter_list, CollectMe.filter_db
+    self.collected_mounts, self.missing_mounts = {}, {}
+    local current_filter_list, current_filter_db = CollectMe.filter_list, CollectMe.filter_db
 
-    --CollectMe.filter_list, CollectMe.filter_db = CollectMe.MountDB.filters, CollectMe.db.profile.filters.mounts
+    CollectMe.filter_list, CollectMe.filter_db = CollectMe.MountDB.filters, CollectMe.db.profile.filters.mounts
 
-    --for i,v in pairs(CollectMe.MountDB:GetZoneMounts({CollectMe.ZoneDB:Current()})) do
-    --    if not CollectMe:IsFiltered(v.filters) then
-    --        print(v.name)
-    --    end
-    --end
-
---
--- --    CollectMe.filter_list, CollectMe.filter_db = current_filter_list, current_filter_db
-
-    --if (self.UI.active_group == self.MOUNT and not self.MountDB:IsKnown(v.id) and (#zones == 0 or self.MountDB:ObtainableInZone(v.id, zones))) or (self.UI.active_group == self.TITLE and IsTitleKnown(v.id) ~= 1) then
-    --    if self:IsInTable(self.ignored_db, v.id) then
-    --        table.insert(ignored, v)
-    --    else
-    --        if not self:IsFiltered(v.filters) then
-    --            table.insert(active, v)
-    --        else
-    --            filter_count = filter_count + 1
-    --        end
-    --    end
-    --else
-    --    known_count = known_count +1
-    --end
+    for i,v in ipairs(CollectMe.MountDB:GetZoneMounts({CollectMe.ZoneDB:Current()})) do
+        if not CollectMe:IsFiltered(v.filters) and not CollectMe:IsInTable(CollectMe.db.profile.ignored.mounts , v.id) then
+            if CollectMe.MountDB:IsKnown(v.id) ~= false then
+                tinsert(self.collected_mounts, v)
+            else
+                tinsert(self.missing_mounts, v)
+            end
+        end
+    end
 
     self.loaded = true
 end
@@ -112,6 +99,21 @@ function CollectMe.LdbDisplay:UpdateText()
         text = text .. ")"
     end
 
+    if (#self.missing_mounts + #self.collected_mounts) > 0 then
+        text = text .. " - "
+    end
+
+
+    if #self.missing_mounts > 0 then
+        text = text .. RED_FONT_COLOR_CODE .. #self.missing_mounts .. FONT_COLOR_CODE_CLOSE
+    end
+    if #self.collected_mounts > 0 then
+        if #self.missing_mounts > 0 then
+            text = text .. "/"
+        end
+        text = text .. GREEN_FONT_COLOR_CODE .. #self.collected_mounts .. FONT_COLOR_CODE_CLOSE
+    end
+
     if text == "" then
         text = "No data"
     end
@@ -122,10 +124,10 @@ function CollectMe.LdbDisplay:UpdateText()
 end
 
 function CollectMe.LdbDisplay:UpdateTooltip()
-    GameTooltip:SetText(self.L["Companions in"] .. " " .. self.zone_name)
+    GameTooltip:SetText(self.L["CollectMe in"] .. " " .. self.zone_name)
     GameTooltip:AddLine(" ")
     if self.unique_collected_count > 0 then
-        GameTooltip:AddLine(GREEN_FONT_COLOR_CODE .. self.unique_collected_count .. " " .. self.L["collected"] .. ":" .. FONT_COLOR_CODE_CLOSE)
+        GameTooltip:AddLine(GREEN_FONT_COLOR_CODE .. self.unique_collected_count .. " " .. self.L["Companions"] .. " " .. self.L["collected"] .. ":" .. FONT_COLOR_CODE_CLOSE)
         for i,v in ipairs(self.collected) do
             local name = v.name
             if(v.custom_name ~= nil) then
@@ -136,10 +138,26 @@ function CollectMe.LdbDisplay:UpdateTooltip()
         GameTooltip:AddLine(" ")
     end
     if self.missing_count > 0 then
-        GameTooltip:AddLine(RED_FONT_COLOR_CODE .. self.missing_count .. " " .. self.L["missing"] .. ":" .. FONT_COLOR_CODE_CLOSE)
+        GameTooltip:AddLine(RED_FONT_COLOR_CODE .. self.missing_count .. " " .. self.L["Companions"] .. " " .. self.L["missing"] .. ":" .. FONT_COLOR_CODE_CLOSE)
         for i,v in ipairs(self.missing) do
             GameTooltip:AddLine(v.name)
         end
+        GameTooltip:AddLine(" ")
     end
+
+    if #self.collected_mounts > 0 then
+        GameTooltip:AddLine(GREEN_FONT_COLOR_CODE .. #self.collected_mounts .. " " .. self.L["Mounts"] .. " " .. self.L["collected"] .. ":" .. FONT_COLOR_CODE_CLOSE)
+        for i,v in ipairs(self.collected_mounts) do
+            GameTooltip:AddLine(v.name)
+        end
+        GameTooltip:AddLine(" ")
+    end
+    if #self.missing_mounts > 0 then
+        GameTooltip:AddLine(RED_FONT_COLOR_CODE .. #self.missing_mounts .. " " .. self.L["Mounts"] .. " " .. self.L["missing"] .. ":" .. FONT_COLOR_CODE_CLOSE)
+        for i,v in ipairs(self.missing_mounts) do
+            GameTooltip:AddLine(v.name)
+        end
+    end
+
 end
 
