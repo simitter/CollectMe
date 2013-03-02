@@ -25,7 +25,7 @@ function CollectMe.MountDB:Build()
     self:Add(96503, 37800, self.FLY, { tcg = 1 }) -- Amani Dragonhawk
     self:Add(98204, 38261):SetProperty(98204, "obtain_zones", {781})-- Amani Battle Bear
     self:Add(43688, 22464, self.GROUND, { nlo = 1 }) -- Amani War Bear
-    self:Add(63844, 22471) -- Argent Hippogryph
+    self:Add(63844, 22471, self.FLY):SetProperty(63844, "obtain_zones", {492}) -- Argent Hippogryph
     self:Add(67466, 28918) -- Argent Warhorse
     self:Add(96491, 14341) -- Armored Razzashi Raptor
     self:Add(40192, 17890, self.FLY) -- Ashes of Al'ar
@@ -64,7 +64,7 @@ function CollectMe.MountDB:Build()
     self:Add(88335, 35757, self.FLY)         -- Drake of the East Wind
     self:Add(88742, 35553, self.FLY)         -- Drake of the North Wind
     self:Add(88744, 35755, self.FLY)         -- Drake of the South Wind
-    self:Add(88741, 35754, self.FLY)         -- Drake of the West Wind
+    self:Add(88741, 35754, self.FLY):SetProperty(88741, "obtain_zones", {709})         -- Drake of the West Wind
     self:Add(110039, 39229, self.FLY)   -- Experiment 12-B
     self:Add(113120, 40568, self.FLY, { tcg = 1 })   -- Feldrake
     self:Add(36702, 19250)   -- Fiery Warhorse
@@ -225,87 +225,87 @@ function CollectMe.MountDB:Build()
 
     -- Alliance Mounts
     if CollectMe.FACTION == "Alliance" then
-        self:Add(60114, 27820) -- Armored Brown Bear
-        self:Add(61229, 27913, self.FLY) -- Armored Snowy Gryphon
+        self:Add(60114, 27820):SetProperty(60114, "obtain_zones", {504}) -- Armored Brown Bear
+        self:Add(61229, 27913, self.FLY):SetProperty(61229, "obtain_zones", {504}) -- Armored Snowy Gryphon
         self:Add(22719, 14372, self.GROUND, { pvp = 1 }):SetProperty(22719, "obtain_zones", {301}) -- Black Battlestrider
-        self:Add(470, 2402)   -- Black Stallion Bridle
-        self:Add(60118, 27818) -- Black War Bear
+        self:Add(470, 2402):SetProperty(470, "obtain_zones", {301,40})   -- Black Stallion Bridle
+        self:Add(60118, 27818):SetProperty(60118, "obtain_zones", {321,362,480,382}) -- Black War Bear
         self:Add(48027, 23928, self.GROUND, { pvp = 1 }):SetProperty(48027, "obtain_zones", {301}) -- Black War Elekk
-        self:Add(59785, 27247) -- Black War Mammoth
+        self:Add(59785, 27247):SetProperty(59785, "obtain_zones", {501}) -- Black War Mammoth
         self:Add(22720, 14577, self.GROUND, { pvp = 1 }):SetProperty(22720, "obtain_zones", {301}) -- Black War Ram
         self:Add(22717, 14337, self.GROUND, { pvp = 1 }):SetProperty(22717, "obtain_zones", {301}) -- Black War Steed
         self:Add(22723, 14330, self.GROUND, { pvp = 1 }):SetProperty(22723, "obtain_zones", {301}) -- Black War Tiger
         self:Add(61996, 27525, self.FLY) -- Blue Dragonhawk
-        self:Add(10969, 6569) -- Blue Mechanostrider
-        self:Add(34406, 17063) -- Brown Elekk
-        self:Add(458, 2404)   -- Brown Horse
-        self:Add(6899, 2785)  -- Brown Ram
-        self:Add(6648, 2405)  -- Chestnut Mare
-        self:Add(68187, 29937, self.GROUND, { nlo = 1 }) -- Crusader's White Warhorse
-        self:Add(63637, 29256) -- Darnassian Nightsaber
-        self:Add(32239, 17694, self.FLY) -- Ebon Gryphon
-        self:Add(63639, 29255) -- Exodar Elekk
-        self:Add(63638, 28571) -- Gnomeregan Mechanostrider
-        self:Add(32235, 17697, self.FLY) -- Golden Gryphon
-        self:Add(90621, 36213) -- Golden King
-        self:Add(61465, 27241) -- Grand Black War Mammoth
-        self:Add(135416, nil, self.FLY) -- Grand Armored Gryphon
-        self:Add(136163, nil, self.FLY) -- Grand Gryphon
-        self:Add(61470, 27242) -- Grand Ice Mammoth
-        self:Add(35710, 19869) -- Gray Elekk
-        self:Add(6777, 2736)  -- Gray Ram
-        self:Add(35713, 19871) -- Great Blue Elekk
-        self:Add(35712, 19873) -- Great Green Elekk
-        self:Add(35714, 19872) -- Great Purple Elekk
-        self:Add(65637, 28606) -- Great Red Elekk
-        self:Add(17453, 10661) -- Green Mechanostrider
-        self:Add(59799, 27248) -- Ice Mammoth
-        self:Add(63636, 29258) -- Ironforge Ram
+        self:Add(10969, 6569):SetProperty(10969, "obtain_zones", {27}) -- Blue Mechanostrider
+        self:Add(34406, 17063):SetProperty(34406, "obtain_zones", {471}) -- Brown Elekk
+        self:Add(458, 2404):SetProperty(458, "obtain_zones", {301,40,141,30})     -- Brown Horse
+        self:Add(6899, 2785):SetProperty(6899, "obtain_zones", {27})  -- Brown Ram
+        self:Add(6648, 2405):SetProperty(458, "obtain_zones", {301,40,141,30})  -- Chestnut Mare
+        self:Add(68187, 29937, self.GROUND, { nlo = 1 }):SetProperty(68187, "obtain_zones", {543}) -- Crusader's White Warhorse
+        self:Add(63637, 29256):SetProperty(63637, "obtain_zones", {492}) -- Darnassian Nightsaber
+        self:Add(32239, 17694, self.FLY):SetProperty(32239, "obtain_zones", {301,504,486,473,465}) -- Ebon Gryphon
+        self:Add(63639, 29255):SetProperty(63639, "obtain_zones", {492}) -- Exodar Elekk
+        self:Add(63638, 28571):SetProperty(63638, "obtain_zones", {492}) -- Gnomeregan Mechanostrider
+        self:Add(32235, 17697, self.FLY):SetProperty(32235, "obtain_zones", {301,504,486,473,465}) -- Golden Gryphon
+        self:Add(90621, 36213):SetProperty(90621, "obtain_zones", {301,504,481,471,341,381}) -- Golden King
+        self:Add(61465, 27241):SetProperty(61465, "obtain_zones", {532}) -- Grand Black War Mammoth
+        self:Add(135416, nil, self.FLY):SetProperty(135416, "obtain_zones", {857}) -- Grand Armored Gryphon
+        self:Add(136163, nil, self.FLY):SetProperty(136163, "obtain_zones", {857}) -- Grand Gryphon
+        self:Add(61470, 27242):SetProperty(61470, "obtain_zones", {495}) -- Grand Ice Mammoth
+        self:Add(35710, 19869):SetProperty(35710, "obtain_zones", {471}) -- Gray Elekk
+        self:Add(6777, 2736):SetProperty(6777, "obtain_zones", {27})  -- Gray Ram
+        self:Add(35713, 19871):SetProperty(35713, "obtain_zones", {471}) -- Great Blue Elekk
+        self:Add(35712, 19873):SetProperty(35712, "obtain_zones", {471}) -- Great Green Elekk
+        self:Add(35714, 19872):SetProperty(35714, "obtain_zones", {471}) -- Great Purple Elekk
+        self:Add(65637, 28606):SetProperty(65637, "obtain_zones", {492}) -- Great Red Elekk
+        self:Add(17453, 10661):SetProperty(17453, "obtain_zones", {27}) -- Green Mechanostrider
+        self:Add(59799, 27248):SetProperty(59799, "obtain_zones", {495}) -- Ice Mammoth
+        self:Add(63636, 29258):SetProperty(63636, "obtain_zones", {492}) -- Ironforge Ram
         self:Add(60424, 25870) -- Mekgineer's Chopper
-        self:Add(103195, 39096) -- Mountain Horse
-        self:Add(472, 2409)   -- Pinto
-        self:Add(35711, 19870) -- Purple Elekk
-        self:Add(66090, 28888) -- Quel'dorei Steed
-        self:Add(10873, 9473) -- Red Mechanostrider
-        self:Add(66087, 22474, self.FLY) -- Silver Covenant Hippogryph
-        self:Add(32240, 17696, self.FLY) -- Snowy Gryphon
-        self:Add(92231, 37160) -- Spectral Steed
+        self:Add(103195, 39096):SetProperty(103195, "obtain_zones", {381}) -- Mountain Horse
+        self:Add(472, 2409):SetProperty(472, "obtain_zones", {301,40,141,30})   -- Pinto
+        self:Add(35711, 19870):SetProperty(35711, "obtain_zones", {471}) -- Purple Elekk
+        self:Add(66090, 28888):SetProperty(66090, "obtain_zones", {492}) -- Quel'dorei Steed
+        self:Add(10873, 9473):SetProperty(10873, "obtain_zones", {27}) -- Red Mechanostrider
+        self:Add(66087, 22474, self.FLY):SetProperty(66087, "obtain_zones", {492}) -- Silver Covenant Hippogryph
+        self:Add(32240, 17696, self.FLY):SetProperty(32240, "obtain_zones", {301,504,486,473,465}) -- Snowy Gryphon
+        self:Add(92231, 37160):SetProperty(92231, "obtain_zones", {709}) -- Spectral Steed
         self:Add(107516, 39546, self.FLY) -- Spectral Gryphon
-        self:Add(10789, 6444) -- Spotted Frostsaber
-        self:Add(23510, 14777, self.GROUND, { pvp = 1 }) -- Stormpike Battle Charger
-        self:Add(63232, 28912) -- Stormwind Steed
-        self:Add(66847, 29755) -- Striped Dawnsaber
-        self:Add(8394, 6080)  -- Striped Frostsaber
-        self:Add(10793, 6448)  -- Striped Nightsaber
-        self:Add(68057, 29284, self.GROUND, { nlo = 1 })  -- Swift Alliance Steed
-        self:Add(32242, 17759, self.FLY)  -- Swift Blue Gryphon
-        self:Add(23238, 14347)  -- Swift Brown Ram
-        self:Add(23229, 14583)  -- Swift Brown Steed
-        self:Add(23221, 14331)  -- Swift Frostsaber
-        self:Add(23239, 14576)  -- Swift Gray Ram
-        self:Add(65640, 29043)  -- Swift Gray Steed
-        self:Add(32290, 17703, self.FLY)  -- Swift Green Gryphon
-        self:Add(23225, 14374)  -- Swift Green Mechanostrider
-        self:Add(23219, 14332)  -- Swift Mistsaber
-        self:Add(103196, 39095)  -- Swift Mountain Horse
-        self:Add(65638, 14333)  -- Swift Moonsaber
-        self:Add(23227, 14582)  -- Swift Palomino
-        self:Add(32292, 17717, self.FLY)  -- Swift Purple Gryphon
-        self:Add(32289, 17718, self.FLY)  -- Swift Red Gryphon
-        self:Add(23338, 14632)  -- Swift Stormsaber
-        self:Add(65643, 28612)  -- Swift Violet Ram
-        self:Add(23223, 14376)  -- Swift White Mechanostrider
-        self:Add(23240, 14346)  -- Swift White Ram
-        self:Add(23228, 14338)  -- Swift White Steed
-        self:Add(23222, 14377)  -- Swift Yellow Mechanostrider
-        self:Add(61425, 27237)  -- Traveler's Tundra Mammoth
-        self:Add(65642, 14375)  -- Turbostrider
-        self:Add(17454, 9476)  -- Unpainted Mechanostrider
+        self:Add(10789, 6444):SetProperty(10789, "obtain_zones", {381}) -- Spotted Frostsaber
+        self:Add(23510, 14777, self.GROUND, { pvp = 1 }):SetProperty(23510, "obtain_zones", {401}) -- Stormpike Battle Charger
+        self:Add(63232, 28912):SetProperty(63232, "obtain_zones", {492}) -- Stormwind Steed
+        self:Add(66847, 29755):SetProperty(66847, "obtain_zones", {381}) -- Striped Dawnsaber
+        self:Add(8394, 6080):SetProperty(8394, "obtain_zones", {381})  -- Striped Frostsaber
+        self:Add(10793, 6448):SetProperty(10793, "obtain_zones", {381})  -- Striped Nightsaber
+        self:Add(68057, 29284, self.GROUND, { nlo = 1 }):SetProperty(68057, "obtain_zones", {543})  -- Swift Alliance Steed
+        self:Add(32242, 17759, self.FLY):SetProperty(32242, "obtain_zones", {301,504,486,473,465})  -- Swift Blue Gryphon
+        self:Add(23238, 14347):SetProperty(23238, "obtain_zones", {27})  -- Swift Brown Ram
+        self:Add(23229, 14583):SetProperty(23229, "obtain_zones", {30,301,141})  -- Swift Brown Steed
+        self:Add(23221, 14331):SetProperty(23221, "obtain_zones", {381})  -- Swift Frostsaber
+        self:Add(23239, 14576):SetProperty(23239, "obtain_zones", {27})  -- Swift Gray Ram
+        self:Add(65640, 29043):SetProperty(65640, "obtain_zones", {492})  -- Swift Gray Steed
+        self:Add(32290, 17703, self.FLY):SetProperty(32290, "obtain_zones", {301,504,486,473,465})  -- Swift Green Gryphon
+        self:Add(23225, 14374):SetProperty(23225, "obtain_zones", {27})  -- Swift Green Mechanostrider
+        self:Add(23219, 14332):SetProperty(23219, "obtain_zones", {381})  -- Swift Mistsaber
+        self:Add(103196, 39095):SetProperty(103196, "obtain_zones", {381})  -- Swift Mountain Horse
+        self:Add(65638, 14333):SetProperty(65638, "obtain_zones", {492})  -- Swift Moonsaber
+        self:Add(23227, 14582):SetProperty(23227, "obtain_zones", {30,301,141})  -- Swift Palomino
+        self:Add(32292, 17717, self.FLY):SetProperty(32292, "obtain_zones", {301,504,486,473,465})  -- Swift Purple Gryphon
+        self:Add(32289, 17718, self.FLY):SetProperty(32289, "obtain_zones", {301,504,486,473,465})  -- Swift Red Gryphon
+        self:Add(23338, 14632):SetProperty(23338, "obtain_zones", {381})  -- Swift Stormsaber
+        self:Add(65643, 28612):SetProperty(65643, "obtain_zones", {492})  -- Swift Violet Ram
+        self:Add(23223, 14376):SetProperty(23223, "obtain_zones", {27})  -- Swift White Mechanostrider
+        self:Add(23240, 14346):SetProperty(23240, "obtain_zones", {27})  -- Swift White Ram
+        self:Add(23228, 14338):SetProperty(23228, "obtain_zones", {30,301,141})  -- Swift White Steed
+        self:Add(23222, 14377):SetProperty(23222, "obtain_zones", {27})  -- Swift Yellow Mechanostrider
+        self:Add(61425, 27237):SetProperty(61425, "obtain_zones", {504})  -- Traveler's Tundra Mammoth
+        self:Add(65642, 14375):SetProperty(65642, "obtain_zones", {492})  -- Turbostrider
+        self:Add(17454, 9476):SetProperty(17454, "obtain_zones", {27})  -- Unpainted Mechanostrider
         self:Add(100332, 38668, self.GROUND, { pvp = 1 }) -- Vicious War Steed
-        self:Add(6898, 2786)   -- White Ram
+        self:Add(6898, 2786):SetProperty(6898, "obtain_zones", {27})   -- White Ram
         self:Add(16083, 2410, self.GROUND, { nlo = 1 })  -- White Stallion
-        self:Add(17229, 10426)  -- Winterspring Frostsaber
-        self:Add(59791, 27243)  -- Wooly Mammoth
+        self:Add(17229, 10426):SetProperty(17229, "obtain_zones", {281})  -- Winterspring Frostsaber
+        self:Add(59791, 27243):SetProperty(59791, "obtain_zones", {504})  -- Wooly Mammoth
         self:Add(130985, 45271, self.FLY) -- Pandaren Kite
     end
 
