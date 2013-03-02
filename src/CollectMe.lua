@@ -307,9 +307,11 @@ end
 function CollectMe:BuildFilters()
     self.UI:AddToFilter(self.UI:CreateHeading(self.L["Filters"]))
 
-    self.UI:CreateFilterCheckbox(self.L["Current Zone"], self.db.profile.filters.mounts.czo, { OnValueChanged = function (container, event, value) self.db.profile.filters.mounts.czo = value; self.UI:ReloadScroll() end })
-    local list, order = CollectMe.ZoneDB:GetList()
-    self.UI:CreateFilterDropdown(self.L["Select Zones"], list, self.db.profile.filters.mounts.zones, { OnValueChanged = function (container, event, value) local pos = self:IsInTable(self.db.profile.filters.mounts.zones, value); if not pos then table.insert(self.db.profile.filters.mounts.zones, value) else table.remove(self.db.profile.filters.mounts.zones, pos) end; self.UI:ReloadScroll() end }, true, order)
+    if self.UI.active_group == self.MOUNT then
+        self.UI:CreateFilterCheckbox(self.L["Current Zone"], self.db.profile.filters.mounts.czo, { OnValueChanged = function (container, event, value) self.db.profile.filters.mounts.czo = value; self.UI:ReloadScroll() end })
+        local list, order = CollectMe.ZoneDB:GetList()
+        self.UI:CreateFilterDropdown(self.L["Select Zones"], list, self.db.profile.filters.mounts.zones, { OnValueChanged = function (container, event, value) local pos = self:IsInTable(self.db.profile.filters.mounts.zones, value); if not pos then table.insert(self.db.profile.filters.mounts.zones, value) else table.remove(self.db.profile.filters.mounts.zones, pos) end; self.UI:ReloadScroll() end }, true, order)
+    end
 
     for i = 1, #self.filter_list, 1 do
         self.UI:CreateFilterCheckbox(self.L["filters_" .. self.filter_list[i]], self.filter_db[self.filter_list[i]], { OnValueChanged = function (container, event, value) CollectMe:ToggleFilter(self.filter_list[i], value) end })
