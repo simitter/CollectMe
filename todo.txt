@@ -22,6 +22,7 @@ self:Add(41515, 21525, self.FLY) -- Ghastly Charger's Skull
 bugs:
 Frosyflyingcarpet BOE-BOP
 With ridingyak  missing filter  nolongerobtainable
+--II--  Clound  Serpents
 
 ----------------------------
 
