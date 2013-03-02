@@ -1,4 +1,5 @@
 ## 2.3.2
+* Fixed duplicate LICENSE.TXT in zip
 * Fixed info for Swift Windsteed (Mount)
 * Fixed info for Albino Riding Crane (Mount)
 * Added filters for non obtainable Yaks, Clound Serpents (Mount)
