@@ -437,7 +437,6 @@ function CollectMe.MountDB:Build()
     end
 
     CollectMe:SortTable(self.mounts)
-    self:RefreshKnown(true)
 end
 
 function CollectMe.MountDB:Add(spell_id, display_id, type, filters, zones, professions, obtain_zones)

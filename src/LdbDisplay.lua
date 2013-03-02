@@ -45,6 +45,7 @@ function CollectMe.LdbDisplay:ZoneChangeListener()
 end
 
 function CollectMe.LdbDisplay:UpdateData()
+    CollectMe.MountDB:RefreshKnown(true)
     self.collected, self.missing = CollectMe.CompanionDB:GetCompanionsInZone(CollectMe.ZoneDB:Current())
     self.unique_collected_count = 0
     self.missing_count = #self.missing
