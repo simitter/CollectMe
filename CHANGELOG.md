@@ -1,6 +1,8 @@
-
 ## 2.3.2
-* Fixed info for Swift Windsteed
+* Fixed info for Swift Windsteed (Mount)
+* Fixed info for Albino Riding Crane (Mount)
+* Added filters for non obtainable Yaks, Clound Serpents (Mount)
+* Removed [BoE] tags from Tailoring mounts
 
 ## 2.3.1
  * Added Swift Windsteed
