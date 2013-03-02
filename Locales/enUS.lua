@@ -206,7 +206,7 @@ L["mount_121820"] = "Obtained by using the Recruit a Friend Service. [BoA]" -- O
 L["mount_124659"] = "Included in the Digital Deluxe version of Mists of Pandaria. [BoA]" -- Imperial Quilen
 L["mount_133023"] = "Reward from the We're Going To Need More Saddles Achievement (collect 150 mounts)." -- Jade Pandaren Kite
 
--- L["mount_127180"] = "?? [BoP]" -- Albino Riding Crane
+L["mount_127180"] = "No known method of obtaining. [BoP]" -- Albino Riding Crane
 L["mount_123886"] = "Sold by Ambersmith Zikk <Klaxxi Quartermaster> in Klaxxi'vess in the Dread Wastes for 10000G. You need to be exalted with Klaxxi. [BoP]" -- Amber Scorpio
 L["mount_132117"] = "Reward from the challenge mode dungeon achievement 'Challenge Conqueror: Silver'. [BoP]" -- Ashen Pandaren Phoenix
 L["mount_127170"] = "Drops from Elegon in the Mogu'shan Vaults raid. [BoA]" -- Astral Cloud Serpent
