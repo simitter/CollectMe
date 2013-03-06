@@ -7,17 +7,17 @@ Excitor:
 - Updated ?? for titles, mounts.
 //work 5.2 id's are wrong fly filter might be as well
 
-self:Add(41515, 21525, self.FLY) -- Reins of the Green Primal Raptor
-self:Add(41515, 21525, self.FLY) -- Reins of the Black Primal Raptor
-self:Add(41515, 21525, self.FLY) -- Reins of the Red Primal Raptor
-self:Add(41515, 21525, self.FLY) -- Reins of the Bone-White Primal Raptor
-self:Add(41515, 21525, self.FLY) -- Reins of the Jade Primordial Direhorn
-self:Add(41515, 21525, self.FLY) -- Reins of the Amber Primordial Direhorn
-self:Add(41515, 21525, self.FLY) -- Reins of the Slate Primordial Direhorn
-self:Add(41515, 21525, self.FLY) -- Reins of the Cobalt Primordial Direhorn
-self:Add(41515, 21525, self.FLY) -- Spawn of Horridon
-self:Add(41515, 21525, self.FLY) -- Armored Riding Pteradactyl
-self:Add(41515, 21525, self.FLY) -- Ghastly Charger's Skull
+self:Add(138643, 21525, self.FLY) -- Reins of the Green Primal Raptor
+self:Add(138642, 21525, self.FLY) -- Reins of the Black Primal Raptor
+self:Add(138641, 21525, self.FLY) -- Reins of the Red Primal Raptor
+self:Add(138640, 21525, self.FLY) -- Reins of the Bone-White Primal Raptor
+self:Add(138426, 21525, self.FLY) -- Reins of the Jade Primordial Direhorn
+self:Add(138424, 21525, self.FLY) -- Reins of the Amber Primordial Direhorn
+self:Add(138425, 21525, self.FLY) -- Reins of the Slate Primordial Direhorn
+self:Add(138423, 21525, self.FLY) -- Reins of the Cobalt Primordial Direhorn
+self:Add(136471, 21525, self.FLY) -- Spawn of Horridon
+self:Add(136400, 21525, self.FLY) -- Armored Riding Pteradactyl
+self:Add(136505, 21525, self.FLY) -- Ghastly Charger's Skull
 
 
 ----------------------------
