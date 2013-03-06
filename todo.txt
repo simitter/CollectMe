@@ -19,6 +19,18 @@ self:Add(136471, 21525, self.FLY) -- Spawn of Horridon
 self:Add(136400, 21525, self.FLY) -- Armored Riding Pteradactyl
 self:Add(136505, 21525, self.FLY) -- Ghastly Charger's Skull
 
+L["mount_138643"] = "Purchased from Blizzard's online store. [BoA]" -- Reins of the Green Primal Raptor
+L["mount_138642"] = "Purchased from Blizzard's online store. [BoA]" -- Reins of the Black Primal Raptor
+L["mount_138641"] = "Purchased from Blizzard's online store. [BoA]" -- Reins of the Red Primal Raptor
+L["mount_138640"] = "Purchased from Blizzard's online store. [BoA]" -- Reins of the Bone-White Primal Raptor
+L["mount_138426"] = "Purchased from Blizzard's online store. [BoA]" -- Reins of the Jade Primordial Direhorn
+L["mount_138424"] = "Purchased from Blizzard's online store. [BoA]" -- Reins of the Amber Primordial Direhorn
+L["mount_138425"] = "Purchased from Blizzard's online store. [BoA]" -- Reins of the Slate Primordial Direhorn
+L["mount_138423"] = "Purchased from Blizzard's online store. [BoA]" -- Reins of the Cobalt Primordial Direhorn
+L["mount_136471"] = "Purchased from Blizzard's online store. [BoA]" -- Spawn of Horridon
+L["mount_136400"] = "Purchased from Blizzard's online store. [BoA]" -- Armored Riding Pteradactyl
+L["mount_136505"] = "Purchased from Blizzard's online store. [BoA]" -- Ghastly Charger's Skull
+
 
 ----------------------------
 
