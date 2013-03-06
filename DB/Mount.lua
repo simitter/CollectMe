@@ -18,6 +18,7 @@ end
 
 function CollectMe.MountDB:Build()
     -- Common Mounts
+        --1.0-4.3
     self:Add(75207, 34956, self.AQUATIC, {}, { 614, 615, 610 }) -- Abyssal Seahorse
     self:Add(60025, 25836, self.FLY) -- Albino Drake
     self:Add(96503, 37800, self.FLY, { tcg = 1 }) -- Amani Dragonhawk
@@ -154,6 +155,7 @@ function CollectMe.MountDB:Build()
     self:Add(75973, 31992, self.FLY, { rfm = 1, nlo = 1 })  -- X-53 Touring Rocket
     self:Add(26055, 15680, self.GROUND, {}, { 766 })  -- Yellow Qiraji Battle Tank
     self:Add(71810, 31047, self.FLY, { are = 1, nlo = 1}) -- Wrathful Gladiator's Frost Wyrm
+    --5.1,5.2
     self:Add(127180, 43708, { umo = 1 }) -- Albino Riding Crane
     self:Add(123886, 43090) -- Amber Scorpion
     self:Add(132117, 45521, self.FLY) -- Ashen Pandaren Phoenix
@@ -220,6 +222,18 @@ function CollectMe.MountDB:Build()
     self:Add(123182, 41089, { umo = 1 }) -- White Riding Yak
     self:Add(133023, 42147, self.FLY) -- Jade Pandaren Kite
     self:Add(134573, 46729, self.FLY, { bsm = 1 }) -- Swift Windsteed
+    --5.2
+    self:Add(138643, 21525, self.FLY) -- Reins of the Green Primal Raptor
+    self:Add(138642, 21525, self.FLY) -- Reins of the Black Primal Raptor
+    self:Add(138641, 21525, self.FLY) -- Reins of the Red Primal Raptor
+    self:Add(138640, 21525, self.FLY) -- Reins of the Bone-White Primal Raptor
+    self:Add(138426, 21525, self.FLY) -- Reins of the Jade Primordial Direhorn
+    self:Add(138424, 21525, self.FLY) -- Reins of the Amber Primordial Direhorn
+    self:Add(138425, 21525, self.FLY) -- Reins of the Slate Primordial Direhorn
+    self:Add(138423, 21525, self.FLY) -- Reins of the Cobalt Primordial Direhorn
+    self:Add(136471, 21525, self.FLY) -- Spawn of Horridon
+    self:Add(136400, 21525, self.FLY) -- Armored Riding Pteradactyl
+    self:Add(136505, 21525, self.FLY, { tcg = 1 }) -- Ghastly Charger's Skull
 
     -- Alliance Mounts
     if CollectMe.FACTION == "Alliance" then
