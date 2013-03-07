@@ -1,6 +1,6 @@
 ## 2.3.2
  * Fixed performance issues on tabs using the zone dropdown list
- * Added several 5.2 mounts
+ * Added several 5.2 mounts and zones
  * Fixed info for Swift Windsteed (Mount)
  * Fixed info for Albino Riding Crane (Mount)
  * Fixed info for Crimson Riding Crane (Mount)

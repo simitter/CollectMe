@@ -142,6 +142,8 @@ CollectMe.ZoneDB.continents = {
         810,--	Townlong Steppes MoP
         811,--	Vale of Eternal Blossoms MoP
         807,--	Valley of the Four Winds MoP
+        929,--  Isle of Giants
+        928,--  Isle of Thunder
     }
 }
 CollectMe.ZoneDB.instances = {
@@ -252,6 +254,7 @@ CollectMe.ZoneDB.instances = {
     897,--	Heart of Fear MoP
     896,--	Mogu'shan Vaults MoP
     886,--	Terrace of Endless Spring MoP
+    930,--  Throne of Thunder
 }
 
 CollectMe.ZoneDB.species_to_zone = {
