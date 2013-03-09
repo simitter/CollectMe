@@ -679,3 +679,7 @@ L["title_207"] = "Reward for defeating all of the Pet Tamers across Azeroth." --
 L["title_208"] = "Reward for 'The Seat of Knowledge' restoring and displaying pristine versions of all Pandaren and Mogu artifacts." -- Seeker of Knowledge
 L["title_209"] = "Reward for 'Now your just showing off' wich requires you to reach level 8 in the Brawler's Guild." -- Brawler
 L["title_218"] = "Reward for reaching exalted reputation with the Klaxxi and completing 'Amber is the Color of My Energy' achievement for recovering all paragons." -- the Wakener
+L["title_220"] = "Reward for pvp achievement 'Kahn' which required you to complete the master achievements for following battlegrounds: Battle for Gilneas, Isle of Conquest, Twin Peaks, Silvershard Mines, Temple of Kotmogu." -- Kahn
+L["title_221"] = "Reward for completing all Isle of Giants achievements" -- the Stormbreaker
+L["title_222"] = "Reward for defeating Lei Shen in the Throne of Thunder raid on heroic difficulty" -- Storm's End
+L["title_223"] = "Awarded per battlegroup at the end of arena season 12 based on top ranked percentage. Top 0.0% - 0.5%." -- Malevolent Gladiator
