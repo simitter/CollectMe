@@ -224,16 +224,16 @@ function CollectMe.MountDB:Build()
     self:Add(134573, 46729, self.FLY, { bsm = 1 }) -- Swift Windsteed
     --5.2
     self:Add(138643, 47827 , self.FLY) -- Reins of the Green Primal Raptor
-    self:Add(138642, ??, self.FLY) -- Reins of the Black Primal Raptor
+    self:Add(138642, 47828, self.FLY) -- Reins of the Black Primal Raptor
     self:Add(138641, 47826, self.FLY) -- Reins of the Red Primal Raptor
-    self:Add(138640, ??, self.FLY) -- Reins of the Bone-White Primal Raptor
+    self:Add(138640, 47825, self.FLY) -- Reins of the Bone-White Primal Raptor
     self:Add(138426, 47717, self.FLY) -- Reins of the Jade Primordial Direhorn
     self:Add(138424, 47718, self.FLY) -- Reins of the Amber Primordial Direhorn
     self:Add(138425, 47715 , self.FLY) -- Reins of the Slate Primordial Direhorn
-    self:Add(138423, ??, self.FLY) -- Reins of the Cobalt Primordial Direhorn
-    self:Add(136471, ??, self.FLY) -- Spawn of Horridon
-    self:Add(136400, ??, self.FLY) -- Armored Riding Pteradactyl
-    self:Add(136505, ??, self.FLY, { tcg = 1 }) -- Ghastly Charger's Skull
+    self:Add(138423, 47716, self.FLY) -- Reins of the Cobalt Primordial Direhorn
+    self:Add(136471, 47238, self.FLY) -- Spawn of Horridon
+    self:Add(136400, 47256, self.FLY) -- Armored Riding Pteradactyl
+    self:Add(136505, 48014, self.FLY, { tcg = 1 }) -- Ghastly Charger's Skull
 
     -- Alliance Mounts
     if CollectMe.FACTION == "Alliance" then
