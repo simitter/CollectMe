@@ -1,3 +1,6 @@
+## 2.3.3
+ * Fixed several 5.2 ground mounts marked as flying mounts
+
 ## 2.3.2
  * Fixed performance issues on tabs using the zone dropdown list
  * Added several 5.2 mounts, zones and titles
