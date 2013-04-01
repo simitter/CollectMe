@@ -231,6 +231,8 @@ function CollectMe.MountDB:Build()
     self:Add(138424, 47718) -- Reins of the Amber Primordial Direhorn
     self:Add(138425, 47715) -- Reins of the Slate Primordial Direhorn
     self:Add(138423, 47716) -- Reins of the Cobalt Primordial Direhorn
+    self:Add(140250, 48101) -- Crimson Primal Direhorn
+    self:Add(140249, 48100) -- Golden Primal Direhorn
     self:Add(136471, 47238) -- Spawn of Horridon
     self:Add(136400, 47256, self.FLY) -- Armored Riding Pteradactyl
     self:Add(136505, 48014, self.FLY, { tcg = 1 }) -- Ghastly Charger's Skull
