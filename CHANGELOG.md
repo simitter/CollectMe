@@ -1,3 +1,7 @@
+## 2.3.4
+ * Added missing 5.2 mounts
+ * Improved zone filtering for better results
+
 ## 2.3.3
  * Fixed several 5.2 ground mounts marked as flying mounts
 
