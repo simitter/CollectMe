@@ -241,6 +241,7 @@ function CollectMe:BuildItemRow(items)
     end
 end
 
+--@todo switch to compaion db
 function CollectMe:BuildMissingCompanionList()
     local collected_filter = not C_PetJournal.IsFlagFiltered(LE_PET_JOURNAL_FLAG_NOT_COLLECTED)
     C_PetJournal.SetSearchFilter("")
@@ -254,7 +255,7 @@ function CollectMe:BuildMissingCompanionList()
 
     for i = 1,total do
         local pet_id, species_id, owned, _, _, _, _, name, icon, _, creature_id, source = C_PetJournal.GetPetInfoByIndex(i, false)
-        if next(zones) == nil or self.ZoneDB:IsSpeciesInZone(species_id, zones) then
+        if next(zones) == nil or self.ZoneDB:IsSpeciesInZone(species_id, zones, source) then
             if owned ~= true then
                 local v = {
                     name = name,

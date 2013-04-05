@@ -657,20 +657,30 @@ CollectMe.ZoneDB.species_to_zone = {
     [1154]={[772]=772,[766]=766},
 }
 
-function CollectMe.ZoneDB:GetZonesForSpecies(species_id)
-    return self.species_to_zone[species_id]
+function CollectMe.ZoneDB:GetZonesForSpecies(species_id, source)
+    local zones = self.species_to_zone[species_id] or {}
+    local list = self:GetList()
+    for i,v in pairs(list) do
+        if source:lower():find(v:lower()) ~= nil then
+            zones[i] = i
+        end
+    end
+    return zones
 end
 
-function CollectMe.ZoneDB:IsSpeciesInZone(species_id, zones)
-    if not self.species_to_zone[species_id] then
-        return false
-    end
+function CollectMe.ZoneDB:IsSpeciesInZone(species_id, zones, source)
     if type(zones) ~= "table" then
         zones = { zones }
     end
+    local list = self:GetList()
     for i = 1,#zones do
-        if self.species_to_zone[species_id][zones[i]] ~= nil then
+        if self.species_to_zone[species_id] ~= nil and self.species_to_zone[species_id][zones[i]] ~= nil then
             return true
+        end
+        if list[zones[i]] ~= nil then
+            if source:lower():find(list[zones[i]]:lower()) ~= nil then
+                return true
+            end
         end
     end
     return false
