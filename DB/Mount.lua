@@ -156,7 +156,7 @@ function CollectMe.MountDB:Build()
     self:Add(26055, 15680, self.GROUND, {}, { 766 })  -- Yellow Qiraji Battle Tank
     self:Add(71810, 31047, self.FLY, { are = 1, nlo = 1}) -- Wrathful Gladiator's Frost Wyrm
     --5.1,5.2
-    self:Add(127180, 43708, { umo = 1 }) -- Albino Riding Crane
+    self:Add(127180, 43708, self.GROUND, { umo = 1 }) -- Albino Riding Crane
     self:Add(123886, 43090) -- Amber Scorpion
     self:Add(132117, 45521, self.FLY) -- Ashen Pandaren Phoenix
     self:Add(127170, 46087, self.FLY) -- Astral Cloud Serpent
@@ -165,24 +165,24 @@ function CollectMe.MountDB:Build()
     self:Add(118089, 41711) -- Azure Water Strider
     self:Add(127286, 43717) -- Black Dragon Turtle
     self:Add(130138, 44836) -- Black Riding Goat
-    self:Add(127209, 43709, { umo = 1 }) -- Black Riding Yak
+    self:Add(127209, 43709, self.GROUND, { umo = 1 }) -- Black Riding Yak
     self:Add(127220, 43712) -- Blonde Riding Yak
     self:Add(127287, 43718) -- Blue Dragon Turtle
     self:Add(129934, 43900) -- Blue Shado-Pan Riding Tiger
     self:Add(127288, 43719) -- Brown Dragon Turtle
     self:Add(130086, 44807) -- Brown Riding Goat
-    self:Add(127213, 43710, { umo = 1 }) -- Brown Riding Yak
+    self:Add(127213, 43710, self.GROUND, { umo = 1 }) -- Brown Riding Yak
     self:Add(124550, 38757, self.FLY, { are = 1}) -- Cataclysmic Gladiator's Twilight Drake
     self:Add(127156, 41592, self.FLY) -- Crimson Cloud Serpent
     self:Add(129552, 44633, self.FLY) -- Crimson Pandaren Phoenix
-    self:Add(123160, 42837, { umo = 1 }) -- Crimson Riding Crane
-    self:Add(127271, 43713, { umo = 1 }) -- Crimson Water Strider
+    self:Add(123160, 42837, self.GROUND, { umo = 1 }) -- Crimson Riding Crane
+    self:Add(127271, 43713, self.GROUND, { umo = 1 }) -- Crimson Water Strider
     self:Add(126507, 43637, self.FLY) -- Depleted-Kyparium Rocket
     self:Add(132118, 45520, self.FLY) -- Emerald Pandaren Phoenix
     self:Add(126508, 43638, self.FLY) -- Geosynchronous World Spinner
     self:Add(123993, 41991, self.FLY) -- Golden Cloud Serpent
     self:Add(127176, 43705) -- Golden Riding Crane
-    self:Add(127278, 43716, { umo = 1 }) -- Golden Water Strider
+    self:Add(127278, 43716, self.GROUND, { umo = 1 }) -- Golden Water Strider
     self:Add(122708, 42703) -- Grand Expedition Yak
     self:Add(127295, 43723) -- Great Black Dragon Turtle
     self:Add(127302, 43724) -- Great Blue Dragon Turtle
@@ -200,11 +200,11 @@ function CollectMe.MountDB:Build()
     self:Add(127158, 43689, self.FLY) -- Heavenly Onyx Cloud Serpent
     self:Add(113199, 40590, self.FLY) -- Jade Cloud Serpent
     self:Add(121837, 42502, self.FLY) -- Jade Panther
-    self:Add(127274, 43714, { umo = 1 }) -- Jade Water Strider
+    self:Add(127274, 43714, self.GROUND, { umo = 1 }) -- Jade Water Strider
     self:Add(120043, 42185, self.FLY) -- Jeweled Onyx Panther
-    self:Add(127178, 43707, { umo = 1 }) -- Jungle Riding Crane
+    self:Add(127178, 43707, self.GROUND, { umo = 1 }) -- Jungle Riding Crane
     self:Add(127154, 41990, self.FLY) -- Onyx Cloud Serpent
-    self:Add(127272, 43715, { umo = 1 }) -- Orange Water Strider
+    self:Add(127272, 43715, self.GROUND, { umo = 1 }) -- Orange Water Strider
     self:Add(127289, 43910) -- Purple Dragon Turtle
     self:Add(127290, 43721) -- Red Dragon Turtle
     self:Add(130092, 44808, self.FLY) -- Red self.FLYing Cloud
@@ -219,7 +219,7 @@ function CollectMe.MountDB:Build()
     self:Add(132036, 45797, self.FLY) -- Thundering Ruby Cloud Serpent
     self:Add(132119, 45522, self.FLY) -- Violet Pandaren Phoenix
     self:Add(130137, 44837) -- White Riding Goat
-    self:Add(123182, 41089, { umo = 1 }) -- White Riding Yak
+    self:Add(123182, 41089, self.GROUND, { umo = 1 }) -- White Riding Yak
     self:Add(133023, 42147, self.FLY) -- Jade Pandaren Kite
     self:Add(134573, 46729, self.FLY, { bsm = 1 }) -- Swift Windsteed
     --5.2
