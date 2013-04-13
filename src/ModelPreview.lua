@@ -8,12 +8,14 @@ function CollectMe.ModelPreview:OnInitialize()
 end
 
 function CollectMe.ModelPreview:DressUpItemLink(link)
-    local spell = tonumber(link:match("spell:(%d+)"));
-    if spell ~= nil then
-        local info = CollectMe:GetMountInfo(spell)
-        if info ~= nil then
-            self:PreviewCreature(info.display_id)
-            return true
+    if link ~= nil and type(link) == "string" then
+        local spell = tonumber(link:match("spell:(%d+)"));
+        if spell ~= nil then
+            local info = CollectMe:GetMountInfo(spell)
+            if info ~= nil then
+                self:PreviewCreature(info.display_id)
+                return true
+            end
         end
     end
     if self.display_creature == true then
