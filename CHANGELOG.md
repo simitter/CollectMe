@@ -1,5 +1,6 @@
 ## 2.3.5
  * All JC	Panther	mounts are now marked as flying
+ * Fixed UMO filters for ground mounts
 
 ## 2.3.4
  * Added missing 5.2 mounts
