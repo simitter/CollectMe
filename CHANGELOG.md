@@ -1,3 +1,6 @@
+## 2.3.5
+ * All JC	Panther	mounts are now marked as flying
+
 ## 2.3.4
  * Added missing 5.2 mounts
  * Improved zone filtering for better results
