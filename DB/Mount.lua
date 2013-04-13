@@ -199,7 +199,7 @@ function CollectMe.MountDB:Build()
     self:Add(127165, 43695, self.FLY, { umo = 1 }) -- Heavenly Jade Cloud Serpent
     self:Add(127158, 43689, self.FLY) -- Heavenly Onyx Cloud Serpent
     self:Add(113199, 40590, self.FLY) -- Jade Cloud Serpent
-    self:Add(121837, 42502) -- Jade Panther
+    self:Add(121837, 42502, self.FLY) -- Jade Panther
     self:Add(127274, 43714, { umo = 1 }) -- Jade Water Strider
     self:Add(120043, 42185, self.FLY) -- Jeweled Onyx Panther
     self:Add(127178, 43707, { umo = 1 }) -- Jungle Riding Crane
@@ -210,8 +210,8 @@ function CollectMe.MountDB:Build()
     self:Add(130092, 44808, self.FLY) -- Red self.FLYing Cloud
     self:Add(129935, 44757) -- Red Shado-Pan Riding Tiger
     self:Add(127177, 43706) -- Regal Riding Crane
-    self:Add(121838, 42499) -- Ruby Panther
-    self:Add(121836, 42500) -- Sapphire Panther
+    self:Add(121838, 42499, self.FLY) -- Ruby Panther
+    self:Add(121836, 42500, self.FLY) -- Sapphire Panther
     self:Add(130965, 45264) -- Son of Galleon
     self:Add(121839, 42501, self.FLY) -- Sunstone Panther
     self:Add(129918, 43686, self.FLY) -- Thundering August Cloud Serpent
