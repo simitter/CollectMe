@@ -1,4 +1,5 @@
 ## 2.3.5
+ * Keybinding Support
  * Fixed certain JC	Panther	mounts were not marked as flying
  * Fixed unknown method of obtaining filters for ground mounts
 

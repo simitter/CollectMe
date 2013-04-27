@@ -76,6 +76,19 @@ function CollectMe:OnInitialize()
     self.VERSION = GetAddOnMetadata("CollectMe", "Version")
     self.L = LibStub("AceLocale-3.0"):GetLocale("CollectMe", true)
 
+    --bindings
+    BINDING_HEADER_COLLECTME = addon_name
+    BINDING_NAME_MISSING_MOUNTS = self.L["Mounts"]
+    BINDING_NAME_MISSING_COMPANIONS = self.L["Companions"]
+    BINDING_NAME_MISSING_TITLES = self.L["Titles"]
+    BINDING_NAME_RANDOM_MOUNTS = self.L["Random Mount"]
+    BINDING_NAME_RANDOM_COMPANIONS = self.L["Random Companion"]
+    BINDING_NAME_SUMMON_COMPANION = self.L["Summon Random Companion"]
+    BINDING_NAME_DISMISS_COMPANION = self.L["Dismiss Companion"]
+    BINDING_NAME_CM_MOUNT = self.L["Mount / Dismount"]
+    BINDING_NAME_CM_DISMOUNT = self.L["Dismount"]
+    BINDING_NAME_CM_GROUND_MOUNT = self.L["Ground Mount / Dismount"]
+
     self.MOUNT = 1
     self.TITLE = 2
     self.RANDOM_COMPANION = 3
