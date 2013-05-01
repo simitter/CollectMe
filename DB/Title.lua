@@ -145,6 +145,10 @@ function CollectMe.TitleDB:Build()
     self:Add(208) -- Seeker of Knowledge
     self:Add(209) -- Brawler
     self:Add(218) -- the Wakener
+    self:Add(220, { pvp = 1 }) -- Kahn
+    self:Add(221) -- the Stormbreaker
+    self:Add(222) -- Storm's End
+    self:Add(223, { are = 1 }) -- Malevolent Gladiator
 
     -- Alliance Titles
     if CollectMe.FACTION == "Alliance" then

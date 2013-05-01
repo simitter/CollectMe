@@ -1,25 +1,9 @@
 Excitor:
 
-- Drop percentages to the info on some mounts.
-
-- A lot of the NLO filtered mounts are now obtainable through the AH/trade they need to be checked.
-
-- Updated ?? for titles, mounts.
-//work 5.2 id's are wrong fly filter might be as well
-
-self:Add(41515, 21525, self.FLY) -- Reins of the Green Primal Raptor
-self:Add(41515, 21525, self.FLY) -- Reins of the Black Primal Raptor
-self:Add(41515, 21525, self.FLY) -- Reins of the Red Primal Raptor
-self:Add(41515, 21525, self.FLY) -- Reins of the Bone-White Primal Raptor
-self:Add(41515, 21525, self.FLY) -- Reins of the Jade Primordial Direhorn
-self:Add(41515, 21525, self.FLY) -- Reins of the Amber Primordial Direhorn
-self:Add(41515, 21525, self.FLY) -- Reins of the Slate Primordial Direhorn
-self:Add(41515, 21525, self.FLY) -- Reins of the Cobalt Primordial Direhorn
-self:Add(41515, 21525, self.FLY) -- Spawn of Horridon
-self:Add(41515, 21525, self.FLY) -- Armored Riding Pteradactyl
-self:Add(41515, 21525, self.FLY) -- Ghastly Charger's Skull
-
-
+-Drop percentages to the info on some mounts.
+-25man 10  man raid  achiev  mounts  info
+-5.3?
+Hearthsteed
 ----------------------------
 
 - missing companion code usage of CompanionDB module

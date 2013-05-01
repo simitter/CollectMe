@@ -139,8 +139,8 @@ L["mount_46199"] = "Obtained from a lootcard of the WoW Trading Card Game: Serva
 L["mount_75973"] = "No longer obtainable Recruit a friend mount. [BoP]" -- X-53 Touring Rocket
 L["mount_65917"] = "Obtained from a lootcard 'El Pollo Grande' of the WoW Trading Card Game: Fields of Honor. [BoE]" -- Magic Rooster
 L["mount_64927"] = "Won by the top 0.5% rated Arena groups in the battlegroup in Season 5. [BoP]" -- Deadly Gladiator's Frost Wyrm
-L["mount_63956"] = "Reward from Heroic: Glory of the Ulduar Raider Achievement. [BoP]" -- Ironbound Proto-Drake
-L["mount_63963"] = "Reward from Glory of the Ulduar Raider Achievement. [BoP]" -- Rusted Proto-Drake
+L["mount_63956"] = "Reward from 25man Glory of the Ulduar Raider Achievement. [BoP]" -- Ironbound Proto-Drake
+L["mount_63963"] = "Reward from 10man Glory of the Ulduar Raider Achievement. [BoP]" -- Rusted Proto-Drake
 L["mount_63796"] = "Drops from Yogg-Saron if you have no Keepers assisting you in 25 man Ulduar. (?%) [BoP]" -- Mimiron's Head
 L["mount_64659"] = "Ravasaur trainer Mor'vek has returned to Un'Goro and will offer to help Horde players raise and train a Venomhide Ravasaur as a mount... if they can survive the creature's deadly poison. [BoP]" -- Venomhide Ravasaur
 L["mount_64731"] = "Fished from Northrend Fishing Pools. (?%) [BoP]" -- Sea Turtle
@@ -272,6 +272,17 @@ L["mount_132119"] = "Reward from the challenge mode dungeon achievement 'Challen
 L["mount_130137"] = "No know method of obtaining. [BoP]" -- White Riding Goat
 L["mount_123182"] = "No know method of obtaining. [BoP]" -- White Riding Yak
 L["mount_134573"] = "Purchased from Blizzard's online store. [BoA]" -- Swift Windsteed
+L["mount_138643"] = "Rare drop from a Primal Egg." -- Reins of the Green Primal Raptor
+L["mount_138642"] = "Rare drop from a Primal Egg." -- Reins of the Black Primal Raptor
+L["mount_138641"] = "Rare drop from a Primal Egg." -- Reins of the Red Primal Raptor
+L["mount_138640"] = "Reward from 'A Mountain of Giant Dinosaur Bones', turning in 9999 dinosaur bones from Isle of Giants." -- Reins of the Bone-White Primal Raptor
+L["mount_138426"] = "Rare drop off Zandalari Warbringers." -- Reins of the Jade Primordial Direhorn
+L["mount_138424"] = "Rare drop off Zandalari Warbringers." -- Reins of the Amber Primordial Direhorn
+L["mount_138425"] = "Rare drop off Zandalari Warbringers." -- Reins of the Slate Primordial Direhorn
+L["mount_138423"] = "Drops off Oondasta." -- Reins of the Cobalt Primordial Direhorn
+L["mount_136471"] = "Drops off Horridon in Throne of Thunder." -- Spawn of Horridon
+L["mount_136400"] = "Reward from Glory of the Thundering Raider." -- Armored Riding Pteradactyl
+L["mount_136505"] = "Loot card from the WoW Trading Card Game: Betrayal of the Guardian. [BoE]" -- Ghastly Charger's Skull
 
 -- Alliance Mounts
 L["mount_60114"] = "Sold by Mei Francis in Dalaran for 750G. [BoP]" -- Armored Brown Bear
@@ -355,6 +366,7 @@ L["mount_16083"] = "Old 100% Ground Mount. Removed in favor of armored 100% moun
 L["mount_130985"] = "Reward for obtaining the achievement 'Pandared Ambassador' being exalted with all of the Mists of Pandaria factions. [BoP]" -- Pandaren Kite
 L["mount_136163"] = "Sold by the Operation Shieldwall quartermaster for 2000G. You need to be exalted with Operation Shieldwall. [BoA]" -- Grand Gryphon
 L["mount_135416"] = "??. [BoA]" -- Grand Armored Gryphon
+L["mount_140249"] = "Sold by the Kirin Tor Offensive quartermaster for 2100G. You need to be exalted with the Kirin Tor Offensive. [BoA]" -- Golden Primal Direhorn
 
 -- Horde Mounts
 L["mount_61230"] = "Sold by Mei Francis in Dalaran for 2000G. [BoP]" -- Armored Blue Wind Rider
@@ -437,6 +449,7 @@ L["mount_118737"] = "Reward for obtaining the achievement 'Pandared Ambassador' 
 L["mount_18992"] = "Old 100% Ground Mount. Removed in favor of armored 100% mounts. [BoP]" -- Teal Kodo
 L["mount_136164"] = "Sold by the Dominance Offensive quartermaster for 2000G. You need to be exalted with the Dominance Offensive. [BoA]" -- Grand Wyvern
 L["mount_135418"] = "?? [BoA]" -- Grand Armored Wyvern
+L["mount_140250"] = "Sold by the Sunreaver Onsalught quartermaster for 2100G. You need to be exalted with the Sunreaver Onsalught. [BoA]" -- Crimson Primal Direhorn
 
 -- Paladin Mounts
 L["mount_23214"] = "Taught by the Paladin Trainer at Level 61 or obtained by completing the Level 60 Paladin Quest Line. [BoP]" -- Alliance Charger
@@ -664,7 +677,11 @@ L["title_203"] = "From Tranquil Master, requiring players to kill all the Sha-th
 L["title_204"] = "Defeat the Will of the Emperor in Mogu'shan Vaults on Heroic difficulty." -- Delver of the Vaults
 L["title_205"] = "Complete The Shado-Master, doing a bunch of achievements tied to dailies with Shado-Pan, similar to The Flamebreaker from the Molten Front." -- Shado-Master
 L["title_206"] = "Reward for completing 'Scenaterday/ Scenaterday' doing all the MoP Scenarios on a Saturday." -- the Scenaterdist
-L["title_207"] = "Reward for defeating all of the Pet Tamers across Azeroth." -- Tamer
+L["title_207"] = "Reward for defeating all 40 of the Pet Tamers across Azeroth." -- Tamer
 L["title_208"] = "Reward for 'The Seat of Knowledge' restoring and displaying pristine versions of all Pandaren and Mogu artifacts." -- Seeker of Knowledge
-L["title_209"] = "Reward for 'Now your just showing off' wich requires you to reach level 8 in the Brawler's Guild." -- Brawler
+L["title_209"] = "Reward for 'Now your just showing off' wich requires you to reach rank 8 in the Brawler's Guild." -- Brawler
 L["title_218"] = "Reward for reaching exalted reputation with the Klaxxi and completing 'Amber is the Color of My Energy' achievement for recovering all paragons." -- the Wakener
+L["title_220"] = "Reward for pvp achievement 'Kahn' which required you to complete the master achievements for following battlegrounds: Battle for Gilneas, Isle of Conquest, Twin Peaks, Silvershard Mines, Temple of Kotmogu." -- Kahn
+L["title_221"] = "Reward for completing all Isle of Giants achievements." -- the Stormbreaker
+L["title_222"] = "Reward for defeating Lei Shen in the Throne of Thunder raid on heroic difficulty" -- Storm's End
+L["title_223"] = "Awarded per battlegroup at the end of arena season 12 based on top ranked percentage. Top 0.0% - 0.5%." -- Malevolent Gladiator

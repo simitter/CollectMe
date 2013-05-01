@@ -78,6 +78,19 @@ function CollectMe:OnInitialize()
     self.VERSION = GetAddOnMetadata("CollectMe", "Version")
     self.L = LibStub("AceLocale-3.0"):GetLocale("CollectMe", true)
 
+    --bindings
+    BINDING_HEADER_COLLECTME = addon_name
+    BINDING_NAME_MISSING_MOUNTS = self.L["Mounts"]
+    BINDING_NAME_MISSING_COMPANIONS = self.L["Companions"]
+    BINDING_NAME_MISSING_TITLES = self.L["Titles"]
+    BINDING_NAME_RANDOM_MOUNTS = self.L["Random Mount"]
+    BINDING_NAME_RANDOM_COMPANIONS = self.L["Random Companion"]
+    BINDING_NAME_SUMMON_COMPANION = self.L["Summon Random Companion"]
+    BINDING_NAME_DISMISS_COMPANION = self.L["Dismiss Companion"]
+    BINDING_NAME_CM_MOUNT = self.L["Mount / Dismount"]
+    BINDING_NAME_CM_DISMOUNT = self.L["Dismount"]
+    BINDING_NAME_CM_GROUND_MOUNT = self.L["Ground Mount / Dismount"]
+
     self.MOUNT = 1
     self.TITLE = 2
     self.RANDOM_COMPANION = 3
@@ -247,6 +260,7 @@ function CollectMe:BuildItemRow(items)
     end
 end
 
+--@todo switch to compaion db
 function CollectMe:BuildMissingCompanionList()
     local collected_filter = not C_PetJournal.IsFlagFiltered(LE_PET_JOURNAL_FLAG_NOT_COLLECTED)
     C_PetJournal.SetSearchFilter("")
@@ -260,7 +274,7 @@ function CollectMe:BuildMissingCompanionList()
 
     for i = 1,total do
         local pet_id, species_id, owned, _, _, _, _, name, icon, _, creature_id, source = C_PetJournal.GetPetInfoByIndex(i, false)
-        if next(zones) == nil or self.ZoneDB:IsSpeciesInZone(species_id, zones) then
+        if next(zones) == nil or self.ZoneDB:IsSpeciesInZone(species_id, zones, source) then
             if owned ~= true then
                 local v = {
                     name = name,

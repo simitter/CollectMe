@@ -7,9 +7,8 @@ function CollectMe.CompanionDB:Update()
     self.known_species = {}
 
     for i,petid in LibPetJournal:IteratePetIDs() do
-        local speciesID, customName, level, _, _, _, _, name, icon, _, creatureID = C_PetJournal.GetPetInfoByPetID(petid)
+        local speciesID, customName, level, _, _, _, _, name, icon, _, creatureID, source = C_PetJournal.GetPetInfoByPetID(petid)
         local quality = select(5, C_PetJournal.GetPetStats(petid))
-
         self.known_species[speciesID] = true
         tinsert(self.companions, {
             pet_id = petid,
@@ -21,19 +20,19 @@ function CollectMe.CompanionDB:Update()
             name = name,
             custom_name = customName,
             icon = icon,
-            zones = CollectMe.ZoneDB:GetZonesForSpecies(speciesID)
+            zones = CollectMe.ZoneDB:GetZonesForSpecies(speciesID, source)
         })
     end
 
     for i,species_id in LibPetJournal:IterateSpeciesIds() do
         if not self:IsSpeciesKnown(species_id) then
-            local name, icon, _, creatureID = C_PetJournal.GetPetInfoBySpeciesID(species_id);
+            local name, icon, _, creatureID, source = C_PetJournal.GetPetInfoBySpeciesID(species_id);
             tinsert(self.missing_companions, {
                 species_id = species_id,
                 creature_id = creatureID,
                 name = name,
                 icon = icon,
-                zones = CollectMe.ZoneDB:GetZonesForSpecies(species_id)
+                zones = CollectMe.ZoneDB:GetZonesForSpecies(species_id, source)
             })
         end
     end

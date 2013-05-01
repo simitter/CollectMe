@@ -1,0 +1,32 @@
+<Bindings>
+    <Binding name="MISSING_MOUNTS" header="COLLECTME">
+        CollectMe.UI:Show(CollectMe.MOUNT)
+    </Binding>
+    <Binding name="MISSING_COMPANIONS">
+        CollectMe.UI:Show(CollectMe.COMPANION)
+    </Binding>
+    <Binding name="MISSING_TITLES">
+        CollectMe.UI:Show(CollectMe.TITLE)
+    </Binding>
+    <Binding name="RANDOM_COMPANIONS">
+        CollectMe.UI:Show(CollectMe.RANDOM_COMPANION)
+    </Binding>
+    <Binding name="RANDOM_MOUNTS">
+        CollectMe.UI:Show(CollectMe.RANDOM_MOUNT)
+    </Binding>
+    <Binding name="SUMMON_COMPANION">
+        CollectMe.RandomCompanion:Summon()
+    </Binding>
+    <Binding name="DISMISS_COMPANION">
+        CollectMe.RandomCompanion:Dismiss()
+    </Binding>
+    <Binding name="CM_MOUNT">
+        CollectMe.RandomMount:Summon()
+    </Binding>
+    <Binding name="CM_DISMOUNT">
+        Dismount()
+    </Binding>
+    <Binding name="CM_GROUND_MOUNT">
+        CollectMe.RandomMount:Summon(CollectMe.MountDB.GROUND)
+    </Binding>
+</Bindings>

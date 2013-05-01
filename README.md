@@ -13,6 +13,7 @@ Collect Me keeps track of your mounts, companions and titles in the game and can
  * User- and Zone-defined random mount-summoning
  * Userdefinded random pet-summoning
  * Auto-summoning of companions when moving
+ * Keybinding Support
  * WowAce profile support
 
 ## Usage

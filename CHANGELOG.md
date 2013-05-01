@@ -1,5 +1,18 @@
+## 2.3.5
+ * Keybinding Support
+ * Fixed certain JC	Panther	mounts were not marked as flying
+ * Fixed unknown method of obtaining filters for ground mounts
+
+## 2.3.4
+ * Added missing 5.2 mounts
+ * Improved zone filtering for better results
+
+## 2.3.3
+ * Fixed several 5.2 ground mounts marked as flying mounts
+
 ## 2.3.2
  * Fixed performance issues on tabs using the zone dropdown list
+ * Added several 5.2 mounts, zones and titles
  * Fixed info for Swift Windsteed (Mount)
  * Fixed info for Albino Riding Crane (Mount)
  * Fixed info for Crimson Riding Crane (Mount)
