@@ -327,87 +327,86 @@ function CollectMe.MountDB:Build()
 
     -- Horde Mounts
     if CollectMe.FACTION == "Horde" then
-        self:Add(61230, 27914, self.FLY) -- Armored Blue Wind Rider
-        self:Add(60116, 27821) -- Armored Brown Bear
-        self:Add(35022, 19478) -- Black Hawkstrider
-        self:Add(64977, 29130) -- Black Skeletal Horse
-        self:Add(60119, 27819) -- Black War Bear
-        self:Add(22718, 14348, self.GROUND, { pvp = 1 }) -- Black War Kodo
-        self:Add(59788, 27245) -- Black War Mammoth
-        self:Add(22721, 14388, self.GROUND, { pvp = 1 }) -- Black War Raptor
-        self:Add(22724, 14334, self.GROUND, { pvp = 1 }) -- Black War Wolf
-        self:Add(64658, 207) -- Black Wolf
-        self:Add(35020, 19480) -- Blue Hawkstrider
-        self:Add(17463, 10671) -- Blue Skeletal Horse
-        self:Add(32244, 17700, self.FLY) -- Blue Wind Rider
-        self:Add(18990, 11641) -- Brown Kodo
-        self:Add(17464, 10672) -- Brown Skeletal Horse
-        self:Add(6654, 2328) -- Brown Wolf
-        self:Add(68188, 29938, self.GROUND, { nlo = 1 }) -- Crusader's Black Warhorse
-        self:Add(63635, 29261) -- Darkspear Raptor
-        self:Add(6653, 2327) -- Dire Wolf
-        self:Add(8395, 4806) -- Emerald Raptor
-        self:Add(63643, 29257) -- Forsaken Warhorse
-        self:Add(23509, 14776, self.GROUND, { pvp = 1 }) -- Frostwolf Howler
-        self:Add(61467, 27240) -- Grand Black War Mammoth
-        self:Add(61469, 27239) -- Grand Ice Mammoth
-        self:Add(135418, nil, self.FLY) -- Grand Armored Wyvern
-        self:Add(136164, nil, self.FLY) -- Grand Wyvern
-        
-        self:Add(18989, 12246) -- Gray Kodo
-        self:Add(23249, 14578) -- Great Brown Kodo
-        self:Add(65641, 28556) -- Great Golden Kodo
-        self:Add(23248, 14579) -- Great Gray Kodo
-        self:Add(23247, 14349) -- Great White Kodo
-        self:Add(17465, 10720) -- Green Skeletal Warhorse
-        self:Add(32245, 17701, self.FLY) -- Green Wind Rider
-        self:Add(87090, 35249) -- Goblin Trike
-        self:Add(87091, 35250) -- Goblin Turbo-Trike
-        self:Add(59797, 27246) -- Ice Mammoth
-        self:Add(93644, 37138) -- Kor'kron Annihilator
+        self:Add(61230, 27914, self.FLY):SetProperty(61230, "obtain_zones", {504}) -- Armored Blue Wind Rider
+        self:Add(60116, 27821):SetProperty(60116, "obtain_zones", {504}) -- Armored Brown Bear
+        self:Add(35022, 19478):SetProperty(35022, "obtain_zones", {462}) -- Black Hawkstrider
+        self:Add(64977, 29130):SetProperty(35022, "obtain_zones", {20}) -- Black Skeletal Horse
+        self:Add(60119, 27819):SetProperty(60119, "obtain_zones", {381,471,341,301}) -- Black War Bear
+        self:Add(22718, 14348, self.GROUND, { pvp = 1 }):SetProperty(35022, "obtain_zones", {321}) -- Black War Kodo
+        self:Add(59788, 27245):SetProperty(59785, "obtain_zones", {501}) -- Black War Mammoth
+        self:Add(22721, 14388, self.GROUND, { pvp = 1 }):SetProperty(35022, "obtain_zones", {321}) -- Black War Raptor
+        self:Add(22724, 14334, self.GROUND, { pvp = 1 }):SetProperty(35022, "obtain_zones", {321}) -- Black War Wolf
+        self:Add(64658, 207):SetProperty(35022, "obtain_zones", {321}) -- Black Wolf
+        self:Add(35020, 19480):SetProperty(35022, "obtain_zones", {462}) -- Blue Hawkstrider
+        self:Add(17463, 10671):SetProperty(35022, "obtain_zones", {20}) -- Blue Skeletal Horse
+        self:Add(32244, 17700, self.FLY):SetProperty(60119, "obtain_zones", {321,504,465,473,486}) -- Blue Wind Rider
+        self:Add(18990, 11641):SetProperty(35022, "obtain_zones", {9}) -- Brown Kodo
+        self:Add(17464, 10672):SetProperty(35022, "obtain_zones", {20}) -- Brown Skeletal Horse
+        self:Add(6654, 2328):SetProperty(35022, "obtain_zones", {321}) -- Brown Wolf
+        self:Add(68188, 29938, self.GROUND, { nlo = 1 }):SetProperty(68187, "obtain_zones", {543}) -- Crusader's Black Warhorse
+        self:Add(63635, 29261):SetProperty(63844, "obtain_zones", {492}) -- Darkspear Raptor
+        self:Add(6653, 2327):SetProperty(35022, "obtain_zones", {321}) -- Dire Wolf
+        self:Add(8395, 4806):SetProperty(63844, "obtain_zones", {4}) -- Emerald Raptor
+        self:Add(63643, 29257):SetProperty(63844, "obtain_zones", {492}) -- Forsaken Warhorse
+        self:Add(23509, 14776, self.GROUND, { pvp = 1 }):SetProperty(63844, "obtain_zones", {401,24}) -- Frostwolf Howler
+        self:Add(61467, 27240):SetProperty(61465, "obtain_zones", {532}) -- Grand Black War Mammoth
+        self:Add(61469, 27239):SetProperty(59799, "obtain_zones", {495}) -- Grand Ice Mammoth
+        self:Add(135418, nil, self.FLY):SetProperty(135416, "obtain_zones", {857}) -- Grand Armored Wyvern
+        self:Add(136164, nil, self.FLY):SetProperty(135416, "obtain_zones", {857}) -- Grand Wyvern
+        self:Add(18989, 12246):SetProperty(35022, "obtain_zones", {9}) -- Gray Kodo
+        self:Add(23249, 14578):SetProperty(35022, "obtain_zones", {9}) -- Great Brown Kodo
+        self:Add(65641, 28556):SetProperty(63844, "obtain_zones", {492}) -- Great Golden Kodo
+        self:Add(23248, 14579):SetProperty(35022, "obtain_zones", {9}) -- Great Gray Kodo
+        self:Add(23247, 14349):SetProperty(35022, "obtain_zones", {9}) -- Great White Kodo
+        self:Add(17465, 10720):SetProperty(35022, "obtain_zones", {20}) -- Green Skeletal Warhorse
+        self:Add(32245, 17701, self.FLY):SetProperty(60119, "obtain_zones", {321,504,465,473,486}) -- Green Wind Rider
+        self:Add(87090, 35249):SetProperty(63844, "obtain_zones", {321}) -- Goblin Trike
+        self:Add(87091, 35250):SetProperty(63844, "obtain_zones", {321}) -- Goblin Turbo-Trike
+        self:Add(59797, 27246):SetProperty(59799, "obtain_zones", {495}) -- Ice Mammoth
+        self:Add(93644, 37138):SetProperty(63844, "obtain_zones", {321,504,362,382,480,481}) -- Kor'kron Annihilator
         self:Add(55531, 25871) -- Mechano-Hog
-        self:Add(66846, 29754) -- Ochre Skeletal Warhorse
-        self:Add(63640, 29260) -- Orgrimmar Wolf
-        self:Add(35018, 19479) -- Purple Hawkstrider
-        self:Add(23246, 10721) -- Purple Skeletal Warhorse
+        self:Add(66846, 29754):SetProperty(35022, "obtain_zones", {20}) -- Ochre Skeletal Warhorse
+        self:Add(63640, 29260):SetProperty(63844, "obtain_zones", {492}) -- Orgrimmar Wolf
+        self:Add(35018, 19479):SetProperty(35022, "obtain_zones", {462}) -- Purple Hawkstrider
+        self:Add(23246, 10721):SetProperty(35022, "obtain_zones", {20}) -- Purple Skeletal Warhorse
         self:Add(61997, 28402, self.FLY) -- Red Dragonhawk
-        self:Add(34795, 18696) -- Red Hawkstrider
-        self:Add(17462, 10670) -- Red Skeletal Horse
-        self:Add(22722, 10719, self.GROUND, { pvp = 1 }) -- Red Skeletal Warhorse
-        self:Add(63642, 29262) -- Silvermoon Hawkstrider
+        self:Add(34795, 18696):SetProperty(35022, "obtain_zones", {462}) -- Red Hawkstrider
+        self:Add(17462, 10670):SetProperty(35022, "obtain_zones", {20}) -- Red Skeletal Horse
+        self:Add(22722, 10719, self.GROUND, { pvp = 1 }):SetProperty(35022, "obtain_zones", {321}) -- Red Skeletal Warhorse
+        self:Add(63642, 29262):SetProperty(63844, "obtain_zones", {492}) -- Silvermoon Hawkstrider
         self:Add(107517, 39547, self.FLY) -- Spectral Wind Rider
-        self:Add(92232, 37159) -- Spectral Wolf
-        self:Add(66088, 29696, self.FLY) -- Sunreaver Dragonhawk
-        self:Add(66091, 28889) -- Sunreaver Hawkstrider
-        self:Add(23241, 14339) -- Swift Blue Raptor
-        self:Add(23250, 14573) -- Swift Brown Wolf
-        self:Add(65646, 14335) -- Swift Burgundy Wolf
-        self:Add(23252, 14574) -- Swift Gray Wolf
-        self:Add(35025, 19484) -- Swift Green Hawkstrider
-        self:Add(32295, 17720, self.FLY) -- Swift Green Wind Rider
-        self:Add(68056, 29283, self.GROUND, { nlo = 1 }) -- Swift Horde Wolf
-        self:Add(23242, 14344) -- Swift Olive Raptor
-        self:Add(23243, 14342) -- Swift Orange Raptor
-        self:Add(33660, 18697) -- Swift Pink Hawkstrider
-        self:Add(35027, 19482) -- Swift Purple Hawkstrider
-        self:Add(65644, 14343) -- Swift Purple Raptor
-        self:Add(32297, 17721, self.FLY) -- Swift Purple Wind Rider
-        self:Add(65639, 28607) -- Swift Red Hawkstrider
-        self:Add(32246, 17719, self.FLY) -- Swift Red Wind Rider
-        self:Add(23251, 14575) -- Swift Timber Wolf
-        self:Add(35028, 20359, self.GROUND, { pvp = 1 }) -- Swift Warstrider
-        self:Add(32296, 17722, self.FLY) -- Swift Yellow Wind Rider
-        self:Add(32243, 17699, self.FLY) -- Tawny Wind Rider
-        self:Add(63641, 29259) -- Thunder Bluff Kodo
-        self:Add(580, 247) -- Timber Wolf
-        self:Add(61447, 27238) -- Traveler's Tundra Mammoth
-        self:Add(10796, 6472) -- Turquoise Raptor
-        self:Add(64659, 29102) -- Venomhide Ravasaur
+        self:Add(92232, 37159):SetProperty(92231, "obtain_zones", {709}) -- Spectral Wolf
+        self:Add(66088, 29696, self.FLY):SetProperty(63844, "obtain_zones", {492}) -- Sunreaver Dragonhawk
+        self:Add(66091, 28889):SetProperty(63844, "obtain_zones", {492}) -- Sunreaver Hawkstrider
+        self:Add(23241, 14339):SetProperty(63844, "obtain_zones", {4}) -- Swift Blue Raptor
+        self:Add(23250, 14573):SetProperty(35022, "obtain_zones", {321}) -- Swift Brown Wolf
+        self:Add(65646, 14335):SetProperty(63844, "obtain_zones", {492}) -- Swift Burgundy Wolf
+        self:Add(23252, 14574):SetProperty(35022, "obtain_zones", {321}) -- Swift Gray Wolf
+        self:Add(35025, 19484):SetProperty(35022, "obtain_zones", {462}) -- Swift Green Hawkstrider
+        self:Add(32295, 17720, self.FLY):SetProperty(60119, "obtain_zones", {321,504,465,473,486}) -- Swift Green Wind Rider
+        self:Add(68056, 29283, self.GROUND, { nlo = 1 }):SetProperty(92231, "obtain_zones", {543}) -- Swift Horde Wolf
+        self:Add(23242, 14344):SetProperty(63844, "obtain_zones", {4}) -- Swift Olive Raptor
+        self:Add(23243, 14342):SetProperty(63844, "obtain_zones", {4}) -- Swift Orange Raptor
+        self:Add(33660, 18697):SetProperty(35022, "obtain_zones", {462}) -- Swift Pink Hawkstrider
+        self:Add(35027, 19482):SetProperty(35022, "obtain_zones", {462}) -- Swift Purple Hawkstrider
+        self:Add(65644, 14343):SetProperty(63844, "obtain_zones", {492}) -- Swift Purple Raptor
+        self:Add(32297, 17721, self.FLY):SetProperty(60119, "obtain_zones", {321,504,465,473,486}) -- Swift Purple Wind Rider
+        self:Add(65639, 28607):SetProperty(63844, "obtain_zones", {492}) -- Swift Red Hawkstrider
+        self:Add(32246, 17719, self.FLY):SetProperty(60119, "obtain_zones", {321,504,465,473,486}) -- Swift Red Wind Rider
+        self:Add(23251, 14575):SetProperty(35022, "obtain_zones", {321}) -- Swift Timber Wolf
+        self:Add(35028, 20359, self.GROUND, { pvp = 1 }):SetProperty(35022, "obtain_zones", {321}) -- Swift Warstrider
+        self:Add(32296, 17722, self.FLY):SetProperty(60119, "obtain_zones", {321,504,465,473,486}) -- Swift Yellow Wind Rider
+        self:Add(32243, 17699, self.FLY):SetProperty(60119, "obtain_zones", {321,504,465,473,486}) -- Tawny Wind Rider
+        self:Add(63641, 29259):SetProperty(63844, "obtain_zones", {492}) -- Thunder Bluff Kodo
+        self:Add(580, 247):SetProperty(35022, "obtain_zones", {321}) -- Timber Wolf
+        self:Add(61447, 27238):SetProperty(92231, "obtain_zones", {504}) -- Traveler's Tundra Mammoth
+        self:Add(10796, 6472):SetProperty(63844, "obtain_zones", {4}) -- Turquoise Raptor
+        self:Add(64659, 29102):SetProperty(92231, "obtain_zones", {201}) -- Venomhide Ravasaur
         self:Add(100333, 38607, self.GROUND, { pvp = 1 }) -- Vicious War Wolf
-        self:Add(10799, 6473) -- Violet Raptor
-        self:Add(64657, 12241) -- White Kodo
-        self:Add(65645, 28605) -- White Skeletal Warhorse
-        self:Add(59793, 27244) -- Wooly Mammoth
+        self:Add(10799, 6473):SetProperty(63844, "obtain_zones", {4}) -- Violet Raptor
+        self:Add(64657, 12241):SetProperty(35022, "obtain_zones", {9}) -- White Kodo
+        self:Add(65645, 28605):SetProperty(63844, "obtain_zones", {492}) -- White Skeletal Warhorse
+        self:Add(59793, 27244):SetProperty(92231, "obtain_zones", {504}) -- Wooly Mammoth
         self:Add(118737, 41903, self.FLY) -- Pandaren Kite
         self:Add(18992, 12242, self.GROUND, { nlo = 1 }) -- Teal Kodo
     end
