@@ -62,6 +62,30 @@ local defaults = {
                 hide = false,
                 quality_check = true
             }
+        },
+        ldb = {
+            tooltip = {
+                companions = {
+                    collected = true,
+                    missing = true,
+                    quality = true
+                },
+                mounts = {
+                    collected = true,
+                    missing = true
+                }
+            },
+            text = {
+                companions = {
+                    collected = true,
+                    missing = true,
+                    quality = true
+                },
+                mounts = {
+                    collected = true,
+                    missing = true
+                }
+            }
         }
     }
 }
