@@ -66,13 +66,6 @@ local defaults = {
     }
 }
 
-local options = {
-    name = addon_name,
-    type = "group",
-    childGroups = "tab",
-    args = { }
-}
-
 function CollectMe:OnInitialize()
     self.ADDON_NAME = addon_name
     self.VERSION = GetAddOnMetadata("CollectMe", "Version")
@@ -101,11 +94,7 @@ function CollectMe:OnInitialize()
     LocalizedPlayerRace, self.RACE = UnitRace("player")
     LocalizedPlayerClass, self.CLASS = UnitClass("player")
 
-    LibStub("AceConfig-3.0"):RegisterOptionsTable(addon_name, options)
-    LibStub("AceConfigDialog-3.0"):AddToBlizOptions(addon_name)
-
     self.db = LibStub("AceDB-3.0"):New("CollectMeDB", defaults)
-    options.args.profiles = LibStub("AceDBOptions-3.0"):GetOptionsTable(self.db)
 
     self.filter_db = self.db.profile.filters.mounts
     self.ignored_db = self.db.profile.ignored.mounts

@@ -14,4 +14,5 @@
     <Script file="src\RandomCompanion.lua"/>
     <Script file="src\RandomMount.lua"/>
     <Script file="src\LdbDisplay.lua"/>
+    <Script file="src\Config.lua"/>
 </Ui>

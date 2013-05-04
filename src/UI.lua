@@ -49,7 +49,7 @@ function CollectMe.UI:Build()
     tabs:SetCallback("OnGroupSelected", function (container, event, group) self:SelectGroup(container, group) end)
     container:AddChild(tabs)
 
-    local profilebutton = self:CreateButton(self.L["Profiles"], f.frame)
+    local profilebutton = self:CreateButton(self.L["Options"], f.frame)
     profilebutton:SetScript("OnClick", function() InterfaceOptionsFrame_OpenToCategory(CollectMe.ADDON_NAME) end)
     profilebutton:ClearAllPoints()
     profilebutton:SetPoint("RIGHT", f.closebutton, "LEFT", 0, 0)
