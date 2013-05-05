@@ -33,7 +33,7 @@ function CollectMe.MountDB:Build()
     self:Add(41514, 21521, self.FLY):SetObtainZones(48027, {473}) -- Azure Netherwing Drake
     self:Add(59567, 27785, self.FLY):SetObtainZones(48027, {527}) -- Azure Drake
     self:Add(51412, 25335, self.GROUND, { tcg = 1 }) -- Big Battle Bear
-    self:Add(58983, 27567, self.GROUND, { nlo = 1 })) -- Big Blizzard Bear
+    self:Add(58983, 27567, self.GROUND, { nlo = 1 }) -- Big Blizzard Bear
     self:Add(71342, 30989, self.FLY):SetObtainZones(48027, {764}) -- Big Love Rocket
     self:Add(59650, 25831, self.FLY):SetObtainZones(48027, {531}) -- Black Drake
     self:Add(59976, 28040, self.FLY, { nlo = 1 }):SetObtainZones(48027, {535}) -- Black Proto-Drake
@@ -68,22 +68,22 @@ function CollectMe.MountDB:Build()
     self:Add(88741, 35754, self.FLY):SetObtainZones(88741, {709})         -- Drake of the West Wind
     self:Add(110039, 39229, self.FLY):SetObtainZones(48027, {824})   -- Experiment 12-B
     self:Add(113120, 40568, self.FLY, { tcg = 1 })   -- Feldrake
-    self:Add(36702, 19250):SetObtainZones(48027, {799}   -- Fiery Warhorse
-    self:Add(101542, 38783, self.FLY):SetObtainZones(48027, {800}   -- Flametalon of Alysrazor
-    self:Add(97359, 38018, self.FLY):SetObtainZones(48027, {606}   -- Flameward Hippogryph
+    self:Add(36702, 19250):SetObtainZones(48027, {799})   -- Fiery Warhorse
+    self:Add(101542, 38783, self.FLY):SetObtainZones(48027, {800})   -- Flametalon of Alysrazor
+    self:Add(97359, 38018, self.FLY):SetObtainZones(48027, {606})   -- Flameward Hippogryph
     self:Add(61451, 28082, self.FLY, nil, nil, { tai = 300 })   -- self.FLYing Carpet
     self:Add(44153, 22719, self.FLY, nil, nil, { eng = 300 })   -- self.FLYing Machine
     self:Add(84751, 34410)   -- Fossilized Raptor
     self:Add(75596, 28063, self.FLY, nil, nil, { tai = 425 })   -- Frosty self.FLYing Carpet
     self:Add(65439, 25593, self.FLY, { are = 1, nlo = 1 })   -- Furious Gladiator's Frost Wyrm
     
-    self:Add(49379, 24757):SetObtainZones(48027, {704}   -- Great Brewfest Kodo
-    self:Add(61294, 28053, self.FLY):SetObtainZones(48027, {493}   -- Green Proto-Drake
-    self:Add(26056, 15679, self.GROUND, {}, { 766 }):SetObtainZones(48027, {717}   -- Green Qiraji Battle Tank
-    self:Add(39798, 21152, self.FLY):SetObtainZones(48027, {478}   -- Green Riding Nether Ray
-    self:Add(88750, 35135):SetObtainZones(48027, {720}   -- Grey Riding Camel
+    self:Add(49379, 24757):SetObtainZones(48027, {704})   -- Great Brewfest Kodo
+    self:Add(61294, 28053, self.FLY):SetObtainZones(48027, {493})   -- Green Proto-Drake
+    self:Add(26056, 15679, self.GROUND, {}, { 766 }):SetObtainZones(48027, {717})   -- Green Qiraji Battle Tank
+    self:Add(39798, 21152, self.FLY):SetObtainZones(48027, {478})   -- Green Riding Nether Ray
+    self:Add(88750, 35135):SetObtainZones(48027, {720})   -- Grey Riding Camel
     self:Add(110051, 40029, self.FLY, { bsm = 1 })  -- Heart of the Aspects
-    self:Add(48025, 25159, self.FLY):SetObtainZones(48027, {762}  -- Headless Horseman's Mount
+    self:Add(48025, 25159, self.FLY):SetObtainZones(48027, {762})  -- Headless Horseman's Mount
         
     self:Add(72807, 31154, self.FLY)  -- Icebound Frostbrood Vanquisher
     self:Add(124659, 43254, self.FLY) -- Imperial Quilen
