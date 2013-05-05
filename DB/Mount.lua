@@ -22,67 +22,69 @@ function CollectMe.MountDB:Build()
     -- Common Mounts
         --1.0-4.3
     self:Add(75207, 34956, self.AQUATIC, {}, { 614, 615, 610 }) -- Abyssal Seahorse
-    self:Add(60025, 25836, self.FLY):SetObtainZones(48027, {301}) -- Albino Drake
-    self:Add(96503, 37800, self.FLY, { tcg = 1 }):SetObtainZones(48027, {301}) -- Amani Dragonhawk
+    self:Add(60025, 25836, self.FLY) -- Albino Drake
+    self:Add(96503, 37800, self.FLY, { tcg = 1 }) -- Amani Dragonhawk
     self:Add(98204, 38261):SetObtainZones(98204, {781})-- Amani Battle Bear
-    self:Add(43688, 22464, self.GROUND, { nlo = 1 }):SetObtainZones(48027, {301}) -- Amani War Bear
+    self:Add(43688, 22464, self.GROUND, { nlo = 1 }):SetObtainZones(48027, {781}) -- Amani War Bear
     self:Add(63844, 22471, self.FLY):SetObtainZones(63844, {492}) -- Argent Hippogryph
-    self:Add(67466, 28918):SetObtainZones(48027, {301}) -- Argent Warhorse
-    self:Add(96491, 14341):SetObtainZones(48027, {301}) -- Armored Razzashi Raptor
-    self:Add(40192, 17890, self.FLY):SetObtainZones(48027, {301}) -- Ashes of Al'ar
-    self:Add(41514, 21521, self.FLY):SetObtainZones(48027, {301}) -- Azure Netherwing Drake
-    self:Add(59567, 27785, self.FLY):SetObtainZones(48027, {301}) -- Azure Drake
-    self:Add(51412, 25335, self.GROUND, { tcg = 1 }):SetObtainZones(48027, {301}) -- Big Battle Bear
-    self:Add(58983, 27567, self.GROUND, { nlo = 1 }):SetObtainZones(48027, {301}) -- Big Blizzard Bear
-    self:Add(71342, 30989, self.FLY):SetObtainZones(48027, {301}) -- Big Love Rocket
-    self:Add(59650, 25831, self.FLY):SetObtainZones(48027, {301}) -- Black Drake
-    self:Add(59976, 28040, self.FLY, { nlo = 1 }):SetObtainZones(48027, {301}) -- Black Proto-Drake
-    self:Add(26656, 15676, self.GROUND, { nlo = 1 }):SetObtainZones(48027, {301}) -- Black Qiraji Battle Tank
-    self:Add(107842, 39561, self.FLY):SetObtainZones(48027, {301}) -- Blazing Drake
-    self:Add(74856, 31803, self.FLY, { tcg = 1 }):SetObtainZones(48027, {301}) -- Blazing Hippogryph
-    self:Add(72808, 31156, self.FLY):SetObtainZones(48027, {301}) -- Bloodbathed Frostbrood Vanquisher
-    self:Add(59568, 25832, self.FLY):SetObtainZones(48027, {301}) -- Blue Drake
-    self:Add(59996, 28041, self.FLY):SetObtainZones(48027, {301}) -- Blue Proto-Drake
+    self:Add(67466, 28918):SetObtainZones(48027, {492}) -- Argent Warhorse
+    self:Add(96491, 14341):SetObtainZones(48027, {793}) -- Armored Razzashi Raptor
+    self:Add(40192, 17890, self.FLY):SetObtainZones(48027, {789}) -- Ashes of Al'ar
+    self:Add(41514, 21521, self.FLY):SetObtainZones(48027, {473}) -- Azure Netherwing Drake
+    self:Add(59567, 27785, self.FLY):SetObtainZones(48027, {527}) -- Azure Drake
+    self:Add(51412, 25335, self.GROUND, { tcg = 1 }) -- Big Battle Bear
+    self:Add(58983, 27567, self.GROUND, { nlo = 1 })) -- Big Blizzard Bear
+    self:Add(71342, 30989, self.FLY):SetObtainZones(48027, {764}) -- Big Love Rocket
+    self:Add(59650, 25831, self.FLY):SetObtainZones(48027, {531}) -- Black Drake
+    self:Add(59976, 28040, self.FLY, { nlo = 1 }):SetObtainZones(48027, {535}) -- Black Proto-Drake
+    self:Add(26656, 15676, self.GROUND, { nlo = 1 }):SetObtainZones(48027, {261}) -- Black Qiraji Battle Tank
+    self:Add(107842, 39561, self.FLY):SetObtainZones(48027, {824}) -- Blazing Drake
+    self:Add(74856, 31803, self.FLY, { tcg = 1 }) -- Blazing Hippogryph
+    self:Add(72808, 31156, self.FLY):SetObtainZones(48027, {529}) -- Bloodbathed Frostbrood Vanquisher
+    self:Add(59568, 25832, self.FLY):SetObtainZones(48027, {527}) -- Blue Drake
+    self:Add(59996, 28041, self.FLY):SetObtainZones(48027, {524}) -- Blue Proto-Drake
     self:Add(25953, 15672, self.GROUND, {}, { 766 }) -- Blue Qiraji Battle Tank
-    self:Add(39803, 21156, self.FLY):SetObtainZones(48027, {301}) -- Blue Riding Nether Ray
-    self:Add(43899, 22265, self.GROUND, { nlo = 1 }):SetObtainZones(48027, {301}) -- Brewfest Ram
-    self:Add(59569, 25833, self.FLY):SetObtainZones(48027, {301}) -- Bronze Drake
-    self:Add(88748, 35136):SetObtainZones(48027, {301}) -- Brown Riding Camel
-    self:Add(58615, 27507, self.FLY, { are = 1, nlo = 1 }):SetObtainZones(48027, {301}) -- Brutal Nether Drake
-    self:Add(75614, 31958, self.FLY, { bsm = 1 }):SetObtainZones(48027, {301}) -- Celestial Steed
-    self:Add(43927, 22473, self.FLY):SetObtainZones(48027, {301}) -- Cenarion War Hippogryph
-    self:Add(41515, 21525, self.FLY):SetObtainZones(48027, {301}) -- Cobalt Netherwing Drake
-    self:Add(39315, 21073):SetObtainZones(48027, {301}) -- Cobalt Riding Talbuk
-    self:Add(34896, 19375):SetObtainZones(48027, {301}) -- Cobalt War Talbuk
-    self:Add(97560, 38046, self.FLY):SetObtainZones(48027, {301}) -- Corrupted Fire Hawk
-    self:Add(102514, 38972, self.FLY, { tcg = 1 }):SetObtainZones(48027, {301})  -- Corrupted Hippogryph
-    self:Add(73313, 25279):SetObtainZones(48027, {301})  -- Crimson Deathcharger
-    self:Add(88990, 37145, self.FLY):SetObtainZones(48027, {301})  -- Dark Phoenix
-    self:Add(39316, 21074, self.GROUND, { pvp = 1 }):SetObtainZones(48027, {301})  -- Dark Riding Talbuk
-    self:Add(34790, 19303, self.GROUND, { pvp = 1 }):SetObtainZones(48027, {301})  -- Dark War Talbuk
-    self:Add(103081, 39060):SetObtainZones(48027, {301})  -- Darkmoon Dancing Bear
-    self:Add(64927, 25511, self.FLY, { are = 1, nlo = 1 }):SetObtainZones(48027, {301})         -- Deadly Gladiator's Frost Wyrm
-    self:Add(88335, 35757, self.FLY):SetObtainZones(48027, {301})         -- Drake of the East Wind
-    self:Add(88742, 35553, self.FLY):SetObtainZones(48027, {301})         -- Drake of the North Wind
-    self:Add(88744, 35755, self.FLY):SetObtainZones(48027, {301})         -- Drake of the South Wind
+    self:Add(39803, 21156, self.FLY):SetObtainZones(48027, {478}) -- Blue Riding Nether Ray
+    self:Add(43899, 22265, self.GROUND, { nlo = 1 }):SetObtainZones(48027, {4}) -- Brewfest Ram
+    self:Add(59569, 25833, self.FLY):SetObtainZones(48027, {521}) -- Bronze Drake
+    self:Add(88748, 35136):SetObtainZones(48027, {720}) -- Brown Riding Camel
+    self:Add(58615, 27507, self.FLY, { are = 1, nlo = 1 }) -- Brutal Nether Drake
+    self:Add(75614, 31958, self.FLY, { bsm = 1 }) -- Celestial Steed
+    self:Add(43927, 22473, self.FLY):SetObtainZones(48027, {467}) -- Cenarion War Hippogryph
+    self:Add(41515, 21525, self.FLY):SetObtainZones(48027, {473}) -- Cobalt Netherwing Drake
+    self:Add(39315, 21073):SetObtainZones(48027, {477}) -- Cobalt Riding Talbuk
+    self:Add(34896, 19375):SetObtainZones(48027, {477}) -- Cobalt War Talbuk
+    self:Add(97560, 38046, self.FLY):SetObtainZones(48027, {800}) -- Corrupted Fire Hawk
+    self:Add(102514, 38972, self.FLY, { tcg = 1 })  -- Corrupted Hippogryph
+    self:Add(73313, 25279):SetObtainZones(48027, {604})  -- Crimson Deathcharger
+    self:Add(88990, 37145, self.FLY)  -- Dark Phoenix
+    self:Add(39316, 21074, self.GROUND, { pvp = 1 }):SetObtainZones(48027, {477})  -- Dark Riding Talbuk
+    self:Add(34790, 19303, self.GROUND, { pvp = 1 }):SetObtainZones(48027, {477})  -- Dark War Talbuk
+    self:Add(103081, 39060):SetObtainZones(48027, {823})  -- Darkmoon Dancing Bear
+    self:Add(64927, 25511, self.FLY, { are = 1, nlo = 1 })         -- Deadly Gladiator's Frost Wyrm
+    self:Add(88335, 35757, self.FLY)         -- Drake of the East Wind
+    self:Add(88742, 35553, self.FLY):SetObtainZones(48027, {769})         -- Drake of the North Wind
+    self:Add(88744, 35755, self.FLY):SetObtainZones(48027, {773})         -- Drake of the South Wind
     self:Add(88741, 35754, self.FLY):SetObtainZones(88741, {709})         -- Drake of the West Wind
-    self:Add(110039, 39229, self.FLY):SetObtainZones(48027, {301})   -- Experiment 12-B
+    self:Add(110039, 39229, self.FLY):SetObtainZones(48027, {824})   -- Experiment 12-B
     self:Add(113120, 40568, self.FLY, { tcg = 1 })   -- Feldrake
-    self:Add(36702, 19250)   -- Fiery Warhorse
-    self:Add(101542, 38783, self.FLY)   -- Flametalon of Alysrazor
-    self:Add(97359, 38018, self.FLY)   -- Flameward Hippogryph
+    self:Add(36702, 19250):SetObtainZones(48027, {799}   -- Fiery Warhorse
+    self:Add(101542, 38783, self.FLY):SetObtainZones(48027, {800}   -- Flametalon of Alysrazor
+    self:Add(97359, 38018, self.FLY):SetObtainZones(48027, {606}   -- Flameward Hippogryph
     self:Add(61451, 28082, self.FLY, nil, nil, { tai = 300 })   -- self.FLYing Carpet
     self:Add(44153, 22719, self.FLY, nil, nil, { eng = 300 })   -- self.FLYing Machine
     self:Add(84751, 34410)   -- Fossilized Raptor
     self:Add(75596, 28063, self.FLY, nil, nil, { tai = 425 })   -- Frosty self.FLYing Carpet
     self:Add(65439, 25593, self.FLY, { are = 1, nlo = 1 })   -- Furious Gladiator's Frost Wyrm
-    self:Add(49379, 24757)   -- Great Brewfest Kodo
-    self:Add(61294, 28053, self.FLY)   -- Green Proto-Drake
-    self:Add(26056, 15679, self.GROUND, {}, { 766 })   -- Green Qiraji Battle Tank
-    self:Add(39798, 21152, self.FLY)   -- Green Riding Nether Ray
-    self:Add(88750, 35135)   -- Grey Riding Camel
+    
+    self:Add(49379, 24757):SetObtainZones(48027, {704}   -- Great Brewfest Kodo
+    self:Add(61294, 28053, self.FLY):SetObtainZones(48027, {493}   -- Green Proto-Drake
+    self:Add(26056, 15679, self.GROUND, {}, { 766 }):SetObtainZones(48027, {717}   -- Green Qiraji Battle Tank
+    self:Add(39798, 21152, self.FLY):SetObtainZones(48027, {478}   -- Green Riding Nether Ray
+    self:Add(88750, 35135):SetObtainZones(48027, {720}   -- Grey Riding Camel
     self:Add(110051, 40029, self.FLY, { bsm = 1 })  -- Heart of the Aspects
-    self:Add(48025, 25159, self.FLY)  -- Headless Horseman's Mount
+    self:Add(48025, 25159, self.FLY):SetObtainZones(48027, {762}  -- Headless Horseman's Mount
+        
     self:Add(72807, 31154, self.FLY)  -- Icebound Frostbrood Vanquisher
     self:Add(124659, 43254, self.FLY) -- Imperial Quilen
     self:Add(72286, 31007, self.FLY)  -- Invincible
