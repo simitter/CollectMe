@@ -236,6 +236,10 @@ function CollectMe.MountDB:Build()
     self:Add(136471, 47238) -- Spawn of Horridon
     self:Add(136400, 47256, self.FLY) -- Armored Riding Pteradactyl
     self:Add(136505, 48014, self.FLY, { tcg = 1 }) -- Ghastly Charger's Skull
+    --5.3
+    self:Add(142641, ???) -- Brawler's Burly Mushan Beast
+    self:Add(142073, ???, self.FLY, { ptm = 1 }) -- Hearthsteed
+    self:Add(142878, ???, self.FLY, { umo = 1 }) -- Enchanted Fey Dragon
 
     -- Alliance Mounts
     if CollectMe.FACTION == "Alliance" then
@@ -321,6 +325,7 @@ function CollectMe.MountDB:Build()
         self:Add(17229, 10426)  -- Winterspring Frostsaber
         self:Add(59791, 27243)  -- Wooly Mammoth
         self:Add(130985, 45271, self.FLY) -- Pandaren Kite
+        self:Add(142478, ???, self.FLY) -- Armored Blue Wind Rider
     end
 
     -- Horde Mounts
@@ -408,6 +413,7 @@ function CollectMe.MountDB:Build()
         self:Add(59793, 27244) -- Wooly Mammoth
         self:Add(118737, 41903, self.FLY) -- Pandaren Kite
         self:Add(18992, 12242, self.GROUND, { nlo = 1 }) -- Teal Kodo
+        self:Add(142266, ???, self.FLY) -- Armored Red Wind Rider
     end
 
     -- Paladin Mounts for Humans and Dwarfs
