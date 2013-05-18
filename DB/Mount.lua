@@ -21,7 +21,7 @@ end
 function CollectMe.MountDB:Build()
     -- Common Mounts
         --1.0-4.3
-    self:Add(75207, 34956, self.AQUATIC, {}, { 614, 615, 610 }):SetObtainZones(43688, {610}) -- Abyssal Seahorse
+    self:Add(75207, 34956, self.AQUATIC, {}, { 614, 615, 610 }):SetObtainZones(75207, {610}) -- Abyssal Seahorse
     self:Add(60025, 25836, self.FLY) -- Albino Drake
     self:Add(96503, 37800, self.FLY, { tcg = 1 }) -- Amani Dragonhawk
     self:Add(98204, 38261):SetObtainZones(98204, {781})-- Amani Battle Bear
@@ -43,7 +43,7 @@ function CollectMe.MountDB:Build()
     self:Add(72808, 31156, self.FLY):SetObtainZones(72808, {529}) -- Bloodbathed Frostbrood Vanquisher
     self:Add(59568, 25832, self.FLY):SetObtainZones(59568, {527}) -- Blue Drake
     self:Add(59996, 28041, self.FLY):SetObtainZones(59996, {524}) -- Blue Proto-Drake
-    self:Add(25953, 15672, self.GROUND, {}, { 766 }):SetObtainZones(43688, {766}) -- Blue Qiraji Battle Tank
+    self:Add(25953, 15672, self.GROUND, {}, { 766 }):SetObtainZones(25953, {766}) -- Blue Qiraji Battle Tank
     self:Add(39803, 21156, self.FLY):SetObtainZones(39803, {478}) -- Blue Riding Nether Ray
     self:Add(43899, 22265, self.GROUND, { nlo = 1 }):SetObtainZones(43899, {4}) -- Brewfest Ram
     self:Add(59569, 25833, self.FLY):SetObtainZones(59569, {521}) -- Bronze Drake
@@ -57,7 +57,7 @@ function CollectMe.MountDB:Build()
     self:Add(97560, 38046, self.FLY):SetObtainZones(97560, {800}) -- Corrupted Fire Hawk
     self:Add(102514, 38972, self.FLY, { tcg = 1 })  -- Corrupted Hippogryph
     self:Add(73313, 25279):SetObtainZones(73313, {604})  -- Crimson Deathcharger
-    self:Add(88990, 37145, self.FLY):SetObtainZones(43688, {301,381,321,362,471,341,480,382,481,504})  -- Dark Phoenix
+    self:Add(88990, 37145, self.FLY):SetObtainZones(88990, {301,381,321,362,471,341,480,382,481,504})  -- Dark Phoenix
     self:Add(39316, 21074, self.GROUND, { pvp = 1 }):SetObtainZones(39316, {477})  -- Dark Riding Talbuk
     self:Add(34790, 19303, self.GROUND, { pvp = 1 }):SetObtainZones(34790, {477})  -- Dark War Talbuk
     self:Add(103081, 39060):SetObtainZones(103081, {823})  -- Darkmoon Dancing Bear
@@ -85,162 +85,162 @@ function CollectMe.MountDB:Build()
     self:Add(110051, 40029, self.FLY, { bsm = 1 })  -- Heart of the Aspects
     self:Add(48025, 25159, self.FLY):SetObtainZones(48025, {762})  -- Headless Horseman's Mount
         
-    self:Add(72807, 31154, self.FLY):SetObtainZones(43688, {604})  -- Icebound Frostbrood Vanquisher
+    self:Add(72807, 31154, self.FLY):SetObtainZones(72807, {604})  -- Icebound Frostbrood Vanquisher
     self:Add(124659, 43254, self.FLY) -- Imperial Quilen
-    self:Add(72286, 31007, self.FLY):SetObtainZones(43688, {604})  -- Invincible
-    self:Add(63956, 28953, self.FLY):SetObtainZones(43688, {529})  -- Ironbound Proto-Drake
-    self:Add(107845, 39563, self.FLY):SetObtainZones(43688, {824})  -- Life-Binder's Handmaiden
+    self:Add(72286, 31007, self.FLY):SetObtainZones(72286, {604})  -- Invincible
+    self:Add(63956, 28953, self.FLY):SetObtainZones(63956, {529})  -- Ironbound Proto-Drake
+    self:Add(107845, 39563, self.FLY):SetObtainZones(107845, {824})  -- Life-Binder's Handmaiden
     self:Add(65917, 29344, self.GROUND, { tcg = 1 })  -- Magic Rooster
     self:Add(61309, 28060, self.FLY, nil, nil, { tai = 425 })  -- Magnificent self.FLYing Carpet
     self:Add(44744, 22620, self.FLY, { are = 1, nlo = 1})  -- Merciless Nether Drake
-    self:Add(63796, 28890, self.FLY):SetObtainZones(43688, {529})  -- Mimiron's Head
+    self:Add(63796, 28890, self.FLY):SetObtainZones(63796, {529})  -- Mimiron's Head
     self:Add(93623, 37231, self.FLY, { tcg = 1 })  -- Mottled Drake
     self:Add(121820, 42498, self.FLY, { rfm = 1 })  -- Obsidian Nightwing
-    self:Add(69395, 30346, self.FLY):SetObtainZones(43688, {718})  -- Onyxian Drake
-    self:Add(41513, 21520, self.FLY):SetObtainZones(43688, {473})  -- Onyx Netherwing Drake
-    self:Add(88718, 35740, self.FLY):SetObtainZones(43688, {640})  -- Phosphorescent Stone Drake
-    self:Add(60021, 28042, self.FLY, { nlo = 1 }):SetObtainZones(43688, {535})  -- Plagued Proto-Drake
-    self:Add(97493, 38031, self.FLY):SetObtainZones(43688, {800})  -- Pureblood Fire Hawk
-    self:Add(41516, 21523, self.FLY):SetObtainZones(43688, {473})  -- Purple Netherwing Drake
-    self:Add(39801, 21155, self.FLY):SetObtainZones(43688, {478})  -- Purple Riding Nether Ray
-    self:Add(41252, 21473):SetObtainZones(43688, {723})  -- Raven Lord
-    self:Add(59570, 25835, self.FLY):SetObtainZones(43688, {488})  -- Red Drake
+    self:Add(69395, 30346, self.FLY):SetObtainZones(69395, {718})  -- Onyxian Drake
+    self:Add(41513, 21520, self.FLY):SetObtainZones(41513, {473})  -- Onyx Netherwing Drake
+    self:Add(88718, 35740, self.FLY):SetObtainZones(88718, {640})  -- Phosphorescent Stone Drake
+    self:Add(60021, 28042, self.FLY, { nlo = 1 }):SetObtainZones(60021, {535})  -- Plagued Proto-Drake
+    self:Add(97493, 38031, self.FLY):SetObtainZones(97493, {800})  -- Pureblood Fire Hawk
+    self:Add(41516, 21523, self.FLY):SetObtainZones(41516, {473})  -- Purple Netherwing Drake
+    self:Add(39801, 21155, self.FLY):SetObtainZones(39801, {478})  -- Purple Riding Nether Ray
+    self:Add(41252, 21473):SetObtainZones(41252, {723})  -- Raven Lord
+    self:Add(59570, 25835, self.FLY):SetObtainZones(59570, {488})  -- Red Drake
     self:Add(59961, 28044, self.FLY)  -- Red Proto-Drake
-    self:Add(26054, 15681, self.GROUND, {}, { 766 }):SetObtainZones(43688, {766})  -- Red Qiraji Battle Tank
-    self:Add(39800, 21158, self.FLY):SetObtainZones(43688, {478})  -- Red Riding Nether Ray
+    self:Add(26054, 15681, self.GROUND, {}, { 766 }):SetObtainZones(26054, {766})  -- Red Qiraji Battle Tank
+    self:Add(39800, 21158, self.FLY):SetObtainZones(39800, {478})  -- Red Riding Nether Ray
     self:Add(67336, 29794, self.FLY, { are = 1, nlo = 1})  -- Relentless Gladiator's Frost Wyrm
     self:Add(30174, 17158, self.SWIM, { tcg = 1 })  -- Riding Turtle
-    self:Add(17481, 10718):SetObtainZones(43688, {765})  -- Rivendare's Deathcharger
-    self:Add(63963, 28954, self.FLY):SetObtainZones(43688, {529})  -- Rusted Proto-Drake
+    self:Add(17481, 10718):SetObtainZones(17481, {765})  -- Rivendare's Deathcharger
+    self:Add(63963, 28954, self.FLY):SetObtainZones(63963, {529})  -- Rusted Proto-Drake
     self:Add(101821, 38755, self.FLY, { are = 1 })  -- Ruthless Gladiator's Twilight Drake
     self:Add(93326, 35750, self.FLY)  -- Sandstone Drake
     self:Add(97581, 38048, self.GROUND, { tcg = 1 })  -- Savage Raptor
     self:Add(64731, 29161, self.SWIM)  -- Sea Turtle
-    self:Add(39802, 21157, self.FLY):SetObtainZones(43688, {478})  -- Silver Riding Nether Ray
-    self:Add(39317, 21075):SetObtainZones(43688, {477})  -- Silver Riding Talbuk
-    self:Add(34898, 19378):SetObtainZones(43688, {477})  -- Silver War Talbuk
+    self:Add(39802, 21157, self.FLY):SetObtainZones(39802, {478})  -- Silver Riding Nether Ray
+    self:Add(39317, 21075):SetObtainZones(39317, {477})  -- Silver Riding Talbuk
+    self:Add(34898, 19378):SetObtainZones(34898, {477})  -- Silver War Talbuk
     self:Add(42776, 21973, self.GROUND, { tcg = 1 })  -- Spectral Tiger
     self:Add(98718, 34955, self.AQUATIC, {}, { 614, 615, 610 })  -- Subdued Seahorse
-    self:Add(43900, 22350):SetObtainZones(43688, {27,4})  -- Swift Brewfest Ram
-    self:Add(102346, 1281):SetObtainZones(43688, {823})  -- Swift Forest Strider
+    self:Add(43900, 22350):SetObtainZones(43900, {27,4})  -- Swift Brewfest Ram
+    self:Add(102346, 1281):SetObtainZones(102346, {823})  -- Swift Forest Strider
     self:Add(102350, 1961)  -- Swift Lovebird
     self:Add(101573, 17011, self.GROUND, { tcg = 1 })  -- Swift Shorestrider
     self:Add(37015, 20344, self.FLY, { are = 1, nlo = 1})  -- Swift Nether Drake
-    self:Add(24242, 15289, self.GROUND, { nlo = 1 }):SetObtainZones(43688, {793})  -- Swift Razzashi Raptor
+    self:Add(24242, 15289, self.GROUND, { nlo = 1 }):SetObtainZones(24242, {793})  -- Swift Razzashi Raptor
     self:Add(42777, 21974, self.GROUND, { tcg = 1 })  -- Swift Spectral Tiger
     self:Add(102349, 16992)  -- Swift Springstrider
-    self:Add(46628, 19483):SetObtainZones(43688, {798})  -- Swift White Hawkstrider
+    self:Add(46628, 19483):SetObtainZones(46628, {798})  -- Swift White Hawkstrider
     self:Add(49322, 24745, self.GROUND, { rfm = 1, nlo = 1 })  -- Swift Zhevra
-    self:Add(96499, 37799):SetObtainZones(43688, {793})  -- Swift Zulian Panther
-    self:Add(24252, 15290, self.GROUND, { nlo = 1 }):SetObtainZones(43688, {793})  -- Swift Zulian Tiger
-    self:Add(88749, 35134):SetObtainZones(43688, {720})  -- Tan Riding Camel
-    self:Add(39318, 21077):SetObtainZones(43688, {477})  -- Tan Riding Talbuk
-    self:Add(34899, 19376):SetObtainZones(43688, {477})  -- Tan War Talbuk
-    self:Add(60002, 28045, self.FLY):SetObtainZones(43688, {495})  -- Time-Lost Proto-Drake
+    self:Add(96499, 37799):SetObtainZones(96499, {793})  -- Swift Zulian Panther
+    self:Add(24252, 15290, self.GROUND, { nlo = 1 }):SetObtainZones(24252, {793})  -- Swift Zulian Tiger
+    self:Add(88749, 35134):SetObtainZones(88749, {720})  -- Tan Riding Camel
+    self:Add(39318, 21077):SetObtainZones(39318, {477})  -- Tan Riding Talbuk
+    self:Add(34899, 19376):SetObtainZones(34899, {477})  -- Tan War Talbuk
+    self:Add(60002, 28045, self.FLY):SetObtainZones(60002, {495})  -- Time-Lost Proto-Drake
     self:Add(44151, 22720, self.FLY, nil, nil, { eng = 375 })  -- Turbo-Charged self.FLYing Machine
-    self:Add(59571, 27796, self.FLY):SetObtainZones(43688, {531})  -- Twilight Drake
-    self:Add(107844, 39562, self.FLY):SetObtainZones(43688, {824})  -- Twilight Harbinger
+    self:Add(59571, 27796, self.FLY):SetObtainZones(59571, {531})  -- Twilight Drake
+    self:Add(107844, 39562, self.FLY):SetObtainZones(107844, {824})  -- Twilight Harbinger
     self:Add(107203, 39530, self.FLY, { ptm = 1 })  -- Tyrael's Charger
     self:Add(92155, 15672)  -- Ultramarine Qiraji Battle Tank
     self:Add(49193, 24725, self.FLY, { are = 1, nlo = 1})  -- Vengeful Nether Drake
-    self:Add(41517, 21522, self.FLY):SetObtainZones(43688, {473})  -- Veridian Netherwing Drake
-    self:Add(41518, 21524, self.FLY):SetObtainZones(43688, {473})  -- Violet Netherwing Drake
+    self:Add(41517, 21522, self.FLY):SetObtainZones(41517, {473})  -- Veridian Netherwing Drake
+    self:Add(41518, 21524, self.FLY):SetObtainZones(41518, {473})  -- Violet Netherwing Drake
     self:Add(60024, 28043, self.FLY)  -- Violet Proto-Drake
-    self:Add(88746, 35751, self.FLY):SetObtainZones(43688, {768})  -- Vitreous Stone Drake
+    self:Add(88746, 35751, self.FLY):SetObtainZones(88746, {768})  -- Vitreous Stone Drake
     self:Add(88331, 35551, self.FLY)  -- Volcanic Stone Drake
-    self:Add(54753, 28428):SetObtainZones(43688, {495})  -- White Polar Bear Mount
+    self:Add(54753, 28428):SetObtainZones(54753, {495})  -- White Polar Bear Mount
     self:Add(102488, 37204, self.GROUND, { tcg = 1 })  -- White Riding Camel
-    self:Add(39319, 21076):SetObtainZones(43688, {477})  -- White Riding Talbuk
-    self:Add(34897, 19377):SetObtainZones(43688, {477})  -- White War Talbuk
+    self:Add(39319, 21076):SetObtainZones(39319, {477})  -- White Riding Talbuk
+    self:Add(34897, 19377):SetObtainZones(34897, {477})  -- White War Talbuk
     self:Add(98727, 38260, self.FLY, { bsm = 1 })  -- Winged Guardian
     self:Add(74918, 31721, self.GROUND, { tcg = 1 })  -- Wooly White Rhino
     self:Add(46197, 23656, self.FLY, { tcg = 1 })  -- X-51 Nether-Rocket
     self:Add(46199, 23647, self.FLY, { tcg = 1 })  -- X-51 Nether-Rocket X-TREME
     self:Add(75973, 31992, self.FLY, { rfm = 1, nlo = 1 })  -- X-53 Touring Rocket
-    self:Add(26055, 15680, self.GROUND, {}, { 766 }):SetObtainZones(43688, {766})  -- Yellow Qiraji Battle Tank
+    self:Add(26055, 15680, self.GROUND, {}, { 766 }):SetObtainZones(26055, {766})  -- Yellow Qiraji Battle Tank
     self:Add(71810, 31047, self.FLY, { are = 1, nlo = 1}) -- Wrathful Gladiator's Frost Wyrm
     --5.1
     self:Add(127180, 43708, self.GROUND, { umo = 1 }) -- Albino Riding Crane
-    self:Add(123886, 43090):SetObtainZones(43688, {858}) -- Amber Scorpion
-    self:Add(132117, 45521, self.FLY):SetObtainZones(43688, {811,905,903}) -- Ashen Pandaren Phoenix
-    self:Add(127170, 46087, self.FLY):SetObtainZones(43688, {896}) -- Astral Cloud Serpent
-    self:Add(123992, 41989, self.FLY):SetObtainZones(43688, {806}) -- Azure Cloud Serpent
-    self:Add(127174, 43704):SetObtainZones(43688, {811}) -- Azure Riding Crane
-    self:Add(118089, 41711):SetObtainZones(43688, {857}) -- Azure Water Strider
-    self:Add(127286, 43717):SetObtainZones(43688, {301,321}) -- Black Dragon Turtle
-    self:Add(130138, 44836):SetObtainZones(43688, {807}) -- Black Riding Goat
+    self:Add(123886, 43090):SetObtainZones(123886, {858}) -- Amber Scorpion
+    self:Add(132117, 45521, self.FLY):SetObtainZones(132117, {811,905,903}) -- Ashen Pandaren Phoenix
+    self:Add(127170, 46087, self.FLY):SetObtainZones(127170, {896}) -- Astral Cloud Serpent
+    self:Add(123992, 41989, self.FLY):SetObtainZones(123992, {806}) -- Azure Cloud Serpent
+    self:Add(127174, 43704):SetObtainZones(127174, {811}) -- Azure Riding Crane
+    self:Add(118089, 41711):SetObtainZones(118089, {857}) -- Azure Water Strider
+    self:Add(127286, 43717):SetObtainZones(127286, {301,321}) -- Black Dragon Turtle
+    self:Add(130138, 44836):SetObtainZones(130138, {807}) -- Black Riding Goat
     self:Add(127209, 43709, self.GROUND, { umo = 1 }) -- Black Riding Yak
-    self:Add(127220, 43712):SetObtainZones(43688, {809}) -- Blonde Riding Yak
-    self:Add(127287, 43718):SetObtainZones(43688, {301,321}) -- Blue Dragon Turtle
-    self:Add(129934, 43900):SetObtainZones(43688, {810}) -- Blue Shado-Pan Riding Tiger
-    self:Add(127288, 43719):SetObtainZones(43688, {301,321}) -- Brown Dragon Turtle
-    self:Add(130086, 44807):SetObtainZones(43688, {807}) -- Brown Riding Goat
+    self:Add(127220, 43712):SetObtainZones(127220, {809}) -- Blonde Riding Yak
+    self:Add(127287, 43718):SetObtainZones(127287, {301,321}) -- Blue Dragon Turtle
+    self:Add(129934, 43900):SetObtainZones(129934, {810}) -- Blue Shado-Pan Riding Tiger
+    self:Add(127288, 43719):SetObtainZones(127288, {301,321}) -- Brown Dragon Turtle
+    self:Add(130086, 44807):SetObtainZones(130086, {807}) -- Brown Riding Goat
     self:Add(127213, 43710, self.GROUND, { umo = 1 }) -- Brown Riding Yak
     self:Add(124550, 38757, self.FLY, { are = 1}) -- Cataclysmic Gladiator's Twilight Drake
     self:Add(127156, 41592, self.FLY) -- Crimson Cloud Serpent
-    self:Add(129552, 44633, self.FLY):SetObtainZones(43688, {811,905,903}) -- Crimson Pandaren Phoenix
+    self:Add(129552, 44633, self.FLY):SetObtainZones(129552, {811,905,903}) -- Crimson Pandaren Phoenix
     self:Add(123160, 42837, self.GROUND, { umo = 1 }) -- Crimson Riding Crane
     self:Add(127271, 43713, self.GROUND, { umo = 1 }) -- Crimson Water Strider
     self:Add(126507, 43637, self.FLY) -- Depleted-Kyparium Rocket
-    self:Add(132118, 45520, self.FLY):SetObtainZones(43688, {811,905,903}) -- Emerald Pandaren Phoenix
+    self:Add(132118, 45520, self.FLY):SetObtainZones(132118, {811,905,903}) -- Emerald Pandaren Phoenix
     self:Add(126508, 43638, self.FLY) -- Geosynchronous World Spinner
-    self:Add(123993, 41991, self.FLY):SetObtainZones(43688, {806}) -- Golden Cloud Serpent
-    self:Add(127176, 43705):SetObtainZones(43688, {811}) -- Golden Riding Crane
+    self:Add(123993, 41991, self.FLY):SetObtainZones(123993, {806}) -- Golden Cloud Serpent
+    self:Add(127176, 43705):SetObtainZones(127176, {811}) -- Golden Riding Crane
     self:Add(127278, 43716, self.GROUND, { umo = 1 }) -- Golden Water Strider
-    self:Add(122708, 42703):SetObtainZones(43688, {809}) -- Grand Expedition Yak
-    self:Add(127295, 43723):SetObtainZones(43688, {301,321}) -- Great Black Dragon Turtle
-    self:Add(127302, 43724):SetObtainZones(43688, {301,321}) -- Great Blue Dragon Turtle
-    self:Add(127308, 43725):SetObtainZones(43688, {301,321}) -- Great Brown Dragon Turtle
-    self:Add(127293, 43722):SetObtainZones(43688, {301,321}) -- Great Green Dragon Turtle
-    self:Add(127310, 43726):SetObtainZones(43688, {301,321}) -- Great Purple Dragon Turtle
-    self:Add(120822, 42352):SetObtainZones(43688, {301,321}) -- Great Red Dragon Turtle
-    self:Add(120395, 42250):SetObtainZones(43688, {301,321}) -- Green Dragon Turtle
-    self:Add(129932, 44759):SetObtainZones(43688, {810}) -- Green Shado-Pan Riding Tiger
-    self:Add(127216, 43711):SetObtainZones(43688, {809}) -- Grey Riding Yak
+    self:Add(122708, 42703):SetObtainZones(122708, {809}) -- Grand Expedition Yak
+    self:Add(127295, 43723):SetObtainZones(127295, {301,321}) -- Great Black Dragon Turtle
+    self:Add(127302, 43724):SetObtainZones(127302, {301,321}) -- Great Blue Dragon Turtle
+    self:Add(127308, 43725):SetObtainZones(127308, {301,321}) -- Great Brown Dragon Turtle
+    self:Add(127293, 43722):SetObtainZones(127293, {301,321}) -- Great Green Dragon Turtle
+    self:Add(127310, 43726):SetObtainZones(127310, {301,321}) -- Great Purple Dragon Turtle
+    self:Add(120822, 42352):SetObtainZones(120822, {301,321}) -- Great Red Dragon Turtle
+    self:Add(120395, 42250):SetObtainZones(120395, {301,321}) -- Green Dragon Turtle
+    self:Add(129932, 44759):SetObtainZones(129932, {810}) -- Green Shado-Pan Riding Tiger
+    self:Add(127216, 43711):SetObtainZones(127216, {809}) -- Grey Riding Yak
     self:Add(127169, 43697, self.FLY, { umo = 1 }) -- Heavenly Azure Cloud Serpent
     self:Add(127161, 43692, self.FLY) -- Heavenly Crimson Cloud Serpent
     self:Add(127164, 43693, self.FLY, { umo = 1 }) -- Heavenly Golden Cloud Serpent
     self:Add(127165, 43695, self.FLY, { umo = 1 }) -- Heavenly Jade Cloud Serpent
-    self:Add(127158, 43689, self.FLY):SetObtainZones(43688, {809}) -- Heavenly Onyx Cloud Serpent
-    self:Add(113199, 40590, self.FLY):SetObtainZones(43688, {806}) -- Jade Cloud Serpent
+    self:Add(127158, 43689, self.FLY):SetObtainZones(127158, {809}) -- Heavenly Onyx Cloud Serpent
+    self:Add(113199, 40590, self.FLY):SetObtainZones(113199, {806}) -- Jade Cloud Serpent
     self:Add(121837, 42502, self.FLY) -- Jade Panther
     self:Add(127274, 43714, self.GROUND, { umo = 1 }) -- Jade Water Strider
     self:Add(120043, 42185, self.FLY) -- Jeweled Onyx Panther
     self:Add(127178, 43707, self.GROUND, { umo = 1 }) -- Jungle Riding Crane
-    self:Add(127154, 41990, self.FLY):SetObtainZones(43688, {810}) -- Onyx Cloud Serpent
+    self:Add(127154, 41990, self.FLY):SetObtainZones(127154, {810}) -- Onyx Cloud Serpent
     self:Add(127272, 43715, self.GROUND, { umo = 1 }) -- Orange Water Strider
-    self:Add(127289, 43910):SetObtainZones(43688, {301,321}) -- Purple Dragon Turtle
-    self:Add(127290, 43721):SetObtainZones(43688, {301,321}) -- Red Dragon Turtle
-    self:Add(130092, 44808, self.FLY):SetObtainZones(43688, {811}) -- Red self.FLYing Cloud
-    self:Add(129935, 44757):SetObtainZones(43688, {810}) -- Red Shado-Pan Riding Tiger
-    self:Add(127177, 43706):SetObtainZones(43688, {811}) -- Regal Riding Crane
+    self:Add(127289, 43910):SetObtainZones(127289, {301,321}) -- Purple Dragon Turtle
+    self:Add(127290, 43721):SetObtainZones(127290, {301,321}) -- Red Dragon Turtle
+    self:Add(130092, 44808, self.FLY):SetObtainZones(130092, {811}) -- Red self.FLYing Cloud
+    self:Add(129935, 44757):SetObtainZones(129935, {810}) -- Red Shado-Pan Riding Tiger
+    self:Add(127177, 43706):SetObtainZones(127177, {811}) -- Regal Riding Crane
     self:Add(121838, 42499, self.FLY) -- Ruby Panther
     self:Add(121836, 42500, self.FLY) -- Sapphire Panther
-    self:Add(130965, 45264):SetObtainZones(43688, {807}) -- Son of Galleon
+    self:Add(130965, 45264):SetObtainZones(130965, {807}) -- Son of Galleon
     self:Add(121839, 42501, self.FLY) -- Sunstone Panther
-    self:Add(129918, 43686, self.FLY):SetObtainZones(43688, {905,903}) -- Thundering August Cloud Serpent
-    self:Add(124408, 43562, self.FLY):SetObtainZones(43688, {301,321}) -- Thundering Jade Cloud Serpent
-    self:Add(132036, 45797, self.FLY):SetObtainZones(43688, {811}) -- Thundering Ruby Cloud Serpent
-    self:Add(132119, 45522, self.FLY):SetObtainZones(43688, {811,905,903}) -- Violet Pandaren Phoenix
-    self:Add(130137, 44837):SetObtainZones(43688, {807}) -- White Riding Goat
+    self:Add(129918, 43686, self.FLY):SetObtainZones(129918, {905,903}) -- Thundering August Cloud Serpent
+    self:Add(124408, 43562, self.FLY):SetObtainZones(124408, {301,321}) -- Thundering Jade Cloud Serpent
+    self:Add(132036, 45797, self.FLY):SetObtainZones(132036, {811}) -- Thundering Ruby Cloud Serpent
+    self:Add(132119, 45522, self.FLY):SetObtainZones(132119, {811,905,903}) -- Violet Pandaren Phoenix
+    self:Add(130137, 44837):SetObtainZones(130137, {807}) -- White Riding Goat
     self:Add(123182, 41089, self.GROUND, { umo = 1 }) -- White Riding Yak
     self:Add(133023, 42147, self.FLY) -- Jade Pandaren Kite
     self:Add(134573, 46729, self.FLY, { bsm = 1 }) -- Swift Windsteed
     --5.2
-    self:Add(138643, 47827):SetObtainZones(43688, {929}) -- Reins of the Green Primal Raptor
-    self:Add(138642, 47828):SetObtainZones(43688, {929}) -- Reins of the Black Primal Raptor
-    self:Add(138641, 47826):SetObtainZones(43688, {929}) -- Reins of the Red Primal Raptor
-    self:Add(138640, 47825):SetObtainZones(43688, {858}) -- Reins of the Bone-White Primal Raptor
+    self:Add(138643, 47827):SetObtainZones(138643, {929}) -- Reins of the Green Primal Raptor
+    self:Add(138642, 47828):SetObtainZones(138642, {929}) -- Reins of the Black Primal Raptor
+    self:Add(138641, 47826):SetObtainZones(138641, {929}) -- Reins of the Red Primal Raptor
+    self:Add(138640, 47825):SetObtainZones(138640, {858}) -- Reins of the Bone-White Primal Raptor
     self:Add(138426, 47717) -- Reins of the Jade Primordial Direhorn
     self:Add(138424, 47718) -- Reins of the Amber Primordial Direhorn
     self:Add(138425, 47715) -- Reins of the Slate Primordial Direhorn
-    self:Add(138423, 47716):SetObtainZones(43688, {929}) -- Reins of the Cobalt Primordial Direhorn
-    self:Add(140250, 48101):SetObtainZones(43688, {928}) -- Crimson Primal Direhorn
-    self:Add(140249, 48100):SetObtainZones(43688, {928}) -- Golden Primal Direhorn
-    self:Add(136471, 47238):SetObtainZones(43688, {930}) -- Spawn of Horridon
-    self:Add(136400, 47256, self.FLY):SetObtainZones(43688, {930}) -- Armored Riding Pteradactyl
+    self:Add(138423, 47716):SetObtainZones(138423, {929}) -- Reins of the Cobalt Primordial Direhorn
+    self:Add(140250, 48101):SetObtainZones(140250, {928}) -- Crimson Primal Direhorn
+    self:Add(140249, 48100):SetObtainZones(140249, {928}) -- Golden Primal Direhorn
+    self:Add(136471, 47238):SetObtainZones(136471, {930}) -- Spawn of Horridon
+    self:Add(136400, 47256, self.FLY):SetObtainZones(136400, {930}) -- Armored Riding Pteradactyl
     self:Add(136505, 48014, self.FLY, { tcg = 1 }) -- Ghastly Charger's Skull
-    self:Add(139442, 47981, self.FLY):SetObtainZones(43688, {928}) -- Thundering Cobalt Cloud Serpent
+    self:Add(139442, 47981, self.FLY):SetObtainZones(139442, {928}) -- Thundering Cobalt Cloud Serpent
 
     -- Alliance Mounts
     if CollectMe.FACTION == "Alliance" then
