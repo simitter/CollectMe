@@ -1,4 +1,5 @@
 CollectMe.Config = CollectMe:NewModule("Config")
+
 function CollectMe.Config:OnInitialize()
     local ac = LibStub("AceConfig-3.0")
     local acd = LibStub("AceConfigDialog-3.0")
@@ -52,7 +53,7 @@ function CollectMe.Config:GetLdbArgs(db)
             desc = L["Display already collected companions"],
             type = "toggle",
             order = 1,
-            set = function(info,val) db.companions.collected = val end,
+            set = function(info,val) db.companions.collected = val; CollectMe.LdbDisplay:ZoneChangeListener() end,
             get = function(info) return db.companions.collected end
         },
         companions_missing = {
@@ -60,7 +61,7 @@ function CollectMe.Config:GetLdbArgs(db)
             desc = L["Display missing companions"],
             type = "toggle",
             order = 2,
-            set = function(info,val) db.companions.missing = val end,
+            set = function(info,val) db.companions.missing = val; CollectMe.LdbDisplay:ZoneChangeListener() end,
             get = function(info) return db.companions.missing end
         },
         companions_quality = {
@@ -68,7 +69,7 @@ function CollectMe.Config:GetLdbArgs(db)
             desc = L["Display companion quality"],
             type = "toggle",
             order = 3,
-            set = function(info,val) db.companions.quality = val  end,
+            set = function(info,val) db.companions.quality = val; CollectMe.LdbDisplay:ZoneChangeListener() end,
             get = function(info) return db.companions.quality end
         },
         mounts_collected = {
@@ -76,7 +77,7 @@ function CollectMe.Config:GetLdbArgs(db)
             desc = L["Display already collected mounts"],
             type = "toggle",
             order = 4,
-            set = function(info,val) db.mounts.collected = val end,
+            set = function(info,val) db.mounts.collected = val; CollectMe.LdbDisplay:ZoneChangeListener() end,
             get = function(info) return db.mounts.collected end
         },
         mounts_missing = {
@@ -84,7 +85,7 @@ function CollectMe.Config:GetLdbArgs(db)
             desc = L["Display missing mounts"],
             type = "toggle",
             order = 5,
-            set = function(info,val) db.mounts.missing = val  end,
+            set = function(info,val) db.mounts.missing = val; CollectMe.LdbDisplay:ZoneChangeListener()  end,
             get = function(info) return db.mounts.missing end
         }
     }
