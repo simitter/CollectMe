@@ -283,6 +283,9 @@ L["mount_138423"] = "Drops off Oondasta." -- Reins of the Cobalt Primordial Dire
 L["mount_136471"] = "Drops off Horridon in Throne of Thunder." -- Spawn of Horridon
 L["mount_136400"] = "Reward from Glory of the Thundering Raider." -- Armored Riding Pteradactyl
 L["mount_136505"] = "Loot card from the WoW Trading Card Game: Betrayal of the Guardian. [BoE]" -- Ghastly Charger's Skull
+L["mount_142641"] = "Sold for 1200g in the Brawler's guild. You need to be rank 10 or higher to purchase this mount." -- Brawler's Burly Mushan Beast
+L["mount_142073"] = "Hearthstibe promotion mount." -- Hearthsteed
+L["mount_142878"] = "No know method of obtaining." -- Enchanted Fey Dragon
 
 -- Alliance Mounts
 L["mount_60114"] = "Sold by Mei Francis in Dalaran for 750G. [BoP]" -- Armored Brown Bear
@@ -367,7 +370,7 @@ L["mount_130985"] = "Reward for obtaining the achievement 'Pandared Ambassador' 
 L["mount_136163"] = "Sold by the Operation Shieldwall quartermaster for 2000G. You need to be exalted with Operation Shieldwall. [BoA]" -- Grand Gryphon
 L["mount_135416"] = "??. [BoA]" -- Grand Armored Gryphon
 L["mount_140249"] = "Sold by the Kirin Tor Offensive quartermaster for 2100G. You need to be exalted with the Kirin Tor Offensive. [BoA]" -- Golden Primal Direhorn
-
+L["mount_142478"] = "Reward for the 'Mount Parade' achievement obtaining 200 mounts.[BoA]" -- Armored Blue Dragonhawk
 -- Horde Mounts
 L["mount_61230"] = "Sold by Mei Francis in Dalaran for 2000G. [BoP]" -- Armored Blue Wind Rider
 L["mount_60116"] = "Sold by Mei Francis in Dalaran for 750G. [BoP]" -- Armored Brown Bear
@@ -450,7 +453,7 @@ L["mount_18992"] = "Old 100% Ground Mount. Removed in favor of armored 100% moun
 L["mount_136164"] = "Sold by the Dominance Offensive quartermaster for 2000G. You need to be exalted with the Dominance Offensive. [BoA]" -- Grand Wyvern
 L["mount_135418"] = "?? [BoA]" -- Grand Armored Wyvern
 L["mount_140250"] = "Sold by the Sunreaver Onsalught quartermaster for 2100G. You need to be exalted with the Sunreaver Onsalught. [BoA]" -- Crimson Primal Direhorn
-
+L["mount_142266"] = "Reward for the 'Mount Parade' achievement obtaining 200 mounts. [BoA]" -- Armored Red Dragonhawk
 -- Paladin Mounts
 L["mount_23214"] = "Taught by the Paladin Trainer at Level 61 or obtained by completing the Level 60 Paladin Quest Line. [BoP]" -- Alliance Charger
 L["mount_13819"] = "Taught by the Paladin Trainer at Level 40. [BoP]" -- Alliance Warhorse
