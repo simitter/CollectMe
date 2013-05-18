@@ -227,19 +227,20 @@ function CollectMe.MountDB:Build()
     self:Add(133023, 42147, self.FLY) -- Jade Pandaren Kite
     self:Add(134573, 46729, self.FLY, { bsm = 1 }) -- Swift Windsteed
     --5.2
-    self:Add(138643, 47827) -- Reins of the Green Primal Raptor
-    self:Add(138642, 47828) -- Reins of the Black Primal Raptor
-    self:Add(138641, 47826) -- Reins of the Red Primal Raptor
-    self:Add(138640, 47825) -- Reins of the Bone-White Primal Raptor
+    self:Add(138643, 47827):SetObtainZones(43688, {929}) -- Reins of the Green Primal Raptor
+    self:Add(138642, 47828):SetObtainZones(43688, {929}) -- Reins of the Black Primal Raptor
+    self:Add(138641, 47826):SetObtainZones(43688, {929}) -- Reins of the Red Primal Raptor
+    self:Add(138640, 47825):SetObtainZones(43688, {858}) -- Reins of the Bone-White Primal Raptor
     self:Add(138426, 47717) -- Reins of the Jade Primordial Direhorn
     self:Add(138424, 47718) -- Reins of the Amber Primordial Direhorn
     self:Add(138425, 47715) -- Reins of the Slate Primordial Direhorn
-    self:Add(138423, 47716) -- Reins of the Cobalt Primordial Direhorn
-    self:Add(140250, 48101) -- Crimson Primal Direhorn
-    self:Add(140249, 48100) -- Golden Primal Direhorn
-    self:Add(136471, 47238) -- Spawn of Horridon
-    self:Add(136400, 47256, self.FLY) -- Armored Riding Pteradactyl
+    self:Add(138423, 47716):SetObtainZones(43688, {929}) -- Reins of the Cobalt Primordial Direhorn
+    self:Add(140250, 48101):SetObtainZones(43688, {928}) -- Crimson Primal Direhorn
+    self:Add(140249, 48100):SetObtainZones(43688, {928}) -- Golden Primal Direhorn
+    self:Add(136471, 47238):SetObtainZones(43688, {930}) -- Spawn of Horridon
+    self:Add(136400, 47256, self.FLY):SetObtainZones(43688, {930}) -- Armored Riding Pteradactyl
     self:Add(136505, 48014, self.FLY, { tcg = 1 }) -- Ghastly Charger's Skull
+    self:Add(139442, 47981, self.FLY):SetObtainZones(43688, {928}) -- Thundering Cobalt Cloud Serpent
 
     -- Alliance Mounts
     if CollectMe.FACTION == "Alliance" then
