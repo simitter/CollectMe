@@ -17,7 +17,9 @@ local defaults = {
                 are = false,
                 bsm = false,
                 rfm = false,
-                ptm = false
+                ptm = false,
+                czo = false,
+                zones = {}
             },
             titles = {
                 nlo = false,
@@ -60,15 +62,32 @@ local defaults = {
                 hide = false,
                 quality_check = true
             }
+        },
+        ldb = {
+            tooltip = {
+                companions = {
+                    collected = true,
+                    missing = true,
+                    quality = true
+                },
+                mounts = {
+                    collected = true,
+                    missing = true
+                }
+            },
+            text = {
+                companions = {
+                    collected = true,
+                    missing = true,
+                    quality = true
+                },
+                mounts = {
+                    collected = true,
+                    missing = true
+                }
+            }
         }
     }
-}
-
-local options = {
-    name = addon_name,
-    type = "group",
-    childGroups = "tab",
-    args = { }
 }
 
 function CollectMe:OnInitialize()
@@ -99,11 +118,7 @@ function CollectMe:OnInitialize()
     LocalizedPlayerRace, self.RACE = UnitRace("player")
     LocalizedPlayerClass, self.CLASS = UnitClass("player")
 
-    LibStub("AceConfig-3.0"):RegisterOptionsTable(addon_name, options)
-    LibStub("AceConfigDialog-3.0"):AddToBlizOptions(addon_name)
-
     self.db = LibStub("AceDB-3.0"):New("CollectMeDB", defaults)
-    options.args.profiles = LibStub("AceDBOptions-3.0"):GetOptionsTable(self.db)
 
     self.filter_db = self.db.profile.filters.mounts
     self.ignored_db = self.db.profile.ignored.mounts
@@ -201,9 +216,13 @@ function CollectMe:BuildList()
 
     local active, ignored = {}, {}
     local all_count, known_count, filter_count = #self.item_list, 0, 0
+    local zones = self:CloneTable(self.db.profile.filters.mounts.zones)
+    if self.db.profile.filters.mounts.czo == true then
+        table.insert(zones, self.ZoneDB:Current())
+    end
 
     for i,v in ipairs(self.item_list) do
-        if (self.UI.active_group == self.MOUNT and not self.MountDB:IsKnown(v.id)) or (self.UI.active_group == self.TITLE and IsTitleKnown(v.id) ~= 1) then
+        if (self.UI.active_group == self.MOUNT and not self.MountDB:IsKnown(v.id) and (#zones == 0 or self.MountDB:ObtainableInZone(v.id, zones))) or (self.UI.active_group == self.TITLE and IsTitleKnown(v.id) ~= 1) then
             if self:IsInTable(self.ignored_db, v.id) then
                 table.insert(ignored, v)
             else
@@ -314,6 +333,12 @@ end
 
 function CollectMe:BuildFilters()
     self.UI:AddToFilter(self.UI:CreateHeading(self.L["Filters"]))
+
+    if self.UI.active_group == self.MOUNT then
+        self.UI:CreateFilterCheckbox(self.L["Current Zone"], self.db.profile.filters.mounts.czo, { OnValueChanged = function (container, event, value) self.db.profile.filters.mounts.czo = value; self.UI:ReloadScroll() end })
+        local list, order = CollectMe.ZoneDB:GetList()
+        self.UI:CreateFilterDropdown(self.L["Select Zones"], list, self.db.profile.filters.mounts.zones, { OnValueChanged = function (container, event, value) local pos = self:IsInTable(self.db.profile.filters.mounts.zones, value); if not pos then table.insert(self.db.profile.filters.mounts.zones, value) else table.remove(self.db.profile.filters.mounts.zones, pos) end; self.UI:ReloadScroll() end }, true, order)
+    end
 
     for i = 1, #self.filter_list, 1 do
         self.UI:CreateFilterCheckbox(self.L["filters_" .. self.filter_list[i]], self.filter_db[self.filter_list[i]], { OnValueChanged = function (container, event, value) CollectMe:ToggleFilter(self.filter_list[i], value) end })
@@ -528,7 +553,7 @@ function CollectMe:CompanionsInZone()
 end
 
 function CollectMe:ZoneChangeListener()
-    if self.db.profile.filters.companions.czo == true and self.UI.active_group == self.COMPANION then
+    if (self.db.profile.filters.companions.czo == true and self.UI.active_group == self.COMPANION) or (self.db.profile.filters.mounts.czo == true and self.UI.active_group == self.MOUNT) then
         self.UI:ReloadScroll()
     end
 end
