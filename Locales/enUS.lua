@@ -685,3 +685,9 @@ L["title_220"] = "Reward for pvp achievement 'Kahn' which required you to comple
 L["title_221"] = "Reward for completing all Isle of Giants achievements." -- the Stormbreaker
 L["title_222"] = "Reward for defeating Lei Shen in the Throne of Thunder raid on heroic difficulty" -- Storm's End
 L["title_223"] = "Awarded per battlegroup at the end of arena season 12 based on top ranked percentage. Top 0.0% - 0.5%." -- Malevolent Gladiator
+L["title_xxx"] = "Awarded to the top 1000 of teams participating in the 2013 Tournament Arena Realm." -- Vanquisher
+L["title_xxx"] = "Reward for 'Master of Deepwind Gorge' achievement. " -- Gorgeous
+L["title_xxx"] = "Reward for 'Deadly Pet Brawler' win 1000 PvP pet battles through Find Battle with a full team of level 25 pets." -- Trainer
+L["title_xxx"] = "Complete the Vol'jin's troll uprising questline." -- Darkspear Revolutionary
+L["title_xxx"] = "Complete the Vol'jin's troll uprising questline." -- the Hordebreaker
+
