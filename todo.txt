@@ -3,7 +3,11 @@ Excitor:
 -Drop percentages to the info on some mounts.
 -25man 10  man raid  achiev  mounts  info
 -5.3?
+Enchanted Fey Dragon
 Hearthsteed
+Armored Red Dragonhawk
+Armored Blue Dragonhawk
+Brawler's Burly Mushan Beast
 ----------------------------
 
 - missing companion code usage of CompanionDB module
