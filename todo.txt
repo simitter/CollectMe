@@ -9,11 +9,12 @@ Armored Red Dragonhawk-- This mount is the reward for collecting 200 mounts. Mou
 Armored Blue Dragonhawk--This mount is the reward for collecting 200 mounts. Mount Parade
 Brawler's Burly Mushan Beast--purchasable from the brawlers guild vendor when you are rank 10
 
-Vanquisher <Name>
-Gorgeous <Name>
-<Name> the Hordebreaker
-Trainer <Name>
-Darkspear Revolutionary 
+Vanquisher <Name>--Tournament Glory 2013 Rated in the top 1000 of teams participating in the 2013 Tournament Arena Realm
+Gorgeous <Name>-- Complete the Deepwind Gorge achievements listed below.
+<Name> the Hordebreaker--Pit Vol'jin's troll uprising against Garrosh Hellscream's Horde during Patch 5.3: Escalation.
+Trainer <Name>--Win 1000 PvP pet battles through Find Battle with a full team of level 25 pets.
+Darkspear Revolutionary-- Aid Vol'jin's troll uprising during Patch 5.3: Escalation.
+
 ----------------------------
 
 - missing companion code usage of CompanionDB module
