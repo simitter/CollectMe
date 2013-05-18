@@ -8,6 +8,12 @@ Hearthsteed-- Hearthstone promotion
 Armored Red Dragonhawk-- This mount is the reward for collecting 200 mounts. Mount Parade
 Armored Blue Dragonhawk--This mount is the reward for collecting 200 mounts. Mount Parade
 Brawler's Burly Mushan Beast--purchasable from the brawlers guild vendor when you are rank 10
+
+Vanquisher <Name>
+Gorgeous <Name>
+<Name> the Hordebreaker
+Trainer <Name>
+Darkspear Revolutionary 
 ----------------------------
 
 - missing companion code usage of CompanionDB module
