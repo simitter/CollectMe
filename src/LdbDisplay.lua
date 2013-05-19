@@ -39,6 +39,7 @@ function CollectMe.LdbDisplay:OnInitialize()
     })
 
     self:RegisterEvent("ZONE_CHANGED_NEW_AREA", "ZoneChangeListener")
+    self:RegisterEvent("COMPANION_LEARNED", "ZoneChangeListener")
 end
 
 function CollectMe.LdbDisplay:ZoneChangeListener()
