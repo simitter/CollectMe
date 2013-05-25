@@ -151,11 +151,8 @@ function CollectMe.TitleDB:Build()
     self:Add(223, { are = 1 }) -- Malevolent Gladiator
         
     --5.3
-    self:Add(xxx, { are = 1 }) -- Vanquisher
-    self:Add(xxx) -- Trainer
-    self:Add(xxx) -- Gorgeous
-
-        
+    self:Add(227) -- Trainer
+    self:Add(2290, { pvp = 1 }) -- Gorgeous
 
     -- Alliance Titles
     if CollectMe.FACTION == "Alliance" then
@@ -199,7 +196,7 @@ function CollectMe.TitleDB:Build()
         self:Add(182, { pvp = 1 })  -- Hero of the Alliance
         self:Add(145, { pvp = 1 })  -- Warbound
             -- 5.3 Alliance
-        self:Add(xxx)  -- the Hordebreaker
+        self:Add(230)  -- the Hordebreaker
     end
 
     -- Horde Titles
@@ -244,7 +241,7 @@ function CollectMe.TitleDB:Build()
         self:Add(183, { pvp = 1 })   -- Hero of the Horde
         self:Add(144, { pvp = 1 })   -- Warbringer
             --5.3 Horde
-        self:Add(xxx)  -- Darkspear Revolutionary
+        self:Add(228)  -- Darkspear Revolutionary
     end
 
     CollectMe:SortTable(self.titles)
