@@ -4,8 +4,8 @@ Collect Me keeps track of your mounts, companions and titles in the game and can
 ## Basic Features
  * Ignore List
  * Filters
- * Zonebased filtering of companions - data provided by Nullberri of PetJournalEnhanced
- * LDB Plugin for missing companions in current zone
+ * Zonebased filtering of mounts and companions (data provided by Nullberri of PetJournalEnhanced)
+ * LDB Plugin for missing companions and mounts in current zone
  * Source-information
  * 3D model previews
  * Tooltip on wild battle pets for missing companions
@@ -17,7 +17,7 @@ Collect Me keeps track of your mounts, companions and titles in the game and can
  * WowAce profile support
 
 ## Usage
-Collect Me creates two macros for mount and companion summoning. All other features and settin can be accessed on the main window.
+Collect Me creates two macros for mount and companion summoning. All other features and settings can be accessed on the main window.
 
 ## Macros
  * CollectMeRC
