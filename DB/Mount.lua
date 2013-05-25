@@ -242,9 +242,9 @@ function CollectMe.MountDB:Build()
     self:Add(136505, 48014, self.FLY, { tcg = 1 }) -- Ghastly Charger's Skull
     self:Add(139442, 47981, self.FLY):SetObtainZones(139442, {928}) -- Thundering Cobalt Cloud Serpent
     --5.3
-    self:Add(142641, ???) -- Brawler's Burly Mushan Beast
-    self:Add(142073, ???, self.FLY, { ptm = 1 }) -- Hearthsteed
-    self:Add(142878, ???, self.FLY, { umo = 1 }) -- Enchanted Fey Dragon
+    self:Add(142641, 48858) -- Brawler's Burly Mushan Beast
+    self:Add(142073, nil, self.FLY, { ptm = 1 }) -- Hearthsteed
+    self:Add(142878, 48714, self.FLY, { umo = 1 }) -- Enchanted Fey Dragon
 
     -- Alliance Mounts
     if CollectMe.FACTION == "Alliance" then
@@ -330,7 +330,7 @@ function CollectMe.MountDB:Build()
         self:Add(17229, 10426):SetObtainZones(17229, {281})  -- Winterspring Frostsaber
         self:Add(59791, 27243):SetObtainZones(59791, {504})  -- Wooly Mammoth
         self:Add(130985, 45271, self.FLY) -- Pandaren Kite
-        self:Add(142478, ???, self.FLY) -- Armored Blue Wind Rider
+        self:Add(142478, 48816, self.FLY) -- Armored Blue Dragonhawk
     end
 
     -- Horde Mounts
@@ -417,7 +417,7 @@ function CollectMe.MountDB:Build()
         self:Add(59793, 27244):SetObtainZones(59793, {504}) -- Wooly Mammoth
         self:Add(118737, 41903, self.FLY) -- Pandaren Kite
         self:Add(18992, 12242, self.GROUND, { nlo = 1 }) -- Teal Kodo
-        self:Add(142266, ???, self.FLY) -- Armored Red Wind Rider
+        self:Add(142266, 48815, self.FLY) -- Armored Red Dragonhawk
     end
 
     -- Paladin Mounts for Humans and Dwarfs
