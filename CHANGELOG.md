@@ -1,3 +1,9 @@
+## 2.4
+ * Added zone based filtering of mounts with LDB support
+ * New Options Menu
+ * Options to configure LDB text and tooltip
+ * Added 5.3 mounts and titles
+
 ## 2.3.5
  * Keybinding Support
  * Fixed certain JC	Panther	mounts were not marked as flying
