@@ -69,7 +69,7 @@ function CollectMe.MountDB:Build()
     self:Add(110039, 39229, self.FLY):SetObtainZones(110039, {824})   -- Experiment 12-B
     self:Add(113120, 40568, self.FLY, { tcg = 1 })   -- Feldrake
     self:Add(36702, 19250):SetObtainZones(36702, {799})   -- Fiery Warhorse
-    self:Add(101542, 38783, self.FLY):SetObtainZones(101542, {800})   -- Flametalon of Alysrazor
+    self:Add(101542, 38783):SetObtainZones(101542, {800})   -- Flametalon of Alysrazor
     self:Add(97359, 38018, self.FLY):SetObtainZones(97359, {606})   -- Flameward Hippogryph
     self:Add(61451, 28082, self.FLY, nil, nil, { tai = 300 })   -- self.FLYing Carpet
     self:Add(44153, 22719, self.FLY, nil, nil, { eng = 300 })   -- self.FLYing Machine
