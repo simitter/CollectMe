@@ -1,3 +1,6 @@
+## 2.4.1
+ * Added Armored Bloodwing (Mount)
+
 ## 2.4
  * Added zone based filtering of mounts with LDB support
  * New Options Menu
