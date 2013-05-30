@@ -286,6 +286,7 @@ L["mount_136505"] = "Loot card from the WoW Trading Card Game: Betrayal of the G
 L["mount_142641"] = "Sold for 1200g in the Brawler's guild. You need to be rank 10 or higher to purchase this mount." -- Brawler's Burly Mushan Beast
 L["mount_142073"] = "Hearthstibe promotion mount." -- Hearthsteed
 L["mount_142878"] = "No know method of obtaining." -- Enchanted Fey Dragon
+L["mount_139595"] = "Purchased from Blizzard's online store." -- Armored Bloodwing
 
 -- Alliance Mounts
 L["mount_60114"] = "Sold by Mei Francis in Dalaran for 750G. [BoP]" -- Armored Brown Bear
