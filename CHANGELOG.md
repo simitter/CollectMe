@@ -1,5 +1,6 @@
 ## 2.4.1
  * Added Armored Bloodwing (Mount)
+ * Fixed Flametalon of Alysrazor being marked as a Flying mount
 
 ## 2.4
  * Added zone based filtering of mounts with LDB support
