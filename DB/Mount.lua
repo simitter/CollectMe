@@ -245,6 +245,8 @@ function CollectMe.MountDB:Build()
     self:Add(142641, 48858) -- Brawler's Burly Mushan Beast
     self:Add(142073, nil, self.FLY, { ptm = 1 }) -- Hearthsteed
     self:Add(142878, 48714, self.FLY, { umo = 1 }) -- Enchanted Fey Dragon
+    self:Add(139595, nil, self.FLY, { bsm = 1 }) -- Armored Bloodwing Mount
+        
 
     -- Alliance Mounts
     if CollectMe.FACTION == "Alliance" then
