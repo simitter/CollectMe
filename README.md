@@ -4,7 +4,7 @@ Collect Me keeps track of your mounts, companions and titles in the game and can
 ## Basic Features
  * Ignore List
  * Filters
- * Zonebased filtering of mounts and companions (data provided by Nullberri of PetJournalEnhanced)
+ * Zonebased filtering for mounts and companions (data provided by Nullberri of PetJournalEnhanced)
  * LDB Plugin for missing companions and mounts in current zone
  * Source-information
  * 3D model previews
