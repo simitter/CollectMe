@@ -1,5 +1,8 @@
 ## 2.4.2
- * Fixed info for Crimson Pandaren Phoenix, Heavenly Crimson Cloud Serpent, Crimson Cloud Serpent, Thundering Cobalt Cloud Serpent.
+ * Fixed info for Crimson Pandaren Phoenix Serpent (Mount)
+ * Fixed info for Thundering Cobalt Cloud Serpent (Mount)
+ * Fixed info for Crimson Cloud Serpent (Mount)
+ * Fixed info for Heavenly Crimson Cloud (Mount)
 
 ## 2.4.1
  * Added Armored Bloodwing (Mount)
