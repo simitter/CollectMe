@@ -287,6 +287,7 @@ L["mount_142641"] = "Sold for 1200g in the Brawler's guild. You need to be rank 
 L["mount_142073"] = "Hearthstibe promotion mount." -- Hearthsteed
 L["mount_142878"] = "No know method of obtaining." -- Enchanted Fey Dragon
 L["mount_139595"] = "Purchased from Blizzard's online store." -- Armored Bloodwing
+L["mount_139442"] = "Drops off Nalak." -- Thundering Cobalt Cloud Serpent
 
 -- Alliance Mounts
 L["mount_60114"] = "Sold by Mei Francis in Dalaran for 750G. [BoP]" -- Armored Brown Bear
