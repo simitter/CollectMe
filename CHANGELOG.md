@@ -1,8 +1,11 @@
 ## 2.4.2
+ * Added drop chances to info for all pre MoP mounts.
+ * Removed BoP, BoA tags from all mounts (BoE tag will be kept)
  * Fixed info for Crimson Pandaren Phoenix Serpent (Mount)
  * Fixed info for Thundering Cobalt Cloud Serpent (Mount)
  * Fixed info for Crimson Cloud Serpent (Mount)
  * Fixed info for Heavenly Crimson Cloud (Mount)
+ * Fixed some grammar in several lines of info.
 
 ## 2.4.1
  * Added Armored Bloodwing (Mount)
