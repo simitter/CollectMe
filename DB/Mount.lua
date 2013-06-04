@@ -120,7 +120,7 @@ function CollectMe.MountDB:Build()
     self:Add(39317, 21075):SetObtainZones(39317, {477})  -- Silver Riding Talbuk
     self:Add(34898, 19378):SetObtainZones(34898, {477})  -- Silver War Talbuk
     self:Add(42776, 21973, self.GROUND, { tcg = 1 })  -- Spectral Tiger
-    self:Add(98718, 34955, self.AQUATIC, {}, { 614, 615, 610 })  -- Subdued Seahorse
+    self:Add(98718, 34955, self.AQUATIC):SetObtainZones(98718, {610})  -- Subdued Seahorse
     self:Add(43900, 22350):SetObtainZones(43900, {27,4})  -- Swift Brewfest Ram
     self:Add(102346, 1281):SetObtainZones(102346, {823})  -- Swift Forest Strider
     self:Add(102350, 1961)  -- Swift Lovebird
