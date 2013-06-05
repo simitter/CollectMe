@@ -235,8 +235,6 @@ function CollectMe.MountDB:Build()
     self:Add(138424, 47718) -- Reins of the Amber Primordial Direhorn
     self:Add(138425, 47715) -- Reins of the Slate Primordial Direhorn
     self:Add(138423, 47716):SetObtainZones(138423, {929}) -- Reins of the Cobalt Primordial Direhorn
-    self:Add(140250, 48101):SetObtainZones(140250, {928}) -- Crimson Primal Direhorn
-    self:Add(140249, 48100):SetObtainZones(140249, {928}) -- Golden Primal Direhorn
     self:Add(136471, 47238):SetObtainZones(136471, {930}) -- Spawn of Horridon
     self:Add(136400, 47256, self.FLY):SetObtainZones(136400, {930}) -- Armored Riding Pteradactyl
     self:Add(136505, 48014, self.FLY, { tcg = 1 }) -- Ghastly Charger's Skull
@@ -333,6 +331,7 @@ function CollectMe.MountDB:Build()
         self:Add(59791, 27243):SetObtainZones(59791, {504})  -- Wooly Mammoth
         self:Add(130985, 45271, self.FLY) -- Pandaren Kite
         self:Add(142478, 48816, self.FLY) -- Armored Blue Dragonhawk
+        self:Add(140249, 48100):SetObtainZones(140249, {928}) -- Golden Primal Direhorn
     end
 
     -- Horde Mounts
@@ -420,6 +419,7 @@ function CollectMe.MountDB:Build()
         self:Add(118737, 41903, self.FLY) -- Pandaren Kite
         self:Add(18992, 12242, self.GROUND, { nlo = 1 }) -- Teal Kodo
         self:Add(142266, 48815, self.FLY) -- Armored Red Dragonhawk
+        self:Add(140250, 48101):SetObtainZones(140250, {928}) -- Crimson Primal Direhorn
     end
 
     -- Paladin Mounts for Humans and Dwarfs
