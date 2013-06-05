@@ -373,6 +373,7 @@ L["mount_136163"] = "Sold by the Operation Shieldwall quartermaster for 2000G. Y
 L["mount_135416"] = "??. [BoA]" -- Grand Armored Gryphon
 L["mount_140249"] = "Sold by the Kirin Tor Offensive quartermaster for 2100G. You need to be exalted with the Kirin Tor Offensive. [BoA]" -- Golden Primal Direhorn
 L["mount_142478"] = "Reward for the 'Mount Parade' achievement obtaining 200 mounts.[BoA]" -- Armored Blue Dragonhawk
+
 -- Horde Mounts
 L["mount_61230"] = "Sold by Mei Francis in Dalaran for 2000G. [BoP]" -- Armored Blue Wind Rider
 L["mount_60116"] = "Sold by Mei Francis in Dalaran for 750G. [BoP]" -- Armored Brown Bear
