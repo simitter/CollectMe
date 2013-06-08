@@ -1,4 +1,5 @@
 ## 2.4.2
+ * Fixed LDB not considering companion ignore list
  * Added drop chances to info for all pre MoP mounts.
  * Removed BoP, BoA tags from all mounts (BoE tag will be kept)
  * Updated Grand War Mammoth info (Mount)
@@ -8,7 +9,7 @@
  * Fixed info for Crimson Cloud Serpent (Mount)
  * Fixed info for Heavenly Crimson Cloud (Mount)
  * Fixed Crimson Primal Direhorn to be Horde only
- * Fixed Golden  Prmal Direhorn to be Alliance only
+ * Fixed Golden Primal Direhorn to be Alliance only
  * Fixed some grammar in several lines of info
 
 ## 2.4.1

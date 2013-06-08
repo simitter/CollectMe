@@ -57,14 +57,23 @@ function CollectMe.LdbDisplay:UpdateData()
     self.collected_mounts, self.missing_mounts = {}, {}
 
     if self.db.text.companions.missing == true or self.db.text.companions.collected == true or self.db.text.companions.quality == true or self.db.tooltip.companions.missing == true or self.db.tooltip.companions.collected == true or self.db.tooltip.companions.quality == true then
-        self.collected, self.missing = CollectMe.CompanionDB:GetCompanionsInZone(CollectMe.ZoneDB:Current())
+        local zcollected, missing = CollectMe.CompanionDB:GetCompanionsInZone(CollectMe.ZoneDB:Current())
+        for i,v in ipairs(missing) do
+            if not CollectMe:IsInTable(CollectMe.db.profile.ignored.companions, v.creature_id) then
+                table.insert(self.missing, v)
+            end
+        end
+
         self.missing_count = #self.missing
         local collected = {}
-        for i,v in ipairs(self.collected) do
-            self.quality_counts[v.quality] = self.quality_counts[v.quality] + 1
-            if not collected[v.species_id] then
-                collected[v.species_id] = v.species_id;
-                self.unique_collected_count = self.unique_collected_count + 1
+        for i,v in ipairs(zcollected) do
+            if not CollectMe:IsInTable(CollectMe.db.profile.ignored.companions, v.creature_id) then
+                table.insert(self.collected, v)
+                self.quality_counts[v.quality] = self.quality_counts[v.quality] + 1
+                if not collected[v.species_id] then
+                    collected[v.species_id] = v.species_id;
+                    self.unique_collected_count = self.unique_collected_count + 1
+                end
             end
         end
     end

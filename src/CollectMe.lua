@@ -445,6 +445,7 @@ function CollectMe:ItemRowClick(group, spell_id)
             table.insert(ignored_table, spell_id)
         end
 
+        self.LdbDisplay:ZoneChangeListener()
         self.UI:ReloadScroll()
     end
 end
