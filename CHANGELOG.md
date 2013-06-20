@@ -1,3 +1,6 @@
+## 2.4.3
+ * Fixed infor to Onyx Cloud Serpent (Mount)
+
 ## 2.4.2
  * Fixed LDB not considering companion ignore list
  * Added drop chances to info for all pre MoP mounts.
