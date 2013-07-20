@@ -2,6 +2,7 @@
     <Script file="src\Label.lua"/>
     <Script file="src\Frame.lua"/>
     <Script file="src\CollectMe.lua"/>
+    <Script file="DB\ZoneData.lua"/>
     <Script file="DB\Zone.lua"/>
     <Script file="DB\Mount.lua"/>
     <Script file="DB\Title.lua"/>
