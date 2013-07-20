@@ -7,11 +7,11 @@ function CollectMe.Macro:OnEnable()
 end
 
 function CollectMe.Macro:UpdateMacros()
-    self:InitMacro("CollectMeRC", "INV_PET_BABYBLIZZARDBEAR", '/script CollectMe.Macro:Companion();')
+    self:InitMacro("CollectMeRC", "INV_PET_BABYBLIZZARDBEAR", '/cm rc')
     if CollectMe.CLASS == "DRUID" then
-        self:InitMacro("CollectMeRM", "ABILITY_MOUNT_BIGBLIZZARDBEAR", '/cancelform\n/script CollectMe.Macro:Mount();')
+        self:InitMacro("CollectMeRM", "ABILITY_MOUNT_BIGBLIZZARDBEAR", '/cancelform\n/cm rm')
     else
-        self:InitMacro("CollectMeRM", "ABILITY_MOUNT_BIGBLIZZARDBEAR", '/script CollectMe.Macro:Mount();')
+        self:InitMacro("CollectMeRM", "ABILITY_MOUNT_BIGBLIZZARDBEAR", '/cm rm')
     end
 end
 

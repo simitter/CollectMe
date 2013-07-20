@@ -521,9 +521,9 @@ end
  -- CONSOLE COMMAND HANDLER
 function CollectMe:SlashProcessor(input)
     if input == "rc" or input == "randomcompanion" then
-        self.RandomCompanion:Summon()
+        self.Macro:Companion()
     elseif input == "rm" or input == "randommount" then
-        self.RandomMount:Summon()
+        self.Macro:Mount()
     elseif input == "options" then
         InterfaceOptionsFrame_OpenToCategory(addon_name)
     elseif input == "companion zone" then
