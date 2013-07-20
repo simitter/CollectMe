@@ -30,7 +30,7 @@ function CollectMe.MountDB:Build()
     self:Add(63844, 22471, self.FLY):SetObtainZones(63844, {492}) -- Argent Hippogryph
     self:Add(67466, 28918):SetObtainZones(67466, {492}) -- Argent Warhorse
     self:Add(96491, 14341):SetObtainZones(96491, {793}) -- Armored Razzashi Raptor
-    self:Add(40192, 17890, self.FLY):SetObtainZones(40192, {789}) -- Ashes of Al'ar
+    self:Add(40192, 17890, self.FLY):SetObtainZones(40192, {782}) -- Ashes of Al'ar
     self:Add(41514, 21521, self.FLY):SetObtainZones(41514, {473}) -- Azure Netherwing Drake
     self:Add(59567, 27785, self.FLY):SetObtainZones(59567, {527}) -- Azure Drake
     self:Add(51412, 25335, self.GROUND, { tcg = 1 }) -- Big Battle Bear
