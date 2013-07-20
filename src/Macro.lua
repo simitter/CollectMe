@@ -1,3 +1,5 @@
+local CollectMe = LibStub("AceAddon-3.0"):GetAddon("CollectMe")
+
 CollectMe.Macro = CollectMe:NewModule("Macro")
 
 function CollectMe.Macro:OnEnable()

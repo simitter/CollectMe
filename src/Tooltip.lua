@@ -1,3 +1,5 @@
+local CollectMe = LibStub("AceAddon-3.0"):GetAddon("CollectMe")
+
 CollectMe.Tooltip = CollectMe:NewModule("Tooltip", "AceHook-3.0")
 
 function CollectMe.Tooltip:OnInitialize()

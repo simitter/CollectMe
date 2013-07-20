@@ -1,3 +1,5 @@
+local CollectMe = LibStub("AceAddon-3.0"):GetAddon("CollectMe")
+
 CollectMe.TitleDB = CollectMe:NewModule("TitleDB")
 
 function CollectMe.TitleDB:OnInitialize()

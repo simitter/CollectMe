@@ -1,4 +1,5 @@
 -- todo rework array key usage for more performant access
+local CollectMe = LibStub("AceAddon-3.0"):GetAddon("CollectMe")
 
 CollectMe.MountDB = CollectMe:NewModule("MountDB")
 

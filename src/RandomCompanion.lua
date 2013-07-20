@@ -1,3 +1,5 @@
+local CollectMe = LibStub("AceAddon-3.0"):GetAddon("CollectMe")
+
 CollectMe.RandomCompanion = CollectMe:NewModule("RandomCompanion", "AceHook-3.0")
 
 function CollectMe.RandomCompanion:OnInitialize()

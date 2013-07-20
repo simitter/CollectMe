@@ -1,3 +1,5 @@
+local CollectMe = LibStub("AceAddon-3.0"):GetAddon("CollectMe")
+
 CollectMe.PetBattle = CollectMe:NewModule("PetBattle", "AceEvent-3.0")
 
 function CollectMe.PetBattle:OnInitialize()

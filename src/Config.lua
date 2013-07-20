@@ -1,3 +1,5 @@
+local CollectMe = LibStub("AceAddon-3.0"):GetAddon("CollectMe")
+
 CollectMe.Config = CollectMe:NewModule("Config")
 
 function CollectMe.Config:OnInitialize()

@@ -1,3 +1,5 @@
+local CollectMe = LibStub("AceAddon-3.0"):GetAddon("CollectMe")
+
 CollectMe.CompanionDB = CollectMe:NewModule("CompanionDB", "AceEvent-3.0")
 local LibPetJournal = LibStub("LibPetJournal-2.0")
 

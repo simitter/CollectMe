@@ -1,3 +1,5 @@
+local CollectMe = LibStub("AceAddon-3.0"):GetAddon("CollectMe")
+
 CollectMe.ModelPreview = CollectMe:NewModule("ModelPreview", "AceHook-3.0")
 
 function CollectMe.ModelPreview:OnInitialize()

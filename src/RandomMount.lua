@@ -1,3 +1,5 @@
+local CollectMe = LibStub("AceAddon-3.0"):GetAddon("CollectMe")
+
 CollectMe.RandomMount = CollectMe:NewModule("RandomMount")
 
 function CollectMe.RandomMount:OnInitialize()

@@ -1,3 +1,5 @@
+local CollectMe = LibStub("AceAddon-3.0"):GetAddon("CollectMe")
+
 CollectMe.UI = CollectMe:NewModule("UI", "AceEvent-3.0")
 local AceGUI = LibStub("AceGUI-3.0")
 

@@ -1,3 +1,5 @@
+local CollectMe = LibStub("AceAddon-3.0"):GetAddon("CollectMe")
+
 CollectMe.LdbDisplay = CollectMe:NewModule("LdbDisplay", "AceEvent-3.0")
 
 function CollectMe.LdbDisplay:OnInitialize()
