@@ -368,6 +368,7 @@ L["mount_103196"] = "Purchased from Astrid Langstrump located near the entrance 
 L["mount_103195"] = "Purchased from Astrid Langstrump located near the entrance to the howling oak in Darnassus for the price of 1g. [BoP]" -- Mountain Horse
 L["mount_107516"] = "Obtained through the new Scroll of Resurrection system implemented in 4.3.3. [BoA]" -- Spectral Gryphon
 L["mount_16083"] = "Old 100% Ground Mount. Removed in favor of armored 100% mounts [BoP]" -- White Stallion
+L["mount_16056"] = "Old 100% Ground Mount. Removed in favor of armored 100% mounts [BoP]" -- Ancient Frostsaber
 L["mount_130985"] = "Reward for obtaining the achievement 'Pandared Ambassador' being exalted with all of the Mists of Pandaria factions. [BoP]" -- Pandaren Kite
 L["mount_136163"] = "Sold by the Operation Shieldwall quartermaster for 2000G. You need to be exalted with Operation Shieldwall." -- Grand Gryphon
 L["mount_135416"] = "??. [BoA]" -- Grand Armored Gryphon

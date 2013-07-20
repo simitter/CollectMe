@@ -333,6 +333,7 @@ function CollectMe.MountDB:Build()
         self:Add(130985, 45271, self.FLY) -- Pandaren Kite
         self:Add(142478, 48816, self.FLY) -- Armored Blue Dragonhawk
         self:Add(140249, 48100):SetObtainZones(140249, {928}) -- Golden Primal Direhorn
+        self:Add(16056, 9695, self.GROUND, { nlo = 1 }) -- Ancient Frostsaber
     end
 
     -- Horde Mounts
