@@ -5,6 +5,17 @@ Excitor:
 -Remove rest BoP, BoA tags
 -Add "Not BoA" tags to some mounts (challenge mode ones for example)
 
+Check if they're in the addon.
+Dwarf - Black Ram, Frost Ram
+Gnome - Icy Blue Mechanostrider Mod A, White Mechanostrider Mod B
+Human - Palomino Bridle, White Stallion Bridle
+Night Elf - Reins of the Ancient Frostsaber, Reins of the Nightsaber
+
+Horde Mounts:
+Orc - Horn of the Arctic Wolf, Horn of the Red Wolf
+Tauren - Green Kodo, Teal Kodo
+Troll - Whistle of the Ivory Raptor, Whistle of the Mottled Red Raptor
+
 ----------------------------
 
 - missing companion code usage of CompanionDB module
