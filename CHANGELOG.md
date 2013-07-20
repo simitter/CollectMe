@@ -1,5 +1,10 @@
 ## 2.4.3
- * Fixed infor to Onyx Cloud Serpent (Mount)
+ * IMPORTANT: Updated Macros, if you use own macros please update them to slash commands instead of /script...
+ * Some minor performance improvements on loading zone list
+ * Updated addon loading to hopefully avoid some unreproducable nil errors
+ * Updated some obtainable zone info for mounts
+ * Added Ancient Frostsaber (Mount)
+ * Fixed info to Onyx Cloud Serpent (Mount)
 
 ## 2.4.2
  * Fixed LDB not considering companion ignore list
