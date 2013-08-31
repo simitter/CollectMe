@@ -1,32 +1,42 @@
 <Bindings>
     <Binding name="MISSING_MOUNTS" header="COLLECTME">
+        local CollectMe = LibStub("AceAddon-3.0"):GetAddon("CollectMe")
         CollectMe.UI:Show(CollectMe.MOUNT)
     </Binding>
     <Binding name="MISSING_COMPANIONS">
+        local CollectMe = LibStub("AceAddon-3.0"):GetAddon("CollectMe")
         CollectMe.UI:Show(CollectMe.COMPANION)
     </Binding>
     <Binding name="MISSING_TITLES">
+        local CollectMe = LibStub("AceAddon-3.0"):GetAddon("CollectMe")
         CollectMe.UI:Show(CollectMe.TITLE)
     </Binding>
     <Binding name="RANDOM_COMPANIONS">
+        local CollectMe = LibStub("AceAddon-3.0"):GetAddon("CollectMe")
         CollectMe.UI:Show(CollectMe.RANDOM_COMPANION)
     </Binding>
     <Binding name="RANDOM_MOUNTS">
+        local CollectMe = LibStub("AceAddon-3.0"):GetAddon("CollectMe")
         CollectMe.UI:Show(CollectMe.RANDOM_MOUNT)
     </Binding>
     <Binding name="SUMMON_COMPANION">
+        local CollectMe = LibStub("AceAddon-3.0"):GetAddon("CollectMe")
         CollectMe.RandomCompanion:Summon()
     </Binding>
     <Binding name="DISMISS_COMPANION">
+        local CollectMe = LibStub("AceAddon-3.0"):GetAddon("CollectMe")
         CollectMe.RandomCompanion:Dismiss()
     </Binding>
     <Binding name="CM_MOUNT">
+        local CollectMe = LibStub("AceAddon-3.0"):GetAddon("CollectMe")
         CollectMe.RandomMount:Summon()
     </Binding>
     <Binding name="CM_DISMOUNT">
+        local CollectMe = LibStub("AceAddon-3.0"):GetAddon("CollectMe")
         Dismount()
     </Binding>
     <Binding name="CM_GROUND_MOUNT">
+        local CollectMe = LibStub("AceAddon-3.0"):GetAddon("CollectMe")
         CollectMe.RandomMount:Summon(CollectMe.MountDB.GROUND)
     </Binding>
 </Bindings>
