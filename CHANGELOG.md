@@ -1,3 +1,7 @@
+## 2.4.4
+ * Added 5.4 mounts
+ * Added display id for Armored Bloodwing (Mount)
+
 ## 2.4.3
  * IMPORTANT: Updated Macros, if you use own macros please update them to slash commands instead of /script...
  * Some minor performance improvements on loading zone list
