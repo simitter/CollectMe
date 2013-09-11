@@ -279,15 +279,17 @@ L["mount_138640"] = "Reward from 'A Mountain of Giant Dinosaur Bones', turning i
 L["mount_138426"] = "Rare drop off Zandalari Warbringers." -- Reins of the Jade Primordial Direhorn
 L["mount_138424"] = "Rare drop off Zandalari Warbringers." -- Reins of the Amber Primordial Direhorn
 L["mount_138425"] = "Rare drop off Zandalari Warbringers." -- Reins of the Slate Primordial Direhorn
-L["mount_138423"] = "Rare drop off Oondasta." -- Reins of the Cobalt Primordial Direhorn
-L["mount_136471"] = "Drops off Horridon in Throne of Thunder." -- Spawn of Horridon
+L["mount_138423"] = "Rare drop off Oondasta on the Isle of Giants." -- Reins of the Cobalt Primordial Direhorn
+L["mount_136471"] = "Drops off Horridon in Throne of Thunder raid." -- Spawn of Horridon
 L["mount_136400"] = "Reward from 'Glory of the Thundering Raider' achievement." -- Armored Riding Pteradactyl
 L["mount_136505"] = "Loot card from the WoW Trading Card Game: Betrayal of the Guardian. [BoE]" -- Ghastly Charger's Skull
 L["mount_142641"] = "Sold for 1200g in the Brawler's guild. You need to be rank 10 or higher to purchase this mount." -- Brawler's Burly Mushan Beast
 L["mount_142073"] = "Hearthstibe promotion mount." -- Hearthsteed
 L["mount_142878"] = "No know method of obtaining." -- Enchanted Fey Dragon
 L["mount_139595"] = "Purchased from Blizzard's online store." -- Armored Bloodwing
-L["mount_139442"] = "Rare drop off Nalak." -- Thundering Cobalt Cloud Serpent
+L["mount_139442"] = "Rare drop off Nalak on the Isle of Thunder." -- Thundering Cobalt Cloud Serpent
+L["mount_139448"] = "Rare drop off Ji-Kun in the Throne of Thunder raid. (1.90%)" -- Clutch of Ji-Kun
+
 
 L["mount_148428"] = "Sold by Speaker Gulan on the Timeless for 500 Bloody Coins." -- Reins of the Ashhide Mushan Beast
 L["mount_148392"] = "Reward from 'Glory of the Orgrimmar Raider' achievement." -- Reins of Galakras
