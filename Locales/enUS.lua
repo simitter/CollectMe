@@ -289,6 +289,24 @@ L["mount_142878"] = "No know method of obtaining." -- Enchanted Fey Dragon
 L["mount_139595"] = "Purchased from Blizzard's online store." -- Armored Bloodwing
 L["mount_139442"] = "Drops off Nalak." -- Thundering Cobalt Cloud Serpent
 
+L["mount_148428"] = "Purchased from Blizzard's online store." -- Reins of the Ashhide Mushan Beast
+L["mount_148392"] = "Purchased from Blizzard's online store." -- Reins of Galakras
+L["mount_148396"] = "Purchased from Blizzard's online store." -- Reins of the Kor'kron War Wolf
+L["mount_148417"] = "Purchased from Blizzard's online store." -- Kor'kron Juggernaut
+L["mount_148476"] = "Purchased from Blizzard's online store." -- Reins of the Thundering Onyx Cloud Serpent
+L["mount_148618"] = "Purchased from Blizzard's online store." -- Tyrannical Gladiator's Cloud Serpent
+L["mount_148619"] = "Purchased from Blizzard's online store." -- Grievous Gladiator's Cloud Serpent
+L["mount_148620"] = "Purchased from Blizzard's online store." -- Prideful Gladiator's Cloud Serpent
+L["mount_146615"] = "Purchased from Blizzard's online store." -- Reins of the Vicious Warsaber
+L["mount_146622"] = "Purchased from Blizzard's online store." -- Reins of the Vicious Skeletal Warhorse
+L["mount_30174"] = "Purchased from Blizzard's online store." -- Lucky Riding Turtle
+L["mount_147595"] = "Purchased from Blizzard's online store." -- Stormcrow
+-- L["mount_????"] = "Purchased from Blizzard's online store." -- Shimmering Moonstone
+-- L["mount_????"] = "Purchased from Blizzard's online store." -- Ash-Covered Horn
+-- L["mount_????"] = "Purchased from Blizzard's online store." -- Golden Glider
+
+
+
 -- Alliance Mounts
 L["mount_60114"] = "Sold by Mei Francis in Dalaran for 750G. [BoP]" -- Armored Brown Bear
 L["mount_61229"] = "Sold by Mei Francis in Dalaran for 2000G. [BoP]" -- Armored Snowy Gryphon
