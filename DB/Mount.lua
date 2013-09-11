@@ -244,23 +244,23 @@ function CollectMe.MountDB:Build()
     self:Add(142641, 48858) -- Brawler's Burly Mushan Beast
     self:Add(142073, nil, self.FLY, { ptm = 1 }) -- Hearthsteed
     self:Add(142878, 48714, self.FLY, { umo = 1 }) -- Enchanted Fey Dragon
-    self:Add(139595, nil, self.FLY, { bsm = 1 }) -- Armored Bloodwing Mount
+    self:Add(139595, 48020, self.FLY, { bsm = 1 }) -- Armored Bloodwing Mount
     --5.4
-    self:Add(148428, nil, self.FLY, { ptm = 1 }) -- Reins of the Ashhide Mushan Beast
-    self:Add(148392, nil, self.FLY, { ptm = 1 }) -- Reins of Galakras
-    self:Add(148396, nil, self.FLY, { ptm = 1 }) -- Reins of the Kor'kron War Wolf
-    self:Add(148417, nil, self.FLY, { ptm = 1 }) -- Kor'kron Juggernaut
-    self:Add(148476, nil, self.FLY, { ptm = 1 }) -- Reins of the Thundering Onyx Cloud Serpent
-    self:Add(148618, nil, self.FLY, { ptm = 1 }) -- Tyrannical Gladiator's Cloud Serpent
-    self:Add(148619, nil, self.FLY, { ptm = 1 }) -- Grievous Gladiator's Cloud Serpent
-    self:Add(148620, nil, self.FLY, { ptm = 1 }) -- Prideful Gladiator's Cloud Serpent
-    self:Add(146615, nil, self.FLY, { ptm = 1 }) -- Reins of the Vicious Warsaber
-    self:Add(146622, nil, self.FLY, { ptm = 1 }) -- Reins of the Vicious Skeletal Warhorse
-    self:Add(30174, nil, self.FLY, { ptm = 1 }) -- Lucky Riding Turtle
-    self:Add(147595, nil, self.FLY, { ptm = 1 }) -- Stormcrow
- -- self:Add(????, nil, self.FLY, { ptm = 1 }) -- Shimmering Moonstone
- -- self:Add(????, nil, self.FLY, { ptm = 1 }) -- Ash-Covered Horn
- -- self:Add(????, nil, self.FLY, { ptm = 1 }) -- Golden Glider
+    self:Add(148428, nil) -- Reins of the Ashhide Mushan Beast
+    self:Add(148392, nil, self.FLY) -- Reins of Galakras
+    self:Add(148396, nil) -- Reins of the Kor'kron War Wolf
+    self:Add(148417, nil) -- Kor'kron Juggernaut
+    self:Add(148476, nil, self.FLY) -- Reins of the Thundering Onyx Cloud Serpent
+    self:Add(148618, nil, self.FLY, { are = 1 }) -- Tyrannical Gladiator's Cloud Serpent
+    self:Add(148619, nil, self.FLY, { are = 1 }) -- Grievous Gladiator's Cloud Serpent
+    self:Add(148620, nil, self.FLY, { are = 1 }) -- Prideful Gladiator's Cloud Serpent
+    self:Add(146615, nil, self.FLY, { are = 1 }) -- Reins of the Vicious Warsaber
+    self:Add(146622, nil, self.FLY, { are = 1 }) -- Reins of the Vicious Skeletal Warhorse
+    self:Add(30174, nil, self.FLY, { umo = 1 }) -- Lucky Riding Turtle
+    self:Add(147595, nil, self.FLY, { umo = 1 }) -- Stormcrow
+ -- self:Add(????, nil) -- Shimmering Moonstone
+ -- self:Add(????, nil) -- Ash-Covered Horn
+ -- self:Add(????, nil) -- Golden Glider
         
 
     -- Alliance Mounts
