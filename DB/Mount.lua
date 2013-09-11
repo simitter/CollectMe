@@ -240,6 +240,7 @@ function CollectMe.MountDB:Build()
     self:Add(136400, 47256, self.FLY):SetObtainZones(136400, {930}) -- Armored Riding Pteradactyl
     self:Add(136505, 48014, self.FLY, { tcg = 1 }) -- Ghastly Charger's Skull
     self:Add(139442, 47981, self.FLY):SetObtainZones(139442, {928}) -- Thundering Cobalt Cloud Serpent
+    self:Add(139448, 47983, self.FLY) -- Clutch of Ji-Kun    
     --5.3
     self:Add(142641, 48858) -- Brawler's Burly Mushan Beast
     self:Add(142073, nil, self.FLY, { ptm = 1 }) -- Hearthsteed
