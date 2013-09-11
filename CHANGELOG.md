@@ -1,6 +1,8 @@
 ## 2.4.4
  * Added 5.4 mounts
  * Added display id for Armored Bloodwing (Mount)
+ * Added Clutch of Ji-Kun (Mount)
+ * Added additional info for some 5.2 mounts
 
 ## 2.4.3
  * IMPORTANT: Updated Macros, if you use own macros please update them to slash commands instead of /script...
