@@ -29,6 +29,7 @@ Data.Zones = {
     486, -- Borean Tundra
     29, -- Burning Steppes
     890, -- Camp Narache MoP
+    955, -- Celestial Tournament
     866, -- Coldridge Valley MoP
     510, -- Crystalsong Forest
     504, -- Dalaran
@@ -137,6 +138,7 @@ Data.Zones = {
     905, -- Shrine of Seven Stars MoP
     903, -- Shrine of Two Moons MoP
     887, -- Siege of Niuzao Temple MoP
+    953, -- Siege of Orgrimmar
     261, -- Silithus
     480, -- Silvermoon City
     21, -- Silverpine Forest
@@ -196,6 +198,7 @@ Data.Zones = {
     767, -- Throne of the Tides
     930, -- Throne of Thunder
     362, -- Thunder Bluff
+    951, -- Timeless Isle
     20, -- Tirisfal Glades
     708, -- Tol Barad
     709, -- Tol Barad Peninsula
