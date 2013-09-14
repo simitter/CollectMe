@@ -303,11 +303,7 @@ L["mount_146615"] = "Reward for the 'Grievous Combatant' achievement winning 100
 L["mount_146622"] = "Reward for the 'Grievous Combatant' achievement winning 100 3v3 arena matches and 40 Rated Battleground matches in one season." -- Reins of the Vicious Skeletal Warhorse
 L["mount_30174"] = "No know method of obtaining." -- Lucky Riding Turtle
 L["mount_147595"] = "No know method of obtaining." -- Stormcrow
--- L["mount_????"] = "Drops off 'Moonfang' at the Darkmoon Faire." -- Shimmering Moonstone
--- L["mount_????"] = "??" -- Ash-Covered Horn -- A mount but not learnable? Unlimited charges? Not clue what to do with this?
--- L["mount_????"] = "??" -- Golden Glider -- Not even a mount just a glider probable won't make it in to CollectMe.
-
-
+L["mount_134359"] = "Built by an engineer. [BoE]." -- Sky Golem
 
 -- Alliance Mounts
 L["mount_60114"] = "Sold by Mei Francis in Dalaran for 750G. [BoP]" -- Armored Brown Bear
