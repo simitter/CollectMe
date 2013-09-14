@@ -6,7 +6,7 @@ function CollectMe.TitleDB:OnInitialize()
     self.titles = {}
     self.title_spells = {}
 
-    self.filters = { "nlo", "pvp", "are" }
+    self.filters = { "nlo", "pvp", "are", "umo", "tmp" }
 
     self:Build()
 end
@@ -154,7 +154,32 @@ function CollectMe.TitleDB:Build()
         
     --5.3
     self:Add(227) -- Trainer
-    self:Add(2290, { pvp = 1 }) -- Gorgeous
+    self:Add(229, { pvp = 1 }) -- Gorgeous
+
+    --5.4
+    self:Add(231, { umo = 1 }) -- the Poisoned Mind
+    self:Add(232, { umo = 1 }) -- the Bloodseeker
+    self:Add(233, { umo = 1 }) -- the Locust
+    self:Add(234, { umo = 1 }) -- the Swarmkeeper
+    self:Add(235, { umo = 1 }) -- the Prime
+    self:Add(236, { umo = 1 }) -- the Manipulator
+    self:Add(237, { umo = 1 }) -- the Disector
+    self:Add(238, { umo = 1 }) -- the Lucid
+    self:Add(239, { umo = 1 }) -- the Wind-Reaver
+    self:Add(240) -- the Crazy Cat Lady
+    self:Add(241, { tmp = 1 }) -- Defender of the Wall
+    self:Add(242, { tmp = 1 }) -- Mogu Slayer
+    self:Add(243, { tmp = 1 }) -- Flameweaver
+    self:Add(244, { tmp = 1 }) -- Scarlet Commander
+    self:Add(245, { tmp = 1 }) -- Darkmaster
+    self:Add(246, { tmp = 1 }) -- Purified Defender
+    self:Add(247, { tmp = 1 }) -- Siegebreaker
+    self:Add(248, { tmp = 1 }) -- Stormbrewer
+    self:Add(249, { tmp = 1 }) -- Jade Protector
+    self:Add(251, { pvp = 1 }) -- Fire-Watcher
+    self:Add(252) -- the Crazy Cat Man
+    self:Add(253, { are = 1 }) -- Grivious Gladiator
+    self:Add(254, { are = 1 }) -- Prideful Gladiator
 
     -- Alliance Titles
     if CollectMe.FACTION == "Alliance" then
