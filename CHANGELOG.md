@@ -1,5 +1,6 @@
 ## 2.4.4
- * Added 5.4 mounts
+ * Fixed keybindings
+ * Added 5.4 mounts, titles, and companions
  * Added display id for Armored Bloodwing (Mount)
  * Added Clutch of Ji-Kun (Mount)
  * Added additional info for some 5.2 mounts
