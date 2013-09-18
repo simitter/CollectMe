@@ -1,3 +1,6 @@
+## 2.4.5
+* Added info for Heavenly Golden Cloud Serpent (Mount)
+ 
 ## 2.4.4
  * Fixed keybindings
  * Added 5.4 mounts, titles, and companions
