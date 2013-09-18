@@ -1,7 +1,7 @@
-Copyright (c) 2011-2012 Excitor
+Copyright (c) 2009-2013 Merla (Mergana)
+Copyright (c) 2011-2013 Excitor
+Copyright (c) 2013 LaserLock
 Copyright (c) 2009-2012 Tolerant
-Copyright (c) 2009-2012 Merla (Mergana)
-Copyright (c) 2012 LaserLock
 Copyright (c) 2010-2011 DynamicBits
 Copyright (c) 2010 DesertDwarf
 
