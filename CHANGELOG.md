@@ -1,4 +1,6 @@
 ## 2.4.5
+* New: Macro Options
+* Improved Random Mount Macro to ignore Moonkin (thx Zenzara)
 * Added info for Heavenly Golden Cloud Serpent (Mount)
  
 ## 2.4.4

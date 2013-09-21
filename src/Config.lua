@@ -1,28 +1,92 @@
 local CollectMe = LibStub("AceAddon-3.0"):GetAddon("CollectMe")
+local Config = CollectMe:NewModule("Config")
 
-CollectMe.Config = CollectMe:NewModule("Config")
+local L = CollectMe.L
+local db
 
-function CollectMe.Config:OnInitialize()
-    local ac = LibStub("AceConfig-3.0")
-    local acd = LibStub("AceConfigDialog-3.0")
-    local addon_name = CollectMe.ADDON_NAME
-    local L = CollectMe.L
-    local db = CollectMe.db
-
-    local about_panel = LibStub:GetLibrary("LibAboutPanel", true)
-    about_panel.new(nil, addon_name)
-
-    ac:RegisterOptionsTable(addon_name .. " LDB", self:GetLdbOptionsTable())
-    acd:AddToBlizOptions(addon_name .. " LDB", L["Data Broker Options"], addon_name)
-
-    ac:RegisterOptionsTable(addon_name .. " Profiles", LibStub("AceDBOptions-3.0"):GetOptionsTable(db))
-    acd:AddToBlizOptions(addon_name .. " Profiles", L["Profiles"], addon_name)
+local function GetLdbArgs(ldbdb)
+    return {
+        companions_collected = {
+            name = L["Collected companions"],
+            desc = L["Display already collected companions"],
+            type = "toggle",
+            order = 1,
+            set = function(info,val) ldbbdcompanions.collected = val; CollectMe.LdbDisplay:ZoneChangeListener() end,
+            get = function() return ldbdb.companions.collected end
+        },
+        companions_missing = {
+            name = L["Missing companions"],
+            desc = L["Display missing companions"],
+            type = "toggle",
+            order = 2,
+            set = function(info,val) ldbdb.companions.missing = val; CollectMe.LdbDisplay:ZoneChangeListener() end,
+            get = function() return ldbdb.companions.missing end
+        },
+        companions_quality = {
+            name = L["Companion Quality"],
+            desc = L["Display companion quality"],
+            type = "toggle",
+            order = 3,
+            set = function(info,val) ldbdb.companions.quality = val; CollectMe.LdbDisplay:ZoneChangeListener() end,
+            get = function() return ldbdb.companions.quality end
+        },
+        mounts_collected = {
+            name = L["Collected mounts"],
+            desc = L["Display already collected mounts"],
+            type = "toggle",
+            order = 4,
+            set = function(info,val) ldbdb.mounts.collected = val; CollectMe.LdbDisplay:ZoneChangeListener() end,
+            get = function() return ldbdb.mounts.collected end
+        },
+        mounts_missing = {
+            name = L["Missing mounts"],
+            desc = L["Display missing mounts"],
+            type = "toggle",
+            order = 5,
+            set = function(info,val) ldbdb.mounts.missing = val; CollectMe.LdbDisplay:ZoneChangeListener()  end,
+            get = function() return ldbdb.mounts.missing end
+        }
+    }
 end
 
-function CollectMe.Config:GetLdbOptionsTable()
-    local L = CollectMe.L
-    local db = CollectMe.db
+local function GetMacroOptionsTable()
+    return {
+        name = L["Macro Options"],
+        type = "group",
+        order = 1,
+        args = {
+            mount = {
+                name = L["Random Mount Macro"],
+                desc = L["Adds a macro for summoning random mounts and keeps it up to date"],
+                type = "toggle",
+                order = 1,
+                width	= "full",
+                set = function(info,val) db.profile.macro.mount = val; CollectMe.Macro:UpdateMacros() end,
+                get = function() return db.profile.macro.mount end
+            },
+            nostance = {
+                name = L["Use nostance"],
+                desc = L["The mount macro automatically changes stance before mounting up"],
+                type = "toggle",
+                order = 2,
+                width	= "full",
+                set = function(info,val) db.profile.macro.nostance = val; CollectMe.Macro:UpdateMacros() end,
+                get = function() return db.profile.macro.nostance end
+            },
+            companion = {
+                name = L["Random Companion Macro"],
+                desc = L["Adds a macro for summoning random companions and keeps it up to date"],
+                type = "toggle",
+                order = 3,
+                width	= "full",
+                set = function(info,val) db.profile.macro.companion = val; CollectMe.Macro:UpdateMacros() end,
+                get = function() return db.profile.macro.companion end
+            }
+        }
+    }
+end
 
+local function GetLdbOptionsTable()
     return {
         name = L["Data Broker Options"],
         type = "group",
@@ -33,62 +97,36 @@ function CollectMe.Config:GetLdbOptionsTable()
                 order = 1,
                 name = L["Tooltip"],
                 guiInline = true,
-                args = self:GetLdbArgs(db.profile.ldb.tooltip)
+                args = GetLdbArgs(db.profile.ldb.tooltip)
             },
             text = {
                 type = "group",
                 order = 2,
                 name = L["Text"],
                 guiInline = true,
-                args = self:GetLdbArgs(db.profile.ldb.text)
+                args = GetLdbArgs(db.profile.ldb.text)
             }
         }
     }
 end
 
-function CollectMe.Config:GetLdbArgs(db)
-    local L = CollectMe.L
+function Config:OnInitialize()
+    local ac = LibStub("AceConfig-3.0")
+    local acd = LibStub("AceConfigDialog-3.0")
+    local addon_name = CollectMe.ADDON_NAME
 
-    return {
-        companions_collected = {
-            name = L["Collected companions"],
-            desc = L["Display already collected companions"],
-            type = "toggle",
-            order = 1,
-            set = function(info,val) db.companions.collected = val; CollectMe.LdbDisplay:ZoneChangeListener() end,
-            get = function(info) return db.companions.collected end
-        },
-        companions_missing = {
-            name = L["Missing companions"],
-            desc = L["Display missing companions"],
-            type = "toggle",
-            order = 2,
-            set = function(info,val) db.companions.missing = val; CollectMe.LdbDisplay:ZoneChangeListener() end,
-            get = function(info) return db.companions.missing end
-        },
-        companions_quality = {
-            name = L["Companion Quality"],
-            desc = L["Display companion quality"],
-            type = "toggle",
-            order = 3,
-            set = function(info,val) db.companions.quality = val; CollectMe.LdbDisplay:ZoneChangeListener() end,
-            get = function(info) return db.companions.quality end
-        },
-        mounts_collected = {
-            name = L["Collected mounts"],
-            desc = L["Display already collected mounts"],
-            type = "toggle",
-            order = 4,
-            set = function(info,val) db.mounts.collected = val; CollectMe.LdbDisplay:ZoneChangeListener() end,
-            get = function(info) return db.mounts.collected end
-        },
-        mounts_missing = {
-            name = L["Missing mounts"],
-            desc = L["Display missing mounts"],
-            type = "toggle",
-            order = 5,
-            set = function(info,val) db.mounts.missing = val; CollectMe.LdbDisplay:ZoneChangeListener()  end,
-            get = function(info) return db.mounts.missing end
-        }
-    }
+    db = CollectMe.db
+
+    local about_panel = LibStub:GetLibrary("LibAboutPanel", true)
+    about_panel.new(nil, addon_name)
+
+    ac:RegisterOptionsTable(addon_name .. " LDB", GetLdbOptionsTable())
+    acd:AddToBlizOptions(addon_name .. " LDB", L["Data Broker Options"], addon_name)
+
+    ac:RegisterOptionsTable(addon_name .. " Macros", GetMacroOptionsTable())
+    acd:AddToBlizOptions(addon_name .. " Macros", L["Macros"], addon_name)
+
+    ac:RegisterOptionsTable(addon_name .. " Profiles", LibStub("AceDBOptions-3.0"):GetOptionsTable(db))
+    acd:AddToBlizOptions(addon_name .. " Profiles", L["Profiles"], addon_name)
 end
+

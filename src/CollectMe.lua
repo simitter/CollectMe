@@ -1,6 +1,10 @@
 local CollectMe = LibStub("AceAddon-3.0"):NewAddon("CollectMe", "AceConsole-3.0", "AceHook-3.0", "AceEvent-3.0")
 local addon_name = "CollectMe"
 
+CollectMe.ADDON_NAME = addon_name
+CollectMe.VERSION = GetAddOnMetadata("CollectMe", "Version")
+CollectMe.L = LibStub("AceLocale-3.0"):GetLocale("CollectMe", true)
+
 local defaults = {
     profile = {
         ignored = {
@@ -86,15 +90,16 @@ local defaults = {
                     missing = true
                 }
             }
+        },
+        macro = {
+            mount = true,
+            nostance = true,
+            companion = true
         }
     }
 }
 
 function CollectMe:OnInitialize()
-    self.ADDON_NAME = addon_name
-    self.VERSION = GetAddOnMetadata("CollectMe", "Version")
-    self.L = LibStub("AceLocale-3.0"):GetLocale("CollectMe", true)
-
     --bindings
     BINDING_HEADER_COLLECTME = addon_name
     BINDING_NAME_MISSING_MOUNTS = self.L["Mounts"]
@@ -108,6 +113,8 @@ function CollectMe:OnInitialize()
     BINDING_NAME_CM_DISMOUNT = self.L["Dismount"]
     BINDING_NAME_CM_GROUND_MOUNT = self.L["Ground Mount / Dismount"]
 
+    self.db = LibStub("AceDB-3.0"):New("CollectMeDB", defaults)
+
     self.MOUNT = 1
     self.TITLE = 2
     self.RANDOM_COMPANION = 3
@@ -117,8 +124,6 @@ function CollectMe:OnInitialize()
     self.FACTION = UnitFactionGroup("player")
     LocalizedPlayerRace, self.RACE = UnitRace("player")
     LocalizedPlayerClass, self.CLASS = UnitClass("player")
-
-    self.db = LibStub("AceDB-3.0"):New("CollectMeDB", defaults)
 
     self.filter_db = self.db.profile.filters.mounts
     self.ignored_db = self.db.profile.ignored.mounts

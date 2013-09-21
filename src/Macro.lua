@@ -7,11 +7,16 @@ function CollectMe.Macro:OnEnable()
 end
 
 function CollectMe.Macro:UpdateMacros()
-    self:InitMacro("CollectMeRC", "INV_PET_BABYBLIZZARDBEAR", '/cm rc')
-    if CollectMe.CLASS == "DRUID" then
-        self:InitMacro("CollectMeRM", "ABILITY_MOUNT_BIGBLIZZARDBEAR", '/cancelform\n/cm rm')
-    else
-        self:InitMacro("CollectMeRM", "ABILITY_MOUNT_BIGBLIZZARDBEAR", '/cm rm')
+    local options = CollectMe.db.profile.macro;
+    if options.companion == true then
+        self:InitMacro("CollectMeRC", "INV_PET_BABYBLIZZARDBEAR", '/cm rc')
+    end
+    if options.mount == true then
+        if CollectMe.CLASS == "DRUID" and options.druid then
+            self:InitMacro("CollectMeRM", "ABILITY_MOUNT_BIGBLIZZARDBEAR", '/cancelform [nostance:5]\n/cm rm')
+        else
+            self:InitMacro("CollectMeRM", "ABILITY_MOUNT_BIGBLIZZARDBEAR", '/cm rm')
+        end
     end
 end
 
