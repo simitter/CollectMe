@@ -200,7 +200,7 @@ function CollectMe.MountDB:Build()
     self:Add(127216, 43711):SetObtainZones(127216, {809}) -- Grey Riding Yak
     self:Add(127169, 43697, self.FLY, { umo = 1 }) -- Heavenly Azure Cloud Serpent
     self:Add(127161, 43692, self.FLY) -- Heavenly Crimson Cloud Serpent
-    self:Add(127164, 43693, self.FLY) -- Heavenly Golden Cloud Serpent
+    self:Add(127164, 43693, self.FLY):SetObtainZones(127164, {951}) -- Heavenly Golden Cloud Serpent
     self:Add(127165, 43695, self.FLY, { umo = 1 }) -- Heavenly Jade Cloud Serpent
     self:Add(127158, 43689, self.FLY):SetObtainZones(127158, {809}) -- Heavenly Onyx Cloud Serpent
     self:Add(113199, 40590, self.FLY):SetObtainZones(113199, {806}) -- Jade Cloud Serpent
