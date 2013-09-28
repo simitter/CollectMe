@@ -1,6 +1,7 @@
 ## 2.4.5
 * New: Macro Options
 * Improved Random Mount Macro to ignore Moonkin (thx Zenzara)
+* Fixed PetTracker Button Collision in PetJournal
 * Added info for Heavenly Golden Cloud Serpent (Mount)
  
 ## 2.4.4

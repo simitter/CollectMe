@@ -274,7 +274,11 @@ function CollectMe.UI:AddCollectMeButtons()
 
         local cmbutton2 = CreateFrame("Button", "CollectMeOpen2Button", PetJournal, "UIPanelButtonTemplate")
         cmbutton2:ClearAllPoints()
-        cmbutton2:SetPoint("RIGHT", PetJournalFindBattle, "LEFT", -5, 0)
+        if IsAddOnLoaded("PetTracker_Journal") then
+            cmbutton2:SetPoint("RIGHT", PetTracker_JournalTrackToggle, "LEFT", -5, 0)
+        else
+            cmbutton2:SetPoint("RIGHT", PetJournalFindBattle, "LEFT", -5, 0)
+        end
         cmbutton2:SetHeight(22)
         cmbutton2:SetWidth(100)
         cmbutton2:SetText(CollectMe.ADDON_NAME)
