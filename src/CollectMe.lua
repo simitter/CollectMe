@@ -388,15 +388,6 @@ function CollectMe:BuildOptions()
         self.UI:CreateFilterCheckbox(self.L["Don't dismount when left-clicking on macro"], self.db.profile.summon.mounts.no_dismount, { OnValueChanged = function (container, event, value) self.db.profile.summon.mounts.no_dismount = value end }, 2)
         self.UI:CreateFilterCheckbox(self.L["Use flying mounts in water"], self.db.profile.summon.mounts.flying_in_water, { OnValueChanged = function (container, event, value) self.db.profile.summon.mounts.flying_in_water = value end }, 2)
         self.UI:CreateFilterCheckbox(self.L["Use flying mounts for ground"], self.db.profile.summon.mounts.flying_on_ground, { OnValueChanged = function (container, event, value) self.db.profile.summon.mounts.flying_on_ground = value end }, 2)
-
-        self.UI:AddToFilter(self.UI:CreateHeading(self.L["Macro"]))
-        local list = {}
-        list[1] = self.L["Mount / Dismount"]
-        list[2] = self.L["Dismount"]
-        list[3] = self.L["Ground Mount / Dismount"]
-        self.UI:CreateFilterDropdown(self.L["Left Click"], list, self.db.profile.summon.mounts.macro_left, { OnValueChanged = function (container, event, value) self.db.profile.summon.mounts.macro_left = value end })
-        self.UI:CreateFilterDropdown(self.L["Right Click"], list, self.db.profile.summon.mounts.macro_right, { OnValueChanged = function (container, event, value) self.db.profile.summon.mounts.macro_right = value end })
-        self.UI:CreateFilterDropdown(self.L["Shift + Left Click"], list, self.db.profile.summon.mounts.macro_shift_left, { OnValueChanged = function (container, event, value) self.db.profile.summon.mounts.macro_shift_left = value end })
     end
 end
 
