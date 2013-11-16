@@ -159,7 +159,7 @@ function CollectMe.LdbDisplay:UpdateTooltip()
     if self.zone_name == nil then
         return nil
     end
-        
+
     GameTooltip:SetText(self.L["CollectMe in"] .. " " .. self.zone_name)
     GameTooltip:AddLine(" ")
 

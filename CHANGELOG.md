@@ -1,3 +1,7 @@
+## 2.4.6
+ * Fix Typo in Config.lua, thx Cidrei
+ * Fix LDB Display when player isn't in any zone
+
 ## 2.4.5
 * New: Macro Options
 * Improved Random Mount Macro to ignore Moonkin (thx Zenzara)
