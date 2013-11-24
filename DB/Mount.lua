@@ -244,7 +244,7 @@ function CollectMe.MountDB:Build()
     --5.3
     self:Add(142641, 48858) -- Brawler's Burly Mushan Beast
     self:Add(142073, nil, self.FLY, { ptm = 1 }) -- Hearthsteed
-    self:Add(142878, 48714, self.FLY, { umo = 1 }) -- Enchanted Fey Dragon
+    self:Add(142878, 48714, self.FLY, { bsm = 1 }) -- Enchanted Fey Dragon
     self:Add(139595, 48020, self.FLY, { bsm = 1 }) -- Armored Bloodwing Mount
     --5.4
     self:Add(148428, 51484):SetObtainZones(148428, {951}) -- Reins of the Ashhide Mushan Beast
