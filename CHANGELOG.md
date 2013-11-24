@@ -1,3 +1,7 @@
+## 2.4.7
+* Fixed info to Hearthsteed (Mount)
+* Added info for Enchanted Fey Dragon (Mount)
+* 
 ## 2.4.6
  * Fix Typo in Config.lua, thx Cidrei
  * Fix LDB Display when player isn't in any zone
