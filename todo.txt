@@ -20,6 +20,8 @@ Check Grand Armored Gryphon is the mount you get at exalted with Operation:Shiel
 
 The Grand Gryphon comes from completing the "He's in Deep" quest set.
 
+Filters for raid, dungeon, world drop
+
 ----------------------------
 
 - missing companion code usage of CompanionDB module
