@@ -511,7 +511,7 @@ function CollectMe:round(num, idp)
 end
 
 function CollectMe:SortTable(tbl)
-    table.sort(tbl, function(a, b) return (string.lower(a.name) < string.lower(b.name)) end)
+    table.sort(tbl, function(a, b) return a ~= nil and b ~= nil and (string.lower(a.name) < string.lower(b.name)) end)
 end
 
  -- CONSOLE COMMAND HANDLER
