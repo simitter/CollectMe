@@ -226,7 +226,7 @@ function CollectMe:BuildList()
         table.insert(zones, self.ZoneDB:Current())
     end
 
-    for i,v in ipairs(self.item_list) do
+    for i,v in pairs(self.item_list) do
         if (self.UI.active_group == self.MOUNT and not self.MountDB:IsKnown(v.id) and (#zones == 0 or self.MountDB:ObtainableInZone(v.id, zones))) or (self.UI.active_group == self.TITLE and IsTitleKnown(v.id) ~= 1) then
             if self:IsInTable(self.ignored_db, v.id) then
                 table.insert(ignored, v)
@@ -323,7 +323,7 @@ end
 function CollectMe:IsFiltered(filters)
     if filters ~= nil then
         for k,v in pairs(filters) do
-            if v == 1 then
+            if v == 1 or v == true then
                 for i = 1, #self.filter_list, 1 do
                     if self.filter_list[i] == k and self.filter_db[self.filter_list[i]] == true then
                         return true
@@ -471,7 +471,9 @@ function CollectMe:ItemRowEnter(v)
     if v.filters ~= nil then
         tooltip:AddLine(" ")
         for k,value in pairs(v.filters) do
-            tooltip:AddLine(self.L["filters_" .. k], 0, 0.5, 1, 1)
+            if value == true or value == 1 then
+                tooltip:AddLine(self.L["filters_" .. k], 0, 0.5, 1, 1)
+            end
         end
     end
 
