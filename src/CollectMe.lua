@@ -380,7 +380,6 @@ function CollectMe:BuildOptions()
         self.UI:CreateFilterCheckbox(self.L["Hide ignored list"], self.db.profile.hide_ignore.titles, { OnValueChanged = function (container, event, value) self.db.profile.hide_ignore.titles = value; self.UI:ReloadScroll() end })
     elseif self.UI.active_group == self.COMPANION then
         self.UI:CreateFilterCheckbox(self.L["Disable tooltip notice for missing companions"], self.db.profile.tooltip.companions.hide, { OnValueChanged = function (container, event, value) self.db.profile.tooltip.companions.hide = value end }, 2)
-        self.UI:CreateFilterCheckbox(self.L["Perform quality check in pet battles"], self.db.profile.tooltip.companions.quality_check, { OnValueChanged = function (container, event, value) self.db.profile.tooltip.companions.quality_check = value end }, 2)
     elseif self.UI.active_group == self.RANDOM_COMPANION then
         self.UI:CreateFilterCheckbox(self.L["Auto summon on moving forward"], self.db.profile.summon.companions.auto, { OnValueChanged = function (container, event, value) self.db.profile.summon.companions.auto = value end }, 2)
         self.UI:CreateFilterCheckbox(self.L["Disable auto summon in pvp"], self.db.profile.summon.companions.disable_pvp, { OnValueChanged = function (container, event, value) self.db.profile.summon.companions.disable_pvp = value end }, 2)

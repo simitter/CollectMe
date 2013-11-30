@@ -158,6 +158,25 @@ local function GetLdbOptionsTable()
     }
 end
 
+local function GetPetBattleOptionsTable()
+    return {
+        name = L["Pet Battle Options"],
+        type = "group",
+        order = 1,
+        args = {
+            quality_check = {
+                name = L["Quality Check"],
+                desc = L["Perform quality check in pet battles"],
+                type = "toggle",
+                order = 1,
+                width = "full",
+                set = function(info,val) db.profile.tooltip.companions.quality_check = val; end,
+                get = function() return db.profile.tooltip.companions.quality_check end
+            }
+        }
+    }
+end
+
 function Config:OnInitialize()
     local ac = LibStub("AceConfig-3.0")
     local acd = LibStub("AceConfigDialog-3.0")
@@ -173,6 +192,9 @@ function Config:OnInitialize()
 
     ac:RegisterOptionsTable(addon_name .. " Macros", GetMacroOptionsTable())
     acd:AddToBlizOptions(addon_name .. " Macros", L["Macros"], addon_name)
+
+    ac:RegisterOptionsTable(addon_name .. " Pet Battles", GetPetBattleOptionsTable())
+    acd:AddToBlizOptions(addon_name .. " Pet Battles", L["Pet Battles"], addon_name)
 
     ac:RegisterOptionsTable(addon_name .. " Profiles", LibStub("AceDBOptions-3.0"):GetOptionsTable(db))
     acd:AddToBlizOptions(addon_name .. " Profiles", L["Profiles"], addon_name)
