@@ -170,8 +170,26 @@ local function GetPetBattleOptionsTable()
                 type = "toggle",
                 order = 1,
                 width = "full",
-                set = function(info,val) db.profile.tooltip.companions.quality_check = val; end,
-                get = function() return db.profile.tooltip.companions.quality_check end
+                set = function(info,val) db.profile.battles.quality_check = val; end,
+                get = function() return db.profile.battles.quality_check end
+            },
+            missing_check = {
+                name = L["Missing Check"],
+                desc = L["Perform check in pet battles if enemy pets are missing in your collection"],
+                type = "toggle",
+                order = 2,
+                width = "full",
+                set = function(info,val) db.profile.battles.missing_check = val; end,
+                get = function() return db.profile.battles.missing_check end
+            },
+            level_check = {
+                name = L["Level Check"],
+                desc = L["Perform level check in pet battles if enemy pets have a higher level"],
+                type = "toggle",
+                order = 3,
+                width = "full",
+                set = function(info,val) db.profile.battles.level_check = val; end,
+                get = function() return db.profile.battles.level_check end
             }
         }
     }

@@ -63,9 +63,13 @@ local defaults = {
         },
         tooltip = {
             companions = {
-                hide = false,
-                quality_check = true
+                hide = false
             }
+        },
+        battles ={
+            quality_check = true,
+            missing_check = true,
+            level_check = true
         },
         ldb = {
             tooltip = {
