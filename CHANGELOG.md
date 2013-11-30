@@ -1,4 +1,8 @@
 ## 2.4.7
+* NEW: Levelchecks in Pet Battles
+* New options for Pet Battles
+* Possible fix for tooltip 'Missing Companion' problem
+* Added Palomino (Mount)
 * Fixed info to Hearthsteed (Mount)
 * Added info for Enchanted Fey Dragon (Mount)
 
