@@ -1,3 +1,7 @@
+## 2.4.8
+* Added Iron Skyreaver (Mount)
+* Added Emerald Hippogryph (Mount)
+
 ## 2.4.7
 * NEW: Levelchecks in Pet Battles
 * New options for Pet Battles

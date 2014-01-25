@@ -259,6 +259,8 @@ function CollectMe.MountDB:Build()
     self:Add(146622, 51048, self.FLY, { are = 1 }) -- Reins of the Vicious Skeletal Warhorse
     self:Add(147595, 51323, self.FLY, { umo = 1 }) -- Stormcrow
     self:Add(134359, 46686, self.FLY) -- Sky Golem
+    self:Add(149801, 51993, self.FLY, { rfm = 1 }) -- Emerald Hypogryph
+    self:Add(153489, 53038, self.FLY, { bsm = 1 }) -- Iron Skyreaver
 
     -- Alliance Mounts
     if CollectMe.FACTION == "Alliance" then
