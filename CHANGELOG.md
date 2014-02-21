@@ -1,3 +1,6 @@
+## 2.4.9
+* Fixed Data Broker Config for collected companions
+
 ## 2.4.8
 * Added Iron Skyreaver (Mount)
 * Added Emerald Hippogryph (Mount)

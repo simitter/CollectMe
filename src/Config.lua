@@ -11,7 +11,7 @@ local function GetLdbArgs(ldbdb)
             desc = L["Display already collected companions"],
             type = "toggle",
             order = 1,
-            set = function(info,val) ldbbd.companions.collected = val; CollectMe.LdbDisplay:ZoneChangeListener() end,
+            set = function(info,val) ldbdb.companions.collected = val; CollectMe.LdbDisplay:ZoneChangeListener() end,
             get = function() return ldbdb.companions.collected end
         },
         companions_missing = {
