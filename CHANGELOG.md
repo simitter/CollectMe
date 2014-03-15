@@ -1,3 +1,7 @@
+## 2.4.10
+* Add Dread Raven
+* Updated No Data Text in LDB Display
+
 ## 2.4.9
 * Fixed Data Broker Config for collected companions
 

@@ -140,7 +140,7 @@ function CollectMe.LdbDisplay:UpdateText()
     end
 
     if text == "" then
-        text = "No data"
+        text = "0/0"
     end
 
     self.dataObject.text = text:trim()
