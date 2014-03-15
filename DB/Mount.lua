@@ -243,7 +243,7 @@ function CollectMe.MountDB:Build()
     self:Add(139448, 47983, self.FLY) -- Clutch of Ji-Kun    
     --5.3
     self:Add(142641, 48858) -- Brawler's Burly Mushan Beast
-    self:Add(142073, nil, self.FLY, { ptm = 1 }) -- Hearthsteed
+    self:Add(142073, 142073, self.FLY, { ptm = 1 }) -- Hearthsteed
     self:Add(142878, 48714, self.FLY, { bsm = 1 }) -- Enchanted Fey Dragon
     self:Add(139595, 48020, self.FLY, { bsm = 1 }) -- Armored Bloodwing Mount
     --5.4
@@ -261,6 +261,7 @@ function CollectMe.MountDB:Build()
     self:Add(134359, 46686, self.FLY) -- Sky Golem
     self:Add(149801, 51993, self.FLY, { rfm = 1 }) -- Emerald Hypogryph
     self:Add(153489, 53038, self.FLY, { bsm = 1 }) -- Iron Skyreaver
+    self:Add(155741, 53774, self.FLY, { ptm = 1 }) -- Dread Raven
 
     -- Alliance Mounts
     if CollectMe.FACTION == "Alliance" then
