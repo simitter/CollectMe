@@ -243,7 +243,7 @@ function CollectMe.MountDB:Build()
     self:Add(139448, 47983, self.FLY) -- Clutch of Ji-Kun    
     --5.3
     self:Add(142641, 48858) -- Brawler's Burly Mushan Beast
-    self:Add(142073, 142073, self.FLY, { ptm = 1 }) -- Hearthsteed
+    self:Add(142073, 48931, self.FLY, { ptm = 1 }) -- Hearthsteed
     self:Add(142878, 48714, self.FLY, { bsm = 1 }) -- Enchanted Fey Dragon
     self:Add(139595, 48020, self.FLY, { bsm = 1 }) -- Armored Bloodwing Mount
     --5.4
@@ -256,7 +256,7 @@ function CollectMe.MountDB:Build()
     self:Add(148619, 51360, self.FLY, { are = 1 }) -- Grievous Gladiator's Cloud Serpent
     self:Add(148620, 51359, self.FLY, { are = 1 }) -- Prideful Gladiator's Cloud Serpent
     self:Add(146615, 51037, self.FLY, { are = 1 }) -- Reins of the Vicious Warsaber
-    self:Add(146622, 51048, self.FLY, { are = 1 }) -- Reins of the Vicious Skeletal Warhorse
+    self:Add(146622, 51048, self.GROUND, { are = 1 }) -- Reins of the Vicious Skeletal Warhorse
     self:Add(147595, 51323, self.FLY, { umo = 1 }) -- Stormcrow
     self:Add(134359, 46686, self.FLY) -- Sky Golem
     self:Add(149801, 51993, self.FLY, { rfm = 1 }) -- Emerald Hypogryph

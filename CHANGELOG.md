@@ -1,3 +1,6 @@
+## 2.4.11
+* Update mount data
+
 ## 2.4.10
 * Add Dread Raven
 * Updated No Data Text in LDB Display
