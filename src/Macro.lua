@@ -12,7 +12,7 @@ function CollectMe.Macro:UpdateMacros()
         self:InitMacro("CollectMeRC", "INV_PET_BABYBLIZZARDBEAR", '/cm rc')
     end
     if options.mount == true then
-        if CollectMe.CLASS == "DRUID" and options.druid then
+        if CollectMe.CLASS == "DRUID" and options.nostance then
             self:InitMacro("CollectMeRM", "ABILITY_MOUNT_BIGBLIZZARDBEAR", '/cancelform [nostance:5]\n/cm rm')
         else
             self:InitMacro("CollectMeRM", "ABILITY_MOUNT_BIGBLIZZARDBEAR", '/cm rm')
