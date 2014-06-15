@@ -306,6 +306,7 @@ L["mount_146622"] = "Reward for the 'Grievous Combatant' achievement winning 100
 L["mount_30174"] = "No know method of obtaining." -- Lucky Riding Turtle
 L["mount_147595"] = "No know method of obtaining." -- Stormcrow
 L["mount_134359"] = "Built by an engineer. [BoE]." -- Sky Golem
+L["mount_163024"] = "Purchased from the Blizzard online store." -- Celestial Steed
 
 -- Alliance Mounts
 L["mount_60114"] = "Sold by Mei Francis in Dalaran for 750G. [BoP]" -- Armored Brown Bear

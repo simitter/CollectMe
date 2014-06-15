@@ -1,3 +1,7 @@
+## 2.4.12
+* Add Warforged Nightmare
+* Fix Nostance option
+
 ## 2.4.11
 * Update mount data
 

@@ -262,6 +262,7 @@ function CollectMe.MountDB:Build()
     self:Add(149801, 51993, self.FLY, { rfm = 1 }) -- Emerald Hypogryph
     self:Add(153489, 53038, self.FLY, { bsm = 1 }) -- Iron Skyreaver
     self:Add(155741, 53774, self.FLY, { ptm = 1 }) -- Dread Raven
+    self:Add(163024, 55896, self.FLY, { bsm = 1 }) -- Warforged Nightmare
 
     -- Alliance Mounts
     if CollectMe.FACTION == "Alliance" then
