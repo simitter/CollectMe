@@ -713,6 +713,18 @@ Data.Titles[39] = {
         tmp = false,
     },
 } -- Hand of A
+Data.TitleIds[214] = 214
+Data.Titles[214] = {
+    id      = 214,
+    name    = GetTitleName(214):gsub("^%s*(.-)%s*$", "%1"),
+    filters = {
+        umo = false,
+        pvp = false,
+        are = false,
+        nlo = false,
+        tmp = false,
+    },
+} -- Hellscream's Downfall
 Data.TitleIds[131] = 131
 Data.Titles[131] = {
     id      = 131,
@@ -1709,6 +1721,42 @@ Data.Titles[235] = {
         tmp = false,
     },
 } -- the Prime
+Data.TitleIds[215] = 215
+Data.Titles[215] = {
+    id      = 215,
+    name    = GetTitleName(215):gsub("^%s*(.-)%s*$", "%1"),
+    filters = {
+        umo = false,
+        pvp = false,
+        are = false,
+        nlo = false,
+        tmp = false,
+    },
+} -- the Proven Assailant
+Data.TitleIds[216] = 216
+Data.Titles[216] = {
+    id      = 216,
+    name    = GetTitleName(216):gsub("^%s*(.-)%s*$", "%1"),
+    filters = {
+        umo = false,
+        pvp = false,
+        are = false,
+        nlo = false,
+        tmp = false,
+    },
+} -- the Proven Defender
+Data.TitleIds[219] = 219
+Data.Titles[219] = {
+    id      = 219,
+    name    = GetTitleName(219):gsub("^%s*(.-)%s*$", "%1"),
+    filters = {
+        umo = false,
+        pvp = false,
+        are = false,
+        nlo = false,
+        tmp = false,
+    },
+} -- the Proven Healer
 Data.TitleIds[200] = 200
 Data.Titles[200] = {
     id      = 200,
@@ -1963,6 +2011,18 @@ if UnitFactionGroup("player") == "Alliance" then
             tmp = false,
         },
     } -- Commander
+    Data.TitleIds[211] = 211
+    Data.Titles[211] = {
+        id      = 211,
+        name    = GetTitleName(211):gsub("^%s*(.-)%s*$", "%1"),
+        filters = {
+            umo = false,
+            pvp = false,
+            are = false,
+            nlo = false,
+            tmp = false,
+        },
+    } -- Conqueror of Orgrimmar
     Data.TitleIds[155] = 155
     Data.Titles[155] = {
         id      = 155,
@@ -2662,6 +2722,18 @@ if UnitFactionGroup("player") == "Horde" then
             tmp = false,
         },
     } -- Legionnaire
+    Data.TitleIds[212] = 212
+    Data.Titles[212] = {
+        id      = 212,
+        name    = GetTitleName(212):gsub("^%s*(.-)%s*$", "%1"),
+        filters = {
+            umo = false,
+            pvp = false,
+            are = false,
+            nlo = false,
+            tmp = false,
+        },
+    } -- Liberator of Orgrimmar
     Data.TitleIds[25] = 25
     Data.Titles[25] = {
         id      = 25,
@@ -2936,6 +3008,7 @@ L["title_11"] = "The title was originally awarded as part of the PvP ranking sys
 L["title_164"] = "Reward for reaching a rated battleground rating of 2100"
 L["title_34"] = "Obtained by gaining exalted reputation with  Frostwolf Clan, The Defilers, Warsong Outriders."
 L["title_90"] = "Awarded to participant in the realm first defeat of Kel'Thuzad in Naxxramas in 25-player mode. "
+L["title_211"] = "Defeat Garrosh Hellscream in Siege of Orgrimmar on Normal or Heroic difficulty"
 L["title_126"] = "Reward for defeating each boss in Ulduar in 25-player mode without allowing any raid member to die to that boss at any point during that raid lockout period."
 L["title_155"] = "Reward for reaching a rated battleground rating of 1200"
 L["title_123"] = "Reward for earning the right to represent every city of you faction in the Argent Tournament as well as beeing exalted with them and the Argent Crusade."
@@ -2986,6 +3059,7 @@ L["title_16"] = "The title was originally awarded as part of the PvP ranking sys
 L["title_169"] = "Reward for reaching a rated battleground rating of 1200"
 L["title_100"] = "Reward for getting exalted with the Cenarion Circle and the Cenarion Expedition."
 L["title_39"] = "Awarded after completing the quest 'The Vials of Eternity', this quest in no longer obtainable."
+L["title_214"] = "Defeat Garrosh Hellscream in Siege of Orgrimmar on Heroic difficulty"
 L["title_131"] = "Reward for defeating Algalon the Observer in 10-player mode at level 80 without anyone in the raid wearing any equipment with an item level higher than is available in 10-player Ulduar"
 L["title_91"] = "Reward for realm first exalted with the Argent Crusade, the Wyrmrest Accord, the Kirin Tor and the Knights of the Ebon Blade. Removed in early WotLK Beta."
 L["title_84"] = "Realm first level 80 Orc. Removed in early WotLK Beta."
@@ -3008,6 +3082,7 @@ L["title_161"] = "Reward for reaching a rated battleground rating of 1800"
 L["title_162"] = "Reward for reaching a rated battleground rating of 1900"
 L["title_22"] = "The title was originally awarded as part of the PvP ranking system and is no longer obtainable."
 L["title_175"] = "Reward for reaching a rated battleground rating of 1800"
+L["title_212"] = "Defeat Garrosh Hellscream in Siege of Orgrimmar on Normal or Heroic difficulty"
 L["title_10"] = "The title was originally awarded as part of the PvP ranking system and is no longer obtainable."
 L["title_163"] = "Reward for reaching a rated battleground rating of 2000"
 L["title_25"] = "The title was originally awarded as part of the PvP ranking system and is no longer obtainable."
@@ -3119,6 +3194,9 @@ L["title_137"] = "Reward for using the Dungeon Finder tool to finish random hero
 L["title_133"] = "Reward for completing the Pilgrim's Bounty holiday achievements"
 L["title_231"] = "Unknown method of obtaining."
 L["title_235"] = "Unknown method of obtaining."
+L["title_215"] = "Successfully complete Wave 30 of the Basic Damage (Endless) trial at the Proving Grounds"
+L["title_216"] = "Successfully complete Wave 30 of the Basic Tank(Endless) trial at the Proving Grounds"
+L["title_219"] = "Successfully complete Wave 30 of the Basic Healer(Endless) trial at the Proving Grounds"
 L["title_200"] = "Reward from  'Is Another Man's Treasure'. In addition to rare spawns bringing quirky flavor to MoP, there are rare objects hidden around Pandaria too like Blade of the Prime. Finding 20 of these will net you this title."
 L["title_206"] = "Reward for completing 'Scenaterday/ Scenaterday' doing all the MoP Scenarios on a Saturday."
 L["title_42"] = "Awarded after gaining '3000 Quests Completed' achievement."

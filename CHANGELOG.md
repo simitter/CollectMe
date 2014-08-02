@@ -1,3 +1,6 @@
+## 2.4.13
+* Add multiple missing titles
+
 ## 2.4.12
 * Add Warforged Nightmare
 * Fix Nostance option
@@ -33,7 +36,7 @@
 * Improved Random Mount Macro to ignore Moonkin (thx Zenzara)
 * Fixed PetTracker Button Collision in PetJournal
 * Added info for Heavenly Golden Cloud Serpent (Mount)
- 
+
 ## 2.4.4
  * Fixed keybindings
  * Added 5.4 mounts, titles, and companions
