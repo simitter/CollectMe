@@ -1,3 +1,9 @@
+## 2.5.1
+* Added of the Iron Vanguard title
+* Added Legend of Pandaria title
+* Fixed pet batch check in search mode
+* Fixed random mount macro issues
+
 ## 2.5
 * Updated TOC for Patch 6.0
 * Updated libs to current version
