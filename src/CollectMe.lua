@@ -244,7 +244,7 @@ function CollectMe:BuildList()
     end
 
     for i,v in pairs(self.item_list) do
-        if (self.UI.active_group == self.MOUNT and not self.MountDB:IsKnown(v.id) and (#zones == 0 or self.MountDB:ObtainableInZone(v.id, zones))) or (self.UI.active_group == self.TITLE and IsTitleKnown(v.id) ~= 1) then
+        if (self.UI.active_group == self.MOUNT and not self.MountDB:IsKnown(v.id) and (#zones == 0 or self.MountDB:ObtainableInZone(v.id, zones))) or (self.UI.active_group == self.TITLE and IsTitleKnown(v.id) == false) then
             if self:IsInTable(self.ignored_db, v.id) then
                 table.insert(ignored, v)
             else
