@@ -809,6 +809,18 @@ Data.Titles[220] = {
         tmp = false,
     },
 } -- Kahn
+Data.TitleIds[306] = 306
+Data.Titles[306] = {
+    id      = 306,
+    name    = GetTitleName(306):gsub("^%s*(.-)%s*$", "%1"),
+    filters = {
+        umo = false,
+        pvp = false,
+        are = false,
+        nlo = false,
+        tmp = false,
+    },
+} -- Legend of Pandaria
 Data.TitleIds[93] = 93
 Data.Titles[93] = {
     id      = 93,
@@ -1001,6 +1013,18 @@ Data.Titles[151] = {
         tmp = false,
     },
 } -- of the Four Winds
+Data.TitleIds[289] = 289
+Data.Titles[289] = {
+    id      = 289,
+    name    = GetTitleName(289):gsub("^%s*(.-)%s*$", "%1"),
+    filters = {
+        umo = false,
+        pvp = false,
+        are = false,
+        nlo = false,
+        tmp = false,
+    },
+} -- of the Iron Vanguard
 Data.TitleIds[107] = 107
 Data.Titles[107] = {
     id      = 107,
@@ -3080,6 +3104,7 @@ L["title_159"] = "Reward for reaching a rated battleground rating of 1600"
 L["title_160"] = "Reward for reaching a rated battleground rating of 1700"
 L["title_161"] = "Reward for reaching a rated battleground rating of 1800"
 L["title_162"] = "Reward for reaching a rated battleground rating of 1900"
+L["title_306"] = "Reward for completing the Blasted Lands invasion quests before the Assault on the Dark Portal begins."
 L["title_22"] = "The title was originally awarded as part of the PvP ranking system and is no longer obtainable."
 L["title_175"] = "Reward for reaching a rated battleground rating of 1800"
 L["title_212"] = "Defeat Garrosh Hellscream in Siege of Orgrimmar on Normal or Heroic difficulty"
@@ -3116,6 +3141,7 @@ L["title_55"] = "Realm first level 80 Druid. Removed in early WotLK Beta."
 L["title_113"] = "Reward for earning the right to represent the Exodar in the Argent Tournament."
 L["title_151"] = "Reward for defeating Al'Akir in Throne of the Four Winds on heroic difficulty"
 L["title_95"] = "Reward for reaching 100.000 honorable kills."
+L["title_289"] = "Reward for completing Chapter V: Judgment of the Black Prince quest before Warlords of Draenor."
 L["title_107"] = "Reward for defeating Sartharion the Onyx Guardian with all three drakes alive in 10-player mode."
 L["title_38"] = "Awarded after completing the quest 'A Magnanimous Benefactor' after gaining exalted reputation with the Shattered Sun Offensive."
 L["title_54"] = "Realm first level 80 Shaman. Removed in early WotLK Beta."
