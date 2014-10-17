@@ -431,8 +431,9 @@ function CollectMe:BatchCheck(value)
         local random_db =  self.db.profile.random.companions
 
         for i,v in pairs(self.CompanionDB:Get()) do
+			
             if v.pet_id ~= nil and C_PetJournal.PetIsSummonable(v.pet_id) then
-				if name:lower():find(search) ~= nil then
+				if v.name:lower():find(search) ~= nil then
 					random_db[v.pet_id] = value
 				end
             end
