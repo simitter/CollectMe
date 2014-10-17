@@ -202,18 +202,31 @@ end
 
 
 function CollectMe:BuildRandomList()
-    local type, random_db, title = "MOUNT", self.db.profile.random.mounts, self.L["Available mounts"]
-    local count = GetNumCompanions(type)
+    local random_db = self.db.profile.random.mounts
+    local count = 0
     local search = self.UI:GetSearchText():lower()
+	local mounts_to_add = {}
 
-    self.UI:AddToScroll(self.UI:CreateHeading(title ..  " - " .. count))
-    for i = 1, count, 1 do
-        local _, name, spell_id = GetCompanionInfo(type, i)
-        if name:lower():find(search) ~= nil then
-            local value = ((random_db[spell_id] ~= nil and random_db[spell_id] ~= false) and true or false)
-            self.UI:CreateScrollCheckbox(name, value, { OnValueChanged = function (container, event, val) random_db[spell_id] = val end})
-        end
+    for i = 1, C_MountJournal.GetNumMounts(), 1 do
+        local name, spell_id, _, _, _, _, _, isFactionSpecific, faction, _, isCollected = C_MountJournal.GetMountInfo(i)
+		if isCollected then
+			if not faction then
+				faction = -1
+			end
+			if not isFactionSpecific or CollectMe.FACTION == "Horde" and faction == 0 or CollectMe.FACTION == "Alliance" and faction == 1 then
+				if name:lower():find(search) ~= nil then
+					table.insert(mounts_to_add, spell_id);
+					count = count + 1;
+				end
+			end
+		end
     end
+	self.UI:AddToScroll(self.UI:CreateHeading(self.L["Available mounts"] ..  " - " .. count))
+	
+	for i,spell_id in pairs(mounts_to_add) do
+		local value = ((random_db[spell_id] ~= nil and random_db[spell_id] ~= false) and true or false)
+		self.UI:CreateScrollCheckbox(GetSpellInfo(spell_id), value, { OnValueChanged = function (container, event, val) random_db[spell_id] = val end})
+	end
 end
 
 function CollectMe:BuildList()
@@ -397,11 +410,19 @@ end
 function CollectMe:BatchCheck(value)
     if self.UI.active_group == self.RANDOM_MOUNT then
         local random_db = self.db.profile.random.mounts
-        local count = GetNumCompanions("MOUNT")
-        for i = 1, count, 1 do
-            local _, name, spell_id = GetCompanionInfo("MOUNT", i)
-            random_db[spell_id] = value
-        end
+        local count = C_MountJournal.GetNumMounts()
+		
+		for i = 1, count, 1 do
+			local name, spell_id, _, _, _, _, _, isFactionSpecific, faction, _, isCollected = C_MountJournal.GetMountInfo(i)
+			if isCollected then
+				if not faction then
+					faction = -1
+				end
+				if not isFactionSpecific or CollectMe.FACTION == "Horde" and faction == 0 or CollectMe.FACTION == "Alliance" and faction == 1 then
+					random_db[spell_id] = value
+				end
+			end
+		end
         self.UI:ReloadScroll()
     elseif self.UI.active_group == self.RANDOM_COMPANION then
         local random_db =  self.db.profile.random.companions
