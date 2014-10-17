@@ -42,8 +42,8 @@ function CollectMe.RandomMount:Summon(type)
         local zone_mounts, type_mounts, fallback_mounts = {}, {}, {}
         local zone_id, is_swimming, is_flyable_area = CollectMe.ZoneDB:Current(), IsSwimming(), IsFlyableArea()
         local profession_count = #self.professions
-        for i = 1, GetNumCompanions("MOUNT") do
-            local _, name, spell_id = GetCompanionInfo("MOUNT", i);
+        for i = 1, C_MountJournal.GetNumMounts() do
+            local name, spell_id = C_MountJournal.GetMountInfo(i)
 
             -- check if current mount is in priority pool and if it is usable here
             if self.db.profile.random.mounts[spell_id] ~= nil and self.db.profile.random.mounts[spell_id] ~= false and IsUsableSpell(spell_id) ~= nil then
@@ -66,12 +66,12 @@ function CollectMe.RandomMount:Summon(type)
 
                     if #zone_mounts == 0 then
                         -- swimming mounts
-                        if is_swimming == 1 then
+                        if is_swimming == true then
                             if info.type == CollectMe.MountDB.SWIM or (self.db.profile.summon.mounts.flying_in_water == true and info.type == CollectMe.MountDB.FLY and is_flyable_area == 1) then
                                 table.insert(type_mounts, i)
                             end
                             -- flying mounts
-                        elseif is_flyable_area == 1 then
+                        elseif is_flyable_area == true then
                             if info.type == CollectMe.MountDB.FLY then
                                 table.insert(type_mounts, i)
                             end
@@ -83,7 +83,6 @@ function CollectMe.RandomMount:Summon(type)
                 end
             end
         end
-
 
         if type == CollectMe.MountDB.GROUND and #fallback_mounts > 0 then
             self:Mount(fallback_mounts)
@@ -117,5 +116,5 @@ end
 
 function CollectMe.RandomMount:Mount(t)
     local call = math.random(1, #t);
-    CallCompanion("MOUNT", t[call]);
+    C_MountJournal.Summon(t[call]);
 end
