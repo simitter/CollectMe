@@ -478,6 +478,8 @@ L["mount_136164"] = "Sold by the Dominance Offensive quartermaster for 2000G. Yo
 L["mount_135418"] = "?? [BoA]" -- Grand Armored Wyvern
 L["mount_140250"] = "Sold by the Sunreaver Onsalught quartermaster for 2100G. You need to be exalted with the Sunreaver Onsalught. [BoA]" -- Crimson Primal Direhorn
 L["mount_142266"] = "Reward for the 'Mount Parade' achievement obtaining 200 mounts. [BoA]" -- Armored Red Dragonhawk
+L["mount_171845"] = "Reward from 'Warlord's Deathwheel' achievement" -- Warlord's Deathwheel
+
 -- Paladin Mounts
 L["mount_23214"] = "Taught by the Paladin Trainer at Level 61 or obtained by completing the Level 60 Paladin Quest Line. [BoP]" -- Alliance Charger
 L["mount_13819"] = "Taught by the Paladin Trainer at Level 40. [BoP]" -- Alliance Warhorse

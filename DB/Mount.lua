@@ -352,6 +352,10 @@ function CollectMe.MountDB:Build()
         self:Add(140249, 48100):SetObtainZones(140249, {928}) -- Golden Primal Direhorn
         self:Add(16056, 9695, self.GROUND, { nlo = 1 }) -- Ancient Frostsaber
         self:Add(16082, 2408, self.GROUND, { nlo = 1 }) -- Palomino
+		--self:Add(17459, nil) -- Icy Blue Mechanostrider Mod A
+		--self:Add(171625, nil) -- Dusty Rockhide
+		--self:Add(171626, nil) -- Armored Irontusk
+		--self:Add(171834, nil) -- Vicious War Ram
     end
 
     -- Horde Mounts
@@ -440,6 +444,10 @@ function CollectMe.MountDB:Build()
         self:Add(18992, 12242, self.GROUND, { nlo = 1 }) -- Teal Kodo
         self:Add(142266, 48815, self.FLY) -- Armored Red Dragonhawk
         self:Add(140250, 48101):SetObtainZones(140250, {928}) -- Crimson Primal Direhorn
+		--self:Add(171835, nil) -- Vicious War Raptor
+		--self:Add(171839, nil) -- Ironside Warwolf
+		--self:Add(171842, nil) -- Swift Frostwolf
+		self:Add(171845, nil, self.GROUND, { nlo = 1 }) -- Warlord's Deathwheel
     end
 
     -- Paladin Mounts for Humans and Dwarfs
@@ -571,16 +579,15 @@ function CollectMe.MountDB:RefreshKnown(no_message)
         local name, spell_id, _, _, _, _, _, isFactionSpecific, faction, hideOnChar, isCollected = C_MountJournal.GetMountInfo(i)
 		if isCollected then
 			table.insert(self.known_mounts, spell_id);
-		end
-		
-		if hideOnChar == false then
-			if not faction then
-				faction = -1
-			end
-			if CollectMe.FACTION == "Horde" and faction == 0 or CollectMe.FACTION == "Alliance" and faction == 1 then
-				if CollectMe.db.profile.missing_message.mounts == false and no_message == nil then
-					if not CollectMe:IsInTable(self.mount_spells, spell_id) then
-						CollectMe:Print(CollectMe.L["Mount"] .. " " .. name .. "("..spell_id..") " .. CollectMe.L["is missing"] .. ". " .. CollectMe.L["Please inform the author"])
+			if hideOnChar == false then
+				if not faction then
+					faction = -1
+				end
+				if not isFactionSpecific or CollectMe.FACTION == "Horde" and faction == 0 or CollectMe.FACTION == "Alliance" and faction == 1 then
+					if CollectMe.db.profile.missing_message.mounts == false and no_message == nil then
+						if not CollectMe:IsInTable(self.mount_spells, spell_id) then
+							CollectMe:Print(CollectMe.L["Mount"] .. " " .. name .. "("..spell_id..") " .. CollectMe.L["is missing"] .. ". " .. CollectMe.L["Please inform the author"])
+						end
 					end
 				end
 			end

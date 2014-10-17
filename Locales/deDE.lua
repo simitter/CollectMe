@@ -425,6 +425,7 @@ L["mount_93644"] = "Available for Horde after Guild reaches level 25 and you rea
 L["mount_100333"] = "Reward from the achivement 'Veteran of the Horde' and other higher achivements. [BoP]" -- Vicious War Wolf
 L["mount_107517"] = "Obtained through the new Scroll of Resurrection system implemented in 4.3.3. [BoA]" -- Spectral Wind Rider
 L["mount_118737"] = "Reward for obtaining the achievement 'Pandared Ambassador' being exalted with all of the Mists of Pandaria factions. [BoP]" -- Pandaren Kite
+L["mount_171845"] = "Reward from 'Warlord's Deathwheel' achievement" -- Warlord's Deathwheel
 
 -- Paladin Mounts
 L["mount_23214"] = "Erlernbar beim Paladinlehrer ab Stufe 61 oder durch die Paladinquest mit Stufe 60 zu erhalten. [BoP]" -- Alliance Charger
