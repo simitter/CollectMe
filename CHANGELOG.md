@@ -1,3 +1,11 @@
+## 2.5
+* Updated TOC for Patch 6.0
+* Updated libs to current version
+* Tweaked batch check in search mode
+* Added Warlord's Deathwheel
+* Fixed API to list mounts again
+* Fixed recognition of known titles
+
 ## 2.4.13
 * Add multiple missing titles
 

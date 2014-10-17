@@ -1,13 +1,13 @@
 ## Title: CollectMe
 ## Notes: Displays a list of mounts, companions and titles which the character is missing and allows to summon companions and mounts
 
-## Author: Merla (Raina), Xtcssa (Excitor), LaserLock
+## Author: Merla (Raina), Jim-Bim (Ascalia), Xtcssa (Excitor), LaserLock
 ## eMail: admin AT tschebel DOT net
 ## X-email: admin AT tschebel DOT net
 ## X-License: MIT modified with notification clause
 
-## Interface: 50400
-## Version: 2.4.13
+## Interface: 60000
+## Version: 2.5
 
 ## X-credits: wowwiki
 
