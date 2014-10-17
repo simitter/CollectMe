@@ -564,12 +564,14 @@ function CollectMe.MountDB:GetInfo(spell_id)
 end
 
 function CollectMe.MountDB:RefreshKnown(no_message)
-    self.known_mount_count = GetNumCompanions("Mount")
+    self.known_mount_count = C_MountJournal.GetNumMounts()
     self.known_mounts = {}
 
     for i = 1, self.known_mount_count, 1 do
-        local _, name, spell_id = GetCompanionInfo("Mount", i)
-        table.insert(self.known_mounts, spell_id);
+        local name, spell_id, _, _, _, _, _, _, _, _, isCollected = C_MountJournal.GetMountInfo(i)
+		if isCollected then
+			table.insert(self.known_mounts, spell_id);
+		end
         if CollectMe.db.profile.missing_message.mounts == false and no_message == nil then
             if not CollectMe:IsInTable(self.mount_spells, spell_id) then
                 CollectMe:Print(CollectMe.L["Mount"] .. " " .. name .. "("..spell_id..") " .. CollectMe.L["is missing"] .. ". " .. CollectMe.L["Please inform the author"])
