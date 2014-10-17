@@ -408,6 +408,7 @@ function CollectMe:BuildOptions()
 end
 
 function CollectMe:BatchCheck(value)
+	local search = self.UI:GetSearchText():lower()
     if self.UI.active_group == self.RANDOM_MOUNT then
         local random_db = self.db.profile.random.mounts
         local count = C_MountJournal.GetNumMounts()
@@ -419,7 +420,9 @@ function CollectMe:BatchCheck(value)
 					faction = -1
 				end
 				if not isFactionSpecific or CollectMe.FACTION == "Horde" and faction == 0 or CollectMe.FACTION == "Alliance" and faction == 1 then
-					random_db[spell_id] = value
+					if name:lower():find(search) ~= nil then
+						random_db[spell_id] = value
+					end
 				end
 			end
 		end
@@ -429,7 +432,9 @@ function CollectMe:BatchCheck(value)
 
         for i,v in pairs(self.CompanionDB:Get()) do
             if v.pet_id ~= nil and C_PetJournal.PetIsSummonable(v.pet_id) then
-                random_db[v.pet_id] = value
+				if name:lower():find(search) ~= nil then
+					random_db[v.pet_id] = value
+				end
             end
         end
         self.UI:ReloadScroll()
