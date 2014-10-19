@@ -450,5 +450,6 @@ end
 
 function CollectMe.ZoneDB:Current()
     SetMapToCurrentZone()
-    return GetCurrentMapAreaID()
+    local zone = GetCurrentMapAreaID()
+    return zone
 end
