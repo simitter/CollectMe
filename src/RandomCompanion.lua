@@ -32,15 +32,15 @@ function CollectMe.RandomCompanion:Dismiss()
 end
 
 function CollectMe.RandomCompanion:AutoSummon()
-    if UnitAffectingCombat("player") == nil and IsMounted() == nil and IsStealthed() == nil and CollectMe.db.profile.summon.companions.auto == true then
-        if (not (UnitIsPVP("player") == 1 and CollectMe.db.profile.summon.companions.disable_pvp == true)) then
+    if UnitAffectingCombat("player") == false and IsMounted() == false and IsStealthed() == false and CollectMe.db.profile.summon.companions.auto == true then
+        if (not (UnitIsPVP("player") == true and CollectMe.db.profile.summon.companions.disable_pvp == true)) then
             local active = C_PetJournal.GetSummonedPetGUID()
             if (active == nil) then
                 self:Summon()
             end
         end
     end
-    if (UnitIsPVP("player") == 1 and CollectMe.db.profile.summon.companions.disable_pvp == true) then
+    if (UnitIsPVP("player") == true and CollectMe.db.profile.summon.companions.disable_pvp == true) then
         self:Dismiss()
     end
 end
