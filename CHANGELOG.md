@@ -1,3 +1,8 @@
+## 2.5.2
+* Added of the Black Harvest title
+* Fixed auto pet summoning
+* Fixed current zone filter
+
 ## 2.5.1
 * Added of the Iron Vanguard title
 * Added Legend of Pandaria title
