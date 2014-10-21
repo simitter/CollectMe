@@ -965,6 +965,18 @@ Data.Titles[141] = {
         tmp = false,
     },
 } -- of the Ashen Verdict
+Data.TitleIds[256] = 256
+Data.Titles[256] = {
+    id      = 256,
+    name    = GetTitleName(256):gsub("^%s*(.-)%s*$", "%1"),
+    filters = {
+        umo = false,
+        pvp = false,
+        are = false,
+        nlo = false,
+        tmp = false,
+    },
+} -- of the Black Harvest
 Data.TitleIds[86] = 86
 Data.Titles[86] = {
     id      = 86,
@@ -3135,6 +3147,7 @@ L["title_119"] = "Reward for earning the right to represent Silvermoon in the Ar
 L["title_116"] = "Reward for earning the right to represent Stormwind in the Argent Tournament."
 L["title_94"] = "Reward for reaching 100.000 honorable kills."
 L["title_141"] = "Reward for getting exalted with the Ashen Verdict"
+L["title_256"] = "Reward for completing Breaker of the Black Harvest Feat of Strength before Warlords of Draenor."
 L["title_86"] = "Realm first level 80 Troll. Removed in early WotLK Beta."
 L["title_60"] = "Realm first level 80 Death Knight. Removed in early WotLK Beta."
 L["title_55"] = "Realm first level 80 Druid. Removed in early WotLK Beta."
