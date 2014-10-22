@@ -11,7 +11,7 @@ function CollectMe.RandomCompanion:Summon()
     local summonable = {};
 
     for i,v in pairs(CollectMe.db.profile.random.companions) do
-        if v == true and C_PetJournal.PetIsSummonable(i) then
+        if v == true and pcall(function() C_PetJournal.PetIsSummonable(i) end) and C_PetJournal.PetIsSummonable(i) then
             table.insert(summonable, i)
         end
     end
