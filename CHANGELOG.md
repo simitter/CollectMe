@@ -1,3 +1,9 @@
+## 2.5.3
+* Added new group auto summon options
+* Added new type auto summon options
+* Tweaked pvp auto summon option
+* Fixed summon issue with old pet ids
+
 ## 2.5.2
 * Added of the Black Harvest title
 * Fixed auto pet summoning
