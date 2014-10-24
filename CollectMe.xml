@@ -8,6 +8,7 @@
     <Script file="DB\Mount.lua"/>
     <Script file="DB\Title.lua"/>
     <Script file="DB\Companion.lua"/>
+    <Script file="DB\Toy.lua"/>
     <Script file="src\UI.lua"/>
     <Script file="src\ModelPreview.lua"/>
     <Script file="src\Tooltip.lua"/>

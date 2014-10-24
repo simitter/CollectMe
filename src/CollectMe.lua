@@ -10,7 +10,8 @@ local defaults = {
         ignored = {
             mounts = {},
             titles = {},
-            companions = {}
+            companions = {},
+            toys = {}
         },
         filters = {
             mounts = {
@@ -132,6 +133,7 @@ function CollectMe:OnInitialize()
     self.RANDOM_COMPANION = 3
     self.RANDOM_MOUNT = 4
     self.COMPANION = 5
+    self.TOYS = 6
 
     self.FACTION = UnitFactionGroup("player")
     LocalizedPlayerRace, self.RACE = UnitRace("player")
@@ -180,6 +182,12 @@ function CollectMe:BuildData(no_filters)
     elseif self.UI.active_group == self.RANDOM_MOUNT then
         self:BuildRandomList()
         self.UI:ShowCheckButtons()
+    elseif self.UI.active_group == self.TOYS then
+        self.ignored_db = self.db.profile.ignored.toys
+        self:BuildMissingToyList()
+        if not no_filters then
+            -- self:BuildMissingCompanionFilters()
+        end
     end
 
     if not no_filters then
@@ -274,7 +282,7 @@ function CollectMe:AddMissingRows(active, ignored, all_count, known_count, filte
     self.UI:AddToScroll(self.UI:CreateHeading(self.L["Missing"] .. " - " .. #active))
     self:BuildItemRow(active)
 
-    local hide_ignore = (self.UI.active_group == self.MOUNT and self.db.profile.hide_ignore.mounts or self.db.profile.hide_ignore.titles )
+    local hide_ignore = (self.UI.active_group == self.MOUNT and self.db.profile.hide_ignore.mounts or self.db.profile.hide_ignore.titles)
     if hide_ignore == false then
         self.UI:AddToScroll(self.UI:CreateHeading(self.L["Ignored"] .. " - " .. #ignored))
         self:BuildItemRow(ignored)
@@ -343,6 +351,23 @@ function CollectMe:BuildMissingCompanionList()
 
     C_PetJournal.SetFlagFilter(LE_PET_JOURNAL_FLAG_NOT_COLLECTED, collected_filter)
     self:AddMissingRows(active, ignored, #active + #ignored + #owned_db, #owned_db, 0)
+end
+
+
+function CollectMe:BuildMissingToyList()
+    local ToyDB = self:GetModule('ToyDB')
+    local collected, missing = ToyDB:Get()
+    local active, ignored = {}, {}
+
+    for i,v in ipairs(missing) do
+        if self:IsInTable(self.ignored_db, v.id) then
+            table.insert(ignored, v)
+        else
+            table.insert(active, v)
+        end
+    end
+
+    self:AddMissingRows(active, ignored, #active + #ignored + #collected, #collected, 0)
 end
 
 function CollectMe:IsFiltered(filters)
@@ -483,18 +508,21 @@ function CollectMe:ItemRowClick(group, spell_id)
             self.ModelPreview:PreviewCreature(spell_id)
         end
     elseif group == "RightButton" and IsControlKeyDown() then
-        local ignored_table = self.ignored_db
-
-        local position = self:IsInTable(ignored_table, spell_id)
-        if position ~= false then
-            table.remove(ignored_table, position)
-        else
-            table.insert(ignored_table, spell_id)
-        end
-
-        self.LdbDisplay:ZoneChangeListener()
-        self.UI:ReloadScroll()
+        self:ToggleIgnore(spell_id)
     end
+end
+
+function CollectMe:ToggleIgnore(id)
+    local ignored_table = self.ignored_db
+    local position = self:IsInTable(ignored_table, id)
+    if position ~= false then
+        table.remove(ignored_table, position)
+    else
+        table.insert(ignored_table, id)
+    end
+
+    self.LdbDisplay:ZoneChangeListener()
+    self.UI:ReloadScroll()
 end
 
 function CollectMe:ItemRowEnter(v)

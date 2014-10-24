@@ -47,7 +47,14 @@ function CollectMe.UI:Build()
     f:AddChild(container)
 
     local tabs = AceGUI:Create("TabGroup")
-    tabs:SetTabs({ {text = self.L["Mounts"], value = CollectMe.MOUNT}, {text = self.L["Companions"], value = CollectMe.COMPANION}, {text = self.L["Titles"], value = CollectMe.TITLE}, {text = self.L["Random Companion"], value = CollectMe.RANDOM_COMPANION}, {text = self.L["Random Mount"], value = CollectMe.RANDOM_MOUNT}})
+    tabs:SetTabs({
+        {text = self.L["Mounts"], value = CollectMe.MOUNT},
+        {text = self.L["Companions"], value = CollectMe.COMPANION},
+        {text = self.L["Titles"], value = CollectMe.TITLE},
+        {text = self.L["Toys"], value = CollectMe.TOYS },
+        {text = self.L["Random Companion"], value = CollectMe.RANDOM_COMPANION},
+        {text = self.L["Random Mount"], value = CollectMe.RANDOM_MOUNT}
+    })
     tabs:SetCallback("OnGroupSelected", function (container, event, group) self:SelectGroup(container, group) end)
     container:AddChild(tabs)
 
