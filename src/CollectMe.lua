@@ -50,7 +50,15 @@ local defaults = {
         summon = {
             companions = {
                 auto = false,
-                disable_pvp = false
+                disable_pvp = false,
+                disable_pvp_arena = true,
+                disable_pvp_bg = true,
+                disable_pvp_world = true,
+                disable_party_grp = false,
+                disable_party_raid_grp = false,
+                disable_raid_instance = false,
+                disable_dungeon = false,
+                disable_scenario = false
             },
             mounts = {
                 flying_in_water = false,
@@ -398,8 +406,21 @@ function CollectMe:BuildOptions()
     elseif self.UI.active_group == self.COMPANION then
         self.UI:CreateFilterCheckbox(self.L["Disable tooltip notice for missing companions"], self.db.profile.tooltip.companions.hide, { OnValueChanged = function (container, event, value) self.db.profile.tooltip.companions.hide = value end }, 2)
     elseif self.UI.active_group == self.RANDOM_COMPANION then
-        self.UI:CreateFilterCheckbox(self.L["Auto summon on moving forward"], self.db.profile.summon.companions.auto, { OnValueChanged = function (container, event, value) self.db.profile.summon.companions.auto = value end }, 2)
-        self.UI:CreateFilterCheckbox(self.L["Disable auto summon in pvp"], self.db.profile.summon.companions.disable_pvp, { OnValueChanged = function (container, event, value) self.db.profile.summon.companions.disable_pvp = value end }, 2)
+        self.UI.filter:ReleaseChildren()
+        self.UI:AddToFilter(self.UI:CreateHeading(self.L["Options"]))
+        self.UI:CreateFilterCheckbox(self.L["Auto summon companion on moving forward"], self.db.profile.summon.companions.auto, { OnValueChanged = function (container, event, value) self.db.profile.summon.companions.auto = value self:BuildOptions() end }, 2)
+        self.UI:AddToFilter(self.UI:CreateHeading(self.L["PvP Options"]))
+        self.UI:CreateFilterCheckbox(self.L["Disable auto summon in pvp"], self.db.profile.summon.companions.disable_pvp, { OnValueChanged = function (container, event, value) self.db.profile.summon.companions.disable_pvp = value self:BuildOptions() end }, 2, nil, self.db.profile.summon.companions.auto)
+        self.UI:CreateFilterCheckbox(self.L["- Disable in pvp arena"], self.db.profile.summon.companions.disable_pvp_arena, { OnValueChanged = function (container, event, value) self.db.profile.summon.companions.disable_pvp_arena = value end }, nil, nil, self.db.profile.summon.companions.disable_pvp and self.db.profile.summon.companions.auto)
+        self.UI:CreateFilterCheckbox(self.L["- Disable in battleground"], self.db.profile.summon.companions.disable_pvp_bg, { OnValueChanged = function (container, event, value) self.db.profile.summon.companions.disable_pvp_bg = value end }, nil, nil, self.db.profile.summon.companions.disable_pvp and self.db.profile.summon.companions.auto)
+        self.UI:CreateFilterCheckbox(self.L["- Disable for world pvp"], self.db.profile.summon.companions.disable_pvp_world, { OnValueChanged = function (container, event, value) self.db.profile.summon.companions.disable_pvp_world = value end }, nil, nil, self.db.profile.summon.companions.disable_pvp and self.db.profile.summon.companions.auto)
+        self.UI:AddToFilter(self.UI:CreateHeading(self.L["Group Options"]))
+        self.UI:CreateFilterCheckbox(self.L["Disable in raid group"], self.db.profile.summon.companions.disable_party_raid_grp, { OnValueChanged = function (container, event, value) self.db.profile.summon.companions.disable_party_raid_grp = value end }, 2, nil, self.db.profile.summon.companions.auto)
+        self.UI:CreateFilterCheckbox(self.L["Disable in normal group"], self.db.profile.summon.companions.disable_party_grp, { OnValueChanged = function (container, event, value) self.db.profile.summon.companions.disable_party_grp = value end }, 2, nil, self.db.profile.summon.companions.auto)
+		self.UI:AddToFilter(self.UI:CreateHeading(self.L["Type Options"]))
+        self.UI:CreateFilterCheckbox(self.L["Disable in raid instance"], self.db.profile.summon.companions.disable_raid_instance, { OnValueChanged = function (container, event, value) self.db.profile.summon.companions.disable_raid_instance = value end }, nil, nil, self.db.profile.summon.companions.auto)
+        self.UI:CreateFilterCheckbox(self.L["Disable in dungeon"], self.db.profile.summon.companions.disable_dungeon, { OnValueChanged = function (container, event, value) self.db.profile.summon.companions.disable_dungeon = value end }, nil, nil, self.db.profile.summon.companions.auto)
+        self.UI:CreateFilterCheckbox(self.L["Disable in scenario"], self.db.profile.summon.companions.disable_scenario, { OnValueChanged = function (container, event, value) self.db.profile.summon.companions.disable_scenario = value end }, nil, nil, self.db.profile.summon.companions.auto)
     elseif self.UI.active_group == self.RANDOM_MOUNT then
         self.UI:CreateFilterCheckbox(self.L["Don't dismount when left-clicking on macro"], self.db.profile.summon.mounts.no_dismount, { OnValueChanged = function (container, event, value) self.db.profile.summon.mounts.no_dismount = value end }, 2)
         self.UI:CreateFilterCheckbox(self.L["Use flying mounts in water"], self.db.profile.summon.mounts.flying_in_water, { OnValueChanged = function (container, event, value) self.db.profile.summon.mounts.flying_in_water = value end }, 2)
