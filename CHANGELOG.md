@@ -1,3 +1,8 @@
+## 2.6
+* Support for toys
+* Minor performance improvements when switching zones
+* Add draenor zones
+
 ## 2.5.3
 * Added new group auto summon options
 * Added new type auto summon options

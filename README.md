@@ -1,11 +1,11 @@
 ## Introduction
-Collect Me keeps track of your mounts, companions and titles in the game and can show you what mounts, companions, titles you're missing with additional information on where to get them. It can also summon companions and mounts randomly from a user defined list.
+Collect Me keeps track of your mounts, companions, titles and toys in the game and can show you what mounts, companions, titles. toys you're missing with additional information on where to get them. It can also summon companions and mounts randomly from a user defined list.
 
 ## Basic Features
  * Ignore List
  * Filters
- * Zonebased filtering for mounts and companions (data provided by Nullberri of PetJournalEnhanced)
- * LDB Plugin for missing companions and mounts in current zone
+ * Zonebased filtering for mounts, companions and toys
+ * LDB Plugin for missing companions, mounts and toys in current zone
  * Source-information
  * 3D model previews
  * Tooltip on wild battle pets for missing companions
