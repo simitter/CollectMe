@@ -47,7 +47,8 @@ local defaults = {
         hide_ignore = {
             mounts = false,
             companions = false,
-            titles = false
+            titles = false,
+            toys = false
         },
         random = {
             companions = {},
