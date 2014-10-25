@@ -126,7 +126,7 @@ local methods = {
         local status = self.status or self.localstatus
         local frame = self.frame
         self:SetWidth(status.width or 700)
-        self:SetHeight(status.height or 500)
+        self:SetHeight(status.height or 520)
         frame:ClearAllPoints()
         if status.top and status.left then
             frame:SetPoint("TOP", UIParent, "BOTTOM", 0, status.top)

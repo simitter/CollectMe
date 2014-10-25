@@ -45,6 +45,22 @@ local function GetLdbArgs(ldbdb)
             order = 5,
             set = function(info,val) ldbdb.mounts.missing = val; CollectMe.LdbDisplay:ZoneChangeListener()  end,
             get = function() return ldbdb.mounts.missing end
+        },
+        toys_collected = {
+            name = L["Collected toys"],
+            desc = L["Display already collected toys"],
+            type = "toggle",
+            order = 6,
+            set = function(info,val) ldbdb.toys.collected = val; CollectMe.LdbDisplay:ZoneChangeListener() end,
+            get = function() return ldbdb.toys.collected end
+        },
+        toys_missing = {
+            name = L["Missing toys"],
+            desc = L["Display missing toys"],
+            type = "toggle",
+            order = 7,
+            set = function(info,val) ldbdb.toys.missing = val; CollectMe.LdbDisplay:ZoneChangeListener()  end,
+            get = function() return ldbdb.toys.missing end
         }
     }
 end

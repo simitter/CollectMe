@@ -3,7 +3,7 @@ local L = LibStub("AceLocale-3.0"):GetLocale("CollectMe", true)
 
 local ToyDB = CollectMe:NewModule("ToyDB", "AceEvent-3.0")
 local Data = CollectMe:GetModule("Data")
-local collected = {}
+local collected, collectedIds = {}, {}
 local missing = {}
 
 local function getToys()
@@ -41,12 +41,15 @@ function ToyDB:Update()
     C_ToyBox.SetFilterCollected(true)
     C_ToyBox.SetFilterUncollected(false)
     C_ToyBox.FilterToys()
-    collected = getToys()
+    collected = getToys(true)
+    for k,v in ipairs(collected) do
+        collectedIds[v.id] = v.id
+    end
 
     C_ToyBox.SetFilterCollected(false)
     C_ToyBox.SetFilterUncollected(true)
     C_ToyBox.FilterToys()
-    missing = getToys()
+    missing = getToys(false)
 
     -- restore filters
     C_ToyBox.SetFilterCollected(filterCollected)
@@ -59,15 +62,19 @@ function ToyDB:IsInZone(id, zones)
         zones = { zones }
     end
 
-    if Data.Toys[id] ~= nil then
+    if Data.ToysZone[id] ~= nil then
         for i = 1,#zones do
-            if Data.Toys[id].zones[zones[i]] ~= nil then
+            if Data.ToysZone[id][zones[i]] ~= nil then
                 return true
             end
         end
     end
 
     return false
+end
+
+function ToyDB:IsKnown(id)
+    return collectedIds[id] ~= nil
 end
 
 function ToyDB:OnEnable()

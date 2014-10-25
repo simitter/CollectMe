@@ -94,6 +94,10 @@ local defaults = {
                 mounts = {
                     collected = true,
                     missing = true
+                },
+                toys = {
+                    collected = true,
+                    missing = true
                 }
             },
             text = {
@@ -103,6 +107,10 @@ local defaults = {
                     quality = true
                 },
                 mounts = {
+                    collected = true,
+                    missing = true
+                },
+                toys = {
                     collected = true,
                     missing = true
                 }
@@ -663,7 +671,9 @@ function CollectMe:CompanionsInZone()
 end
 
 function CollectMe:ZoneChangeListener()
-    if (self.db.profile.filters.companions.czo == true and self.UI.active_group == self.COMPANION) or (self.db.profile.filters.mounts.czo == true and self.UI.active_group == self.MOUNT) then
+    if (self.db.profile.filters.companions.czo == true and self.UI.active_group == self.COMPANION) or
+       (self.db.profile.filters.mounts.czo == true and self.UI.active_group == self.MOUNT) or
+       (self.db.profile.filters.toys.czo == true and self.UI.active_group == self.TOYS) then
         self.UI:ReloadScroll()
     end
 end
