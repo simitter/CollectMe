@@ -1,5 +1,5 @@
 ## Introduction
-Collect Me keeps track of your mounts, companions, titles and toys in the game and can show you what mounts, companions, titles. toys you're missing with additional information on where to get them. It can also summon companions and mounts randomly from a user defined list.
+Collect Me keeps track of your mounts, companions, titles and toys in the game and can show you what mounts, companions, titles and toys you're missing with additional information on where to get them. It can also summon companions and mounts randomly from a user defined list.
 
 ## Basic Features
  * Ignore List
