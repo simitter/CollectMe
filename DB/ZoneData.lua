@@ -10,7 +10,9 @@ Data.Zones = {
     461, -- Arathi Basin
     16, -- Arathi Highlands
     43, -- Ashenvale
+    978, -- Ashran
     722, -- Auchenai Crypts
+    984, -- Auchindoun
     533, -- Azjol-Nerub
     181, -- Azshara
     464, -- Azuremyst Isle
@@ -20,11 +22,13 @@ Data.Zones = {
     688, -- Blackfathom Deeps
     753, -- Blackrock Caverns
     704, -- Blackrock Depths
+    988, -- Blackrock Foundry
     721, -- Blackrock Spire
     754, -- Blackwing Descent
     755, -- Blackwing Lair
     475, -- Blade's Edge Mountains
     19, -- Blasted Lands
+    964, -- Bloodmaul Slag Mines
     476, -- Bloodmyst Isle
     486, -- Borean Tundra
     29, -- Burning Steppes
@@ -58,12 +62,16 @@ Data.Zones = {
     182, -- Felwood
     121, -- Feralas
     800, -- Firelands
+    941, -- Frostfire Ridge
+    976, -- Frostwall
     875, -- Gate of the Setting Sun MoP
     463, -- Ghostlands
     545, -- Gilneas
     611, -- Gilneas City
     691, -- Gnomeregan
+    949, -- Gorgrond
     757, -- Grim Batol
+    993, -- Grimrail Depot
     490, -- Grizzly Hills
     776, -- Gruul's Lair
     530, -- Gundrak
@@ -74,6 +82,7 @@ Data.Zones = {
     897, -- Heart of Fear MoP
     465, -- Hellfire Peninsula
     797, -- Hellfire Ramparts
+    994, -- Highmaul
     24, -- Hillsbrad Foothills
     819, -- Hour of Twilight
     491, -- Howling Fjord
@@ -81,6 +90,7 @@ Data.Zones = {
     775, -- Hyjal Summit
     492, -- Icecrown
     604, -- Icecrown Citadel
+    987, -- Iron Docks
     341, -- Ironforge
     540, -- Isle of Conquest
     929, -- Isle of Giants
@@ -93,6 +103,7 @@ Data.Zones = {
     809, -- Kun-Lai Summit MoP
     35, -- Loch Modan
     747, -- Lost City of the Tol'vir
+    971, -- Lunarfall
     798, -- Magisters' Terrace
     779, -- Magtheridon's Lair
     732, -- Mana-Tombs
@@ -105,6 +116,7 @@ Data.Zones = {
     606, -- Mount Hyjal
     9, -- Mulgore
     477, -- Nagrand
+    950, -- Nagrand
     535, -- Naxxramas
     479, -- Netherstorm
     895, -- New Tinkertown MoP
@@ -131,7 +143,9 @@ Data.Zones = {
     724, -- Shadow Labyrinth
     764, -- Shadowfang Keep
     888, -- Shadowglen MoP
+    969, -- Shadowmoon Burial Grounds
     473, -- Shadowmoon Valley
+    947, -- Shadowmoon Valley
     481, -- Shattrath City
     615, -- Shimmering Expanse
     493, -- Sholazar Basin
@@ -142,8 +156,11 @@ Data.Zones = {
     261, -- Silithus
     480, -- Silvermoon City
     21, -- Silverpine Forest
+    989, -- Skyreach
     607, -- Southern Barrens
+    948, -- Spires of Arak
     81, -- Stonetalon Mountains
+    1009, -- Stormshield
     876, -- Stormstout Brewery MoP
     301, -- Stormwind City
     512, -- Strand of the Ancients
@@ -152,6 +169,9 @@ Data.Zones = {
     893, -- Sunstrider Isle MoP
     789, -- Sunwell Plateau
     38, -- Swamp of Sorrows
+    946, -- Talador
+    945, -- Tanaan Jungle
+    970, -- Tanaan Jungle - Assault on the Dark Portal
     161, -- Tanaris
     41, -- Teldrassil
     766, -- Temple of Ahn'Qiraj
@@ -167,6 +187,7 @@ Data.Zones = {
     673, -- The Cape of Stranglethorn
     521, -- The Culling of Stratholme
     756, -- The Deadmines
+    1008, -- The Everbloom
     471, -- The Exodar
     782, -- The Eye
     527, -- The Eye of Eternity
@@ -212,6 +233,7 @@ Data.Zones = {
     720, -- Uldum
     201, -- Un'Goro Crater
     382, -- Undercity
+    995, -- Upper Blackrock Spire
     523, -- Utgarde Keep
     524, -- Utgarde Pinnacle
     811, -- Vale of Eternal Blossoms MoP
@@ -221,6 +243,7 @@ Data.Zones = {
     532, -- Vault of Archavon
     749, -- Wailing Caverns
     443, -- Warsong Gulch
+    1011, -- Warspear
     816, -- Well of Eternity
     22, -- Western Plaguelands
     39, -- Westfall
