@@ -5,7 +5,6 @@ local ToyDB = CollectMe:NewModule("ToyDB", "AceEvent-3.0")
 local collected = {}
 local missing = {}
 
-
 local function getToys()
     local info = {}
 
@@ -43,26 +42,29 @@ local function getToys()
     return info
 end
 
-local function update()
+function ToyDB:Update()
     local filterCollected, filterUncollected = C_ToyBox.GetFilterCollected(), C_ToyBox.GetFilterUncollected()
 
+    C_ToyBox.SetFilterString('')
     C_ToyBox.SetFilterCollected(true)
     C_ToyBox.SetFilterUncollected(false)
+    C_ToyBox.FilterToys()
     collected = getToys()
 
     C_ToyBox.SetFilterCollected(false)
     C_ToyBox.SetFilterUncollected(true)
+    C_ToyBox.FilterToys()
     missing = getToys()
 
     -- restore filters
     C_ToyBox.SetFilterCollected(filterCollected)
     C_ToyBox.SetFilterUncollected(filterUncollected)
+    C_ToyBox.FilterToys()
 end
 
-ToyDB.OnInitialize = update
-
 function ToyDB:OnEnable()
-     -- LibPetJournal.RegisterCallback(CollectMe.CompanionDB, "PetListUpdated", "Update")
+    self:Update()
+    ToyDB:RegisterEvent("TOYS_UPDATED", "Update")
 end
 
 function ToyDB:Get()

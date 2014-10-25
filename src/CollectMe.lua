@@ -186,7 +186,7 @@ function CollectMe:BuildData(no_filters)
         self.ignored_db = self.db.profile.ignored.toys
         self:BuildMissingToyList()
         if not no_filters then
-            -- self:BuildMissingCompanionFilters()
+            self:BuildMissingToyFilters()
         end
     end
 
@@ -282,7 +282,9 @@ function CollectMe:AddMissingRows(active, ignored, all_count, known_count, filte
     self.UI:AddToScroll(self.UI:CreateHeading(self.L["Missing"] .. " - " .. #active))
     self:BuildItemRow(active)
 
-    local hide_ignore = (self.UI.active_group == self.MOUNT and self.db.profile.hide_ignore.mounts or self.db.profile.hide_ignore.titles)
+    local hide_ignore = (self.UI.active_group == self.MOUNT and self.db.profile.hide_ignore.mounts) or
+                        (self.UI.active_group == self.TITLE and self.db.profile.hide_ignore.titles) or
+                        (self.UI.active_group == self.TOYS and self.db.profile.hide_ignore.toys)
     if hide_ignore == false then
         self.UI:AddToScroll(self.UI:CreateHeading(self.L["Ignored"] .. " - " .. #ignored))
         self:BuildItemRow(ignored)
@@ -419,6 +421,19 @@ function CollectMe:BuildMissingCompanionFilters()
     end
 end
 
+function CollectMe:BuildMissingToyFilters()
+    self.UI:AddToFilter(self.UI:CreateHeading(self.L["Source Filter"]))
+    local ToyDB = self:GetModule("ToyDB")
+    for _,i in pairs {1,2,3,4,7,8} do
+        self.UI:CreateFilterCheckbox(_G["BATTLE_PET_SOURCE_"..i], C_ToyBox.IsSourceTypeFiltered(i), { OnValueChanged = function (container, event, value)
+            value = not value;
+            C_ToyBox.SetFilterSourceType(i, value)
+            ToyDB:Update()
+            self.UI:ReloadScroll()
+        end })
+    end
+end
+
 function CollectMe:BuildOptions()
     self.UI:AddToFilter(self.UI:CreateHeading(self.L["Options"]))
 
@@ -450,6 +465,8 @@ function CollectMe:BuildOptions()
         self.UI:CreateFilterCheckbox(self.L["Don't dismount when left-clicking on macro"], self.db.profile.summon.mounts.no_dismount, { OnValueChanged = function (container, event, value) self.db.profile.summon.mounts.no_dismount = value end }, 2)
         self.UI:CreateFilterCheckbox(self.L["Use flying mounts in water"], self.db.profile.summon.mounts.flying_in_water, { OnValueChanged = function (container, event, value) self.db.profile.summon.mounts.flying_in_water = value end }, 2)
         self.UI:CreateFilterCheckbox(self.L["Use flying mounts for ground"], self.db.profile.summon.mounts.flying_on_ground, { OnValueChanged = function (container, event, value) self.db.profile.summon.mounts.flying_on_ground = value end }, 2)
+    elseif self.UI.active_group == self.TOYS then
+        self.UI:CreateFilterCheckbox(self.L["Hide ignored list"], self.db.profile.hide_ignore.toys, { OnValueChanged = function (container, event, value) self.db.profile.hide_ignore.toys = value; self.UI:ReloadScroll() end })
     end
 end
 
