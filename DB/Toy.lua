@@ -23,16 +23,7 @@ local function getToys()
                 OnEnter = function (container, event, group)
                     local tooltip = CollectMe.UI.frame.tooltip
                     tooltip:SetOwner(UIParent, "ANCHOR_CURSOR")
-                    tooltip:AddLine(name)
-
-                    if L["toy_" .. id] ~= nil then
-                        tooltip:AddLine(" ")
-                        tooltip:AddLine(L["toy_" .. id], 0, 1, 0, 1)
-                    end
-
-                    tooltip:AddLine(" ")
-                    tooltip:AddLine(L["tooltip_toggle"], 0.65, 0.65, 0)
-                    tooltip:Show()
+                    tooltip:SetToyByItemID(id)
                 end ,
                 OnLeave = function (container, event, group) CollectMe:ItemRowLeave() end ,
             }
