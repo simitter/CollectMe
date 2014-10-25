@@ -2,6 +2,7 @@ local CollectMe = LibStub("AceAddon-3.0"):GetAddon("CollectMe")
 local L = LibStub("AceLocale-3.0"):GetLocale("CollectMe", true)
 
 local ToyDB = CollectMe:NewModule("ToyDB", "AceEvent-3.0")
+local Data = CollectMe:GetModule("Data")
 local collected = {}
 local missing = {}
 
@@ -51,6 +52,22 @@ function ToyDB:Update()
     C_ToyBox.SetFilterCollected(filterCollected)
     C_ToyBox.SetFilterUncollected(filterUncollected)
     C_ToyBox.FilterToys()
+end
+
+function ToyDB:IsInZone(id, zones)
+    if type(zones) ~= "table" then
+        zones = { zones }
+    end
+
+    if Data.Toys[id] ~= nil then
+        for i = 1,#zones do
+            if Data.Toys[id].zones[zones[i]] ~= nil then
+                return true
+            end
+        end
+    end
+
+    return false
 end
 
 function ToyDB:OnEnable()

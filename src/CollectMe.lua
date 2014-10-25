@@ -34,6 +34,10 @@ local defaults = {
             companions = {
                 czo = false,
                 zones = {}
+            },
+            toys = {
+                czo = false,
+                zones = {}
             }
         },
         missing_message = {
@@ -360,12 +364,18 @@ function CollectMe:BuildMissingToyList()
     local ToyDB = self:GetModule('ToyDB')
     local collected, missing = ToyDB:Get()
     local active, ignored = {}, {}
+    local zones = self:CloneTable(self.db.profile.filters.toys.zones)
+    if self.db.profile.filters.toys.czo == true then
+        table.insert(zones, self.ZoneDB:Current())
+    end
 
     for i,v in ipairs(missing) do
-        if self:IsInTable(self.ignored_db, v.id) then
-            table.insert(ignored, v)
-        else
-            table.insert(active, v)
+        if next(zones) == nil or ToyDB:IsInZone(v.id, zones) then
+            if self:IsInTable(self.ignored_db, v.id) then
+                table.insert(ignored, v)
+            else
+                table.insert(active, v)
+            end
         end
     end
 
@@ -422,6 +432,11 @@ function CollectMe:BuildMissingCompanionFilters()
 end
 
 function CollectMe:BuildMissingToyFilters()
+    self.UI:AddToFilter(self.UI:CreateHeading(self.L["Zone Filter"]))
+    self.UI:CreateFilterCheckbox(self.L["Current Zone"], self.db.profile.filters.toys.czo, { OnValueChanged = function (container, event, value) self.db.profile.filters.toys.czo = value; self.UI:ReloadScroll() end })
+    local list, order = CollectMe.ZoneDB:GetList()
+    self.UI:CreateFilterDropdown(self.L["Select Zones"], list, self.db.profile.filters.toys.zones, { OnValueChanged = function (container, event, value) local pos = self:IsInTable(self.db.profile.filters.toys.zones, value); if not pos then table.insert(self.db.profile.filters.toys.zones, value) else table.remove(self.db.profile.filters.toys.zones, pos) end; self.UI:ReloadScroll() end }, true, order)
+
     self.UI:AddToFilter(self.UI:CreateHeading(self.L["Source Filter"]))
     local ToyDB = self:GetModule("ToyDB")
     for _,i in pairs {1,2,3,4,7,8} do
