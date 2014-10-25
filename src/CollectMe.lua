@@ -46,6 +46,7 @@ local defaults = {
         },
         hide_ignore = {
             mounts = false,
+            companions = false,
             titles = false
         },
         random = {
@@ -181,7 +182,6 @@ function CollectMe:BuildData(no_filters)
         if not no_filters then
             self:BuildFilters()
         end
-
     elseif self.UI.active_group == self.COMPANION then
         self.ignored_db = self.db.profile.ignored.companions
         self:BuildMissingCompanionList()
@@ -295,6 +295,7 @@ function CollectMe:AddMissingRows(active, ignored, all_count, known_count, filte
     self:BuildItemRow(active)
 
     local hide_ignore = (self.UI.active_group == self.MOUNT and self.db.profile.hide_ignore.mounts) or
+                        (self.UI.active_group == self.COMPANION and self.db.profile.hide_ignore.companions) or
                         (self.UI.active_group == self.TITLE and self.db.profile.hide_ignore.titles) or
                         (self.UI.active_group == self.TOYS and self.db.profile.hide_ignore.toys)
     if hide_ignore == false then
@@ -468,6 +469,7 @@ function CollectMe:BuildOptions()
         self.UI:CreateFilterCheckbox(self.L["Hide ignored list"], self.db.profile.hide_ignore.titles, { OnValueChanged = function (container, event, value) self.db.profile.hide_ignore.titles = value; self.UI:ReloadScroll() end })
     elseif self.UI.active_group == self.COMPANION then
         self.UI:CreateFilterCheckbox(self.L["Disable tooltip notice for missing companions"], self.db.profile.tooltip.companions.hide, { OnValueChanged = function (container, event, value) self.db.profile.tooltip.companions.hide = value end }, 2)
+        self.UI:CreateFilterCheckbox(self.L["Hide ignored list"], self.db.profile.hide_ignore.companions, { OnValueChanged = function (container, event, value) self.db.profile.hide_ignore.companions = value; self.UI:ReloadScroll() end })
     elseif self.UI.active_group == self.RANDOM_COMPANION then
         self.UI.filter:ReleaseChildren()
         self.UI:AddToFilter(self.UI:CreateHeading(self.L["Options"]))
