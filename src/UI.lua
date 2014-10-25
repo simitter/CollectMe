@@ -43,7 +43,7 @@ function CollectMe.UI:Build()
     local container = AceGUI:Create("SimpleGroup")
     container:SetLayout("Fill")
     container:SetFullWidth(true)
-    container:SetHeight(407)
+    container:SetHeight(427)
     f:AddChild(container)
 
     local tabs = AceGUI:Create("TabGroup")
@@ -84,8 +84,10 @@ function CollectMe.UI:Build()
 end
 
 function CollectMe.UI:ReloadScroll()
-    self.scroll:ReleaseChildren()
-    CollectMe:BuildData(true)
+    if self.frame:IsVisible() then
+        self.scroll:ReleaseChildren()
+        CollectMe:BuildData(true)
+    end
 end
 
 function CollectMe.UI:Show(group)
