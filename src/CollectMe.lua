@@ -170,16 +170,15 @@ function CollectMe:BuildData(no_filters)
         self.ignored_db = self.db.profile.ignored.mounts
         self.item_list = self.MountDB:Get()
         self.filter_list = self.MountDB.filters
-        self:BuildList()
+        self:BuildMissingMountList()
         if not no_filters then
             self:BuildFilters()
         end
     elseif self.UI.active_group == self.TITLE then
         self.filter_db = self.db.profile.filters.titles
         self.ignored_db = self.db.profile.ignored.titles
-        self.item_list = self.TitleDB:Get()
         self.filter_list = self.TitleDB.filters
-        self:BuildList()
+        self:BuildMissingTitleList()
         if not no_filters then
             self:BuildFilters()
         end
@@ -258,12 +257,8 @@ function CollectMe:BuildRandomList()
 	end
 end
 
-function CollectMe:BuildList()
-    if self.UI.active_group == self.MOUNT then
-        self.MountDB:RefreshKnown()
-    elseif self.UI.active_group == self.TITLE and self.db.profile.missing_message.titles == false then
-        self.TitleDB:PrintUnkown()
-    end
+function CollectMe:BuildMissingMountList()
+    self.MountDB:RefreshKnown()
 
     local active, ignored = {}, {}
     local all_count, known_count, filter_count = #self.item_list, 0, 0
@@ -273,12 +268,38 @@ function CollectMe:BuildList()
     end
 
     for i,v in pairs(self.item_list) do
-        if (self.UI.active_group == self.MOUNT and not self.MountDB:IsKnown(v.id) and (#zones == 0 or self.MountDB:ObtainableInZone(v.id, zones))) or (self.UI.active_group == self.TITLE and IsTitleKnown(v.id) == false) then
+        if (self.UI.active_group == self.MOUNT and not self.MountDB:IsKnown(v.id) and (#zones == 0 or self.MountDB:ObtainableInZone(v.id, zones))) then
             if self:IsInTable(self.ignored_db, v.id) then
                 table.insert(ignored, v)
             else
                 if not self:IsFiltered(v.filters) then
                     table.insert(active, v)
+                else
+                    filter_count = filter_count + 1
+                end
+            end
+        else
+            known_count = known_count +1
+        end
+    end
+
+    self:AddMissingRows(active, ignored, all_count, known_count, filter_count)
+end
+
+function CollectMe:BuildMissingTitleList()
+    self.TitleDB:PrintUnkown()
+
+    local titles, sort = self.TitleDB:Get()
+    local active, ignored = {}, {}
+    local all_count, known_count, filter_count = #sort, 0, 0
+
+    for i,v in pairs(sort) do
+        if (self.UI.active_group == self.TITLE and IsTitleKnown(v) == false and titles[v] ~= nil) then
+            if self:IsInTable(self.ignored_db, v) then
+                table.insert(ignored, titles[v])
+            else
+                if not self:IsFiltered(titles[v].filters) then
+                    table.insert(active, titles[v])
                 else
                     filter_count = filter_count + 1
                 end
@@ -635,6 +656,7 @@ function CollectMe:round(num, idp)
 end
 
 function CollectMe:SortTable(tbl)
+    print ('sorting')
     table.sort(tbl, function(a, b) return a ~= nil and b ~= nil and (string.lower(a.name) < string.lower(b.name)) end)
 end
 
