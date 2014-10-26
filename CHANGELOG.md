@@ -2,6 +2,7 @@
 * Fixed LDB display not updating when learning a new toy
 * Added Warlords of Draenor titles
 * Fixed sort and progress bar in title list
+* Fixed collected information in companion tooltips
 
 ## 2.6
 * Added full support for toys
