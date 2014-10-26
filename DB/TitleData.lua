@@ -17,6 +17,18 @@ Data.Titles[98] = {
         tmp = false,
     },
 } -- Ambassador
+Data.TitleIds[260] = 260
+Data.Titles[260] = {
+    id      = 260,
+    name    = GetTitleName(260):gsub("^%s*(.-)%s*$", "%1"),
+    filters = {
+        umo = false,
+        pvp = false,
+        are = false,
+        nlo = false,
+        tmp = false,
+    },
+} -- Architect
 Data.TitleIds[61] = 61
 Data.Titles[61] = {
     id      = 61,
@@ -41,6 +53,18 @@ Data.Titles[50] = {
         tmp = false,
     },
 } -- Arena Master
+Data.TitleIds[305] = 305
+Data.Titles[305] = {
+    id      = 305,
+    name    = GetTitleName(305):gsub("^%s*(.-)%s*$", "%1"),
+    filters = {
+        umo = false,
+        pvp = false,
+        are = false,
+        nlo = false,
+        tmp = false,
+    },
+} -- Artisan
 Data.TitleIds[63] = 63
 Data.Titles[63] = {
     id      = 63,
@@ -137,6 +161,18 @@ Data.Titles[146] = {
         tmp = false,
     },
 } -- Blessed Defender of Nordrassil
+Data.TitleIds[261] = 261
+Data.Titles[261] = {
+    id      = 261,
+    name    = GetTitleName(261):gsub("^%s*(.-)%s*$", "%1"),
+    filters = {
+        umo = false,
+        pvp = false,
+        are = false,
+        nlo = false,
+        tmp = false,
+    },
+} -- Blood Champion
 Data.TitleIds[111] = 111
 Data.Titles[111] = {
     id      = 111,
@@ -293,6 +329,18 @@ Data.Titles[126] = {
         tmp = false,
     },
 } -- Conqueror of Ulduar
+Data.TitleIds[284] = 284
+Data.Titles[284] = {
+    id      = 284,
+    name    = GetTitleName(284):gsub("^%s*(.-)%s*$", "%1"),
+    filters = {
+        umo = false,
+        pvp = false,
+        are = false,
+        nlo = false,
+        tmp = false,
+    },
+} -- Conservationist
 Data.TitleIds[123] = 123
 Data.Titles[123] = {
     id      = 123,
@@ -389,6 +437,18 @@ Data.Titles[196] = {
         tmp = false,
     },
 } -- Destroyer
+Data.TitleIds[292] = 292
+Data.Titles[292] = {
+    id      = 292,
+    name    = GetTitleName(292):gsub("^%s*(.-)%s*$", "%1"),
+    filters = {
+        umo = false,
+        pvp = false,
+        are = false,
+        nlo = false,
+        tmp = true,
+    },
+} -- Dockmaster
 Data.TitleIds[69] = 69
 Data.Titles[69] = {
     id      = 69,
@@ -437,6 +497,18 @@ Data.Titles[43] = {
         tmp = false,
     },
 } -- Elder
+Data.TitleIds[304] = 304
+Data.Titles[304] = {
+    id      = 304,
+    name    = GetTitleName(304):gsub("^%s*(.-)%s*$", "%1"),
+    filters = {
+        umo = false,
+        pvp = false,
+        are = false,
+        nlo = false,
+        tmp = false,
+    },
+} -- Empire's Twilight
 Data.TitleIds[195] = 195
 Data.Titles[195] = {
     id      = 195,
@@ -773,6 +845,18 @@ Data.Titles[66] = {
         tmp = false,
     },
 } -- Iron Chef
+Data.TitleIds[301] = 301
+Data.Titles[301] = {
+    id      = 301,
+    name    = GetTitleName(301):gsub("^%s*(.-)%s*$", "%1"),
+    filters = {
+        umo = false,
+        pvp = false,
+        are = false,
+        nlo = false,
+        tmp = false,
+    },
+} -- Ironbane
 Data.TitleIds[249] = 249
 Data.Titles[249] = {
     id      = 249,
@@ -809,6 +893,30 @@ Data.Titles[220] = {
         tmp = false,
     },
 } -- Kahn
+Data.TitleIds[297] = 297
+Data.Titles[297] = {
+    id      = 297,
+    name    = GetTitleName(297):gsub("^%s*(.-)%s*$", "%1"),
+    filters = {
+        umo = false,
+        pvp = false,
+        are = false,
+        nlo = false,
+        tmp = true,
+    },
+} -- Lady of Blackrock
+Data.TitleIds[303] = 303
+Data.Titles[303] = {
+    id      = 303,
+    name    = GetTitleName(303):gsub("^%s*(.-)%s*$", "%1"),
+    filters = {
+        umo = false,
+        pvp = false,
+        are = false,
+        nlo = false,
+        tmp = false,
+    },
+} -- Lady of War
 Data.TitleIds[306] = 306
 Data.Titles[306] = {
     id      = 306,
@@ -821,6 +929,30 @@ Data.Titles[306] = {
         tmp = false,
     },
 } -- Legend of Pandaria
+Data.TitleIds[296] = 296
+Data.Titles[296] = {
+    id      = 296,
+    name    = GetTitleName(296):gsub("^%s*(.-)%s*$", "%1"),
+    filters = {
+        umo = false,
+        pvp = false,
+        are = false,
+        nlo = false,
+        tmp = true,
+    },
+} -- Lord of Blackrock
+Data.TitleIds[302] = 302
+Data.Titles[302] = {
+    id      = 302,
+    name    = GetTitleName(302):gsub("^%s*(.-)%s*$", "%1"),
+    filters = {
+        umo = false,
+        pvp = false,
+        are = false,
+        nlo = false,
+        tmp = false,
+    },
+} -- Lord of War
 Data.TitleIds[93] = 93
 Data.Titles[93] = {
     id      = 93,
@@ -833,6 +965,18 @@ Data.Titles[93] = {
         tmp = false,
     },
 } -- Loremaster
+Data.TitleIds[257] = 257
+Data.Titles[257] = {
+    id      = 257,
+    name    = GetTitleName(257):gsub("^%s*(.-)%s*$", "%1"),
+    filters = {
+        umo = false,
+        pvp = false,
+        are = false,
+        nlo = false,
+        tmp = false,
+    },
+} -- Lumberjack
 Data.TitleIds[223] = 223
 Data.Titles[223] = {
     id      = 223,
@@ -893,6 +1037,18 @@ Data.Titles[102] = {
         tmp = false,
     },
 } -- Merrymaker
+Data.TitleIds[255] = 255
+Data.Titles[255] = {
+    id      = 255,
+    name    = GetTitleName(255):gsub("^%s*(.-)%s*$", "%1"),
+    filters = {
+        umo = false,
+        pvp = false,
+        are = false,
+        nlo = true,
+        tmp = false,
+    },
+} -- Mistwalker
 Data.TitleIds[242] = 242
 Data.Titles[242] = {
     id      = 242,
@@ -1229,6 +1385,18 @@ Data.Titles[244] = {
         tmp = true,
     },
 } -- Scarlet Commander
+Data.TitleIds[294] = 294
+Data.Titles[294] = {
+    id      = 294,
+    name    = GetTitleName(294):gsub("^%s*(.-)%s*$", "%1"),
+    filters = {
+        umo = false,
+        pvp = false,
+        are = false,
+        nlo = false,
+        tmp = true,
+    },
+} -- Scion of Rukhmar
 Data.TitleIds[208] = 208
 Data.Titles[208] = {
     id      = 208,
@@ -1277,6 +1445,30 @@ Data.Titles[147] = {
         tmp = false,
     },
 } -- Slayer of Stupid
+Data.TitleIds[295] = 295
+Data.Titles[295] = {
+    id      = 295,
+    name    = GetTitleName(295):gsub("^%s*(.-)%s*$", "%1"),
+    filters = {
+        umo = false,
+        pvp = false,
+        are = false,
+        nlo = false,
+        tmp = true,
+    },
+} -- Spiritwalker
+Data.TitleIds[277] = 277
+Data.Titles[277] = {
+    id      = 277,
+    name    = GetTitleName(277):gsub("^%s*(.-)%s*$", "%1"),
+    filters = {
+        umo = false,
+        pvp = false,
+        are = false,
+        nlo = false,
+        tmp = false,
+    },
+} -- Stable Master
 Data.TitleIds[59] = 59
 Data.Titles[59] = {
     id      = 59,
@@ -1325,6 +1517,30 @@ Data.Titles[248] = {
         tmp = true,
     },
 } -- Stormbrewer
+Data.TitleIds[278] = 278
+Data.Titles[278] = {
+    id      = 278,
+    name    = GetTitleName(278):gsub("^%s*(.-)%s*$", "%1"),
+    filters = {
+        umo = false,
+        pvp = false,
+        are = false,
+        nlo = false,
+        tmp = false,
+    },
+} -- Talon King
+Data.TitleIds[279] = 279
+Data.Titles[279] = {
+    id      = 279,
+    name    = GetTitleName(279):gsub("^%s*(.-)%s*$", "%1"),
+    filters = {
+        umo = false,
+        pvp = false,
+        are = false,
+        nlo = false,
+        tmp = false,
+    },
+} -- Talon Queen
 Data.TitleIds[207] = 207
 Data.Titles[207] = {
     id      = 207,
@@ -1553,6 +1769,18 @@ Data.Titles[87] = {
         tmp = false,
     },
 } -- the Forsaken
+Data.TitleIds[299] = 299
+Data.Titles[299] = {
+    id      = 299,
+    name    = GetTitleName(299):gsub("^%s*(.-)%s*$", "%1"),
+    filters = {
+        umo = false,
+        pvp = false,
+        are = false,
+        nlo = false,
+        tmp = true,
+    },
+} -- the Grimrail Superplexer
 Data.TitleIds[92] = 92
 Data.Titles[92] = {
     id      = 92,
@@ -1577,6 +1805,18 @@ Data.Titles[108] = {
         tmp = false,
     },
 } -- the Immortal
+Data.TitleIds[290] = 290
+Data.Titles[290] = {
+    id      = 290,
+    name    = GetTitleName(290):gsub("^%s*(.-)%s*$", "%1"),
+    filters = {
+        umo = false,
+        pvp = false,
+        are = false,
+        nlo = false,
+        tmp = false,
+    },
+} -- the Indominable
 Data.TitleIds[112] = 112
 Data.Titles[112] = {
     id      = 112,
@@ -1697,6 +1937,18 @@ Data.Titles[236] = {
         tmp = false,
     },
 } -- the Manipulator
+Data.TitleIds[291] = 291
+Data.Titles[291] = {
+    id      = 291,
+    name    = GetTitleName(291):gsub("^%s*(.-)%s*$", "%1"),
+    filters = {
+        umo = false,
+        pvp = false,
+        are = false,
+        nlo = false,
+        tmp = true,
+    },
+} -- the Mine Master
 Data.TitleIds[122] = 122
 Data.Titles[122] = {
     id      = 122,
@@ -1805,6 +2057,18 @@ Data.Titles[200] = {
         tmp = false,
     },
 } -- the Relic Hunter
+Data.TitleIds[300] = 300
+Data.Titles[300] = {
+    id      = 300,
+    name    = GetTitleName(300):gsub("^%s*(.-)%s*$", "%1"),
+    filters = {
+        umo = false,
+        pvp = false,
+        are = false,
+        nlo = false,
+        tmp = false,
+    },
+} -- the Savage Hero
 Data.TitleIds[206] = 206
 Data.Titles[206] = {
     id      = 206,
@@ -1829,6 +2093,18 @@ Data.Titles[42] = {
         tmp = false,
     },
 } -- the Seeker
+Data.TitleIds[293] = 293
+Data.Titles[293] = {
+    id      = 293,
+    name    = GetTitleName(293):gsub("^%s*(.-)%s*$", "%1"),
+    filters = {
+        umo = false,
+        pvp = false,
+        are = false,
+        nlo = false,
+        tmp = true,
+    },
+} -- the Soul Preserver
 Data.TitleIds[221] = 221
 Data.Titles[221] = {
     id      = 221,
@@ -1901,6 +2177,18 @@ Data.Titles[109] = {
         tmp = false,
     },
 } -- the Undying
+Data.TitleIds[298] = 298
+Data.Titles[298] = {
+    id      = 298,
+    name    = GetTitleName(298):gsub("^%s*(.-)%s*$", "%1"),
+    filters = {
+        umo = false,
+        pvp = false,
+        are = false,
+        nlo = false,
+        tmp = true,
+    },
+} -- the Violet Guardian
 Data.TitleIds[218] = 218
 Data.Titles[218] = {
     id      = 218,
@@ -1997,6 +2285,18 @@ Data.Titles[62] = {
         tmp = false,
     },
 } -- Warbringer
+Data.TitleIds[269] = 269
+Data.Titles[269] = {
+    id      = 269,
+    name    = GetTitleName(269):gsub("^%s*(.-)%s*$", "%1"),
+    filters = {
+        umo = false,
+        pvp = true,
+        are = false,
+        nlo = false,
+        tmp = false,
+    },
+} -- Warlord of Draenor
 Data.TitleIds[142] = 142
 Data.Titles[142] = {
     id      = 142,
@@ -2143,6 +2443,18 @@ if UnitFactionGroup("player") == "Alliance" then
             tmp = false,
         },
     } -- Hero of the Alliance
+    Data.TitleIds[276] = 276
+    Data.Titles[276] = {
+        id      = 276,
+        name    = GetTitleName(276):gsub("^%s*(.-)%s*$", "%1"),
+        filters = {
+            umo = false,
+            pvp = true,
+            are = false,
+            nlo = false,
+            tmp = false,
+        },
+    } -- Huojin's Fall
     Data.TitleIds[35] = 35
     Data.Titles[35] = {
         id      = 35,
@@ -2155,6 +2467,18 @@ if UnitFactionGroup("player") == "Alliance" then
             tmp = false,
         },
     } -- Justicar
+    Data.TitleIds[273] = 273
+    Data.Titles[273] = {
+        id      = 273,
+        name    = GetTitleName(273):gsub("^%s*(.-)%s*$", "%1"),
+        filters = {
+            umo = false,
+            pvp = true,
+            are = false,
+            nlo = false,
+            tmp = false,
+        },
+    } -- Killer of Kezan
     Data.TitleIds[6] = 6
     Data.Titles[6] = {
         id      = 6,
@@ -2395,6 +2719,30 @@ if UnitFactionGroup("player") == "Alliance" then
             tmp = false,
         },
     } -- of the Exodar
+    Data.TitleIds[271] = 271
+    Data.Titles[271] = {
+        id      = 271,
+        name    = GetTitleName(271):gsub("^%s*(.-)%s*$", "%1"),
+        filters = {
+            umo = false,
+            pvp = true,
+            are = false,
+            nlo = false,
+            tmp = false,
+        },
+    } -- Orcslayer
+    Data.TitleIds[288] = 288
+    Data.Titles[288] = {
+        id      = 288,
+        name    = GetTitleName(288):gsub("^%s*(.-)%s*$", "%1"),
+        filters = {
+            umo = false,
+            pvp = false,
+            are = false,
+            nlo = false,
+            tmp = false,
+        },
+    } -- Peacekeeper
     Data.TitleIds[2] = 2
     Data.Titles[2] = {
         id      = 2,
@@ -2407,6 +2755,18 @@ if UnitFactionGroup("player") == "Alliance" then
             tmp = false,
         },
     } -- Porporal
+    Data.TitleIds[283] = 283
+    Data.Titles[283] = {
+        id      = 283,
+        name    = GetTitleName(283):gsub("^%s*(.-)%s*$", "%1"),
+        filters = {
+            umo = false,
+            pvp = false,
+            are = false,
+            nlo = false,
+            tmp = false,
+        },
+    } -- Prelate
     Data.TitleIds[1] = 1
     Data.Titles[1] = {
         id      = 1,
@@ -2479,6 +2839,78 @@ if UnitFactionGroup("player") == "Alliance" then
             tmp = false,
         },
     } -- Sergeant Major
+    Data.TitleIds[275] = 275
+    Data.Titles[275] = {
+        id      = 275,
+        name    = GetTitleName(275):gsub("^%s*(.-)%s*$", "%1"),
+        filters = {
+            umo = false,
+            pvp = true,
+            are = false,
+            nlo = false,
+            tmp = false,
+        },
+    } -- Slayer of the Sin'Dorei
+    Data.TitleIds[286] = 286
+    Data.Titles[286] = {
+        id      = 286,
+        name    = GetTitleName(286):gsub("^%s*(.-)%s*$", "%1"),
+        filters = {
+            umo = false,
+            pvp = true,
+            are = false,
+            nlo = false,
+            tmp = false,
+        },
+    } -- Sword of Wrynn
+    Data.TitleIds[280] = 280
+    Data.Titles[280] = {
+        id      = 280,
+        name    = GetTitleName(280):gsub("^%s*(.-)%s*$", "%1"),
+        filters = {
+            umo = false,
+            pvp = true,
+            are = false,
+            nlo = false,
+            tmp = false,
+        },
+    } -- Tarren Mill Terror
+    Data.TitleIds[270] = 270
+    Data.Titles[270] = {
+        id      = 270,
+        name    = GetTitleName(270):gsub("^%s*(.-)%s*$", "%1"),
+        filters = {
+            umo = false,
+            pvp = true,
+            are = false,
+            nlo = false,
+            tmp = false,
+        },
+    } -- the Butcher
+    Data.TitleIds[259] = 259
+    Data.Titles[259] = {
+        id      = 259,
+        name    = GetTitleName(259):gsub("^%s*(.-)%s*$", "%1"),
+        filters = {
+            umo = false,
+            pvp = false,
+            are = false,
+            nlo = false,
+            tmp = false,
+        },
+    } -- the Commandojack
+    Data.TitleIds[272] = 272
+    Data.Titles[272] = {
+        id      = 272,
+        name    = GetTitleName(272):gsub("^%s*(.-)%s*$", "%1"),
+        filters = {
+            umo = false,
+            pvp = true,
+            are = false,
+            nlo = false,
+            tmp = false,
+        },
+    } -- the Death Stalker
     Data.TitleIds[230] = 230
     Data.Titles[230] = {
         id      = 230,
@@ -2491,6 +2923,18 @@ if UnitFactionGroup("player") == "Alliance" then
             tmp = false,
         },
     } -- the Hordebreaker
+    Data.TitleIds[274] = 274
+    Data.Titles[274] = {
+        id      = 274,
+        name    = GetTitleName(274):gsub("^%s*(.-)%s*$", "%1"),
+        filters = {
+            umo = false,
+            pvp = true,
+            are = false,
+            nlo = false,
+            tmp = false,
+        },
+    } -- Troll Hunter
     Data.TitleIds[152] = 152
     Data.Titles[152] = {
         id      = 152,
@@ -2614,6 +3058,18 @@ if UnitFactionGroup("player") == "Horde" then
             tmp = false,
         },
     } -- Darkspear Revolutionary
+    Data.TitleIds[267] = 267
+    Data.Titles[267] = {
+        id      = 267,
+        name    = GetTitleName(267):gsub("^%s*(.-)%s*$", "%1"),
+        filters = {
+            umo = false,
+            pvp = true,
+            are = false,
+            nlo = false,
+            tmp = false,
+        },
+    } -- Draenei Destroyer
     Data.TitleIds[19] = 19
     Data.Titles[19] = {
         id      = 19,
@@ -2674,6 +3130,18 @@ if UnitFactionGroup("player") == "Horde" then
             tmp = false,
         },
     } -- General
+    Data.TitleIds[263] = 263
+    Data.Titles[263] = {
+        id      = 263,
+        name    = GetTitleName(263):gsub("^%s*(.-)%s*$", "%1"),
+        filters = {
+            umo = false,
+            pvp = true,
+            are = false,
+            nlo = false,
+            tmp = false,
+        },
+    } -- Gnomebane
     Data.TitleIds[16] = 16
     Data.Titles[16] = {
         id      = 16,
@@ -2794,6 +3262,18 @@ if UnitFactionGroup("player") == "Horde" then
             tmp = false,
         },
     } -- Lieutenant General
+    Data.TitleIds[287] = 287
+    Data.Titles[287] = {
+        id      = 287,
+        name    = GetTitleName(287):gsub("^%s*(.-)%s*$", "%1"),
+        filters = {
+            umo = false,
+            pvp = false,
+            are = false,
+            nlo = false,
+            tmp = false,
+        },
+    } -- Masked Chuckler
     Data.TitleIds[117] = 117
     Data.Titles[117] = {
         id      = 117,
@@ -2830,6 +3310,18 @@ if UnitFactionGroup("player") == "Horde" then
             tmp = false,
         },
     } -- of Silvermoon
+    Data.TitleIds[282] = 282
+    Data.Titles[282] = {
+        id      = 282,
+        name    = GetTitleName(282):gsub("^%s*(.-)%s*$", "%1"),
+        filters = {
+            umo = false,
+            pvp = false,
+            are = false,
+            nlo = false,
+            tmp = false,
+        },
+    } -- of the Frostwolves
     Data.TitleIds[95] = 95
     Data.Titles[95] = {
         id      = 95,
@@ -2866,6 +3358,18 @@ if UnitFactionGroup("player") == "Horde" then
             tmp = false,
         },
     } -- of Thunder Bluff
+    Data.TitleIds[266] = 266
+    Data.Titles[266] = {
+        id      = 266,
+        name    = GetTitleName(266):gsub("^%s*(.-)%s*$", "%1"),
+        filters = {
+            umo = false,
+            pvp = true,
+            are = false,
+            nlo = false,
+            tmp = false,
+        },
+    } -- Scourge of the Kaldorei
     Data.TitleIds[15] = 15
     Data.Titles[15] = {
         id      = 15,
@@ -2938,6 +3442,30 @@ if UnitFactionGroup("player") == "Horde" then
             tmp = false,
         },
     } -- Sergeant
+    Data.TitleIds[281] = 281
+    Data.Titles[281] = {
+        id      = 281,
+        name    = GetTitleName(281):gsub("^%s*(.-)%s*$", "%1"),
+        filters = {
+            umo = false,
+            pvp = true,
+            are = false,
+            nlo = false,
+            tmp = false,
+        },
+    } -- Southshore Slayer
+    Data.TitleIds[285] = 285
+    Data.Titles[285] = {
+        id      = 285,
+        name    = GetTitleName(285):gsub("^%s*(.-)%s*$", "%1"),
+        filters = {
+            umo = false,
+            pvp = true,
+            are = false,
+            nlo = false,
+            tmp = false,
+        },
+    } -- Spear of Vol'Jin
     Data.TitleIds[20] = 20
     Data.Titles[20] = {
         id      = 20,
@@ -2962,6 +3490,54 @@ if UnitFactionGroup("player") == "Horde" then
             tmp = false,
         },
     } -- Stone Guard
+    Data.TitleIds[268] = 268
+    Data.Titles[268] = {
+        id      = 268,
+        name    = GetTitleName(268):gsub("^%s*(.-)%s*$", "%1"),
+        filters = {
+            umo = false,
+            pvp = true,
+            are = false,
+            nlo = false,
+            tmp = false,
+        },
+    } -- Terror of the Tushui
+    Data.TitleIds[264] = 264
+    Data.Titles[264] = {
+        id      = 264,
+        name    = GetTitleName(264):gsub("^%s*(.-)%s*$", "%1"),
+        filters = {
+            umo = false,
+            pvp = true,
+            are = false,
+            nlo = false,
+            tmp = false,
+        },
+    } -- the Dwarfstalker
+    Data.TitleIds[262] = 262
+    Data.Titles[262] = {
+        id      = 262,
+        name    = GetTitleName(262):gsub("^%s*(.-)%s*$", "%1"),
+        filters = {
+            umo = false,
+            pvp = true,
+            are = false,
+            nlo = false,
+            tmp = false,
+        },
+    } -- the Manslayer
+    Data.TitleIds[258] = 258
+    Data.Titles[258] = {
+        id      = 258,
+        name    = GetTitleName(258):gsub("^%s*(.-)%s*$", "%1"),
+        filters = {
+            umo = false,
+            pvp = false,
+            are = false,
+            nlo = false,
+            tmp = false,
+        },
+    } -- Timer Lord
     Data.TitleIds[153] = 153
     Data.Titles[153] = {
         id      = 153,
@@ -3010,11 +3586,25 @@ if UnitFactionGroup("player") == "Horde" then
             tmp = false,
         },
     } -- Warlord
+    Data.TitleIds[265] = 265
+    Data.Titles[265] = {
+        id      = 265,
+        name    = GetTitleName(265):gsub("^%s*(.-)%s*$", "%1"),
+        filters = {
+            umo = false,
+            pvp = true,
+            are = false,
+            nlo = false,
+            tmp = false,
+        },
+    } -- Worgen Hunter
 end
 
 L["title_98"] = "Reward for getting exalted with each city of your faction."
+L["title_260"] = "Reward from Achievement 'Garrison Architect'."
 L["title_61"] = "Realm first level 80 Mage. Removed in early WotLK Beta."
 L["title_50"] = "Reward from the arena achievement 'The Arena Master'."
+L["title_305"] = "Obtain 700 skill points in a profession."
 L["title_63"] = "Realm first level 80 Rogue. Removed in early WotLK Beta."
 L["title_148"] = "Reward for finding one rare artifact in Archeology"
 L["title_149"] = "Reward for finding 10 rare artifacts in Archeology"
@@ -3023,6 +3613,7 @@ L["title_139"] = "Reward for defeating the Lich King in 10-player mode on heroic
 L["title_41"] = "Reward from the PvP achievement 'Battlemaster'."
 L["title_187"] = "Reward for defeating Nefarian in Blackwing Descent on heroic difficulty"
 L["title_146"] = "Temporary title while on the quest for Dragonwrath, Tarecgosa's Rest"
+L["title_261"] = "Reward from Quest 'The Champion of Blood'"
 L["title_21"] = "The title was originally awarded as part of the PvP ranking system and is no longer obtainable."
 L["title_174"] = "Reward for reaching a rated battleground rating of 1700"
 L["title_111"] = "Reward for gaining exalted reputation with the Bloodsail Buccaneers."
@@ -3046,6 +3637,7 @@ L["title_34"] = "Obtained by gaining exalted reputation with  Frostwolf Clan, Th
 L["title_90"] = "Awarded to participant in the realm first defeat of Kel'Thuzad in Naxxramas in 25-player mode. "
 L["title_211"] = "Defeat Garrosh Hellscream in Siege of Orgrimmar on Normal or Heroic difficulty"
 L["title_126"] = "Reward for defeating each boss in Ulduar in 25-player mode without allowing any raid member to die to that boss at any point during that raid lockout period."
+L["title_284"] = "Earn Exalted status with the Steamwheedle Perservation Society."
 L["title_155"] = "Reward for reaching a rated battleground rating of 1200"
 L["title_123"] = "Reward for earning the right to represent every city of you faction in the Argent Tournament as well as beeing exalted with them and the Argent Crusade."
 L["title_245"] = "Reward for holding realm best time in challange mode 'Scholomance'. Removed if someone is faster than you."
@@ -3056,10 +3648,13 @@ L["title_185"] = "Reward for completing all Cataclysm 4.0 dungeons on heroic dif
 L["title_241"] = "Reward for holding realm best time in challange mode 'Gate of the Setting Sun'. Removed if someone is faster than you."
 L["title_204"] = "Defeat the Will of the Emperor in Mogu'shan Vaults on Heroic difficulty."
 L["title_196"] = "Reward for defeating Deathwing on normal difficulty."
+L["title_292"] = "Attain a realm-best time for the Iron Docks Challenge Mode."
 L["title_69"] = "Realm first First Aid skill 450. Removed in early WotLK Beta."
+L["title_267"] = "Complete the quest Nemesis: Draenei Destroyer at the Gladiator's Sanctum."
 L["title_186"] = "Reward for defeating Sinestra in the Bastion of Twilight on heroic difficulty"
 L["title_30"] = "Awarded per battlegroup at the end of a season based on top ranked percentage. Top 0.5% - 3%."
 L["title_43"] = "Reward from the world event achievement 'To Honor One's Elders'."
+L["title_304"] = "Complete the Imperator Mar'gok encounter in Highmaul on Mythic difficulty."
 L["title_195"] = "Exalted repuation with the Tillers."
 L["title_13"] = "The title was originally awarded as part of the PvP ranking system and is no longer obtainable."
 L["title_166"] = "Reward for reaching a rated battleground rating of 2300"
@@ -3074,6 +3669,7 @@ L["title_132"] = "Awarded per battlegroup at the end of arena season 6 based on 
 L["title_26"] = "The title was originally awarded as part of the PvP ranking system and is no longer obtainable."
 L["title_179"] = "Reward for reaching a rated battleground rating of 2200"
 L["title_29"] = "Awarded per battlegroup at the end of a season based on top ranked percentage. Top 0.0% - 0.5%."
+L["title_263"] = "Complete the quest Nemesis: Gnomebane at the Gladiator's Sanctum."
 L["title_229"] = "Reward for 'Master of Deepwind Gorge' achievement."
 L["title_135"] = "Reward for realm first conquest of the Trial of the Grand Crusader with 50 attempts remaining in 25-player mode"
 L["title_14"] = "The title was originally awarded as part of the PvP ranking system and is no longer obtainable."
@@ -3103,11 +3699,14 @@ L["title_182"] = "Reward for ending PvP season 9 in the top 0.5% bracket."
 L["title_183"] = "Reward for ending PvP season 9 in the top 0.5% bracket."
 L["title_28"] = "The title was originally awarded as part of the PvP ranking system and is no longer obtainable."
 L["title_181"] = "Reward for reaching a rated battleground rating of 2400"
+L["title_276"] = "Complete the quest Nemesis: Huojin's Fall at the Gladiator's Sanctum."
 L["title_66"] = "Reward for obtaining 200 cooking recipes."
+L["title_301"] = "Defeat Warlord Blackhand in Blackrock Foundry on Mythic difficulty."
 L["title_249"] = "Reward for holding realm best time in challange mode 'Temple of the Jade Serpent'. Removed if someone is faster than you."
 L["title_110"] = "Reward for killing 50 rookery whelps within 15 seconds in Upper Blackrock Spire."
 L["title_35"] = "Obtained by gaining exalted reputation with Silverwing Sentinels, the League of Arathor, Stormpike Guard."
 L["title_220"] = "Reward for pvp achievement 'Kahn' which required you to complete the master achievements for following battlegrounds: Battle for Gilneas, Isle of Conquest, Twin Peaks, Silvershard Mines, Temple of Kotmogu."
+L["title_273"] = "Complete the quest Nemesis: Killer of Kezan at the Gladiator's Sanctum."
 L["title_6"] = "The title was originally awarded as part of the PvP ranking system and is no longer obtainable."
 L["title_7"] = "The title was originally awarded as part of the PvP ranking system and is no longer obtainable."
 L["title_8"] = "The title was originally awarded as part of the PvP ranking system and is no longer obtainable."
@@ -3116,7 +3715,9 @@ L["title_159"] = "Reward for reaching a rated battleground rating of 1600"
 L["title_160"] = "Reward for reaching a rated battleground rating of 1700"
 L["title_161"] = "Reward for reaching a rated battleground rating of 1800"
 L["title_162"] = "Reward for reaching a rated battleground rating of 1900"
-L["title_306"] = "Reward for completing the Blasted Lands invasion quests before the Assault on the Dark Portal begins."
+L["title_297"] = "Attain a realm-best time for the Upper Blackrock Spire Challenge Mode."
+L["title_303"] = "Become the last gladiator standing at the Highmaul Coliseum."
+L["title_306"] = "Work with Wrathion to create your legendary-quality cloak and complete his quest to defeat Garrosh Hellscream."
 L["title_22"] = "The title was originally awarded as part of the PvP ranking system and is no longer obtainable."
 L["title_175"] = "Reward for reaching a rated battleground rating of 1800"
 L["title_212"] = "Defeat Garrosh Hellscream in Siege of Orgrimmar on Normal or Heroic difficulty"
@@ -3124,16 +3725,21 @@ L["title_10"] = "The title was originally awarded as part of the PvP ranking sys
 L["title_163"] = "Reward for reaching a rated battleground rating of 2000"
 L["title_25"] = "The title was originally awarded as part of the PvP ranking system and is no longer obtainable."
 L["title_178"] = "Reward for reaching a rated battleground rating of 2100"
+L["title_296"] = "Attain a realm-best time for the Upper Blackrock Spire Challenge Mode."
+L["title_302"] = "Become the last gladiator standing at the Highmaul Coliseum."
 L["title_93"] = "Reward for from the 'Loremaster' achievement for completing almost all quests in all zones."
+L["title_257"] = "Place 50 Work Orders at the Lumber Mill."
 L["title_223"] = "Awarded per battlegroup at the end of arena season 12 based on top ranked percentage. Top 0.0% - 0.5%."
 L["title_12"] = "The title was originally awarded as part of the PvP ranking system and is no longer obtainable."
 L["title_165"] = "Reward for reaching a rated battleground rating of 2200"
+L["title_287"] = "Earn Exalted status with Laughing Skull Orcs."
 L["title_202"] = "Raise your cooking to 600 and complete Master of Pandaren Cooking."
 L["title_4"] = "The title was originally awarded as part of the PvP ranking system and is no longer obtainable."
 L["title_157"] = "Reward for reaching a rated battleground rating of 1400"
 L["title_104"] = "Reward for completing the Children's Week holiday achievements. Only applies to female characters."
 L["title_37"] = "Awarded per battlegroup at the end of arena season 2 based on top ranked percentage. Top 0.0% - 0.5%."
 L["title_102"] = "Reward for completing the Winter's Veil holiday achievements."
+L["title_255"] = "Attained one or more realm-best times during the Mists of Pandaria Challenge Mode season."
 L["title_242"] = "Reward for holding realm best time in challange mode 'Mogushan Palace'. Removed if someone is faster than you."
 L["title_106"] = "Reward for realm first defeat of Sartharion the Onyx Guardian in 25-player mode."
 L["title_79"] = "Realm first level 80 Draenei. Removed in early WotLK Beta."
@@ -3153,16 +3759,20 @@ L["title_60"] = "Realm first level 80 Death Knight. Removed in early WotLK Beta.
 L["title_55"] = "Realm first level 80 Druid. Removed in early WotLK Beta."
 L["title_113"] = "Reward for earning the right to represent the Exodar in the Argent Tournament."
 L["title_151"] = "Reward for defeating Al'Akir in Throne of the Four Winds on heroic difficulty"
+L["title_282"] = "Earn Exalted status with the Frostwolf Orcs."
 L["title_95"] = "Reward for reaching 100.000 honorable kills."
-L["title_289"] = "Reward for completing Chapter V: Judgment of the Black Prince quest before Warlords of Draenor."
+L["title_289"] = "Complete the Blasted Lands invasion quests before the Assault on the Dark Portal begins."
 L["title_107"] = "Reward for defeating Sartharion the Onyx Guardian with all three drakes alive in 10-player mode."
 L["title_38"] = "Awarded after completing the quest 'A Magnanimous Benefactor' after gaining exalted reputation with the Shattered Sun Offensive."
 L["title_54"] = "Realm first level 80 Shaman. Removed in early WotLK Beta."
 L["title_121"] = "Reward for earning the right to represent the Undercity in the Argent Tournament."
 L["title_120"] = "Reward for earning the right to represent Thunder Bluff in the Argent Tournament."
+L["title_271"] = "Complete the quest Nemesis: Orcslayer at the Gladiator's Sanctum."
 L["title_105"] = "Reward for completing the Children's Week holiday achievements. Only applies to male characters."
+L["title_288"] = "Earn Exalted status with the Shat'tari Defense"
 L["title_85"] = "Realm first level 80 Tauren. Removed in early WotLK Beta."
 L["title_2"] = "The title was originally awarded as part of the PvP ranking system and is no longer obtainable."
+L["title_283"] = "Earn Exalted status with the Council of Exarchs."
 L["title_254"] = "Awarded per battlegroup at the end of arena season 15 based on top ranked percentage. Top 0.0% - 0.5%."
 L["title_1"] = "The title was originally awarded as part of the PvP ranking system and is no longer obtainable."
 L["title_154"] = "Reward for reaching a rated battleground rating of 1100"
@@ -3176,6 +3786,8 @@ L["title_51"] = "Reward from the fishing achievement 'Accomplished Angler'."
 L["title_194"] = "Reward for defeating Deathwing on heroic difficulty."
 L["title_33"] = "The title was originally awarded when opening the gates to Ahn'Qiraj and is no longer obtainable."
 L["title_244"] = "Reward for holding realm best time in challange mode 'Scarlet Monastery'. Removed if someone is faster than you."
+L["title_294"] = "Attain a realm-best time for the Skyreach Challenge Mode."
+L["title_266"] = "Complete the quest Nemesis: Scourge of the Kaldorei at the Gladiator's Sanctum."
 L["title_15"] = "The title was originally awarded as part of the PvP ranking system and is no longer obtainable."
 L["title_168"] = "Reward for reaching a rated battleground rating of 1100"
 L["title_208"] = "Reward for 'The Seat of Knowledge' restoring and displaying pristine versions of all Pandaren and Mogu artifacts."
@@ -3190,34 +3802,50 @@ L["title_158"] = "Reward for reaching a rated battleground rating of 1500"
 L["title_205"] = "Complete The Shado-Master, doing a bunch of achievements tied to dailies with Shado-Pan, similar to The Flamebreaker from the Molten Front."
 L["title_247"] = "Reward for holding realm best time in challange mode 'Siege of Niuzao Temple'. Removed if someone is faster than you."
 L["title_147"] = "Temporary title earned in Blackwing Descent"
+L["title_275"] = "Complete the quest Nemesis: Slayer of the Sin'Dorei at the Gladiator's Sanctum."
+L["title_281"] = "Win a battle in the 10th Anniversary battleground, Southshore vs. Tarren Mill."
+L["title_285"] = "Earn Exalted status with Vol'jins Spear."
+L["title_295"] = "Attain a realm-best time for the Shadowmoon Burial Grounds Challenge Mode."
+L["title_277"] = "Defeat all mount-in-training targets in Nagrand while carrying the Garn-Tooth Necklace."
 L["title_59"] = "Realm first level 80 Hunter. Removed in early WotLK Beta."
 L["title_129"] = "Reward for defeating Algalon the Observer in 10-player mode."
 L["title_20"] = "The title was originally awarded as part of the PvP ranking system and is no longer obtainable."
 L["title_173"] = "Reward for reaching a rated battleground rating of 1600"
 L["title_222"] = "Reward for defeating Lei Shen in the Throne of Thunder raid on heroic difficulty"
 L["title_248"] = "Reward for holding realm best time in challange mode 'Stormstour Brewery'. Removed if someone is faster than you."
+L["title_286"] = "Earn Exalted status with the Sword of Wrynn."
+L["title_278"] = "Complete the Terokk's Legacy storyline and earn Exalted status with the Arakkoa Outcasts."
+L["title_279"] = "Complete the Terokk's Legacy storyline and earn Exalted status with the Arakkoa Outcasts."
 L["title_207"] = "Reward for defeating all 40 of the Pet Tamers across Azeroth."
+L["title_280"] = "Win a battle in the 10th Anniversary battleground, Southshore vs. Tarren Mill."
+L["title_268"] = "Complete the quest Nemesis: Terror of the Tushui at the Gladiator's Sanctum."
 L["title_99"] = "Reward for getting exalted with the Argent Dawn and the Argent Crusade."
 L["title_136"] = "Reward for meet the criteria for A Tribute to Insanity without any raid member having used an item only obtainable from 25-player Coliseum, or any more powerful item"
 L["title_130"] = "Reward for defeating Algalon the Observer in 25-player mode."
 L["title_197"] = "Raise 70 reputations to Exalted."
 L["title_232"] = "Unknown method of obtaining."
 L["title_184"] = "Reward for reaching 250.000 honorable kills."
+L["title_270"] = "Complete the quest Nemesis: The Butcher at the Gladiator's Sanctum."
 L["title_143"] = "Reward for obtaining the reins of the Grey Riding Camel from Dormus the Camel-Hoarder."
 L["title_125"] = "Reward for realm first Algalon the Observer kill in 25-player mode"
+L["title_259"] = "Place 100 Work Orders at the Lumber Mill."
 L["title_240"] = "Reward for 'Crazy for Cats' achievement wich required you to capture a variety of battle pets."
 L["title_252"] = "Reward for 'Crazy for Cats' achievement wich required you to capture a variety of battle pets."
+L["title_272"] = "Complete the quest Nemesis: Death Stalker at the Gladiator's Sanctum."
 L["title_48"] = "Obtained by gaining exalted reputation with Timbermaw Hold, Sporeggar and the Kurenai(Alliance)/Mag'har(Horde).  "
 L["title_237"] = "Unknown method of obtaining."
+L["title_264"] = "Complete the quest Nemesis: Dwarfstalker at the Gladiator's Sanctum."
 L["title_46"] = "Obtained by gaining 55 exalted reputations"
 L["title_47"] = "Reward from the exploration achievement 'World Explorer'."
 L["title_198"] = "Complete Heroic: Sha of Fear in Terrace of Endless Spring."
 L["title_189"] = "Reward for completing all special achievements of the Molten Front 'Veteran of the Molten Front' achievement."
 L["title_96"] = "Reward for winning 10 ranked matches in a row with a rating above 2.000 at level 80. Removed in patch 3.1.0"
 L["title_87"] = "Realm first level 80 Undead. Removed in early WotLK Betav"
+L["title_299"] = "Attain a realm-best time for the Grimrail Depot Challenge Mode."
 L["title_92"] = "Reward for completing all Hallow's End holiday achievements."
 L["title_230"] = "Complete the Vol'jin's troll uprising questline."
 L["title_108"] = "Reward for defeating all the bosses in Naxxramas on heroic, during one lockout period, without any raid members dying during any of the boss encounters in 25-player mode."
+L["title_290"] = "Complete every Challenge Mode dungeon from the Warlords of Draenor expansion with a rating of Bronze or better."
 L["title_112"] = "Reward for gaining exalted reputation with the Bloodsail Buccaneers, Darkmoon Faire, Gadgetzan, Booty Bay, Everlook, Ratchet, Ravenholdt"
 L["title_140"] = "Reward for defeating every Boss in Icecrown Citadel"
 L["title_138"] = "Reward for defeating the Lich King in 25-player mode on heroic difficulty"
@@ -3228,6 +3856,8 @@ L["title_238"] = "Unknown method of obtaining."
 L["title_88"] = "Reward for realm first defeat of Malygos in 25-player mode."
 L["title_58"] = "Realm first level 80 Warlock. Removed in early WotLK Beta."
 L["title_236"] = "Unknown method of obtaining."
+L["title_262"] = "Complete the quest Nemesis: Manslayer at the Gladiator's Sanctum."
+L["title_291"] = "Attain a realm-best time for the Bloodmaul Slag Mines Challenge Mode."
 L["title_122"] = "Reward for completing the Noblegarden holiday achievements."
 L["title_137"] = "Reward for using the Dungeon Finder tool to finish random heroic dungeons until you have grouped with 50 random players total"
 L["title_133"] = "Reward for completing the Pilgrim's Bounty holiday achievements"
@@ -3237,17 +3867,22 @@ L["title_215"] = "Successfully complete Wave 30 of the Basic Damage (Endless) tr
 L["title_216"] = "Successfully complete Wave 30 of the Basic Tank(Endless) trial at the Proving Grounds"
 L["title_219"] = "Successfully complete Wave 30 of the Basic Healer(Endless) trial at the Proving Grounds"
 L["title_200"] = "Reward from  'Is Another Man's Treasure'. In addition to rare spawns bringing quirky flavor to MoP, there are rare objects hidden around Pandaria too like Blade of the Prime. Finding 20 of these will net you this title."
+L["title_300"] = "Reward from Achievement 'Savage Hero'."
 L["title_206"] = "Reward for completing 'Scenaterday/ Scenaterday' doing all the MoP Scenarios on a Saturday."
 L["title_42"] = "Awarded after gaining '3000 Quests Completed' achievement."
+L["title_293"] = "Attain a realm-best time for the Auchindon Challenge Mode."
 L["title_221"] = "Reward for completing all Isle of Giants achievements."
 L["title_53"] = "Realm first level 80 Warrior. Removed in early WotLK Beta."
 L["title_234"] = "Unknown method of obtaining."
 L["title_203"] = "From Tranquil Master, requiring players to kill all the Sha-themed NPCs."
 L["title_201"] = "From Challenge Conqueror: Bronze, completing every Challenge Mode with a rating of Bronze or better."
 L["title_109"] = "Reward for defeating all the bosses in Naxxramas on heroic, during one lockout period, without any raid members dying during any of the boss encounters in 10-player mode."
+L["title_298"] = "Attain a realm-best time for the Everbloom Challenge Mode."
 L["title_218"] = "Reward for reaching exalted reputation with the Klaxxi and completing 'Amber is the Color of My Energy' achievement for recovering all paragons."
 L["title_239"] = "Unknown method of obtaining."
+L["title_258"] = "Place 100 Work Orders at the Lumber Mill."
 L["title_227"] = "Reward for 'Deadly Pet Brawler' win 1000 PvP pet battles through Find Battle with a full team of level 25 pets."
+L["title_274"] = "Complete the quest Nemesis: Troll Hunter at the Gladiator's Sanctum."
 L["title_89"] = "Reward from the achievement 'The Twilight Zone (25 player)'."
 L["title_128"] = "Reward for beeing in the top 1.000 players in the 2009 Arena Season."
 L["title_40"] = "Awarded per battlegroup at the end of arena season 3 based on top ranked percentage. Top 0.0% - 0.5%."
@@ -3259,5 +3894,7 @@ L["title_62"] = "Reward for winning 300 rated battlegrounds."
 L["title_144"] = "Reward for winning 300 rated battleground"
 L["title_27"] = "The title was originally awarded as part of the PvP ranking system and is no longer obtainable."
 L["title_180"] = "Reward for reaching a rated battleground rating of 2300"
+L["title_269"] = "Complete all of the Nemesis quests at the Gladiator's Sanctum and the quest Fight, Kill, Salute! at the Highmaul Coliseum."
+L["title_265"] = "Complete the quest Nemesis: Worgen Hunter at the Gladiator's Sanctum."
 L["title_142"] = "Awarded per battlegroup at the end of arena season 8 based on top ranked percentage. Top 0.0% - 0.5%."
 L["title_199"] = "Reward from 'World Safari'- - Catch every battle pet"
