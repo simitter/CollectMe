@@ -1,3 +1,7 @@
+## 2.6.2
+* Fixed ground/flying mounts for Draenor zones
+* Fixed collected information in companion tooltips
+
 ## 2.6.1
 * Fixed LDB display not updating when learning a new toy
 * Added Warlords of Draenor titles
