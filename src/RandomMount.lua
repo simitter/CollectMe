@@ -42,6 +42,12 @@ function CollectMe.RandomMount:Summon(type)
         local zone_mounts, type_mounts, fallback_mounts = {}, {}, {}
         local zone_id, is_swimming, is_flyable_area = CollectMe.ZoneDB:Current(), IsSwimming(), IsFlyableArea()
         local profession_count = #self.professions
+
+        --IsFlyableArea() falsely returns true for Dreanor
+        if(GetCurrentMapContinent() == 7) then
+            is_flyable_area = false
+        end
+
         for i = 1, C_MountJournal.GetNumMounts() do
             local name, spell_id = C_MountJournal.GetMountInfo(i)
 
