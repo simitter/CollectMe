@@ -586,7 +586,7 @@ function CollectMe.MountDB:RefreshKnown(no_message)
 				if not isFactionSpecific or CollectMe.FACTION == "Horde" and faction == 0 or CollectMe.FACTION == "Alliance" and faction == 1 then
 					if CollectMe.db.profile.missing_message.mounts == false and no_message == nil then
 						if not CollectMe:IsInTable(self.mount_spells, spell_id) then
-							CollectMe:Print(CollectMe.L["Mount"] .. " " .. name .. "("..spell_id..") " .. CollectMe.L["is missing"] .. ". " .. CollectMe.L["Please inform the author"])
+							--CollectMe:Print(CollectMe.L["Mount"] .. " " .. name .. "("..spell_id..") " .. CollectMe.L["is missing"] .. ". " .. CollectMe.L["Please inform the author"])
 						end
 					end
 				end
