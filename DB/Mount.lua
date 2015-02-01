@@ -1,7 +1,10 @@
 local CollectMe = LibStub("AceAddon-3.0"):GetAddon("CollectMe")
 local MountDB = CollectMe:NewModule("MountDB", "AceEvent-3.0")
 
+local loaded = false
 local collected, missing, info, filters  = {}, {}, {}, {}
+
+MountDB.GROUND, MountDB.FLY, MountDB.SWIM, MountDB.AQUATIC = 1, 2, 3, 4
 
 local function getInfoFromApiType(api_type)
     if api_type == 231 then
@@ -65,15 +68,14 @@ local function companionLearned(_, type)
 end
 
 function MountDB:OnInitialize()
-    for i=1,C_PetJournal.GetNumPetSources() do
-        filters[i] = true
-    end
-
-    MountDB.GROUND, MountDB.FLY, MountDB.SWIM, MountDB.AQUATIC = 1, 2, 3, 4
-
-    update()
-
     MountDB:RegisterEvent("COMPANION_LEARNED", companionLearned)
+end
+
+function MountDB:OnEnable()
+    if loaded == false then
+        loaded = true
+        update()
+    end
 end
 
 function MountDB:Get()
