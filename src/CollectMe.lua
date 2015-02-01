@@ -41,7 +41,6 @@ local defaults = {
             }
         },
         missing_message = {
-            mounts = false,
             titles = false
         },
         hide_ignore = {
@@ -478,7 +477,6 @@ function CollectMe:BuildOptions()
     self.UI:AddToFilter(self.UI:CreateHeading(self.L["Options"]))
 
     if self.UI.active_group == self.MOUNT then
-        self.UI:CreateFilterCheckbox(self.L["Disable missing mount message"], self.db.profile.missing_message.mounts, { OnValueChanged = function (container, event, value) self.db.profile.missing_message.mounts = value end }, 2)
         self.UI:CreateFilterCheckbox(self.L["Hide ignored list"], self.db.profile.hide_ignore.mounts, { OnValueChanged = function (container, event, value) self.db.profile.hide_ignore.mounts = value; self.UI:ReloadScroll() end })
     elseif self.UI.active_group == self.TITLE then
         self.UI:CreateFilterCheckbox(self.L["Disable missing title message"], self.db.profile.missing_message.titles, { OnValueChanged = function (container, event, value) self.db.profile.missing_message.titles = value end })

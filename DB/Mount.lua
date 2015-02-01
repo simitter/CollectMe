@@ -3,8 +3,6 @@ local MountDB = CollectMe:NewModule("MountDB", "AceEvent-3.0")
 
 local collected, missing, info, filters  = {}, {}, {}, {}
 
---COMPANION_LEARNED
-
 local function getInfoFromApiType(api_type)
     if api_type == 231 then
         return MountDB.SWIM

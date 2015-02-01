@@ -23,7 +23,6 @@ L["tooltip_preview"] = "Left click to see a model preview"
 L["tooltip_link"] = "Shift + Left click to link into chat"
 L["tooltip_toggle"] = "Ctrl + Right click to add/remove from ignore list"
 L["Options"] = true
-L["Disable missing mount message"] = true
 L["Disable missing title message"] = true
 L["Mount"] = true
 L["Title"] = true
