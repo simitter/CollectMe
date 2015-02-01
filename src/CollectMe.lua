@@ -235,20 +235,14 @@ function CollectMe:BuildRandomList()
     local count = 0
     local search = self.UI:GetSearchText():lower()
 	local mounts_to_add = {}
+	local MountDB = CollectMe:GetModule("MountDB")
+    local collected, _, infos = MountDB:Get()
 
-    for i = 1, C_MountJournal.GetNumMounts(), 1 do
-        local name, spell_id, _, _, _, _, _, isFactionSpecific, faction, _, isCollected = C_MountJournal.GetMountInfo(i)
-		if isCollected then
-			if not faction then
-				faction = -1
-			end
-			if not isFactionSpecific or CollectMe.FACTION == "Horde" and faction == 0 or CollectMe.FACTION == "Alliance" and faction == 1 then
-				if name:lower():find(search) ~= nil then
-					table.insert(mounts_to_add, spell_id);
-					count = count + 1;
-				end
-			end
-		end
+    for _, id in pairs(collected) do
+        if infos[id].name:lower():find(search) ~= nil then
+            table.insert(mounts_to_add, id);
+            count = count + 1;
+        end
     end
 	self.UI:AddToScroll(self.UI:CreateHeading(self.L["Available mounts"] ..  " - " .. count))
 	
@@ -260,28 +254,26 @@ end
 
 function CollectMe:BuildMissingMountList()
     local MountDB = CollectMe:GetModule("MountDB")
-    local mounts, infos = MountDB:Get()
+    local collected, missing, infos = MountDB:Get()
 
     local active, ignored = {}, {}
-    local all_count, known_count, filter_count = #mounts, 0, 0
+    local all_count, known_count, filter_count = #missing + #collected, #collected, 0
     local zones = self:CloneTable(self.db.profile.filters.mounts.zones)
     if self.db.profile.filters.mounts.czo == true then
         table.insert(zones, self.ZoneDB:Current())
     end
 
-    for i,v in pairs(mounts) do
-        if (self.UI.active_group == self.MOUNT and not infos[v].known and (#zones == 0 or MountDB:ObtainableInZone(v.id, zones))) then
-            if self:IsInTable(self.ignored_db, v) then
-                table.insert(ignored, infos[v])
+    for _,id in pairs(missing) do
+        if (self.UI.active_group == self.MOUNT and not infos[id].collected and (#zones == 0 or MountDB:ObtainableInZone(v.id, zones))) then
+            if self:IsInTable(self.ignored_db, id) then
+                table.insert(ignored, infos[id])
             else
                 --if not self:IsFiltered(v.filters) then
-                    table.insert(active, infos[v])
+                    table.insert(active, infos[id])
                 --else
                 --    filter_count = filter_count + 1
                 --end
             end
-        else
-            known_count = known_count +1
         end
     end
 
@@ -562,10 +554,10 @@ end
 function CollectMe:ItemRowClick(group, spell_id)
     if self.UI.active_group == self.MOUNT and group == "LeftButton" then
         local MountDB = CollectMe:GetModule("MountDB")
-        local _, infos = MountDB:Get()
+        local _, _, infos = MountDB:Get()
         local mount = infos[spell_id]
         if mount ~= nil then
-            if IsShiftKeyDown() == 1 and mount.link ~= nil then
+            if IsShiftKeyDown() == true and mount.link ~= nil then
                 ChatEdit_InsertLink(mount.link)
             elseif mount.display_id ~= nil then
                 self.ModelPreview:PreviewCreature(mount.display_id)

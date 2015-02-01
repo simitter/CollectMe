@@ -28,15 +28,14 @@
         CollectMe.RandomCompanion:Dismiss()
     </Binding>
     <Binding name="CM_MOUNT">
-        local CollectMe = LibStub("AceAddon-3.0"):GetAddon("CollectMe")
-        CollectMe.RandomMount:Summon()
+        local RandomMount = LibStub("AceAddon-3.0"):GetAddon("CollectMe"):GetModule("RandomMount")
+        RandomMount:Summon()
     </Binding>
     <Binding name="CM_DISMOUNT">
-        local CollectMe = LibStub("AceAddon-3.0"):GetAddon("CollectMe")
         Dismount()
     </Binding>
     <Binding name="CM_GROUND_MOUNT">
-        local CollectMe = LibStub("AceAddon-3.0"):GetAddon("CollectMe")
-        CollectMe.RandomMount:Summon(CollectMe.MountDB.GROUND)
+        local RandomMount = LibStub("AceAddon-3.0"):GetAddon("CollectMe"):GetModule("RandomMount")
+        RandomMount:Summon(CollectMe.MountDB.GROUND)
     </Binding>
 </Bindings>

@@ -1,6 +1,8 @@
 local CollectMe = LibStub("AceAddon-3.0"):GetAddon("CollectMe")
 
 CollectMe.Macro = CollectMe:NewModule("Macro")
+local RandomMount = CollectMe:GetModule("RandomMount")
+local MountDB = CollectMe:GetModule("MountDB")
 
 function CollectMe.Macro:OnEnable()
     self:UpdateMacros()
@@ -39,13 +41,13 @@ function CollectMe.Macro:Mount()
     end
 
     if value == 1 then
-        CollectMe.RandomMount:Summon()
+        RandomMount:Summon()
     elseif value == 2 then
         if IsMounted() then
             Dismount()
         end
     elseif value == 3 then
-        CollectMe.RandomMount:Summon(CollectMe.MountDB.GROUND)
+        RandomMount:Summon(MountDB.GROUND)
     end
 end
 
