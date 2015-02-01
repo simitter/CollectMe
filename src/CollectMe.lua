@@ -155,8 +155,8 @@ function CollectMe:OnInitialize()
 
     self.filter_db = self.db.profile.filters.mounts
     self.ignored_db = self.db.profile.ignored.mounts
-    self.item_list = self.MountDB:Get()
-    self.filter_list = self.MountDB.filters
+    self.item_list = {}
+    self.filter_list = {}
 
     self:RegisterChatCommand("collectme", "SlashProcessor")
     self:RegisterChatCommand("cm", "SlashProcessor")
@@ -165,11 +165,12 @@ function CollectMe:OnInitialize()
 end
 
 function CollectMe:BuildData(no_filters)
+    local MountDB = CollectMe:GetModule('MountDB')
+
     if self.UI.active_group == self.MOUNT then
         self.filter_db = self.db.profile.filters.mounts
         self.ignored_db = self.db.profile.ignored.mounts
-        self.item_list = self.MountDB:Get()
-        self.filter_list = self.MountDB.filters
+        self.filter_list = {}
         self:BuildMissingMountList()
         if not no_filters then
             self:BuildFilters()
@@ -258,25 +259,26 @@ function CollectMe:BuildRandomList()
 end
 
 function CollectMe:BuildMissingMountList()
-    self.MountDB:RefreshKnown()
+    local MountDB = CollectMe:GetModule("MountDB")
+    local mounts, infos = MountDB:Get()
 
     local active, ignored = {}, {}
-    local all_count, known_count, filter_count = #self.item_list, 0, 0
+    local all_count, known_count, filter_count = #mounts, 0, 0
     local zones = self:CloneTable(self.db.profile.filters.mounts.zones)
     if self.db.profile.filters.mounts.czo == true then
         table.insert(zones, self.ZoneDB:Current())
     end
 
-    for i,v in pairs(self.item_list) do
-        if (self.UI.active_group == self.MOUNT and not self.MountDB:IsKnown(v.id) and (#zones == 0 or self.MountDB:ObtainableInZone(v.id, zones))) then
-            if self:IsInTable(self.ignored_db, v.id) then
-                table.insert(ignored, v)
+    for i,v in pairs(mounts) do
+        if (self.UI.active_group == self.MOUNT and not infos[v].known and (#zones == 0 or MountDB:ObtainableInZone(v.id, zones))) then
+            if self:IsInTable(self.ignored_db, v) then
+                table.insert(ignored, infos[v])
             else
-                if not self:IsFiltered(v.filters) then
-                    table.insert(active, v)
-                else
-                    filter_count = filter_count + 1
-                end
+                --if not self:IsFiltered(v.filters) then
+                    table.insert(active, infos[v])
+                --else
+                --    filter_count = filter_count + 1
+                --end
             end
         else
             known_count = known_count +1
@@ -559,7 +561,9 @@ end
 
 function CollectMe:ItemRowClick(group, spell_id)
     if self.UI.active_group == self.MOUNT and group == "LeftButton" then
-        local mount = self.MountDB:GetInfo(spell_id)
+        local MountDB = CollectMe:GetModule("MountDB")
+        local _, infos = MountDB:Get()
+        local mount = infos[spell_id]
         if mount ~= nil then
             if IsShiftKeyDown() == 1 and mount.link ~= nil then
                 ChatEdit_InsertLink(mount.link)
@@ -595,7 +599,11 @@ function CollectMe:ItemRowEnter(v)
     if self.UI.active_group == self.MOUNT then
         tooltip:SetHyperlink(v.link)
         tooltip:AddLine(" ")
-        tooltip:AddLine(self.L["mount_" .. v.id], 0, 1, 0, 1)
+        tooltip:AddLine(v.source_text, 0, 1, 0, 1)
+        if self.L["mount_" .. v.id] ~= "mount_" .. v.id then
+            tooltip:AddLine(" ")
+            tooltip:AddLine(self.L["mount_" .. v.id], 0, 1, 0, 1)
+        end
     elseif self.UI.active_group == self.COMPANION then
         tooltip:AddLine(v.name, 1, 1 ,1)
         tooltip:AddLine(" ")

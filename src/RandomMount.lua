@@ -39,9 +39,10 @@ end
 
 function CollectMe.RandomMount:Summon(type)
     if not IsMounted() then
+        local MountDB = CollectMe:GetModule('MountDB')
         local zone_mounts, type_mounts, fallback_mounts = {}, {}, {}
         local zone_id, is_swimming, is_flyable_area = CollectMe.ZoneDB:Current(), IsSwimming(), IsFlyableArea()
-        local profession_count = #self.professions
+        local _, infos = MountDB:Get()
 
         --IsFlyableArea() falsely returns true for Dreanor
         if(GetCurrentMapContinent() == 7) then
@@ -55,7 +56,7 @@ function CollectMe.RandomMount:Summon(type)
             if self.db.profile.random.mounts[spell_id] ~= nil and self.db.profile.random.mounts[spell_id] ~= false and IsUsableSpell(spell_id) ~= nil then
 
                 -- get info table from mount db
-                local info = CollectMe.MountDB:GetInfo(spell_id)
+                local info = infos[spell_id]
                 if info == nil then
                     info = {
                         type    = CollectMe.MountDB.GROUND, --mount not known, assuming it' is a ground mount
