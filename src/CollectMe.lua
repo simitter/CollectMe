@@ -24,7 +24,8 @@ local defaults = {
                 rfm = false,
                 ptm = false,
                 czo = false,
-                zones = {}
+                zones = {},
+                sources = {}
             },
             titles = {
                 nlo = false,
@@ -267,11 +268,11 @@ function CollectMe:BuildMissingMountList()
             if self:IsInTable(self.ignored_db, id) then
                 table.insert(ignored, infos[id])
             else
-                --if not self:IsFiltered(v.filters) then
+                if not self.filter_db.sources[infos[id].source_id] then
                     table.insert(active, infos[id])
-                --else
-                --    filter_count = filter_count + 1
-                --end
+                else
+                    filter_count = filter_count + 1
+                end
             end
         end
     end
@@ -429,12 +430,18 @@ function CollectMe:BuildFilters()
         self.UI:CreateFilterCheckbox(self.L["Current Zone"], self.db.profile.filters.mounts.czo, { OnValueChanged = function (container, event, value) self.db.profile.filters.mounts.czo = value; self.UI:ReloadScroll() end })
         local list, order = CollectMe.ZoneDB:GetList()
         self.UI:CreateFilterDropdown(self.L["Select Zones"], list, self.db.profile.filters.mounts.zones, { OnValueChanged = function (container, event, value) local pos = self:IsInTable(self.db.profile.filters.mounts.zones, value); if not pos then table.insert(self.db.profile.filters.mounts.zones, value) else table.remove(self.db.profile.filters.mounts.zones, pos) end; self.UI:ReloadScroll() end }, true, order)
+
+        local numSources = C_PetJournal.GetNumPetSources();
+        for i=1,numSources do
+            self.UI:CreateFilterCheckbox(_G["BATTLE_PET_SOURCE_"..i], self.filter_db.sources[i] ~= nil and self.filter_db.sources[i] ~= false, { OnValueChanged = function (container, event, value) self.filter_db.sources[i] = value; self.UI:ReloadScroll() end })
+        end
     end
 
     for i = 1, #self.filter_list, 1 do
         self.UI:CreateFilterCheckbox(self.L["filters_" .. self.filter_list[i]], self.filter_db[self.filter_list[i]], { OnValueChanged = function (container, event, value) CollectMe:ToggleFilter(self.filter_list[i], value) end })
     end
 end
+
 
 function CollectMe:BuildMissingCompanionFilters()
     self.UI:AddToFilter(self.UI:CreateHeading(self.L["Zone Filter"]))
