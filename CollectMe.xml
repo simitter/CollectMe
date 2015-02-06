@@ -19,4 +19,5 @@
     <Script file="src\Macro.lua"/>
     <Script file="src\LdbDisplay.lua"/>
     <Script file="src\Config.lua"/>
+    <Script file="src\Export.lua"/>
 </Ui>

@@ -13,6 +13,10 @@ local defaults = {
             companions = {},
             toys = {}
         },
+        export = {
+            companions = {},
+            mounts = {}
+        },
         filters = {
             mounts = {
                 nlo = false,
@@ -679,6 +683,8 @@ function CollectMe:SlashProcessor(input)
         self.TitleDB:PrintAll()
     elseif input == "macro" then
         self:UpdateMacros()
+    elseif input == "export companion" then
+        CollectMe:GetModule("Export"):Companions()
     else
         self.UI:Show()
     end
