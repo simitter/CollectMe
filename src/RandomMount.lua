@@ -73,7 +73,7 @@ function CollectMe.RandomMount:Summon(type)
                     if #zone_mounts == 0 then
                         -- swimming mounts
                         if is_swimming == true then
-                            if info.type == CollectMe.MountDB.SWIM or (self.db.profile.summon.mounts.flying_in_water == true and info.type == CollectMe.MountDB.FLY and is_flyable_area == 1) then
+                            if info.type == CollectMe.MountDB.SWIM or (self.db.profile.summon.mounts.flying_in_water == true and info.type == CollectMe.MountDB.FLY and is_flyable_area == true) then
                                 table.insert(type_mounts, i)
                             end
                             -- flying mounts
