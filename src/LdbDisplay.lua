@@ -4,6 +4,7 @@ CollectMe.LdbDisplay = CollectMe:NewModule("LdbDisplay", "AceEvent-3.0")
 
 local Data = CollectMe:GetModule("Data")
 local ToyDB = CollectMe:GetModule("ToyDB")
+local FollowerDB = CollectMe:GetModule("FollowerDB")
 
 function CollectMe.LdbDisplay:OnEnable()
     self.L = CollectMe.L
@@ -46,6 +47,7 @@ function CollectMe.LdbDisplay:OnEnable()
     self:RegisterEvent("ZONE_CHANGED_NEW_AREA", "ZoneChangeListener")
     self:RegisterEvent("COMPANION_LEARNED", "ZoneChangeListener")
     self:RegisterEvent("TOYS_UPDATED", "ZoneChangeListener")
+    self:RegisterEvent("GARRISON_FOLLOWER_LIST_UPDATE", "ZoneChangeListener")
 end
 
 function CollectMe.LdbDisplay:ZoneChangeListener()
@@ -63,6 +65,7 @@ function CollectMe.LdbDisplay:UpdateData()
     self.quality_counts = { [1]=0, [2]=0, [3]=0, [4]=0 }
     self.collected_mounts, self.missing_mounts = {}, {}
     self.collected_toys, self.missing_toys = {}, {}
+    self.collected_followers, self.missing_followers = {}, {}
 
     if self.db.text.companions.missing == true or self.db.text.companions.collected == true or self.db.text.companions.quality == true or self.db.tooltip.companions.missing == true or self.db.tooltip.companions.collected == true or self.db.tooltip.companions.quality == true then
         local zcollected, missing = CollectMe.CompanionDB:GetCompanionsInZone(zone_id)
@@ -110,6 +113,21 @@ function CollectMe.LdbDisplay:UpdateData()
                         tinsert(self.collected_toys, { name = name })
                     else
                         tinsert(self.missing_toys, { name = name })
+                    end
+                end
+            end
+        end
+    end
+
+    if self.db.text.followers.missing == true or self.db.text.followers.collected == true or self.db.tooltip.followers.missing == true or self.db.tooltip.followers.collected == true then
+        if Data.ZoneFollowers[zone_id] ~= nil then
+            for i,v in pairs(Data.ZoneFollowers[zone_id]) do
+                if not CollectMe:IsInTable(CollectMe.db.profile.ignored.followers , v) then
+                    local follower = C_Garrison.GetFollowerInfo(v)
+                    if FollowerDB:IsKnown(v) then
+                        tinsert(self.collected_followers, { name = follower.name })
+                    else
+                        tinsert(self.missing_followers, { name = follower.name })
                     end
                 end
             end
@@ -173,6 +191,21 @@ function CollectMe.LdbDisplay:UpdateText()
             text = self:AppendText(text, "/")
         end
         text = text .. GREEN_FONT_COLOR_CODE .. #self.collected_toys .. FONT_COLOR_CODE_CLOSE
+    end
+
+    if (self.db.text.followers.missing == true and #self.missing_followers > 0) or (self.db.text.followers.collected == true and #self.collected_followers > 0) then
+        text = self:AppendText(text, " - ")
+    end
+
+    if self.db.text.followers.missing == true and #self.missing_followers > 0 then
+        text = text .. RED_FONT_COLOR_CODE .. #self.missing_followers .. FONT_COLOR_CODE_CLOSE
+    end
+
+    if self.db.text.followers.collected == true and #self.collected_followers > 0 then
+        if #self.missing_followers > 0 and self.db.text.followers.missing == true then
+            text = self:AppendText(text, "/")
+        end
+        text = text .. GREEN_FONT_COLOR_CODE .. #self.collected_followers .. FONT_COLOR_CODE_CLOSE
     end
 
     if text == "" then
@@ -246,5 +279,15 @@ function CollectMe.LdbDisplay:UpdateTooltip()
 
     if self.db.tooltip.toys.missing == true and #self.missing_toys > 0  then
         AddTooltipSection(self.missing_toys, self.L["Toys"] .. " " .. self.L["missing"], RED_FONT_COLOR_CODE)
+        GameTooltip:AddLine(" ")
+    end
+
+    if self.db.tooltip.followers.collected == true and #self.collected_followers > 0 then
+        AddTooltipSection(self.collected_followers, self.L["Followers"] .. " " .. self.L["collected"], GREEN_FONT_COLOR_CODE)
+        GameTooltip:AddLine(" ")
+    end
+
+    if self.db.tooltip.followers.missing == true and #self.missing_followers > 0  then
+        AddTooltipSection(self.missing_followers, self.L["Followers"] .. " " .. self.L["missing"], RED_FONT_COLOR_CODE)
     end
 end

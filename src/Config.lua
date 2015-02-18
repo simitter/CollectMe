@@ -61,6 +61,22 @@ local function GetLdbArgs(ldbdb)
             order = 7,
             set = function(info,val) ldbdb.toys.missing = val; CollectMe.LdbDisplay:ZoneChangeListener()  end,
             get = function() return ldbdb.toys.missing end
+        },
+        followers_collected = {
+            name = L["Collected followers"],
+            desc = L["Display already collected followers"],
+            type = "toggle",
+            order = 8,
+            set = function(info,val) ldbdb.followers.collected = val; CollectMe.LdbDisplay:ZoneChangeListener() end,
+            get = function() return ldbdb.followers.collected end
+        },
+        followers_missing = {
+            name = L["Missing followers"],
+            desc = L["Display missing followers"],
+            type = "toggle",
+            order = 9,
+            set = function(info,val) ldbdb.followers.missing = val; CollectMe.LdbDisplay:ZoneChangeListener()  end,
+            get = function() return ldbdb.followers.missing end
         }
     }
 end

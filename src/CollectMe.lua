@@ -11,7 +11,8 @@ local defaults = {
             mounts = {},
             titles = {},
             companions = {},
-            toys = {}
+            toys = {},
+            followers = {}
         },
         filters = {
             mounts = {
@@ -38,6 +39,10 @@ local defaults = {
             toys = {
                 czo = false,
                 zones = {}
+            },
+            followers = {
+                czo = false,
+                zones = {}
             }
         },
         missing_message = {
@@ -48,7 +53,8 @@ local defaults = {
             mounts = false,
             companions = false,
             titles = false,
-            toys = false
+            toys = false,
+            followers = false
         },
         random = {
             companions = {},
@@ -100,6 +106,10 @@ local defaults = {
                 toys = {
                     collected = true,
                     missing = true
+                },
+                followers = {
+                    collected = true,
+                    missing = true
                 }
             },
             text = {
@@ -113,6 +123,10 @@ local defaults = {
                     missing = true
                 },
                 toys = {
+                    collected = true,
+                    missing = true
+                },
+                followers = {
                     collected = true,
                     missing = true
                 }
@@ -148,6 +162,7 @@ function CollectMe:OnInitialize()
     self.RANDOM_MOUNT = 4
     self.COMPANION = 5
     self.TOYS = 6
+    self.FOLLOWERS = 7
 
     self.FACTION = UnitFactionGroup("player")
     LocalizedPlayerRace, self.RACE = UnitRace("player")
@@ -199,6 +214,12 @@ function CollectMe:BuildData(no_filters)
         self:BuildMissingToyList()
         if not no_filters then
             self:BuildMissingToyFilters()
+        end
+    elseif self.UI.active_group == self.FOLLOWERS then
+        self.ignored_db = self.db.profile.ignored.followers
+        self:BuildMissingFollowerList()
+        if not no_filters then
+            self:BuildMissingFollowerFilters()
         end
     end
 
@@ -319,7 +340,8 @@ function CollectMe:AddMissingRows(active, ignored, all_count, known_count, filte
     local hide_ignore = (self.UI.active_group == self.MOUNT and self.db.profile.hide_ignore.mounts) or
                         (self.UI.active_group == self.COMPANION and self.db.profile.hide_ignore.companions) or
                         (self.UI.active_group == self.TITLE and self.db.profile.hide_ignore.titles) or
-                        (self.UI.active_group == self.TOYS and self.db.profile.hide_ignore.toys)
+                        (self.UI.active_group == self.TOYS and self.db.profile.hide_ignore.toys) or
+                        (self.UI.active_group == self.FOLLOWERS and self.db.profile.hide_ignore.followers)
     if hide_ignore == false then
         self.UI:AddToScroll(self.UI:CreateHeading(self.L["Ignored"] .. " - " .. #ignored))
         self:BuildItemRow(ignored)
@@ -413,6 +435,28 @@ function CollectMe:BuildMissingToyList()
     self:AddMissingRows(active, ignored, #active + #ignored + #collected, #collected, 0)
 end
 
+function CollectMe:BuildMissingFollowerList()
+    local FollowerDB = self:GetModule('FollowerDB')
+    local collected, missing = FollowerDB:Get()
+    local active, ignored = {}, {}
+    local zones = self:CloneTable(self.db.profile.filters.followers.zones)
+    if self.db.profile.filters.followers.czo == true then
+        table.insert(zones, self.ZoneDB:Current())
+    end
+
+    for i,v in ipairs(missing) do
+        if next(zones) == nil or FollowerDB:IsInZone(v.id, zones) then
+            if self:IsInTable(self.ignored_db, v.id) then
+                table.insert(ignored, v)
+            else
+                table.insert(active, v)
+            end
+        end
+    end
+
+    self:AddMissingRows(active, ignored, #active + #ignored + #collected, #collected, 0)
+end
+
 function CollectMe:IsFiltered(filters)
     if filters ~= nil then
         for k,v in pairs(filters) do
@@ -480,6 +524,13 @@ function CollectMe:BuildMissingToyFilters()
     end
 end
 
+function CollectMe:BuildMissingFollowerFilters()
+    self.UI:AddToFilter(self.UI:CreateHeading(self.L["Zone Filter"]))
+    self.UI:CreateFilterCheckbox(self.L["Current Zone"], self.db.profile.filters.followers.czo, { OnValueChanged = function (container, event, value) self.db.profile.filters.followers.czo = value; self.UI:ReloadScroll() end })
+    local list, order = CollectMe.ZoneDB:GetList()
+    self.UI:CreateFilterDropdown(self.L["Select Zones"], list, self.db.profile.filters.followers.zones, { OnValueChanged = function (container, event, value) local pos = self:IsInTable(self.db.profile.filters.followers.zones, value); if not pos then table.insert(self.db.profile.filters.followers.zones, value) else table.remove(self.db.profile.filters.followers.zones, pos) end; self.UI:ReloadScroll() end }, true, order)
+end
+
 function CollectMe:BuildOptions()
     self.UI:AddToFilter(self.UI:CreateHeading(self.L["Options"]))
 
@@ -514,6 +565,8 @@ function CollectMe:BuildOptions()
         self.UI:CreateFilterCheckbox(self.L["Use flying mounts for ground"], self.db.profile.summon.mounts.flying_on_ground, { OnValueChanged = function (container, event, value) self.db.profile.summon.mounts.flying_on_ground = value end }, 2)
     elseif self.UI.active_group == self.TOYS then
         self.UI:CreateFilterCheckbox(self.L["Hide ignored list"], self.db.profile.hide_ignore.toys, { OnValueChanged = function (container, event, value) self.db.profile.hide_ignore.toys = value; self.UI:ReloadScroll() end })
+    elseif self.UI.active_group == self.FOLLOWERS then
+        self.UI:CreateFilterCheckbox(self.L["Hide ignored list"], self.db.profile.hide_ignore.followers, { OnValueChanged = function (container, event, value) self.db.profile.hide_ignore.followers = value; self.UI:ReloadScroll() end })
     end
 end
 
@@ -698,7 +751,8 @@ end
 function CollectMe:ZoneChangeListener()
     if (self.db.profile.filters.companions.czo == true and self.UI.active_group == self.COMPANION) or
        (self.db.profile.filters.mounts.czo == true and self.UI.active_group == self.MOUNT) or
-       (self.db.profile.filters.toys.czo == true and self.UI.active_group == self.TOYS) then
+       (self.db.profile.filters.toys.czo == true and self.UI.active_group == self.TOYS) or
+       (self.db.profile.filters.followers.czo == true and self.UI.active_group == self.FOLLOWERS)then
         self.UI:ReloadScroll()
     end
 end
