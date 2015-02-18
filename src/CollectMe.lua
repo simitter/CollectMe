@@ -614,14 +614,17 @@ function CollectMe:ItemRowClick(group, spell_id)
     if self.UI.active_group == self.MOUNT and group == "LeftButton" then
         local mount = self.MountDB:GetInfo(spell_id)
         if mount ~= nil then
-            if IsShiftKeyDown() == 1 and mount.link ~= nil then
+            if IsShiftKeyDown() == true and mount.link ~= nil then
                 ChatEdit_InsertLink(mount.link)
             elseif mount.display_id ~= nil then
                 self.ModelPreview:PreviewCreature(mount.display_id)
             end
         end
     elseif self.UI.active_group == self.COMPANION and group == "LeftButton" then
-        if spell_id ~= nil then
+        local link = GetSpellLink(spell_id)
+        if IsShiftKeyDown() == true and link ~= nil then
+            ChatEdit_InsertLink(link)
+        elseif spell_id ~= nil then
             self.ModelPreview:PreviewCreature(spell_id)
         end
     elseif group == "RightButton" and IsControlKeyDown() then
