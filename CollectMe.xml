@@ -5,6 +5,7 @@
     <Script file="DB\ZoneData.lua"/>
     <Script file="DB\TitleData.lua"/>
     <Script file="DB\ToyData.lua"/>
+    <Script file="DB\CompanionData.lua"/>
     <Script file="DB\Zone.lua"/>
     <Script file="DB\Mount.lua"/>
     <Script file="DB\Title.lua"/>

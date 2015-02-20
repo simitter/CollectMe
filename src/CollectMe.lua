@@ -360,7 +360,7 @@ function CollectMe:BuildMissingCompanionList()
 
     for i = 1,total do
         local pet_id, species_id, owned, _, _, _, _, name, icon, _, creature_id, source = C_PetJournal.GetPetInfoByIndex(i, false)
-        if next(zones) == nil or self.ZoneDB:IsSpeciesInZone(species_id, zones, source) then
+        if next(zones) == nil or self.CompanionDB:IsInZone(species_id, zones) then
             if owned ~= true then
                 local v = {
                     name = name,
@@ -677,8 +677,6 @@ function CollectMe:SlashProcessor(input)
         self.Macro:Mount()
     elseif input == "options" then
         InterfaceOptionsFrame_OpenToCategory(addon_name)
-    elseif input == "companion zone" then
-        self:CompanionsInZone()
     elseif input == "debug title" then
         self.TitleDB:PrintAll()
     elseif input == "macro" then
@@ -695,17 +693,6 @@ end
 function CollectMe:ColorizeByQuality(text, quality)
     local color = "|C" .. select(4, GetItemQualityColor(quality))
     return color .. text .. FONT_COLOR_CODE_CLOSE;
-end
-
-function CollectMe:CompanionsInZone()
-    local zone = self.ZoneDB:Current()
-    local known, unknown = self.CompanionDB:GetCompanionsInZone(zone)
-    for i,v in ipairs(known) do
-        self:Print("known "..v.name)
-    end
-    for i,v in ipairs(unknown) do
-        self:Print("unknown "..v.name)
-    end
 end
 
 function CollectMe:ZoneChangeListener()
