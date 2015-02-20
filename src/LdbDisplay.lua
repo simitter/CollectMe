@@ -90,13 +90,16 @@ function CollectMe.LdbDisplay:UpdateData()
     if self.db.text.mounts.missing == true or self.db.text.mounts.collected == true or self.db.tooltip.mounts.missing == true or self.db.tooltip.mounts.collected == true then
         CollectMe.filter_list, CollectMe.filter_db = MountDB.filters, CollectMe.db.profile.filters.mounts
 
-        for i,v in ipairs(MountDB:GetZoneMounts({zone_id})) do
+        for i,v in ipairs(MountDB:GetZoneMounts(zone_id)) do
             if not CollectMe:IsFiltered(v.filters) and not CollectMe:IsInTable(CollectMe.db.profile.ignored.mounts , v.id) then
-                if MountDB:IsKnown(v.id) ~= false then
+                if v.collected ~= false then
                     tinsert(self.collected_mounts, v)
                 else
                     tinsert(self.missing_mounts, v)
                 end
+
+                CollectMe:SortTable(self.collected_mounts)
+                CollectMe:SortTable(self.missing_mounts)
             end
         end
     end

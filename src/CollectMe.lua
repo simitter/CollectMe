@@ -268,7 +268,7 @@ function CollectMe:BuildMissingMountList()
     end
 
     for _,id in pairs(missing) do
-        if (self.UI.active_group == self.MOUNT and not infos[id].collected and (#zones == 0 or MountDB:ObtainableInZone(v.id, zones))) then
+        if (self.UI.active_group == self.MOUNT and not infos[id].collected and (#zones == 0 or MountDB:IsInZone(id, zones))) then
             if self:IsInTable(self.ignored_db, id) then
                 table.insert(ignored, infos[id])
             else
@@ -665,7 +665,6 @@ function CollectMe:round(num, idp)
 end
 
 function CollectMe:SortTable(tbl)
-    print ('sorting')
     table.sort(tbl, function(a, b) return a ~= nil and b ~= nil and (string.lower(a.name) < string.lower(b.name)) end)
 end
 

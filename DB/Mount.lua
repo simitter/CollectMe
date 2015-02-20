@@ -1,5 +1,6 @@
 local CollectMe = LibStub("AceAddon-3.0"):GetAddon("CollectMe")
 local MountDB = CollectMe:NewModule("MountDB", "AceEvent-3.0")
+local Data = CollectMe:GetModule("Data")
 
 local loaded = false
 local collected, missing, info, filters  = {}, {}, {}, {}
@@ -82,10 +83,27 @@ function MountDB:Get()
     return collected, missing, info
 end
 
-function MountDB:ObtainableInZone(id, zones)
+function MountDB:IsInZone(id, zones)
+    if type(zones) ~= "table" then
+        zones = { zones }
+    end
+    for i = 1,#zones do
+        if Data.MountsZone[id] ~= nil and Data.MountsZone[id][zones[i]] ~= nil then
+            return true
+        end
+    end
     return false
 end
 
-function MountDB:GetZoneMounts(zones)
-    return {}
+function MountDB:GetZoneMounts(zone)
+    local mounts = {}
+    if (Data.ZoneMounts[zone] ~= nil) then
+        for i,v in pairs(Data.ZoneMounts[zone]) do
+            if info[v] ~= nil then
+                tinsert(mounts, info[v])
+            end
+        end
+    end
+
+    return mounts
 end
