@@ -685,6 +685,8 @@ function CollectMe:SlashProcessor(input)
         self:UpdateMacros()
     elseif input == "export companion" then
         CollectMe:GetModule("Export"):Companions()
+    elseif input == "export mount" then
+        CollectMe:GetModule("Export"):Mounts()
     else
         self.UI:Show()
     end
