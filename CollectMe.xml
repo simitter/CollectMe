@@ -6,6 +6,8 @@
     <Script file="DB\TitleData.lua"/>
     <Script file="DB\ToyData.lua"/>
     <Script file="DB\FollowerData.lua"/>
+    <Script file="DB\CompanionData.lua"/>
+    <Script file="DB\MountData.lua"/>
     <Script file="DB\Zone.lua"/>
     <Script file="DB\Mount.lua"/>
     <Script file="DB\Title.lua"/>
@@ -16,9 +18,10 @@
     <Script file="src\ModelPreview.lua"/>
     <Script file="src\Tooltip.lua"/>
     <Script file="src\PetBattle.lua"/>
-    <Script file="src\Macro.lua"/>
     <Script file="src\RandomCompanion.lua"/>
     <Script file="src\RandomMount.lua"/>
+    <Script file="src\Macro.lua"/>
     <Script file="src\LdbDisplay.lua"/>
     <Script file="src\Config.lua"/>
+    <Script file="src\Export.lua"/>
 </Ui>

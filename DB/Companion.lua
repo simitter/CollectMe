@@ -3,13 +3,16 @@ local CollectMe = LibStub("AceAddon-3.0"):GetAddon("CollectMe")
 CollectMe.CompanionDB = CollectMe:NewModule("CompanionDB", "AceEvent-3.0")
 local LibPetJournal = LibStub("LibPetJournal-2.0")
 
+local Data = CollectMe:GetModule("Data")
+
+
 function CollectMe.CompanionDB:Update()
     self.companions = {}
     self.missing_companions = {}
     self.known_species = {}
 
     for i,petid in LibPetJournal:IteratePetIDs() do
-        local speciesID, customName, level, _, _, _, _, name, icon, _, creatureID, source = C_PetJournal.GetPetInfoByPetID(petid)
+        local speciesID, customName, level, _, _, _, _, name, icon, _, creatureID = C_PetJournal.GetPetInfoByPetID(petid)
         local quality = select(5, C_PetJournal.GetPetStats(petid))
         self.known_species[speciesID] = true
         tinsert(self.companions, {
@@ -22,19 +25,19 @@ function CollectMe.CompanionDB:Update()
             name = name,
             custom_name = customName,
             icon = icon,
-            zones = CollectMe.ZoneDB:GetZonesForSpecies(speciesID, source)
+            zones = Data.CompanionsZone[speciesID]
         })
     end
 
-    for i,species_id in LibPetJournal:IterateSpeciesIds() do
-        if not self:IsSpeciesKnown(species_id) then
-            local name, icon, _, creatureID, source = C_PetJournal.GetPetInfoBySpeciesID(species_id);
+    for i,speciesID in LibPetJournal:IterateSpeciesIds() do
+        if not self:IsSpeciesKnown(speciesID) then
+            local name, icon, _, creatureID = C_PetJournal.GetPetInfoBySpeciesID(speciesID);
             tinsert(self.missing_companions, {
-                species_id = species_id,
+                species_id = speciesID,
                 creature_id = creatureID,
                 name = name,
                 icon = icon,
-                zones = CollectMe.ZoneDB:GetZonesForSpecies(species_id, source)
+                zones = Data.CompanionsZone[speciesID]
             })
         end
     end
@@ -64,6 +67,18 @@ end
 
 function CollectMe.CompanionDB:GetCompanionsInZone(zone_id)
     return self:ZoneSearch(self.companions, zone_id), self:ZoneSearch(self.missing_companions, zone_id)
+end
+
+function CollectMe.CompanionDB:IsInZone(id, zones)
+    if type(zones) ~= "table" then
+        zones = { zones }
+    end
+    for i = 1,#zones do
+        if Data.CompanionsZone[id] ~= nil and Data.CompanionsZone[id][zones[i]] ~= nil then
+            return true
+        end
+    end
+    return false
 end
 
 function CollectMe.CompanionDB:OnInitialize()

@@ -5,6 +5,7 @@ CollectMe.LdbDisplay = CollectMe:NewModule("LdbDisplay", "AceEvent-3.0")
 local Data = CollectMe:GetModule("Data")
 local ToyDB = CollectMe:GetModule("ToyDB")
 local FollowerDB = CollectMe:GetModule("FollowerDB")
+local MountDB = CollectMe:GetModule("MountDB")
 
 function CollectMe.LdbDisplay:OnEnable()
     self.L = CollectMe.L
@@ -90,16 +91,18 @@ function CollectMe.LdbDisplay:UpdateData()
     end
 
     if self.db.text.mounts.missing == true or self.db.text.mounts.collected == true or self.db.tooltip.mounts.missing == true or self.db.tooltip.mounts.collected == true then
-        CollectMe.MountDB:RefreshKnown(true)
-        CollectMe.filter_list, CollectMe.filter_db = CollectMe.MountDB.filters, CollectMe.db.profile.filters.mounts
+        CollectMe.filter_list, CollectMe.filter_db = MountDB.filters, CollectMe.db.profile.filters.mounts
 
-        for i,v in ipairs(CollectMe.MountDB:GetZoneMounts({zone_id})) do
+        for i,v in ipairs(MountDB:GetZoneMounts(zone_id)) do
             if not CollectMe:IsFiltered(v.filters) and not CollectMe:IsInTable(CollectMe.db.profile.ignored.mounts , v.id) then
-                if CollectMe.MountDB:IsKnown(v.id) ~= false then
+                if v.collected ~= false then
                     tinsert(self.collected_mounts, v)
                 else
                     tinsert(self.missing_mounts, v)
                 end
+
+                CollectMe:SortTable(self.collected_mounts)
+                CollectMe:SortTable(self.missing_mounts)
             end
         end
     end

@@ -14,6 +14,10 @@ local defaults = {
             toys = {},
             followers = {}
         },
+        export = {
+            companions = {},
+            mounts = {}
+        },
         filters = {
             mounts = {
                 nlo = false,
@@ -25,7 +29,8 @@ local defaults = {
                 rfm = false,
                 ptm = false,
                 czo = false,
-                zones = {}
+                zones = {},
+                sources = {}
             },
             titles = {
                 nlo = false,
@@ -46,7 +51,6 @@ local defaults = {
             }
         },
         missing_message = {
-            mounts = false,
             titles = false
         },
         hide_ignore = {
@@ -170,8 +174,8 @@ function CollectMe:OnInitialize()
 
     self.filter_db = self.db.profile.filters.mounts
     self.ignored_db = self.db.profile.ignored.mounts
-    self.item_list = self.MountDB:Get()
-    self.filter_list = self.MountDB.filters
+    self.item_list = {}
+    self.filter_list = {}
 
     self:RegisterChatCommand("collectme", "SlashProcessor")
     self:RegisterChatCommand("cm", "SlashProcessor")
@@ -180,11 +184,12 @@ function CollectMe:OnInitialize()
 end
 
 function CollectMe:BuildData(no_filters)
+    local MountDB = CollectMe:GetModule('MountDB')
+
     if self.UI.active_group == self.MOUNT then
         self.filter_db = self.db.profile.filters.mounts
         self.ignored_db = self.db.profile.ignored.mounts
-        self.item_list = self.MountDB:Get()
-        self.filter_list = self.MountDB.filters
+        self.filter_list = {}
         self:BuildMissingMountList()
         if not no_filters then
             self:BuildFilters()
@@ -255,20 +260,14 @@ function CollectMe:BuildRandomList()
     local count = 0
     local search = self.UI:GetSearchText():lower()
 	local mounts_to_add = {}
+	local MountDB = CollectMe:GetModule("MountDB")
+    local collected, _, infos = MountDB:Get()
 
-    for i = 1, C_MountJournal.GetNumMounts(), 1 do
-        local name, spell_id, _, _, _, _, _, isFactionSpecific, faction, _, isCollected = C_MountJournal.GetMountInfo(i)
-		if isCollected then
-			if not faction then
-				faction = -1
-			end
-			if not isFactionSpecific or CollectMe.FACTION == "Horde" and faction == 0 or CollectMe.FACTION == "Alliance" and faction == 1 then
-				if name:lower():find(search) ~= nil then
-					table.insert(mounts_to_add, spell_id);
-					count = count + 1;
-				end
-			end
-		end
+    for _, id in pairs(collected) do
+        if infos[id].name:lower():find(search) ~= nil then
+            table.insert(mounts_to_add, id);
+            count = count + 1;
+        end
     end
 	self.UI:AddToScroll(self.UI:CreateHeading(self.L["Available mounts"] ..  " - " .. count))
 	
@@ -279,28 +278,27 @@ function CollectMe:BuildRandomList()
 end
 
 function CollectMe:BuildMissingMountList()
-    self.MountDB:RefreshKnown()
+    local MountDB = CollectMe:GetModule("MountDB")
+    local collected, missing, infos = MountDB:Get()
 
     local active, ignored = {}, {}
-    local all_count, known_count, filter_count = #self.item_list, 0, 0
+    local all_count, known_count, filter_count = #missing + #collected, #collected, 0
     local zones = self:CloneTable(self.db.profile.filters.mounts.zones)
     if self.db.profile.filters.mounts.czo == true then
         table.insert(zones, self.ZoneDB:Current())
     end
 
-    for i,v in pairs(self.item_list) do
-        if (self.UI.active_group == self.MOUNT and not self.MountDB:IsKnown(v.id) and (#zones == 0 or self.MountDB:ObtainableInZone(v.id, zones))) then
-            if self:IsInTable(self.ignored_db, v.id) then
-                table.insert(ignored, v)
+    for _,id in pairs(missing) do
+        if (self.UI.active_group == self.MOUNT and not infos[id].collected and (#zones == 0 or MountDB:IsInZone(id, zones))) then
+            if self:IsInTable(self.ignored_db, id) then
+                table.insert(ignored, infos[id])
             else
-                if not self:IsFiltered(v.filters) then
-                    table.insert(active, v)
+                if not self.filter_db.sources[infos[id].source_id] then
+                    table.insert(active, infos[id])
                 else
                     filter_count = filter_count + 1
                 end
             end
-        else
-            known_count = known_count +1
         end
     end
 
@@ -384,7 +382,7 @@ function CollectMe:BuildMissingCompanionList()
 
     for i = 1,total do
         local pet_id, species_id, owned, _, _, _, _, name, icon, _, creature_id, source = C_PetJournal.GetPetInfoByIndex(i, false)
-        if next(zones) == nil or self.ZoneDB:IsSpeciesInZone(species_id, zones, source) then
+        if next(zones) == nil or self.CompanionDB:IsInZone(species_id, zones) then
             if owned ~= true then
                 local v = {
                     name = name,
@@ -480,12 +478,18 @@ function CollectMe:BuildFilters()
         self.UI:CreateFilterCheckbox(self.L["Current Zone"], self.db.profile.filters.mounts.czo, { OnValueChanged = function (container, event, value) self.db.profile.filters.mounts.czo = value; self.UI:ReloadScroll() end })
         local list, order = CollectMe.ZoneDB:GetList()
         self.UI:CreateFilterDropdown(self.L["Select Zones"], list, self.db.profile.filters.mounts.zones, { OnValueChanged = function (container, event, value) local pos = self:IsInTable(self.db.profile.filters.mounts.zones, value); if not pos then table.insert(self.db.profile.filters.mounts.zones, value) else table.remove(self.db.profile.filters.mounts.zones, pos) end; self.UI:ReloadScroll() end }, true, order)
+
+        local numSources = C_PetJournal.GetNumPetSources();
+        for i=1,numSources do
+            self.UI:CreateFilterCheckbox(_G["BATTLE_PET_SOURCE_"..i], self.filter_db.sources[i] ~= nil and self.filter_db.sources[i] ~= false, { OnValueChanged = function (container, event, value) self.filter_db.sources[i] = value; self.UI:ReloadScroll() end })
+        end
     end
 
     for i = 1, #self.filter_list, 1 do
         self.UI:CreateFilterCheckbox(self.L["filters_" .. self.filter_list[i]], self.filter_db[self.filter_list[i]], { OnValueChanged = function (container, event, value) CollectMe:ToggleFilter(self.filter_list[i], value) end })
     end
 end
+
 
 function CollectMe:BuildMissingCompanionFilters()
     self.UI:AddToFilter(self.UI:CreateHeading(self.L["Zone Filter"]))
@@ -535,7 +539,6 @@ function CollectMe:BuildOptions()
     self.UI:AddToFilter(self.UI:CreateHeading(self.L["Options"]))
 
     if self.UI.active_group == self.MOUNT then
-        self.UI:CreateFilterCheckbox(self.L["Disable missing mount message"], self.db.profile.missing_message.mounts, { OnValueChanged = function (container, event, value) self.db.profile.missing_message.mounts = value end }, 2)
         self.UI:CreateFilterCheckbox(self.L["Hide ignored list"], self.db.profile.hide_ignore.mounts, { OnValueChanged = function (container, event, value) self.db.profile.hide_ignore.mounts = value; self.UI:ReloadScroll() end })
     elseif self.UI.active_group == self.TITLE then
         self.UI:CreateFilterCheckbox(self.L["Disable missing title message"], self.db.profile.missing_message.titles, { OnValueChanged = function (container, event, value) self.db.profile.missing_message.titles = value end })
@@ -612,7 +615,9 @@ end
 
 function CollectMe:ItemRowClick(group, spell_id)
     if self.UI.active_group == self.MOUNT and group == "LeftButton" then
-        local mount = self.MountDB:GetInfo(spell_id)
+        local MountDB = CollectMe:GetModule("MountDB")
+        local _, _, infos = MountDB:Get()
+        local mount = infos[spell_id]
         if mount ~= nil then
             if IsShiftKeyDown() == true and mount.link ~= nil then
                 ChatEdit_InsertLink(mount.link)
@@ -651,7 +656,11 @@ function CollectMe:ItemRowEnter(v)
     if self.UI.active_group == self.MOUNT then
         tooltip:SetHyperlink(v.link)
         tooltip:AddLine(" ")
-        tooltip:AddLine(self.L["mount_" .. v.id], 0, 1, 0, 1)
+        tooltip:AddLine(v.source_text, 0, 1, 0, 1)
+        if self.L["mount_" .. v.id] ~= "mount_" .. v.id then
+            tooltip:AddLine(" ")
+            tooltip:AddLine(self.L["mount_" .. v.id], 0, 1, 0, 1)
+        end
     elseif self.UI.active_group == self.COMPANION then
         tooltip:AddLine(v.name, 1, 1 ,1)
         tooltip:AddLine(" ")
@@ -712,7 +721,6 @@ function CollectMe:round(num, idp)
 end
 
 function CollectMe:SortTable(tbl)
-    print ('sorting')
     table.sort(tbl, function(a, b) return a ~= nil and b ~= nil and (string.lower(a.name) < string.lower(b.name)) end)
 end
 
@@ -724,12 +732,14 @@ function CollectMe:SlashProcessor(input)
         self.Macro:Mount()
     elseif input == "options" then
         InterfaceOptionsFrame_OpenToCategory(addon_name)
-    elseif input == "companion zone" then
-        self:CompanionsInZone()
     elseif input == "debug title" then
         self.TitleDB:PrintAll()
     elseif input == "macro" then
         self:UpdateMacros()
+    elseif input == "export companion" then
+        CollectMe:GetModule("Export"):Companions()
+    elseif input == "export mount" then
+        CollectMe:GetModule("Export"):Mounts()
     else
         self.UI:Show()
     end
@@ -738,17 +748,6 @@ end
 function CollectMe:ColorizeByQuality(text, quality)
     local color = "|C" .. select(4, GetItemQualityColor(quality))
     return color .. text .. FONT_COLOR_CODE_CLOSE;
-end
-
-function CollectMe:CompanionsInZone()
-    local zone = self.ZoneDB:Current()
-    local known, unknown = self.CompanionDB:GetCompanionsInZone(zone)
-    for i,v in ipairs(known) do
-        self:Print("known "..v.name)
-    end
-    for i,v in ipairs(unknown) do
-        self:Print("unknown "..v.name)
-    end
 end
 
 function CollectMe:ZoneChangeListener()

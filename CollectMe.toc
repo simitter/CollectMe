@@ -1,7 +1,7 @@
 ## Title: CollectMe
 ## Notes: Displays a list of mounts, companions, titles and toys which the character is missing and allows to summon companions and mounts
 
-## Author: Tschebel (Verna), Jim-Bim (Ascalia), Xtcssa (Excitor)
+## Author: Tschebel (Nyssa), Jim-Bim (Ascalia), Xtcssa (Excitor)
 ## eMail: admin AT tschebel DOT net
 ## X-email: admin AT tschebel DOT net
 ## X-License: MIT modified with notification clause
