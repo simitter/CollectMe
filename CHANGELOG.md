@@ -1,3 +1,11 @@
+## 2.7
+* Added support for followers
+* Added support for wod mounts
+* Updated for patch 6.1
+* Improved performance when switching a zone
+* Fixed chat links
+* Fixed radom mount flying
+
 ## 2.6.2
 * Fixed ground/flying mounts for Draenor zones
 * Fixed collected information in companion tooltips
