@@ -1,5 +1,5 @@
 ## Title: CollectMe
-## Notes: Displays a list of mounts, companions, titles and toys which the character is missing and allows to summon companions and mounts
+## Notes: Displays a list of mounts, companions, titles, toys, and followers which the character is missing and allows to summon companions and mounts
 
 ## Author: Tschebel (Nyssa), Jim-Bim (Ascalia), Xtcssa (Excitor)
 ## eMail: admin AT tschebel DOT net
