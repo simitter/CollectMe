@@ -524,7 +524,6 @@ function CollectMe:BuildMissingToyFilters()
     local ToyDB = self:GetModule("ToyDB")
     for _,i in pairs {1,2,3,4,7,8} do
         self.UI:CreateFilterCheckbox(_G["BATTLE_PET_SOURCE_"..i], C_ToyBox.IsSourceTypeFiltered(i), { OnValueChanged = function (container, event, value)
-            value = not value;
             C_ToyBox.SetFilterSourceType(i, value)
             ToyDB:Update()
             self.UI:ReloadScroll()
