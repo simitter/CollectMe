@@ -18,13 +18,16 @@ local function extractZones(source)
 end
 
 local function exportCompanions(items)
-    local source, _, zones
+    local source, _, zones, name
     for i,v in pairs(items) do
         if (v.species_id ~= nil) then
-            _, _, _, _, source = C_PetJournal.GetPetInfoBySpeciesID(v.species_id)
+            name, _, _, _, source = C_PetJournal.GetPetInfoBySpeciesID(v.species_id)
             zones = extractZones(source)
             if next(zones) ~= nil then
-                db.companions[v.species_id] = zones
+                db.companions[v.species_id] = {
+                    zones = zones,
+                    name  = name
+                }
             end
         end
     end
@@ -45,13 +48,14 @@ function Export:Mounts()
     for i,v in pairs(mounts) do
         if v.id ~= nil then
             zones = extractZones(v.source_text)
-            if next(zones) ~= nil then
-                db.mounts[v.id] = zones
-            end
+            db.mounts[v.id] = {
+                zones =  zones,
+                name = v.name
+            }
         end
     end
 
-    CollectMe:Print("mout export success")
+    CollectMe:Print("mount export success")
 end
 
 function Export:OnInitialize()
