@@ -1,15 +1,15 @@
 local CollectMe = LibStub("AceAddon-3.0"):GetAddon("CollectMe")
-local L = LibStub("AceLocale-3.0"):GetLocale("CollectMe", true)
 
 local FollowerDB = CollectMe:NewModule("FollowerDB", "AceEvent-3.0")
 local Data = CollectMe:GetModule("Data")
+local ModelPreview = CollectMe:GetModule("ModelPreview")
 local collected, collectedIds = {}, {}
 local missing = {}
 
 local function getFollowers(collected)
     local info = {}
 
-    followers = C_Garrison.GetFollowers()
+    local followers = C_Garrison.GetFollowers()
 
     for i = 1, #followers, 1 do
         local follower = followers[i];
@@ -17,11 +17,16 @@ local function getFollowers(collected)
             table.insert(info, {
                 id = follower.followerID,
                 name = follower.name,
+                portrait = follower.portraitIconID,
+                displayID = follower.displayID,
                 callbacks = {
                     OnClick = function (container, event, group)
                         if group == "RightButton" and IsControlKeyDown() then
                             CollectMe:ToggleIgnore(follower.followerID)
+                        else
+                            ModelPreview:PreviewCreature(follower.displayID)
                         end
+
                     end,
                     OnEnter = function (container, event, group)
                         --TODO: Better tooltip 
