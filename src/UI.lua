@@ -277,7 +277,6 @@ end
 
 function CollectMe.UI:AddCollectMeButtons()
     if self.cm_button_loaded == false and IsAddOnLoaded("Blizzard_Collections") then
-        print ('loaded')
         local cmbutton = CreateFrame("Button", "CollectMeOpenButton", MountJournal, "UIPanelButtonTemplate")
         cmbutton:ClearAllPoints()
         cmbutton:SetPoint("BOTTOMRIGHT", -8, 3)
