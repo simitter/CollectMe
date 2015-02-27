@@ -51,7 +51,7 @@ function FollowerDB:Update()
     collected = getFollowers(true)
 
     for k,v in ipairs(collected) do
-        collectedIds[v.id] = v.id
+        collectedIds[v.name] = v.id
     end
 
     missing = getFollowers(nil)
@@ -75,8 +75,8 @@ function FollowerDB:IsInZone(id, zones)
     return false
 end
 
-function FollowerDB:IsKnown(id)
-    return collectedIds[id] ~= nil
+function FollowerDB:IsKnown(name)
+    return collectedIds[name] ~= nil
 end
 
 function FollowerDB:OnEnable()

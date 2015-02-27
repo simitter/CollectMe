@@ -127,7 +127,7 @@ function CollectMe.LdbDisplay:UpdateData()
             for i,v in pairs(Data.ZoneFollowers[zone_id]) do
                 if not CollectMe:IsInTable(CollectMe.db.profile.ignored.followers , v) then
                     local follower = C_Garrison.GetFollowerInfo(v)
-                    if FollowerDB:IsKnown(v) then
+                    if FollowerDB:IsKnown(follower.name) then
                         tinsert(self.collected_followers, { name = follower.name })
                     else
                         tinsert(self.missing_followers, { name = follower.name })
