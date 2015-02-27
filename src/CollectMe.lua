@@ -324,7 +324,11 @@ function CollectMe:BuildMissingTitleList()
                 end
             end
         else
-            known_count = known_count +1
+            if (titles[v] ~= nil) then
+                known_count = known_count + 1
+            else
+                all_count = all_count - 1
+            end
         end
     end
 
