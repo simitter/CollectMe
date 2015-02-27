@@ -14,7 +14,7 @@ function CollectMe.UI:OnInitialize()
 end
 
 function CollectMe.UI:AddonLoadedListener(event, name)
-    if name == "Blizzard_PetJournal" and self.cm_button_loaded == false then
+    if name == "Blizzard_Collections" and self.cm_button_loaded == false then
         self:AddCollectMeButtons()
     end
 end
@@ -276,7 +276,8 @@ function CollectMe.UI:ShowCheckButtons()
 end
 
 function CollectMe.UI:AddCollectMeButtons()
-    if self.cm_button_loaded == false and IsAddOnLoaded("Blizzard_PetJournal") then
+    if self.cm_button_loaded == false and IsAddOnLoaded("Blizzard_Collections") then
+        print ('loaded')
         local cmbutton = CreateFrame("Button", "CollectMeOpenButton", MountJournal, "UIPanelButtonTemplate")
         cmbutton:ClearAllPoints()
         cmbutton:SetPoint("BOTTOMRIGHT", -8, 3)
@@ -296,6 +297,14 @@ function CollectMe.UI:AddCollectMeButtons()
         cmbutton2:SetWidth(100)
         cmbutton2:SetText(CollectMe.ADDON_NAME)
         cmbutton2:SetScript("OnClick", function() self:Show(CollectMe.COMPANION); self.frame:Show() end)
+
+        local cmbutton3 = CreateFrame("Button", "CollectMeOpen2Button", ToyBox.navigationFrame, "UIPanelButtonTemplate")
+        cmbutton3:ClearAllPoints()
+        cmbutton3:SetPoint("BOTTOMRIGHT", ToyBox.navigationFrame, "BOTTOMRIGHT", -50, 30)
+        cmbutton3:SetHeight(22)
+        cmbutton3:SetWidth(100)
+        cmbutton3:SetText(CollectMe.ADDON_NAME)
+        cmbutton3:SetScript("OnClick", function() self:Show(CollectMe.TOYS); self.frame:Show() end)
 
         self.cm_button_loaded = true
     end
