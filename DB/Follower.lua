@@ -50,6 +50,8 @@ function FollowerDB:Update()
     end
 
     missing = getFollowers(nil)
+
+    CollectMe:SortTable(missing)
 end
 
 function FollowerDB:IsInZone(id, zones)
