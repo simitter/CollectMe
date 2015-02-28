@@ -1,3 +1,14 @@
+## 2.7.1
+* Added 6.1 titles
+* Fixed lots of data regarding mounts and companions
+* Fixed Collect Me button not shown in Blizzard pet and mount journal
+* Added Collect Me button in toy box
+* Fixed toy filters not reacting in some cases
+* Fixed title progress bar (thanks Tomaz82)
+* Fixed missing followers list not being sorted properly
+* Fixed ldb display not recognizing collected followers
+* Added model preview for followers
+
 ## 2.7
 * Added support for followers
 * Added support for wod mounts (more filters will be implemented soon)
