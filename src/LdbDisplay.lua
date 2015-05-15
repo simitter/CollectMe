@@ -6,6 +6,7 @@ local Data = CollectMe:GetModule("Data")
 local ToyDB = CollectMe:GetModule("ToyDB")
 local FollowerDB = CollectMe:GetModule("FollowerDB")
 local MountDB = CollectMe:GetModule("MountDB")
+local ownerFrame = nil
 
 function CollectMe.LdbDisplay:OnEnable()
     self.L = CollectMe.L
@@ -24,10 +25,11 @@ function CollectMe.LdbDisplay:OnEnable()
         end,
 
         OnEnter = function(this)
+            ownerFrame = this
             if self.loaded == false then
                 self:ZoneChangeListener()
             end
-            GameTooltip:SetOwner( this, "ANCHOR_NONE" )
+            GameTooltip:SetOwner( ownerFrame, "ANCHOR_NONE" )
             GameTooltip:ClearAllPoints()
             local _, cy = this:GetCenter()
             if cy < GetScreenHeight() / 2 then
@@ -42,6 +44,7 @@ function CollectMe.LdbDisplay:OnEnable()
 
         OnLeave = function()
             GameTooltip:Hide()
+            ownerFrame = nil
         end
     })
 
@@ -216,8 +219,9 @@ function CollectMe.LdbDisplay:UpdateText()
     end
 
     self.dataObject.text = text:trim()
-
-    GameTooltip:Hide()
+    if ownerFrame ~= nil and GameTooltip:IsOwned(ownerFrame) then
+        GameTooltip:Hide()
+    end
 end
 
 function CollectMe.LdbDisplay:AppendText(text, text_to_append)
