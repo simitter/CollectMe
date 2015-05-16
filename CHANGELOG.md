@@ -1,3 +1,6 @@
+## 2.7.2
+* Fixed hiding of tooltips not owned by Collect Me (eg MasterPlan)
+
 ## 2.7.1
 * Added 6.1 titles
 * Fixed lots of data regarding mounts and companions

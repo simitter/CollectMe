@@ -221,6 +221,7 @@ function CollectMe.LdbDisplay:UpdateText()
     self.dataObject.text = text:trim()
     if ownerFrame ~= nil and GameTooltip:IsOwned(ownerFrame) then
         GameTooltip:Hide()
+        ownerFrame = nil
     end
 end
 
