@@ -1,3 +1,6 @@
+## 2.7.3
+* Fixed hiding of tooltips not owned by Collect Me (eg MasterPlan)
+
 ## 2.7.2
 * Fixed hiding of tooltips not owned by Collect Me (eg MasterPlan)
 
