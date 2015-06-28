@@ -1,5 +1,6 @@
 ## 2.7.3
-* Fixed hiding of tooltips not owned by Collect Me (eg MasterPlan)
+* Update for 6.2
+* Added 6.2 Mounts, Companions and Title data
 
 ## 2.7.2
 * Fixed hiding of tooltips not owned by Collect Me (eg MasterPlan)
