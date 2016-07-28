@@ -30,10 +30,10 @@ local function update()
     C_MountJournal.SetCollectedFilterSetting(LE_MOUNT_JOURNAL_FILTER_NOT_COLLECTED, true)
 
     for i = 1, C_MountJournal.GetNumMounts() do
-        local name, id, icon, _, summonable, source, _, _, faction, hidden, owned = C_MountJournal.GetMountInfo(i)
+        local name, id, icon, _, summonable, source, _, _, faction, hidden, owned = C_MountJournal.GetMountInfoByID(i)
 
         if hidden == false and (faction == nil or (faction == 0 and CollectMe.FACTION == 'Horde') or (faction == 1 and CollectMe.FACTION == 'Alliance')) then
-            local creature_id, _, source_text, _, api_type = C_MountJournal.GetMountInfoExtra(i)
+            local creature_id, _, source_text, _, api_type = C_MountJournal.GetMountInfoExtraByID(i)
             local type, zones = getInfoFromApiType(api_type)
 
             if owned then

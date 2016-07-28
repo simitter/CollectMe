@@ -9,7 +9,7 @@ local missing = {}
 local function getFollowers(collected)
     local info = {}
 
-    local followers = C_Garrison.GetFollowers()
+    local followers = C_Garrison.GetFollowers(1) or {}
 
     for i = 1, #followers, 1 do
         local follower = followers[i];

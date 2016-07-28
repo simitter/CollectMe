@@ -63,5 +63,5 @@ end
 
 function RandomMount:Mount(t)
     local call = math.random(1, #t);
-    C_MountJournal.Summon(t[call]);
+    C_MountJournal.SummonByID(t[call]);
 end

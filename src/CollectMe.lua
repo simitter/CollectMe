@@ -374,9 +374,9 @@ end
 
 --@todo switch to compaion db
 function CollectMe:BuildMissingCompanionList()
-    local collected_filter = not C_PetJournal.IsFlagFiltered(LE_PET_JOURNAL_FLAG_NOT_COLLECTED)
+    local collected_filter = not C_PetJournal.IsFilterChecked(LE_PET_JOURNAL_FILTER_NOT_COLLECTED)
     C_PetJournal.SetSearchFilter("")
-    C_PetJournal.SetFlagFilter(LE_PET_JOURNAL_FLAG_NOT_COLLECTED, true)
+    C_PetJournal.SetFilterChecked(LE_PET_JOURNAL_FILTER_NOT_COLLECTED, true)
     local total = C_PetJournal.GetNumPets(false)
     local active, ignored, owned_db = {}, {}, {}
     local zones = self:CloneTable(self.db.profile.filters.companions.zones)
@@ -410,7 +410,7 @@ function CollectMe:BuildMissingCompanionList()
         end
     end
 
-    C_PetJournal.SetFlagFilter(LE_PET_JOURNAL_FLAG_NOT_COLLECTED, collected_filter)
+    C_PetJournal.SetFilterChecked(LE_PET_JOURNAL_FILTER_NOT_COLLECTED, collected_filter)
     self:AddMissingRows(active, ignored, #active + #ignored + #owned_db, #owned_db, 0)
 end
 
@@ -504,13 +504,13 @@ function CollectMe:BuildMissingCompanionFilters()
     self.UI:AddToFilter(self.UI:CreateHeading(self.L["Source Filter"]))
     local numSources = C_PetJournal.GetNumPetSources();
     for i=1,numSources do
-        self.UI:CreateFilterCheckbox(_G["BATTLE_PET_SOURCE_"..i], C_PetJournal.IsPetSourceFiltered(i), { OnValueChanged = function (container, event, value) value = not value; C_PetJournal.SetPetSourceFilter(i, value); self.UI:ReloadScroll() end })
+        self.UI:CreateFilterCheckbox(_G["BATTLE_PET_SOURCE_"..i], C_PetJournal.IsPetSourceChecked(i), { OnValueChanged = function (container, event, value) value = not value; C_PetJournal.SetPetSourceChecked(i, value); self.UI:ReloadScroll() end })
     end
 
     self.UI:AddToFilter(self.UI:CreateHeading(self.L["Family Filter"]))
     local numTypes = C_PetJournal.GetNumPetTypes();
     for i=1,numTypes do
-        self.UI:CreateFilterCheckbox(_G["BATTLE_PET_NAME_"..i], C_PetJournal.IsPetTypeFiltered(i), { OnValueChanged = function (container, event, value) value = not value; C_PetJournal.SetPetTypeFilter(i, value); self.UI:ReloadScroll() end })
+        self.UI:CreateFilterCheckbox(_G["BATTLE_PET_NAME_"..i], C_PetJournal.IsPetTypeChecked(i), { OnValueChanged = function (container, event, value) value = not value; C_PetJournal.SetPetTypeFilter(i, value); self.UI:ReloadScroll() end })
     end
 end
 
@@ -523,8 +523,8 @@ function CollectMe:BuildMissingToyFilters()
     self.UI:AddToFilter(self.UI:CreateHeading(self.L["Source Filter"]))
     local ToyDB = self:GetModule("ToyDB")
     for _,i in pairs {1,2,3,4,7,8} do
-        self.UI:CreateFilterCheckbox(_G["BATTLE_PET_SOURCE_"..i], C_ToyBox.IsSourceTypeFiltered(i), { OnValueChanged = function (container, event, value)
-            C_ToyBox.SetFilterSourceType(i, value)
+        self.UI:CreateFilterCheckbox(_G["BATTLE_PET_SOURCE_"..i], C_ToyBox.IsSourceTypeFilterChecked(i), { OnValueChanged = function (container, event, value)
+            C_ToyBox.SetSourceTypeFilter(i, value)
             ToyDB:Update()
             self.UI:ReloadScroll()
         end })
@@ -583,7 +583,7 @@ function CollectMe:BatchCheck(value)
         local count = C_MountJournal.GetNumMounts()
 		
 		for i = 1, count, 1 do
-			local name, spell_id, _, _, _, _, _, isFactionSpecific, faction, _, isCollected = C_MountJournal.GetMountInfo(i)
+			local name, spell_id, _, _, _, _, _, isFactionSpecific, faction, _, isCollected = C_MountJournal.GetMountInfoByID(i)
 			if isCollected then
 				if not faction then
 					faction = -1

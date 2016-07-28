@@ -35,26 +35,26 @@ local function getToys()
 end
 
 function ToyDB:Update()
-    local filterCollected, filterUncollected = C_ToyBox.GetFilterCollected(), C_ToyBox.GetFilterUncollected()
+    local filterCollected, filterUncollected = C_ToyBox.GetCollectedShown(), C_ToyBox.GetUncollectedShown()
 
     C_ToyBox.SetFilterString('')
-    C_ToyBox.SetFilterCollected(true)
-    C_ToyBox.SetFilterUncollected(false)
-    C_ToyBox.FilterToys()
+    C_ToyBox.SetCollectedShown(true)
+    C_ToyBox.SetUncollectedShown(false)
+    C_ToyBox.ForceToyRefilter()
     collected = getToys(true)
     for k,v in ipairs(collected) do
         collectedIds[v.id] = v.id
     end
 
-    C_ToyBox.SetFilterCollected(false)
-    C_ToyBox.SetFilterUncollected(true)
-    C_ToyBox.FilterToys()
+    C_ToyBox.SetCollectedShown(false)
+    C_ToyBox.SetUncollectedShown(true)
+    C_ToyBox.ForceToyRefilter()
     missing = getToys(false)
 
     -- restore filters
-    C_ToyBox.SetFilterCollected(filterCollected)
-    C_ToyBox.SetFilterUncollected(filterUncollected)
-    C_ToyBox.FilterToys()
+    C_ToyBox.SetCollectedShown(filterCollected)
+    C_ToyBox.SetUncollectedShown(filterUncollected)
+    C_ToyBox.ForceToyRefilter()
 end
 
 function ToyDB:IsInZone(id, zones)
