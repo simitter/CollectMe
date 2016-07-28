@@ -1,3 +1,6 @@
+## 2.7.4
+* Update for 6.2.2 Flying
+
 ## 2.7.3
 * Update for 6.2
 * Added 6.2 Mounts, Companions and Title data

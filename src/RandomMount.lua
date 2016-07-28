@@ -11,9 +11,9 @@ function RandomMount:Summon(type)
         local collected, _, infos = MountDB:Get()
 
         --IsFlyableArea() falsely returns true for Dreanor
-        if(GetCurrentMapContinent() == 7) then
-            is_flyable_area = false
-        end
+        --if(GetCurrentMapContinent() == 7) then
+        --    is_flyable_area = false
+       --end
 
         for _,id in pairs(collected) do
             -- check if current mount is in priority pool and if it is usable here

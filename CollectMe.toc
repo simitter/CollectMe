@@ -1,13 +1,13 @@
 ## Title: CollectMe
 ## Notes: Displays a list of mounts, companions, titles, toys, and followers which the character is missing and allows to summon companions and mounts
 
-## Author: Tschebel (Nyssa), Jim-Bim (Ascalia), Xtcssa (Excitor)
+## Author: Tschebel (Nyssa), Jim-Bim (Ascalia), Xtcssa (VitalityV)
 ## eMail: admin AT tschebel DOT net
 ## X-email: admin AT tschebel DOT net
 ## X-License: MIT modified with notification clause
 
 ## Interface: 60200
-## Version: 2.7.3
+## Version: 2.7.4
 
 ## X-credits: wowwiki
 
