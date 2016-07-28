@@ -1,3 +1,8 @@
+## 2.8
+* First update for 7.0
+* Fixed various API calls
+* Updated included Libs
+
 ## 2.7.4
 * Update for 6.2.2 Flying
 
