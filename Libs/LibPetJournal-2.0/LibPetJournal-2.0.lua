@@ -1,5 +1,5 @@
 --[[
- Copyright (c) 2012 Robin Schoonover
+ Copyright (c) 2012-2016 Robin Schoonover
 
  Permission is hereby granted, free of charge, to any person obtaining a copy
  of this software and associated documentation files (the "Software"), to
@@ -20,7 +20,7 @@
  IN THE SOFTWARE.
 ]]
 
-local MAJOR, MINOR = "LibPetJournal-2.0", 27
+local MAJOR, MINOR = "LibPetJournal-2.0", 32
 local lib, oldminor = LibStub:NewLibrary(MAJOR, MINOR)
 
 if not lib then return end
@@ -30,11 +30,13 @@ if not lib then return end
 --
 
 local _G = _G
-local assert, hooksecurefunc, ipairs, IsLoggedIn, pairs, tinsert, wipe
-    = assert, hooksecurefunc, ipairs, IsLoggedIn, pairs, tinsert, wipe
+local assert, GetTime, hooksecurefunc, ipairs, IsLoggedIn, pairs, tinsert, wipe
+    = assert, GetTime, hooksecurefunc, ipairs, IsLoggedIn, pairs, tinsert, wipe
 local C_PetJournal = _G.C_PetJournal
 
-local start_background
+local is_lt_70 = select(4, GetBuildInfo()) < 70000
+
+local PJLU_TIMEOUT = 1
 
 --
 --
@@ -53,41 +55,41 @@ end)
 
 do
     local PJ_FLAG_FILTERS = {
-        [LE_PET_JOURNAL_FLAG_COLLECTED] = true,
-        [LE_PET_JOURNAL_FLAG_NOT_COLLECTED] = true,
+        -- WoW<7.0 -- LE_PET_JOURNAL_FLAG_COLLECTED/LE_PET_JOURNAL_FLAG_NOT_COLLECTED
+        [LE_PET_JOURNAL_FLAG_COLLECTED or LE_PET_JOURNAL_FILTER_COLLECTED] = true,
+        [LE_PET_JOURNAL_FLAG_NOT_COLLECTED or LE_PET_JOURNAL_FILTER_NOT_COLLECTED] = true,
     }
-
-    -- pre-WoD (<6.0)
-    if LE_PET_JOURNAL_FLAG_FAVORITES ~= nil then
-        PJ_FLAG_FILTERS[LE_PET_JOURNAL_FLAG_FAVORITES] = false
-    end
-
-    local s_search_filter
-    local flag_filters = {}
-    local type_filters = {}
-    local source_filters = {}
-    
+   
+   
     lib._filter_hooks = lib._filter_hooks or {}
+    lib._filter_values = lib._filter_values or {}
+    lib._filter_values.flag_filters = lib._filter_values.flag_filters or {}
+    lib._filter_values.type_filters = lib._filter_values.type_filters or {}
+    lib._filter_values.source_filters = lib._filter_values.source_filters or {}
+
+    local filter_values = lib._filter_values
+    local flag_filters = filter_values.flag_filters
+    local type_filters = filter_values.type_filters
+    local source_filters = filter_values.source_filters
 
     -- hook C_PetJournal.SetSearchFilter
-    local last_search_filter
     if not lib._filter_hooks.SetSearchFilter then
         hooksecurefunc(C_PetJournal, "SetSearchFilter", function(...)
              lib._filter_hooks.SetSearchFilter(...)
         end)
     end
     lib._filter_hooks.SetSearchFilter = function(str)
-        last_search_filter = str
+        filter_values.last_search_filter = str
     end
     
     -- hook C_PetJournal.ClearSearchFilter
     if not lib._filter_hooks.ClearSearchFilter then
         hooksecurefunc(C_PetJournal, "ClearSearchFilter", function(...)
-             lib._filter_hooks.ClearSearchFilter(...)
+            lib._filter_hooks.ClearSearchFilter(...)
         end)
     end
     lib._filter_hooks.ClearSearchFilter = function()
-        last_search_filter = ""
+        filter_values.last_search_filter = ""
     end
 
     --- Save and clear the PetJournal filters.
@@ -96,57 +98,97 @@ do
     -- automatically by LibPetJournal.
     -- @name LibPetJournal:ClearFilters()
     function lib:ClearFilters()
+        local has_changes = false
+
         assert(not lib._filters_cleared, "ClearFilters() already called")
         lib._filters_cleared = true
         
         if _G.PetJournal then
             _G.PetJournal:UnregisterEvent("PET_JOURNAL_LIST_UPDATE")
         end
-        lib.event_frame:UnregisterEvent("PET_JOURNAL_LIST_UPDATE")
+        if is_lt_70 then
+            lib.event_frame:UnregisterEvent("PET_JOURNAL_LIST_UPDATE")
+        end
 
         for flag, value in pairs(PJ_FLAG_FILTERS) do
-            flag_filters[flag] = not C_PetJournal.IsFlagFiltered(flag)
+            if C_PetJournal.IsFlagFiltered then
+                -- WoW<7.0
+                flag_filters[flag] = not C_PetJournal.IsFlagFiltered(flag)
+            else
+                flag_filters[flag] = C_PetJournal.IsFilterChecked(flag)
+            end
             if flag_filters[flag] ~= value then
-                C_PetJournal.SetFlagFilter(flag, value)
+                if C_PetJournal.SetFlagFilter then
+                    -- WoW<7.0
+                    C_PetJournal.SetFlagFilter(flag, value)
+                else
+                    C_PetJournal.SetFilterChecked(flag, value)
+                end
+                has_changes = true
             end
         end
         
         local need_add_all = false
         local ntypes = C_PetJournal.GetNumPetTypes()
         for i=1,ntypes do
-            type_filters[i] = not C_PetJournal.IsPetTypeFiltered(i)
+            if C_PetJournal.IsPetTypeFiltered then
+                -- WoW<7.0
+                type_filters[i] = not C_PetJournal.IsPetTypeFiltered(i)
+            else
+                type_filters[i] = C_PetJournal.IsPetTypeChecked(i)
+            end
             if not type_filters[i] then
                 need_add_all = true
             end
         end
         if need_add_all then
-            C_PetJournal.AddAllPetTypesFilter()
+            if C_PetJournal.AddAllPetTypesFilter then
+                -- WoW<7.0
+                C_PetJournal.AddAllPetTypesFilter()
+            else
+                C_PetJournal.SetAllPetTypesChecked(true)
+            end
+            has_changes = true
         end
         
         need_add_all = false
         local nsources = C_PetJournal.GetNumPetSources()
         for i=1,nsources do
-            source_filters[i] = not C_PetJournal.IsPetSourceFiltered(i)
+            if C_PetJournal.IsPetSourceFiltered then
+                -- WoW<7.0
+                source_filters[i] = not C_PetJournal.IsPetSourceFiltered(i)
+            else
+                source_filters[i] = C_PetJournal.IsPetSourceChecked(i)
+            end
             if not source_filters[i] then
                 need_add_all = true
             end
         end
         if need_add_all then
-            C_PetJournal.AddAllPetSourcesFilter()
+            if C_PetJournal.AddAllPetSourcesFilter then
+                -- WoW<7.0
+                C_PetJournal.AddAllPetSourcesFilter()
+            else
+                C_PetJournal.SetAllPetSourcesChecked(true)
+            end
+            has_changes = true
         end
 
-        if last_search_filter == nil then
+        if filter_values.last_search_filter == nil then
             -- There's no way to actually get the current search filter without hooking it,
             -- and anyone loading earlier (especially if we are LOD) could have set it
             -- before our hook, so always clear the first time
-            last_search_filter = ""
+            filter_values.last_search_filter = ""
             C_PetJournal.ClearSearchFilter()
-        elseif last_search_filter ~= "" then
-            s_search_filter = last_search_filter
+        elseif filter_values.last_search_filter ~= "" then
+            filter_values.s_search_filter = filter_values.last_search_filter
             C_PetJournal.ClearSearchFilter()
+            has_changes = true
         else
-            s_search_filter = nil
+            filter_values.s_search_filter = nil
         end
+
+        return has_changes
     end
 
     --- Restore PetJournal filters after a :ClearFilters() call.
@@ -157,13 +199,18 @@ do
         assert(lib._filters_cleared, "ClearFilters() not called yet")
         lib._filters_cleared = false
         
-        if s_search_filter and s_search_filter ~= "" then
-            C_PetJournal.SetSearchFilter(s_search_filter)
+        if filter_values.s_search_filter and filter_values.s_search_filter ~= "" then
+            C_PetJournal.SetSearchFilter(filter_values.s_search_filter)
         end
         
         for flag, value in pairs(flag_filters) do
             if value ~= PJ_FLAG_FILTERS[flag] then
-                C_PetJournal.SetFlagFilter(flag, value)
+                if C_PetJournal.SetFlagFilter then
+                    -- WoW<7.0
+                    C_PetJournal.SetFlagFilter(flag, value)
+                else
+                    C_PetJournal.SetFilterChecked(flag, value)
+                end
             end
         end
         
@@ -175,14 +222,21 @@ do
         
         for flag,value in pairs(source_filters) do
             if value ~= true then
-                C_PetJournal.SetPetSourceFilter(flag, value)
+                if C_PetJournal.SetPetSourceFilter then
+                    -- WoW<7.0
+                    C_PetJournal.SetPetSourceFilter(flag, value)
+                else
+                    C_PetJournal.SetPetSourceChecked(flag, value)
+                end
             end
         end
     
         if _G.PetJournal then
             _G.PetJournal:RegisterEvent("PET_JOURNAL_LIST_UPDATE")
         end
-        lib.event_frame:RegisterEvent("PET_JOURNAL_LIST_UPDATE")
+        if is_lt_70 then
+            lib.event_frame:RegisterEvent("PET_JOURNAL_LIST_UPDATE")
+        end
     end
 end
 
@@ -225,26 +279,64 @@ function lib:GetSpeciesIDForCreatureID(creatureid)
     return self._set_creatureids[creatureid]
 end
 
+local function loadPetsTimeout()
+    -- we were waiting for PJLU, but it never came
+    -- this should rarely happen!
+
+    if not lib._waiting or lib._timeout_started == nil then
+        return
+    end
+
+    if GetTime() - lib._timeout_started >= PJLU_TIMEOUT then
+        lib._waiting = false
+        if lib:_LoadPets() then
+            lib:_LoadPetsFinish()
+        end
+    end
+end
+
 --- Load pets stored in the PetJournal.
 -- Under normal circumstances with API will run on its own in response to
 -- updates to the Pet Journal.
 -- @name LibPetJournal:LoadPets()
 function lib:LoadPets()
-    if self._running then
-        return false
+    if self._running or lib._waiting then
+        return
     end
     
     lib._running = true
-    self:ClearFilters()
+    local filters_changed = self:ClearFilters()
     
+    if not filters_changed or is_lt_70 then
+        if self:_LoadPets() then
+            self:_LoadPetsFinish()
+        end
+    else
+        -- The collected/uncollected flags seem to no longer take effect immediately,
+        -- so we'll need to wait for PJLU to finish our work.
+        lib._waiting = true
+        lib._timeout_started = GetTime()
+        C_Timer.After(PJLU_TIMEOUT, loadPetsTimeout)
+    end
+end
+
+local function doLoadPets()
+    lib:LoadPets()
+end
+
+local function restoreAndRetryLater()
+    lib:RestoreFilters()
+    lib._running = false
+    C_Timer.After(0.1, doLoadPets)
+end
+
+function lib:_LoadPets()
     wipe(lib._petids)
-    
+
     local total, owned = C_PetJournal.GetNumPets()
     if total == 0 and owned == 0 then
-        self:RestoreFilters()
-        self.event_frame:Show()
-        self._running = false
-        return
+        restoreAndRetryLater()
+        return false
     end
     lib._last_total = total
     
@@ -259,9 +351,7 @@ function lib:LoadPets()
             local _, _, _, _, _, _, _, name = C_PetJournal.GetPetInfoByPetID(petID)
 
             if not name then
-                self:RestoreFilters()
-                self._running = false
-                start_background()
+                restoreAndRetryLater()
                 return false
             end
         end
@@ -280,7 +370,11 @@ function lib:LoadPets()
             tinsert(self._creatureids, creatureID)
         end
     end
-    
+
+    return true
+end
+
+function lib:_LoadPetsFinish()
     -- Signal
     self.callbacks:Fire("PetListUpdated", self)
     
@@ -292,8 +386,6 @@ function lib:LoadPets()
     
     self.event_frame:Hide()
     self._running = false
-    
-    return true
 end
 
 --- Determine if the pet list has been loaded.
@@ -322,16 +414,21 @@ function lib.event_frame:PET_JOURNAL_LIST_UPDATE()
     if not IsLoggedIn() then
         return
     end
-    
+
+    if lib._waiting then
+        lib._waiting = false
+        if lib:_LoadPets() then
+            lib:_LoadPetsFinish()
+        end
+        return
+    end
+
     local total, owned = C_PetJournal.GetNumPets()
     if lib._last_owned ~= owned then
         lib._last_owned = owned
-        if not lib:LoadPets() then
-            lib.event_frame:Show()
-            return
-        end
+        lib:LoadPets()
     elseif total > lib._last_total then
-        return start_background()
+        C_Timer.After(0.1, doLoadPets)
     end
     
     lib.callbacks:Fire("PetsUpdated", self)
@@ -351,19 +448,4 @@ function lib.event_frame:ADDON_LOADED()
     end
 end
 
-local timer = 0
-function start_background()
-    timer = 10
-    lib.event_frame:Show()
-end
-
-lib.event_frame:SetScript("OnUpdate", function(frame, elapsed)
-    timer = timer + elapsed
-    if timer > 2 then        
-        if lib:LoadPets() then
-            lib.callbacks:Fire("PetsUpdated", lib)
-        end
-        timer = 0
-    end
-end)
-
+lib.event_frame:SetScript("OnUpdate", nil)
