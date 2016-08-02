@@ -1,3 +1,11 @@
+## 2.8.1
+* Added new Legion titles
+* Added zones to companions, followers, mounts
+* Fixed Legion API calls with new mount_ids
+* Fixed campanion/toy filter checkboxes
+* Fixed Ctrl + click on mount links in chat
+* Fixed false link generation for companions
+
 ## 2.8
 * First update for 7.0
 * Fixed various API calls
