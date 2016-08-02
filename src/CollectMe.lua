@@ -639,10 +639,7 @@ function CollectMe:ItemRowClick(group, spell_id)
             end
         end
     elseif self.UI.active_group == self.COMPANION and group == "LeftButton" then
-        local link = GetSpellLink(spell_id)
-        if IsShiftKeyDown() == true and link ~= nil then
-            ChatEdit_InsertLink(link)
-        elseif spell_id ~= nil then
+        if spell_id ~= nil then
             self.ModelPreview:PreviewCreature(spell_id)
         end
     elseif group == "RightButton" and IsControlKeyDown() then
