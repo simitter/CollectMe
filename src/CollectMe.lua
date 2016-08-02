@@ -504,13 +504,13 @@ function CollectMe:BuildMissingCompanionFilters()
     self.UI:AddToFilter(self.UI:CreateHeading(self.L["Source Filter"]))
     local numSources = C_PetJournal.GetNumPetSources();
     for i=1,numSources do
-        self.UI:CreateFilterCheckbox(_G["BATTLE_PET_SOURCE_"..i], C_PetJournal.IsPetSourceChecked(i), { OnValueChanged = function (container, event, value) value = not value; C_PetJournal.SetPetSourceChecked(i, value); self.UI:ReloadScroll() end })
+        self.UI:CreateFilterCheckbox(_G["BATTLE_PET_SOURCE_"..i], not C_PetJournal.IsPetSourceChecked(i), { OnValueChanged = function (container, event, value) value = not value; C_PetJournal.SetPetSourceChecked(i, value); self.UI:ReloadScroll() end })
     end
 
     self.UI:AddToFilter(self.UI:CreateHeading(self.L["Family Filter"]))
     local numTypes = C_PetJournal.GetNumPetTypes();
     for i=1,numTypes do
-        self.UI:CreateFilterCheckbox(_G["BATTLE_PET_NAME_"..i], C_PetJournal.IsPetTypeChecked(i), { OnValueChanged = function (container, event, value) value = not value; C_PetJournal.SetPetTypeFilter(i, value); self.UI:ReloadScroll() end })
+        self.UI:CreateFilterCheckbox(_G["BATTLE_PET_NAME_"..i], not C_PetJournal.IsPetTypeChecked(i), { OnValueChanged = function (container, event, value) value = not value; C_PetJournal.SetPetTypeFilter(i, value); self.UI:ReloadScroll() end })
     end
 end
 
@@ -524,7 +524,7 @@ function CollectMe:BuildMissingToyFilters()
     local ToyDB = self:GetModule("ToyDB")
     for _,i in pairs {1,2,3,4,7,8} do
         self.UI:CreateFilterCheckbox(_G["BATTLE_PET_SOURCE_"..i], C_ToyBox.IsSourceTypeFilterChecked(i), { OnValueChanged = function (container, event, value)
-            C_ToyBox.SetSourceTypeFilter(i, value)
+            C_ToyBox.SetSourceTypeFilter(i, not value)
             ToyDB:Update()
             self.UI:ReloadScroll()
         end })
