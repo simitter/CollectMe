@@ -31,6 +31,7 @@ Data.Zones = {
     964, -- Bloodmaul Slag Mines
     476, -- Bloodmyst Isle
     486, -- Borean Tundra
+    925, -- Brawl'gar Arena
     29, -- Burning Steppes
     890, -- Camp Narache MoP
     955, -- Celestial Tournament
@@ -80,6 +81,7 @@ Data.Zones = {
     603, -- Halls of Reflection
     526, -- Halls of Stone
     897, -- Heart of Fear MoP
+    1026, -- Hellfire Citadel
     465, -- Hellfire Peninsula
     797, -- Hellfire Ramparts
     994, -- Highmaul
