@@ -538,6 +538,16 @@ function CollectMe:BuildMissingFollowerFilters()
     self.UI:CreateFilterDropdown(self.L["Select Zones"], list, self.db.profile.filters.followers.zones, { OnValueChanged = function (container, event, value) local pos = self:IsInTable(self.db.profile.filters.followers.zones, value); if not pos then table.insert(self.db.profile.filters.followers.zones, value) else table.remove(self.db.profile.filters.followers.zones, pos) end; self.UI:ReloadScroll() end }, true, order)
 end
 
+function CollectMe:GetMountInfo(spell)
+    for mount_id = 1, C_MountJournal.GetNumMounts() do
+        local _, spell_id = C_MountJournal.GetMountInfoByID(mount_id)
+        if spell_id == spell then
+            return {display_id = C_MountJournal.GetMountInfoExtraByID(mount_id)}
+        end
+    end
+    return nil
+end
+
 function CollectMe:BuildOptions()
     self.UI:AddToFilter(self.UI:CreateHeading(self.L["Options"]))
 
