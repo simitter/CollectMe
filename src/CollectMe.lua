@@ -539,10 +539,11 @@ function CollectMe:BuildMissingFollowerFilters()
 end
 
 function CollectMe:GetMountInfo(spell)
-    for mount_id = 1, C_MountJournal.GetNumMounts() do
-        local _, spell_id = C_MountJournal.GetMountInfoByID(mount_id)
+	local mountIDs = C_MountJournal.GetMountIDs();
+    for i = 1, #mountIDs do
+        local _, spell_id = C_MountJournal.GetMountInfoByID(mountIDs[i])
         if spell_id == spell then
-            return {display_id = C_MountJournal.GetMountInfoExtraByID(mount_id)}
+            return {display_id = C_MountJournal.GetMountInfoExtraByID(mountIDs[i])}
         end
     end
     return nil
@@ -590,10 +591,10 @@ function CollectMe:BatchCheck(value)
 	local search = self.UI:GetSearchText():lower()
     if self.UI.active_group == self.RANDOM_MOUNT then
         local random_db = self.db.profile.random.mounts
-        local count = C_MountJournal.GetNumMounts()
+        local mountIDs = C_MountJournal.GetMountIDs();
 		
-		for i = 1, count, 1 do
-			local name, spell_id, _, _, _, _, _, isFactionSpecific, faction, _, isCollected = C_MountJournal.GetMountInfoByID(i)
+		for i = 1, #mountIDs, 1 do
+			local name, spell_id, _, _, _, _, _, isFactionSpecific, faction, _, isCollected = C_MountJournal.GetMountInfoByID(mountIDs[i])
 			if isCollected then
 				if not faction then
 					faction = -1

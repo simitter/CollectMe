@@ -29,11 +29,13 @@ local function update()
     C_MountJournal.SetCollectedFilterSetting(LE_MOUNT_JOURNAL_FILTER_COLLECTED, true)
     C_MountJournal.SetCollectedFilterSetting(LE_MOUNT_JOURNAL_FILTER_NOT_COLLECTED, true)
 
-    for i = 1, C_MountJournal.GetNumMounts() do
-        local name, id, icon, _, summonable, source, _, _, faction, hidden, owned = C_MountJournal.GetMountInfoByID(i)
-
+	local mountIDs = C_MountJournal.GetMountIDs();
+	
+    for i = 1, #mountIDs do
+        local name, id, icon, _, summonable, source, _, _, faction, hidden, owned, mount_id = C_MountJournal.GetMountInfoByID(mountIDs[i])
+		
         if hidden == false and (faction == nil or (faction == 0 and CollectMe.FACTION == 'Horde') or (faction == 1 and CollectMe.FACTION == 'Alliance')) then
-            local creature_id, _, source_text, _, api_type = C_MountJournal.GetMountInfoExtraByID(i)
+            local creature_id, _, source_text, _, api_type = C_MountJournal.GetMountInfoExtraByID(mountIDs[i])
             local type, zones = getInfoFromApiType(api_type)
 
             if owned then
@@ -54,6 +56,7 @@ local function update()
                 collected   = owned,
                 source_text = source_text,
                 summonable  = summonable,
+				mount_id	= mount_id,
             }
         end
     end

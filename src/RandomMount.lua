@@ -20,24 +20,24 @@ function RandomMount:Summon(type)
             if db.random.mounts[id] ~= nil and db.random.mounts[id] ~= false and IsUsableSpell(id) ~= nil and infos[id].summonable then
                 -- setting up zone table (aquatic handled by that too currently)
                 if infos[id].zones ~= nil and infos[id].zones[zone_id] ~= nil then
-                    table.insert(zone_mounts, infos[id].index)
+                    table.insert(zone_mounts, infos[id].mount_id)
                 end
 
                 if #zone_mounts == 0 then
                     -- swimming mounts
                     if is_swimming == true then
                         if infos[id].type == MountDB.SWIM or (db.summon.mounts.flying_in_water == true and infos[id].type == MountDB.FLY and is_flyable_area == true) then
-                            table.insert(type_mounts, infos[id].index)
+                            table.insert(type_mounts, infos[id].mount_id)
                         end
                         -- flying mounts
                     elseif is_flyable_area == true then
                         if infos[id].type == MountDB.FLY then
-                            table.insert(type_mounts, infos[id].index)
+                            table.insert(type_mounts, infos[id].mount_id)
                         end
                     end
                 end
                 if infos[id].type == MountDB.GROUND or (db.summon.mounts.flying_on_ground  == true and infos[id].type == MountDB.FLY) then
-                    table.insert(fallback_mounts, infos[id].index)
+                    table.insert(fallback_mounts, infos[id].mount_id)
                 end
             end
         end
