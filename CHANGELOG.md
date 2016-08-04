@@ -1,3 +1,6 @@
+## 2.8.2
+* Added Traditional Chinese (zhTW) localization
+
 ## 2.8.1
 * Added new Legion titles
 * Added zones to companions, followers, mounts
