@@ -51,7 +51,7 @@ function RandomMount:Summon(type)
         elseif #fallback_mounts > 0 then
             self:Mount(fallback_mounts)
         else
-            if IsIndoors() == nil and UnitAffectingCombat("player") == nil then
+            if IsIndoors() == false and UnitAffectingCombat("player") == false then
                 CollectMe:Print(CollectMe.L["You haven't configured your mount priorities yet. Please open the random mount tab"])
             end
         end
