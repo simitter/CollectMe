@@ -11,13 +11,16 @@ Data.Zones = {
     16, -- Arathi Highlands
     43, -- Ashenvale
     978, -- Ashran
+    1066, -- Assault on Violet Hold
     722, -- Auchenai Crypts
     984, -- Auchindoun
     533, -- Azjol-Nerub
     181, -- Azshara
+    1015, -- Azsuna
     464, -- Azuremyst Isle
     17, -- Badlands
     752, -- Baradin Hold
+    1081, -- Black Rook Hold
     796, -- Black Temple
     688, -- Blackfathom Deeps
     753, -- Blackrock Caverns
@@ -32,12 +35,16 @@ Data.Zones = {
     476, -- Bloodmyst Isle
     486, -- Borean Tundra
     925, -- Brawl'gar Arena
+    1021, -- Broken Shore
     29, -- Burning Steppes
     890, -- Camp Narache MoP
     955, -- Celestial Tournament
     866, -- Coldridge Valley MoP
+    1087, -- Court of Stars
     510, -- Crystalsong Forest
+    1014, -- Dalaran
     504, -- Dalaran
+    1067, -- Darkheart Thicket
     823, -- Darkmoon Island
     42, -- Darkshore
     381, -- Darnassus
@@ -59,6 +66,8 @@ Data.Zones = {
     30, -- Elwynn Forest
     820, -- End Time
     462, -- Eversong Woods
+    1096, -- Eye of Azshara
+    1046, -- Eye of Azshara
     482, -- Eye of the Storm
     182, -- Felwood
     121, -- Feralas
@@ -80,11 +89,14 @@ Data.Zones = {
     759, -- Halls of Origination
     603, -- Halls of Reflection
     526, -- Halls of Stone
+    1041, -- Halls of Valor
     897, -- Heart of Fear MoP
     1026, -- Hellfire Citadel
     465, -- Hellfire Peninsula
     797, -- Hellfire Ramparts
+    1042, -- Helmouth Cliffs
     994, -- Highmaul
+    1024, -- Highmountain
     24, -- Hillsbrad Foothills
     819, -- Hour of Twilight
     491, -- Howling Fjord
@@ -120,6 +132,7 @@ Data.Zones = {
     477, -- Nagrand
     950, -- Nagrand
     535, -- Naxxramas
+    1065, -- Neltharion's Lair
     479, -- Netherstorm
     895, -- New Tinkertown MoP
     11, -- Northern Barrens
@@ -162,6 +175,7 @@ Data.Zones = {
     607, -- Southern Barrens
     948, -- Spires of Arak
     81, -- Stonetalon Mountains
+    1017, -- Stormheim
     1009, -- Stormshield
     876, -- Stormstout Brewery MoP
     301, -- Stormwind City
@@ -170,6 +184,7 @@ Data.Zones = {
     765, -- Stratholme
     893, -- Sunstrider Isle MoP
     789, -- Sunwell Plateau
+    1033, -- Suramar
     38, -- Swamp of Sorrows
     946, -- Talador
     945, -- Tanaan Jungle
@@ -181,6 +196,7 @@ Data.Zones = {
     478, -- Terokkar Forest
     886, -- Terrace of Endless Spring MoP
     731, -- The Arcatraz
+    1079, -- The Arcway
     758, -- The Bastion of Twilight
     736, -- The Battle for Gilneas
     733, -- The Black Morass
@@ -189,6 +205,7 @@ Data.Zones = {
     673, -- The Cape of Stranglethorn
     521, -- The Culling of Stratholme
     756, -- The Deadmines
+    1094, -- The Emerald Nightmare
     1008, -- The Everbloom
     471, -- The Exodar
     782, -- The Eye
@@ -200,6 +217,7 @@ Data.Zones = {
     737, -- The Maelstrom
     730, -- The Mechanar
     520, -- The Nexus
+    1088, -- The Nighthold
     531, -- The Obsidian Sanctum
     528, -- The Oculus
     609, -- The Ruby Sanctum
@@ -238,11 +256,13 @@ Data.Zones = {
     995, -- Upper Blackrock Spire
     523, -- Utgarde Keep
     524, -- Utgarde Pinnacle
+    1018, -- Val'sharah
     811, -- Vale of Eternal Blossoms MoP
     807, -- Valley of the Four Winds MoP
     889, -- Valley of Trials MoP
     613, -- Vashj'ir
     532, -- Vault of Archavon
+    1045, -- Vault of the Wardens
     749, -- Wailing Caverns
     443, -- Warsong Gulch
     1011, -- Warspear
