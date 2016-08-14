@@ -7,7 +7,7 @@
 ## X-License: MIT modified with notification clause
 
 ## Interface: 70000
-## Version: 2.8.1
+## Version: 2.8.2
 
 ## X-credits: wowwiki
 
