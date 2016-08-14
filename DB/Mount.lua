@@ -29,6 +29,7 @@ local function update()
     C_MountJournal.SetCollectedFilterSetting(LE_MOUNT_JOURNAL_FILTER_COLLECTED, true)
     C_MountJournal.SetCollectedFilterSetting(LE_MOUNT_JOURNAL_FILTER_NOT_COLLECTED, true)
 
+	collected, missing = {}, {}
 	local mountIDs = C_MountJournal.GetMountIDs();
 	
     for i = 1, #mountIDs do
@@ -65,8 +66,8 @@ local function update()
     C_MountJournal.SetCollectedFilterSetting(LE_MOUNT_JOURNAL_FILTER_NOT_COLLECTED, not_collected_filter)
 end
 
-local function companionLearned(_, type)
-    if type == "MOUNT" then
+local function companionLearned(_, companionType)
+    if (not companionType or companionType == "MOUNT") then
         update()
     end
 end

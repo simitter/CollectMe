@@ -1,6 +1,7 @@
 ## 2.8.2
 * Added Traditional Chinese (zhTW) localization
-* Fixed chat reminder if no mounts are available
+* Fixed chat reminder if no random mounts are set
+* Fixed list refreshing after learning new mounts
 
 ## 2.8.1
 * Added new Legion titles
