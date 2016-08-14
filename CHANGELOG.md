@@ -1,5 +1,6 @@
 ## 2.8.2
 * Added Traditional Chinese (zhTW) localization
+* Added the new Legion zones to the zone database
 * Fixed chat reminder if no random mounts are set
 * Fixed list refreshing after learning new mounts
 
