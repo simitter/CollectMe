@@ -753,6 +753,8 @@ function CollectMe:SlashProcessor(input)
         CollectMe:GetModule("Export"):Companions()
     elseif input == "export mount" then
         CollectMe:GetModule("Export"):Mounts()
+    elseif input == "export toy" then
+        CollectMe:GetModule("Export"):Toys()
     else
         self.UI:Show()
     end

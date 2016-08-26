@@ -58,8 +58,33 @@ function Export:Mounts()
     CollectMe:Print("mount export success")
 end
 
+function Export:Toys()
+    local list = ZoneDB:GetList()
+    for i,v in pairs(list) do
+        local ids, names = {}, {}
+        C_ToyBox.SetFilterString("Zone: "..v);
+
+        for j = 1, C_ToyBox.GetNumFilteredToys(), 1 do
+            local id, name = C_ToyBox.GetToyInfo(C_ToyBox.GetToyFromIndex(j))
+            ids[j] = id
+            names[j] = name
+        end
+
+        if next(ids) ~= nil then
+            db.toys[i] = {
+                zonename = v,
+                ids = ids,
+                names  = names
+            }
+        end
+    end
+
+    CollectMe:Print("toy export success")
+end
+
 function Export:OnInitialize()
     db = CollectMe.db.profile.export
     db.companions = {}
     db.mounts = {}
+    db.toys = {}
 end
