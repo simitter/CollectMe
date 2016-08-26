@@ -743,6 +743,8 @@ function CollectMe:SlashProcessor(input)
         self.Macro:Mount()
     elseif input == "options" then
         InterfaceOptionsFrame_OpenToCategory(addon_name)
+        --Blizzard Bug, needs to be called twice
+        InterfaceOptionsFrame_OpenToCategory(addon_name)
     elseif input == "debug title" then
         self.TitleDB:PrintAll()
     elseif input == "macro" then
