@@ -61,20 +61,18 @@ end
 function Export:Toys()
     local list = ZoneDB:GetList()
     for i,v in pairs(list) do
-        local ids, names = {}, {}
+        local ids = {}
         C_ToyBox.SetFilterString("Zone: "..v);
 
         for j = 1, C_ToyBox.GetNumFilteredToys(), 1 do
             local id, name = C_ToyBox.GetToyInfo(C_ToyBox.GetToyFromIndex(j))
-            ids[j] = id
-            names[j] = name
+            ids[id] = name
         end
 
         if next(ids) ~= nil then
             db.toys[i] = {
                 zonename = v,
-                ids = ids,
-                names  = names
+                ids = ids
             }
         end
     end
