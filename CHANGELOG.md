@@ -1,3 +1,7 @@
+## 2.8.3
+* Added new zone information to pets, mounts and toys
+* Fixed options didn't open CM category on frist try
+
 ## 2.8.2
 * Added Traditional Chinese (zhTW) localization
 * Added the new Legion zones to the zone database
