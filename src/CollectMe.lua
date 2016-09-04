@@ -747,6 +747,8 @@ function CollectMe:SlashProcessor(input)
         InterfaceOptionsFrame_OpenToCategory(addon_name)
     elseif input == "debug title" then
         self.TitleDB:PrintAll()
+    elseif input == "debug zone" then
+        self.ZoneDB:PrintZones()
     elseif input == "macro" then
         self:UpdateMacros()
     elseif input == "export companion" then

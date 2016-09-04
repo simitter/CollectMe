@@ -24,3 +24,12 @@ function CollectMe.ZoneDB:Current()
     local zone = GetCurrentMapAreaID()
     return zone
 end
+
+function CollectMe.ZoneDB:PrintZones()
+    for i = 1, 1200, 1 do
+        SetMapByID(i)
+        if GetMapNameByID(i) ~= nil then
+            CollectMe:Print(i.. " - " ..GetMapNameByID(i))
+        end
+    end
+end
