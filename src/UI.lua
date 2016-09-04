@@ -30,15 +30,21 @@ function CollectMe.UI:Build()
 
     local search_box = AceGUI:Create("EditBox")
     search_box:DisableButton(true)
-    search_box:SetWidth(412)
+    search_box:SetWidth(387)
     search_box:SetCallback("OnEnterPressed", function() self:ReloadScroll() end)
     f:AddChild(search_box)
+
+    local xbutton = self:CreateButton(self.L["X"], f.frame)
+    xbutton:SetScript("OnClick", function() self.search_box:SetText("") self:ReloadScroll() end)
+    xbutton:SetWidth(25)
+    xbutton:ClearAllPoints()
+    xbutton:SetPoint("LEFT", search_box.frame, "RIGHT", 0, 0)
 
     local okaybutton = self:CreateButton(self.L["Search"], f.frame)
     okaybutton:SetScript("OnClick", function() self:ReloadScroll() end)
     okaybutton:SetWidth(120)
     okaybutton:ClearAllPoints()
-    okaybutton:SetPoint("LEFT", search_box.frame, "RIGHT", 0, -1)
+    okaybutton:SetPoint("LEFT", search_box.frame, "RIGHT", 25, 0)
 
     local container = AceGUI:Create("SimpleGroup")
     container:SetLayout("Fill")
@@ -60,7 +66,7 @@ function CollectMe.UI:Build()
     container:AddChild(tabs)
 
     local profilebutton = self:CreateButton(self.L["Options"], f.frame)
-    profilebutton:SetScript("OnClick", function() InterfaceOptionsFrame_OpenToCategory(CollectMe.ADDON_NAME) end)
+    profilebutton:SetScript("OnClick", function() InterfaceOptionsFrame_OpenToCategory(CollectMe.ADDON_NAME) InterfaceOptionsFrame_OpenToCategory(CollectMe.ADDON_NAME) end)
     profilebutton:ClearAllPoints()
     profilebutton:SetPoint("RIGHT", f.closebutton, "LEFT", 0, 0)
 
