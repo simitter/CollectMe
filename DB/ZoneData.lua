@@ -91,6 +91,7 @@ Data.Zones = {
     526, -- Halls of Stone
     1041, -- Halls of Valor
     897, -- Heart of Fear MoP
+    1022, -- Helheim
     1026, -- Hellfire Citadel
     465, -- Hellfire Peninsula
     797, -- Hellfire Ramparts
@@ -246,6 +247,7 @@ Data.Zones = {
     810, -- Townlong Steppes MoP
     542, -- Trial of the Champion
     543, -- Trial of the Crusader
+    1072, -- Trueshot Lodge
     700, -- Twilight Highlands
     626, -- Twin Peaks
     692, -- Uldaman
