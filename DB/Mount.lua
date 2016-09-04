@@ -4,23 +4,36 @@ local Data = CollectMe:GetModule("Data")
 
 local loaded = false
 local collected, missing, info, filters  = {}, {}, {}, {}
+local surfaceDetectionTime = 0
 
-MountDB.GROUND, MountDB.FLY, MountDB.SWIM, MountDB.AQUATIC = 1, 2, 3, 4
+MountDB.GROUND, MountDB.FLY, MountDB.SWIM, MountDB.AQUATIC, MountDB.STRIDER = 1, 2, 3, 4, 5
 
 local function getInfoFromApiType(api_type)
     if api_type == 231 then
+        --Slow Turtles
         return MountDB.SWIM
     end
-    if api_type == 232 or api_type == 254 then
+    if api_type == 254 then
+        --Underwater Mounts
+        return MountDB.AQUATIC
+    end
+    if api_type == 269 then
+        --Water Striders
+        return MountDB.STRIDER
+    end
+    if api_type == 232 then
+        --Zone Underwater Mount
         return MountDB.AQUATIC, { [614] = 614, [615] = 615, [610] = 610 }
     end
     if api_type == 247 or api_type == 248 then
+        --Normal Flying Mounts
         return MountDB.FLY
     end
     if api_type == 241 then
+        --Zone Ground Mount
         return MountDB.GROUND, { [766] = 766 }
     end
-
+    --Normal Ground Mounts
     return MountDB.GROUND
 end
 
@@ -72,8 +85,15 @@ local function companionLearned(_, companionType)
     end
 end
 
+local function SurfaceDetection()
+    if not IsSwimming() then
+        surfaceDetectionTime=GetTime()
+    end
+end
+
 function MountDB:OnInitialize()
     MountDB:RegisterEvent("COMPANION_LEARNED", companionLearned)
+    MountDB:RegisterEvent("MOUNT_JOURNAL_USABILITY_CHANGED", SurfaceDetection)
 end
 
 function MountDB:OnEnable()
@@ -85,6 +105,10 @@ end
 
 function MountDB:Get()
     return collected, missing, info
+end
+
+function MountDB:GetSurfaceDetectionTime()
+    return surfaceDetectionTime
 end
 
 function MountDB:IsInZone(id, zones)
