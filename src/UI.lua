@@ -59,8 +59,9 @@ function CollectMe.UI:Build()
         {text = self.L["Titles"], value = CollectMe.TITLE},
         {text = self.L["Toys"], value = CollectMe.TOYS },
         {text = self.L["Followers"], value = CollectMe.FOLLOWERS },
+        {text = self.L["Random Mount"], value = CollectMe.RANDOM_MOUNT},
         {text = self.L["Random Companion"], value = CollectMe.RANDOM_COMPANION},
-        {text = self.L["Random Mount"], value = CollectMe.RANDOM_MOUNT}
+        {text = self.L["Random Title"], value = CollectMe.RANDOM_TITLE}
     })
     tabs:SetCallback("OnGroupSelected", function (container, event, group) self:SelectGroup(container, group) end)
     container:AddChild(tabs)

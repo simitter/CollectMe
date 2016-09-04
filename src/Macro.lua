@@ -13,6 +13,11 @@ function CollectMe.Macro:UpdateMacros()
     if options.companion == true then
         self:InitMacro("CollectMeRC", "INV_PET_BABYBLIZZARDBEAR", '/cm rc')
     end
+    
+    if options.title == true then
+        self:InitMacro("CollectMeRT", "INV_PET_SCORCHEDSTONE", '/cm rt')
+    end
+    
     if options.mount == true then
         if CollectMe.CLASS == "DRUID" and options.nostance then
             self:InitMacro("CollectMeRM", "ABILITY_MOUNT_BIGBLIZZARDBEAR", '/cancelform [nostance:5]\n/cm rm')
@@ -57,4 +62,8 @@ function CollectMe.Macro:Companion()
     else
         CollectMe.RandomCompanion:Summon()
     end
+end
+
+function CollectMe.Macro:Title()
+    CollectMe.RandomTitle:Select()
 end

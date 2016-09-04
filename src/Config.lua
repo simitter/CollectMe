@@ -161,6 +161,23 @@ local function GetMacroOptionsTable()
                         get = function() return db.profile.macro.companion end
                     }
                 }
+            },
+            title_settings = {
+                type = "group",
+                order = 3,
+                name = L["Titles"],
+                guiInline = true,
+                args = {
+                    title = {
+                        name = L["Random Title Macro"],
+                        desc = L["Adds a macro for selecting random titles and keeps it up to date"],
+                        type = "toggle",
+                        order = 1,
+                        width = "full",
+                        set = function(info,val) db.profile.macro.title = val; CollectMe.Macro:UpdateMacros() end,
+                        get = function() return db.profile.macro.title end
+                    }
+                }
             }
         }
     }

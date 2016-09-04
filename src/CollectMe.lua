@@ -62,7 +62,8 @@ local defaults = {
         },
         random = {
             companions = {},
-            mounts = {}
+            mounts = {},
+            titles = {}
         },
         summon = {
             companions = {
@@ -139,7 +140,8 @@ local defaults = {
         macro = {
             mount = true,
             nostance = true,
-            companion = true
+            companion = true,
+            title = true
         }
     }
 }
@@ -152,11 +154,13 @@ function CollectMe:OnInitialize()
     BINDING_NAME_MISSING_TITLES = self.L["Titles"]
     BINDING_NAME_RANDOM_MOUNTS = self.L["Random Mount"]
     BINDING_NAME_RANDOM_COMPANIONS = self.L["Random Companion"]
+    BINDING_NAME_RANDOM_TITLES = self.L["Random Title"]
     BINDING_NAME_SUMMON_COMPANION = self.L["Summon Random Companion"]
     BINDING_NAME_DISMISS_COMPANION = self.L["Dismiss Companion"]
     BINDING_NAME_CM_MOUNT = self.L["Mount / Dismount"]
     BINDING_NAME_CM_DISMOUNT = self.L["Dismount"]
     BINDING_NAME_CM_GROUND_MOUNT = self.L["Ground Mount / Dismount"]
+    BINDING_NAME_CM_TITLE = self.L["Select Random Title"]
 
     self.db = LibStub("AceDB-3.0"):New("CollectMeDB", defaults)
 
@@ -167,6 +171,7 @@ function CollectMe:OnInitialize()
     self.COMPANION = 5
     self.TOYS = 6
     self.FOLLOWERS = 7
+    self.RANDOM_TITLE = 8
 
     self.FACTION = UnitFactionGroup("player")
     LocalizedPlayerRace, self.RACE = UnitRace("player")
@@ -214,6 +219,9 @@ function CollectMe:BuildData(no_filters)
     elseif self.UI.active_group == self.RANDOM_MOUNT then
         self:BuildRandomList()
         self.UI:ShowCheckButtons()
+    elseif self.UI.active_group == self.RANDOM_TITLE then
+        self:BuildRandomTitleList()
+        self.UI:ShowCheckButtons()
     elseif self.UI.active_group == self.TOYS then
         self.ignored_db = self.db.profile.ignored.toys
         self:BuildMissingToyList()
@@ -254,6 +262,29 @@ function CollectMe:BuildRandomPetList()
     end
 end
 
+function CollectMe:BuildRandomTitleList()
+    local titles, sort = self.TitleDB:Get()
+    local random_db =  self.db.profile.random.titles
+    local search = self.UI:GetSearchText():lower()
+    local known_count = 0
+    
+    for _,v in ipairs(sort) do
+        if IsTitleKnown(v) and titles[v] ~= nil then
+            known_count = known_count + 1
+        end
+    end
+    
+    self.UI:AddToScroll(self.UI:CreateHeading(self.L["Available titles"] ..  " - " .. known_count))
+    for _,v in ipairs(sort) do
+        if IsTitleKnown(v) and titles[v] ~= nil then
+            local name = GetTitleName(v)
+            if name:lower():find(search) ~= nil then
+                local value = ((random_db[v] ~= nil and random_db[v] ~= false) and true or false)
+                self.UI:CreateScrollCheckbox(strtrim(name), value, { OnValueChanged = function (container, event, val) random_db[v] = val end})
+            end
+        end
+    end
+end
 
 function CollectMe:BuildRandomList()
     local random_db = self.db.profile.random.mounts
@@ -619,6 +650,17 @@ function CollectMe:BatchCheck(value)
             end
         end
         self.UI:ReloadScroll()
+    elseif self.UI.active_group == self.RANDOM_TITLE then
+        local random_db =  self.db.profile.random.titles
+        local titles, sort = self.TitleDB:Get()
+        for _,v in ipairs(sort) do
+            if IsTitleKnown(v) and titles[v] ~= nil then
+                if GetTitleName(v):lower():find(search) ~= nil then
+                    random_db[v] = value
+                end
+            end
+        end
+        self.UI:ReloadScroll()
     end
 end
 
@@ -741,6 +783,8 @@ function CollectMe:SlashProcessor(input)
         self.Macro:Companion()
     elseif input == "rm" or input == "randommount" then
         self.Macro:Mount()
+    elseif input == "rt" or input == "randomtitle" then
+        self.Macro:Title()
     elseif input == "options" then
         InterfaceOptionsFrame_OpenToCategory(addon_name)
         --Blizzard Bug, needs to be called twice
@@ -750,7 +794,7 @@ function CollectMe:SlashProcessor(input)
     elseif input == "debug zone" then
         self.ZoneDB:PrintZones()
     elseif input == "macro" then
-        self:UpdateMacros()
+        self.Macro:UpdateMacros()
     elseif input == "export companion" then
         CollectMe:GetModule("Export"):Companions()
     elseif input == "export mount" then
