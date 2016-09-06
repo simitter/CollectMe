@@ -148,8 +148,10 @@ function CollectMe.UI:SelectGroup(container, group)
 end
 
 function CollectMe.UI:UpdateStatusBar(all, active)
-    local percent = CollectMe:round(active / all * 100, 2)
-
+    local percent = 0
+    if all ~= 0 then
+        percent = CollectMe:round(active / all * 100, 2)
+    end
     self.frame.statusbar:SetMinMaxValues(0, all)
     self.frame.statusbar:SetValue(active)
     self.frame.statusbar.value:SetText(active .. " / " .. all .. " (".. percent .. "%)")
