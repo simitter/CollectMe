@@ -11,10 +11,10 @@ function RandomMount:Summon(type)
         local InWaterSurface = is_swimming and GetTime()-MountDB:GetSurfaceDetectionTime()<1
         local collected, _, infos = MountDB:Get()
 
-        --IsFlyableArea() falsely returns true for Dreanor
-        --if(GetCurrentMapContinent() == 7) then
-        --    is_flyable_area = false
-       --end
+        --IsFlyableArea() falsely returns true for some Legion zones
+        if (GetCurrentMapContinent() == -1 and select(4,GetBuildInfo()) == 70000) then
+            is_flyable_area = false
+        end
 
         for _,id in pairs(collected) do
             -- check if current mount is in priority pool and if it is usable here
