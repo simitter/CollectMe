@@ -1,6 +1,14 @@
+## 2.9
+* Added new heirloom tab with filters/ignore list
+* Added new random title list/macro/key binding
+* Added X button to quickly reset search box text
+* Added missing zones to pets, mounts and toys
+* Added workaround for false flying area zones
+* Updated random summoning to better handle special mounts
+
 ## 2.8.3
 * Added new zone information to pets, mounts and toys
-* Fixed options didn't open CM category on frist try
+* Fixed options didn't open CM category on first try
 
 ## 2.8.2
 * Added Traditional Chinese (zhTW) localization
