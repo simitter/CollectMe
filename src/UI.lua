@@ -59,6 +59,7 @@ function CollectMe.UI:Build()
         {text = self.L["Titles"], value = CollectMe.TITLE},
         {text = self.L["Toys"], value = CollectMe.TOYS },
         {text = self.L["Followers"], value = CollectMe.FOLLOWERS },
+        {text = self.L["Heirlooms"], value = CollectMe.HEIRLOOMS },
         {text = self.L["Random Mount"], value = CollectMe.RANDOM_MOUNT},
         {text = self.L["Random Companion"], value = CollectMe.RANDOM_COMPANION},
         {text = self.L["Random Title"], value = CollectMe.RANDOM_TITLE}
@@ -304,13 +305,22 @@ function CollectMe.UI:AddCollectMeButtons()
         cmbutton2:SetText(CollectMe.ADDON_NAME)
         cmbutton2:SetScript("OnClick", function() self:Show(CollectMe.COMPANION); self.frame:Show() end)
 
-        local cmbutton3 = CreateFrame("Button", "CollectMeOpen2Button", ToyBox.navigationFrame, "UIPanelButtonTemplate")
+        local cmbutton3 = CreateFrame("Button", "CollectMeOpen3Button", ToyBox.navigationFrame, "UIPanelButtonTemplate")
         cmbutton3:ClearAllPoints()
         cmbutton3:SetPoint("BOTTOMRIGHT", ToyBox.navigationFrame, "BOTTOMRIGHT", -50, 30)
         cmbutton3:SetHeight(22)
         cmbutton3:SetWidth(100)
         cmbutton3:SetText(CollectMe.ADDON_NAME)
         cmbutton3:SetScript("OnClick", function() self:Show(CollectMe.TOYS); self.frame:Show() end)
+        
+        local cmbutton4 = CreateFrame("Button", "CollectMeOpen4Button", HeirloomsJournal, "UIPanelButtonTemplate")
+        cmbutton4:ClearAllPoints()
+        cmbutton4:SetPoint("BOTTOMRIGHT", HeirloomsJournal, "BOTTOMRIGHT", -50, 30)
+        cmbutton4:SetHeight(22)
+        cmbutton4:SetWidth(100)
+        cmbutton4:SetText(CollectMe.ADDON_NAME)
+        cmbutton4:SetScript("OnClick", function() self:Show(CollectMe.HEIRLOOMS); self.frame:Show() end)
+        cmbutton4:SetFrameStrata("TOOLTIP")
 
         self.cm_button_loaded = true
     end

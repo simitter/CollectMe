@@ -12,7 +12,8 @@ local defaults = {
             titles = {},
             companions = {},
             toys = {},
-            followers = {}
+            followers = {},
+            heirlooms = {}
         },
         export = {
             companions = {},
@@ -58,7 +59,8 @@ local defaults = {
             companions = false,
             titles = false,
             toys = false,
-            followers = false
+            followers = false,
+            heirlooms = false
         },
         random = {
             companions = {},
@@ -172,6 +174,7 @@ function CollectMe:OnInitialize()
     self.TOYS = 6
     self.FOLLOWERS = 7
     self.RANDOM_TITLE = 8
+    self.HEIRLOOMS = 9
 
     self.FACTION = UnitFactionGroup("player")
     LocalizedPlayerRace, self.RACE = UnitRace("player")
@@ -233,6 +236,12 @@ function CollectMe:BuildData(no_filters)
         self:BuildMissingFollowerList()
         if not no_filters then
             self:BuildMissingFollowerFilters()
+        end
+    elseif self.UI.active_group == self.HEIRLOOMS then
+        self.ignored_db = self.db.profile.ignored.heirlooms
+        self:BuildMissingHeirloomList()
+        if not no_filters then
+            self:BuildMissingHeirloomFilters()
         end
     end
 
@@ -374,7 +383,8 @@ function CollectMe:AddMissingRows(active, ignored, all_count, known_count, filte
                         (self.UI.active_group == self.COMPANION and self.db.profile.hide_ignore.companions) or
                         (self.UI.active_group == self.TITLE and self.db.profile.hide_ignore.titles) or
                         (self.UI.active_group == self.TOYS and self.db.profile.hide_ignore.toys) or
-                        (self.UI.active_group == self.FOLLOWERS and self.db.profile.hide_ignore.followers)
+                        (self.UI.active_group == self.FOLLOWERS and self.db.profile.hide_ignore.followers) or
+                        (self.UI.active_group == self.HEIRLOOMS and self.db.profile.hide_ignore.heirlooms)
     if hide_ignore == false then
         self.UI:AddToScroll(self.UI:CreateHeading(self.L["Ignored"] .. " - " .. #ignored))
         self:BuildItemRow(ignored)
@@ -490,6 +500,22 @@ function CollectMe:BuildMissingFollowerList()
     self:AddMissingRows(active, ignored, #active + #ignored + #collected, #collected, 0)
 end
 
+function CollectMe:BuildMissingHeirloomList()
+    local HeirloomDB = self:GetModule('HeirloomDB')
+    local collected, missing = HeirloomDB:Get()
+    local active, ignored = {}, {}
+
+    for i,v in ipairs(missing) do
+        if self:IsInTable(self.ignored_db, v.id) then
+            table.insert(ignored, v)
+        else
+            table.insert(active, v)
+        end
+    end
+
+    self:AddMissingRows(active, ignored, #active + #ignored + #collected, #collected, 0)
+end
+
 function CollectMe:IsFiltered(filters)
     if filters ~= nil then
         for k,v in pairs(filters) do
@@ -569,6 +595,16 @@ function CollectMe:BuildMissingFollowerFilters()
     self.UI:CreateFilterDropdown(self.L["Select Zones"], list, self.db.profile.filters.followers.zones, { OnValueChanged = function (container, event, value) local pos = self:IsInTable(self.db.profile.filters.followers.zones, value); if not pos then table.insert(self.db.profile.filters.followers.zones, value) else table.remove(self.db.profile.filters.followers.zones, pos) end; self.UI:ReloadScroll() end }, true, order)
 end
 
+function CollectMe:BuildMissingHeirloomFilters()
+    self.UI:AddToFilter(self.UI:CreateHeading(self.L["Source Filter"]))
+    local numSources = C_PetJournal.GetNumPetSources();
+    for i=1,numSources do
+        if C_Heirloom.IsHeirloomSourceValid(i) then
+            self.UI:CreateFilterCheckbox(_G["BATTLE_PET_SOURCE_"..i], not C_Heirloom.GetHeirloomSourceFilter(i), { OnValueChanged = function (container, event, value) value = not value; C_Heirloom.SetHeirloomSourceFilter(i, value); self.UI:ReloadScroll() end })
+        end
+    end
+end
+
 function CollectMe:GetMountInfo(spell)
 	local mountIDs = C_MountJournal.GetMountIDs();
     for i = 1, #mountIDs do
@@ -615,6 +651,8 @@ function CollectMe:BuildOptions()
         self.UI:CreateFilterCheckbox(self.L["Hide ignored list"], self.db.profile.hide_ignore.toys, { OnValueChanged = function (container, event, value) self.db.profile.hide_ignore.toys = value; self.UI:ReloadScroll() end })
     elseif self.UI.active_group == self.FOLLOWERS then
         self.UI:CreateFilterCheckbox(self.L["Hide ignored list"], self.db.profile.hide_ignore.followers, { OnValueChanged = function (container, event, value) self.db.profile.hide_ignore.followers = value; self.UI:ReloadScroll() end })
+    elseif self.UI.active_group == self.HEIRLOOMS then
+        self.UI:CreateFilterCheckbox(self.L["Hide ignored list"], self.db.profile.hide_ignore.heirlooms, { OnValueChanged = function (container, event, value) self.db.profile.hide_ignore.heirlooms = value; self.UI:ReloadScroll() end })
     end
 end
 

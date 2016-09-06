@@ -15,6 +15,7 @@
     <Script file="DB\Companion.lua"/>
     <Script file="DB\Toy.lua"/>
     <Script file="DB\Follower.lua"/>
+    <Script file="DB\Heirloom.lua"/>
     <Script file="src\UI.lua"/>
     <Script file="src\Tooltip.lua"/>
     <Script file="src\PetBattle.lua"/>
