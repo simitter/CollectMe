@@ -297,24 +297,24 @@ end
 
 function CollectMe:BuildRandomList()
     local random_db = self.db.profile.random.mounts
-    local count = 0
     local search = self.UI:GetSearchText():lower()
-	local mounts_to_add = {}
 	local MountDB = CollectMe:GetModule("MountDB")
     local collected, _, infos = MountDB:Get()
 
+    self.UI:AddToScroll(self.UI:CreateHeading(self.L["Available mounts"] ..  " - " .. #collected))
+
     for _, id in pairs(collected) do
         if infos[id].name:lower():find(search) ~= nil then
-            table.insert(mounts_to_add, id);
-            count = count + 1;
+            local value = ((random_db[id] ~= nil and random_db[id] ~= false) and true or false)
+            local str = ""
+            if (infos[id].favorite) then
+                str = "|Cfffff569" .. GetSpellInfo(id) .. FONT_COLOR_CODE_CLOSE
+            else
+                str = GetSpellInfo(id)
+            end
+            self.UI:CreateScrollCheckbox(str, value, { OnValueChanged = function (container, event, val) random_db[id] = val end})
         end
     end
-	self.UI:AddToScroll(self.UI:CreateHeading(self.L["Available mounts"] ..  " - " .. count))
-	
-	for i,spell_id in pairs(mounts_to_add) do
-		local value = ((random_db[spell_id] ~= nil and random_db[spell_id] ~= false) and true or false)
-		self.UI:CreateScrollCheckbox(GetSpellInfo(spell_id), value, { OnValueChanged = function (container, event, val) random_db[spell_id] = val end})
-	end
 end
 
 function CollectMe:BuildMissingMountList()
