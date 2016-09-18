@@ -17,7 +17,8 @@ local defaults = {
         },
         export = {
             companions = {},
-            mounts = {}
+            mounts = {},
+            toys = {}
         },
         filters = {
             mounts = {
@@ -87,6 +88,9 @@ local defaults = {
                 macro_left = 1,
                 macro_right = 2,
                 macro_shift_left = 3
+            },
+            titles = {
+                name_preview = false
             }
         },
         tooltip = {
@@ -289,7 +293,16 @@ function CollectMe:BuildRandomTitleList()
             local name = GetTitleName(v)
             if name:lower():find(search) ~= nil then
                 local value = ((random_db[v] ~= nil and random_db[v] ~= false) and true or false)
-                self.UI:CreateScrollCheckbox(strtrim(name), value, { OnValueChanged = function (container, event, val) random_db[v] = val end})
+                if(self.db.profile.summon.titles.name_preview == true) then
+                    local pname = UnitName("player")
+                    if(string.sub(name,1,1) == " ") then
+                        self.UI:CreateScrollCheckbox(pname .. "," .. name, value, { OnValueChanged = function (container, event, val) random_db[v] = val end})
+                    else
+                        self.UI:CreateScrollCheckbox(name .. pname, value, { OnValueChanged = function (container, event, val) random_db[v] = val end})
+                    end
+                else
+                    self.UI:CreateScrollCheckbox(strtrim(name), value, { OnValueChanged = function (container, event, val) random_db[v] = val end})
+                end
             end
         end
     end
@@ -647,6 +660,8 @@ function CollectMe:BuildOptions()
         self.UI:CreateFilterCheckbox(self.L["Don't dismount when left-clicking on macro"], self.db.profile.summon.mounts.no_dismount, { OnValueChanged = function (container, event, value) self.db.profile.summon.mounts.no_dismount = value end }, 2)
         self.UI:CreateFilterCheckbox(self.L["Use flying mounts in water"], self.db.profile.summon.mounts.flying_in_water, { OnValueChanged = function (container, event, value) self.db.profile.summon.mounts.flying_in_water = value end }, 2)
         self.UI:CreateFilterCheckbox(self.L["Use flying mounts for ground"], self.db.profile.summon.mounts.flying_on_ground, { OnValueChanged = function (container, event, value) self.db.profile.summon.mounts.flying_on_ground = value end }, 2)
+    elseif self.UI.active_group == self.RANDOM_TITLE then
+    self.UI:CreateFilterCheckbox(self.L["Show player name in list"], self.db.profile.summon.titles.name_preview, { OnValueChanged = function (container, event, value) self.db.profile.summon.titles.name_preview = value; self.UI:ReloadScroll() end })
     elseif self.UI.active_group == self.TOYS then
         self.UI:CreateFilterCheckbox(self.L["Hide ignored list"], self.db.profile.hide_ignore.toys, { OnValueChanged = function (container, event, value) self.db.profile.hide_ignore.toys = value; self.UI:ReloadScroll() end })
     elseif self.UI.active_group == self.FOLLOWERS then
