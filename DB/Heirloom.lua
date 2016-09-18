@@ -9,7 +9,7 @@ function HeirloomDB:Update()
 
     for i = 1, #heirloomIDs, 1 do
         local name, itemEquipLoc, isPvP, itemTexture, upgradeLevel, source = C_Heirloom.GetHeirloomInfo(heirloomIDs[i])
-        if(C_Heirloom.GetHeirloomSourceFilter(source) == true) then
+        if(source ~= nil and C_Heirloom.GetHeirloomSourceFilter(source) == true) then
             if C_Heirloom.PlayerHasHeirloom(heirloomIDs[i]) == true then
                 table.insert(collected, heirloomIDs[i])
             else
