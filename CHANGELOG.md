@@ -1,3 +1,8 @@
+## 2.9.1
+* Added option to show player name in random title list
+* Added nil check to prevent heirloom lua errors
+* Fixed mount list sorting and color favorites
+
 ## 2.9
 * Added new heirloom tab with filters/ignore list
 * Added new random title list/macro/key binding
