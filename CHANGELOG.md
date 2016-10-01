@@ -1,3 +1,8 @@
+## 2.9.2
+* Updated information for Brewfest toys and companions
+* Updated displayed texts when mounting is not available
+* Fixed rare issue of incomplete collected mount list
+
 ## 2.9.1
 * Added option to show player name in random title list
 * Added nil check to prevent heirloom lua errors
