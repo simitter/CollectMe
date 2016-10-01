@@ -42,6 +42,9 @@ local function update()
     C_MountJournal.SetCollectedFilterSetting(LE_MOUNT_JOURNAL_FILTER_COLLECTED, true)
     C_MountJournal.SetCollectedFilterSetting(LE_MOUNT_JOURNAL_FILTER_NOT_COLLECTED, true)
 
+    C_MountJournal.SetSearch("");
+    C_MountJournal.SetAllSourceFilters(true)
+
 	collected, missing = {}, {}
 	local mountIDs = C_MountJournal.GetNumDisplayedMounts();
 	
