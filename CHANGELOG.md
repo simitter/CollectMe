@@ -1,3 +1,8 @@
+## 2.9.3
+* Updated TOC for Patch 7.2
+* Fixed CollectMe button placement for ToyBox frame
+* New database entries are coming in the next update
+
 ## 2.9.2
 * Updated information for Brewfest toys and companions
 * Updated displayed texts when mounting is not available
