@@ -7,8 +7,11 @@ Data.Zones = {
     772, -- Ahn'Qiraj: The Fallen Kingdom
     401, -- Alterac Valley
     894, -- Ammen Vale MoP
+    1171, -- Antoran Wastes
+    1188, -- Antorus, the Burning Throne
     461, -- Arathi Basin
     16, -- Arathi Highlands
+    1184, -- Argus
     43, -- Ashenvale
     978, -- Ashran
     1066, -- Assault on Violet Hold
@@ -38,6 +41,7 @@ Data.Zones = {
     1021, -- Broken Shore
     29, -- Burning Steppes
     890, -- Camp Narache MoP
+    1146, -- Cathedral of Eternal Night
     955, -- Celestial Tournament
     866, -- Coldridge Valley MoP
     1087, -- Court of Stars
@@ -115,10 +119,12 @@ Data.Zones = {
     610, -- Kelp'thar Forest
     605, -- Kezan
     857, -- Krasarang Wilds MoP
+    1135, -- Krokuun
     809, -- Kun-Lai Summit MoP
     35, -- Loch Modan
     747, -- Lost City of the Tol'vir
     971, -- Lunarfall
+    1170, -- Mac'Aree
     798, -- Magisters' Terrace
     779, -- Magtheridon's Lair
     732, -- Mana-Tombs
@@ -147,6 +153,7 @@ Data.Zones = {
     760, -- Razorfen Downs
     761, -- Razorfen Kraul
     36, -- Redridge Mountains
+    1115, -- Return to Karazhan
     717, -- Ruins of Ahn'Qiraj
     684, -- Ruins of Gilneas
     685, -- Ruins of Gilneas City
@@ -223,6 +230,7 @@ Data.Zones = {
     528, -- The Oculus
     609, -- The Ruby Sanctum
     502, -- The Scarlet Enclave
+    1178, -- The Seat of the Triumvirate
     710, -- The Shattered Halls
     728, -- The Slave Pens
     727, -- The Steamvault
@@ -244,9 +252,11 @@ Data.Zones = {
     20, -- Tirisfal Glades
     708, -- Tol Barad
     709, -- Tol Barad Peninsula
+    1147, -- Tomb of Sargeras
     810, -- Townlong Steppes MoP
     542, -- Trial of the Champion
     543, -- Trial of the Crusader
+    1114, -- Trial of Valor
     1072, -- Trueshot Lodge
     700, -- Twilight Highlands
     626, -- Twin Peaks
