@@ -1,8 +1,12 @@
+## 2.9.5
+* Added new zone information to pets, mounts and toys
+* Added new titles and updated some old ones
+* Fixed companion/mount model preview functionality
+
 ## 2.9.4
 * Updated TOC for Patch 7.3
 * Fixed PlaySound lua errors
 * Updated libs to current version
-* New database entries are coming in the next update
 
 ## 2.9.3
 * Updated TOC for Patch 7.2
