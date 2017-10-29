@@ -35,10 +35,6 @@ end
 function CollectMe.ModelPreview:PreviewCreature(display_id)
     if display_id ~= nil then
         self.display_creature = true
-        DressUpBackgroundTopLeft:SetTexture(nil);
-        DressUpBackgroundTopRight:SetTexture(nil);
-        DressUpBackgroundBotLeft:SetTexture(nil);
-        DressUpBackgroundBotRight:SetTexture(nil);
         if CollectMe.UI.active_group == CollectMe.COMPANION then
             DressUpModel:SetCreature(display_id)
         else
