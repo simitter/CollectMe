@@ -1,3 +1,9 @@
+## 2.9.6
+* Added new zone information to pets, mounts and toys
+* Updated map zone handling (ArkInventory problem)
+* Fixed search functionality for toys
+* Fixed player name placement in titles
+
 ## 2.9.5
 * Added new zone information to pets, mounts and toys
 * Added new titles and updated some old ones
