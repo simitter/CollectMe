@@ -3,6 +3,8 @@ local Data = CollectMe:GetModule("Data")
 
 CollectMe.ZoneDB = CollectMe:NewModule("ZoneDB")
 
+local zone = nil;
+
 function CollectMe.ZoneDB:OnInitialize()
     self.list, self.order = {}, {}
     self.loaded = false
@@ -21,8 +23,16 @@ end
 
 function CollectMe.ZoneDB:Current()
     SetMapToCurrentZone()
-    local zone = GetCurrentMapAreaID()
+    zone = GetCurrentMapAreaID()
     return zone
+end
+
+function CollectMe.ZoneDB:GetZone()
+	if zone~= nil then
+		return zone
+	else
+		return self:Current()
+	end
 end
 
 function CollectMe.ZoneDB:PrintZones()

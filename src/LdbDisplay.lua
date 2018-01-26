@@ -54,15 +54,19 @@ function CollectMe.LdbDisplay:OnEnable()
     self:RegisterEvent("GARRISON_FOLLOWER_LIST_UPDATE", "ZoneChangeListener")
 end
 
-function CollectMe.LdbDisplay:ZoneChangeListener()
+function CollectMe.LdbDisplay:ZoneChangeListener(event)
+	if (event == "ZONE_CHANGED_NEW_AREA") then
+		self.zone_id = CollectMe.ZoneDB:Current()
+	else
+		self.zone_id = CollectMe.ZoneDB:GetZone()
+	end
+	self.zone_name = GetMapNameByID(self.zone_id)
+
     self:UpdateData()
     self:UpdateText()
 end
 
 function CollectMe.LdbDisplay:UpdateData()
-    local zone_id = CollectMe.ZoneDB:Current()
-    self.zone_name = GetMapNameByID(zone_id)
-
     self.collected, self.missing = {}, {}
     self.unique_collected_count = 0
     self.missing_count = #self.missing
@@ -72,7 +76,7 @@ function CollectMe.LdbDisplay:UpdateData()
     self.collected_followers, self.missing_followers = {}, {}
 
     if self.db.text.companions.missing == true or self.db.text.companions.collected == true or self.db.text.companions.quality == true or self.db.tooltip.companions.missing == true or self.db.tooltip.companions.collected == true or self.db.tooltip.companions.quality == true then
-        local zcollected, missing = CollectMe.CompanionDB:GetCompanionsInZone(zone_id)
+        local zcollected, missing = CollectMe.CompanionDB:GetCompanionsInZone(self.zone_id)
         for i,v in ipairs(missing) do
             if not CollectMe:IsInTable(CollectMe.db.profile.ignored.companions, v.creature_id) then
                 table.insert(self.missing, v)
@@ -96,7 +100,7 @@ function CollectMe.LdbDisplay:UpdateData()
     if self.db.text.mounts.missing == true or self.db.text.mounts.collected == true or self.db.tooltip.mounts.missing == true or self.db.tooltip.mounts.collected == true then
         CollectMe.filter_list, CollectMe.filter_db = MountDB.filters, CollectMe.db.profile.filters.mounts
 
-        for i,v in ipairs(MountDB:GetZoneMounts(zone_id)) do
+        for i,v in ipairs(MountDB:GetZoneMounts(self.zone_id)) do
             if not CollectMe:IsFiltered(v.filters) and not CollectMe:IsInTable(CollectMe.db.profile.ignored.mounts , v.id) then
                 if v.collected ~= false then
                     tinsert(self.collected_mounts, v)
@@ -111,8 +115,8 @@ function CollectMe.LdbDisplay:UpdateData()
     end
 
     if self.db.text.toys.missing == true or self.db.text.toys.collected == true or self.db.tooltip.toys.missing == true or self.db.tooltip.toys.collected == true then
-        if Data.ZoneToys[zone_id] ~= nil then
-            for i,v in pairs(Data.ZoneToys[zone_id]) do
+        if Data.ZoneToys[self.zone_id] ~= nil then
+            for i,v in pairs(Data.ZoneToys[self.zone_id]) do
                 if not CollectMe:IsInTable(CollectMe.db.profile.ignored.toys , v) then
                     local _, name = C_ToyBox.GetToyInfo(v)
                     if ToyDB:IsKnown(v) then

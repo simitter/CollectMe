@@ -338,7 +338,7 @@ function CollectMe:BuildMissingMountList()
     local all_count, known_count, filter_count = #missing + #collected, #collected, 0
     local zones = self:CloneTable(self.db.profile.filters.mounts.zones)
     if self.db.profile.filters.mounts.czo == true then
-        table.insert(zones, self.ZoneDB:Current())
+        table.insert(zones, self.ZoneDB:GetZone())
     end
 
     for _,id in pairs(missing) do
@@ -435,7 +435,7 @@ function CollectMe:BuildMissingCompanionList()
     local active, ignored, owned_db = {}, {}, {}
     local zones = self:CloneTable(self.db.profile.filters.companions.zones)
     if self.db.profile.filters.companions.czo == true then
-        table.insert(zones, self.ZoneDB:Current())
+        table.insert(zones, self.ZoneDB:GetZone())
     end
 
     for i = 1,total do
@@ -475,7 +475,7 @@ function CollectMe:BuildMissingToyList()
     local active, ignored = {}, {}
     local zones = self:CloneTable(self.db.profile.filters.toys.zones)
     if self.db.profile.filters.toys.czo == true then
-        table.insert(zones, self.ZoneDB:Current())
+        table.insert(zones, self.ZoneDB:GetZone())
     end
 
     for i,v in ipairs(missing) do
@@ -497,7 +497,7 @@ function CollectMe:BuildMissingFollowerList()
     local active, ignored = {}, {}
     local zones = self:CloneTable(self.db.profile.filters.followers.zones)
     if self.db.profile.filters.followers.czo == true then
-        table.insert(zones, self.ZoneDB:Current())
+        table.insert(zones, self.ZoneDB:GetZone())
     end
 
     for i,v in ipairs(missing) do
@@ -865,6 +865,7 @@ function CollectMe:ColorizeByQuality(text, quality)
 end
 
 function CollectMe:ZoneChangeListener()
+    CollectMe.ZoneDB:Current()
     if (self.db.profile.filters.companions.czo == true and self.UI.active_group == self.COMPANION) or
        (self.db.profile.filters.mounts.czo == true and self.UI.active_group == self.MOUNT) or
        (self.db.profile.filters.toys.czo == true and self.UI.active_group == self.TOYS) or

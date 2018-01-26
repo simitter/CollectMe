@@ -7,7 +7,7 @@ function RandomMount:Summon(type)
     
     if not IsMounted() then
         local zone_mounts, type_mounts, fallback_mounts, slow_mounts = {}, {}, {}, {}
-        local zone_id, is_swimming, is_flyable_area = CollectMe.ZoneDB:Current(), IsSwimming(), IsFlyableArea()
+        local zone_id, is_swimming, is_flyable_area = CollectMe.ZoneDB:GetZone(), IsSwimming(), IsFlyableArea()
         local InWaterSurface = is_swimming and GetTime()-MountDB:GetSurfaceDetectionTime()<1
         local collected, _, infos = MountDB:Get()
         local chat_notice = true
