@@ -37,7 +37,7 @@ end
 function ToyDB:Update()
     local filterCollected, filterUncollected = C_ToyBox.GetCollectedShown(), C_ToyBox.GetUncollectedShown()
 
-    C_ToyBox.SetFilterString('')
+    --C_ToyBox.SetFilterString('')
     C_ToyBox.SetCollectedShown(true)
     C_ToyBox.SetUncollectedShown(false)
     C_ToyBox.ForceToyRefilter()
@@ -78,7 +78,6 @@ function ToyDB:IsKnown(id)
 end
 
 function ToyDB:OnEnable()
-    self:Update()
     ToyDB:RegisterEvent("TOYS_UPDATED", "Update")
 end
 
