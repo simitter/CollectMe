@@ -295,13 +295,13 @@ function CollectMe:BuildRandomTitleList()
                 local value = ((random_db[v] ~= nil and random_db[v] ~= false) and true or false)
                 if(self.db.profile.summon.titles.name_preview == true) then
                     local pname = UnitName("player")
-                    if(string.sub(name,1,1) == " ") then
-                        self.UI:CreateScrollCheckbox(pname .. "," .. name, value, { OnValueChanged = function (container, event, val) random_db[v] = val end})
+                    if(string.sub(name,-1) ~= " ") then
+                        self.UI:CreateScrollCheckbox(pname .. ", " .. name, value, { OnValueChanged = function (container, event, val) random_db[v] = val end})
                     else
                         self.UI:CreateScrollCheckbox(name .. pname, value, { OnValueChanged = function (container, event, val) random_db[v] = val end})
                     end
                 else
-                    self.UI:CreateScrollCheckbox(strtrim(name), value, { OnValueChanged = function (container, event, val) random_db[v] = val end})
+                    self.UI:CreateScrollCheckbox(name, value, { OnValueChanged = function (container, event, val) random_db[v] = val end})
                 end
             end
         end
