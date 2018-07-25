@@ -12,10 +12,7 @@ function RandomMount:Summon(type)
         local collected, _, infos = MountDB:Get()
         local chat_notice = true
 
-        --IsFlyableArea() falsely returns true for some Legion zones
-        if (GetCurrentMapContinent() == -1 and select(4,GetBuildInfo()) == 70000) then
-            is_flyable_area = false
-        end
+        --TODO: Check if IsFlyableArea() still falsely returns true for some zones
         
         for _,id in pairs(collected) do
             -- check if current mount is in priority pool and if it is usable here

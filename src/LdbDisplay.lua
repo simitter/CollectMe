@@ -60,7 +60,12 @@ function CollectMe.LdbDisplay:ZoneChangeListener(event)
 	else
 		self.zone_id = CollectMe.ZoneDB:GetZone()
 	end
-	self.zone_name = GetMapNameByID(self.zone_id)
+	
+	if C_Map.GetMapInfo(self.zone_id) then
+		self.zone_name = C_Map.GetMapInfo(self.zone_id).name
+	else
+		self.zone_name = nil
+	end
 
     self:UpdateData()
     self:UpdateText()

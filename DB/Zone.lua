@@ -13,7 +13,11 @@ end
 function CollectMe.ZoneDB:GetList()
     if self.loaded == false then
         for _,v in ipairs(Data.Zones) do
-            self.list[v] = GetMapNameByID(v)
+			if C_Map.GetMapInfo(v) then
+				self.list[v] = C_Map.GetMapInfo(v).name
+			else
+				self.list[v] = v .. " - MapInfo null"
+			end
             table.insert(self.order, v)
         end
         self.loaded = true
@@ -22,8 +26,7 @@ function CollectMe.ZoneDB:GetList()
 end
 
 function CollectMe.ZoneDB:Current()
-    SetMapToCurrentZone()
-    zone = GetCurrentMapAreaID()
+    zone = C_Map.GetBestMapForUnit("player")
     return zone
 end
 
@@ -37,9 +40,8 @@ end
 
 function CollectMe.ZoneDB:PrintZones()
     for i = 1, 1200, 1 do
-        SetMapByID(i)
-        if GetMapNameByID(i) ~= nil then
-            CollectMe:Print(i.. " - " ..GetMapNameByID(i))
+        if C_Map.GetMapInfo(i) ~= nil then
+            CollectMe:Print(i.. " - " ..C_Map.GetMapInfo(i).name)
         end
     end
 end
