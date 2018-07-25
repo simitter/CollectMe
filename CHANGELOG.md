@@ -1,3 +1,11 @@
+## 2.10
+* Updated TOC for Patch 8.0
+* Fixed several API changes for BfA
+* Updated included Libs to current versions
+* Added toy expansion filters and fixed nil errors
+* Removed unavailable titles from TitleData DB
+
+
 ## 2.9.6
 * Added new zone information to pets, mounts and toys
 * Updated map zone handling (ArkInventory problem)
