@@ -590,12 +590,20 @@ function CollectMe:BuildMissingToyFilters()
     local list, order = CollectMe.ZoneDB:GetList()
     self.UI:CreateFilterDropdown(self.L["Select Zones"], list, self.db.profile.filters.toys.zones, { OnValueChanged = function (container, event, value) local pos = self:IsInTable(self.db.profile.filters.toys.zones, value); if not pos then table.insert(self.db.profile.filters.toys.zones, value) else table.remove(self.db.profile.filters.toys.zones, pos) end; self.UI:ReloadScroll() end }, true, order)
 
+	local ToyDB = self:GetModule("ToyDB")
     self.UI:AddToFilter(self.UI:CreateHeading(self.L["Source Filter"]))
-    local ToyDB = self:GetModule("ToyDB")
     for _,i in pairs {1,2,3,4,7,8} do
         self.UI:CreateFilterCheckbox(_G["BATTLE_PET_SOURCE_"..i], C_ToyBox.IsSourceTypeFilterChecked(i), { OnValueChanged = function (container, event, value)
             C_ToyBox.SetSourceTypeFilter(i, not value)
-            ToyDB:Update()
+            ToyDB:Update("Filter", nil, true)
+            self.UI:ReloadScroll()
+        end })
+    end
+	self.UI:AddToFilter(self.UI:CreateHeading(self.L["Expansion Filter"]))
+	for i=1,GetNumExpansions() do
+        self.UI:CreateFilterCheckbox(_G["EXPANSION_NAME"..i-1], C_ToyBox.IsExpansionTypeFilterChecked(i), { OnValueChanged = function (container, event, value)
+            C_ToyBox.SetExpansionTypeFilter(i, not value)
+            ToyDB:Update("Filter", nil, true)
             self.UI:ReloadScroll()
         end })
     end

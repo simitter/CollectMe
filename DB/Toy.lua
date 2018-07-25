@@ -34,27 +34,36 @@ local function getToys()
     return info
 end
 
-function ToyDB:Update()
-    local filterCollected, filterUncollected = C_ToyBox.GetCollectedShown(), C_ToyBox.GetUncollectedShown()
+function ToyDB:Update(event, itemID, new)
+	if new then
+		local filterCollected, filterUncollected, filterUnuseable = C_ToyBox.GetCollectedShown(), C_ToyBox.GetUncollectedShown(), C_ToyBox.GetUnusableShown()
 
-    --C_ToyBox.SetFilterString('')
-    C_ToyBox.SetCollectedShown(true)
-    C_ToyBox.SetUncollectedShown(false)
-    C_ToyBox.ForceToyRefilter()
-    collected = getToys(true)
-    for k,v in ipairs(collected) do
-        collectedIds[v.id] = v.id
-    end
+		C_ToyBox.SetFilterString('')
+		C_ToyBox.SetUnusableShown(true)
+		C_ToyBox.SetCollectedShown(true)
+		C_ToyBox.SetUncollectedShown(false)
+		C_ToyBox.ForceToyRefilter()
+		collected = getToys(true)
+		
+		if (collected ~= nil) then
+			for k,v in ipairs(collected) do
+				if (v.id ~= nil) then
+					collectedIds[v.id] = v.id
+				end
+			end
+		end
+		
+		C_ToyBox.SetCollectedShown(false)
+		C_ToyBox.SetUncollectedShown(true)
+		C_ToyBox.ForceToyRefilter()
+		missing = getToys(false)
 
-    C_ToyBox.SetCollectedShown(false)
-    C_ToyBox.SetUncollectedShown(true)
-    C_ToyBox.ForceToyRefilter()
-    missing = getToys(false)
-
-    -- restore filters
-    C_ToyBox.SetCollectedShown(filterCollected)
-    C_ToyBox.SetUncollectedShown(filterUncollected)
-    C_ToyBox.ForceToyRefilter()
+		-- restore filters
+		C_ToyBox.SetUnusableShown(filterUnuseable)
+		C_ToyBox.SetCollectedShown(filterCollected)
+		C_ToyBox.SetUncollectedShown(filterUncollected)
+		C_ToyBox.ForceToyRefilter()
+	end
 end
 
 function ToyDB:IsInZone(id, zones)
@@ -78,6 +87,7 @@ function ToyDB:IsKnown(id)
 end
 
 function ToyDB:OnEnable()
+	self:Update("Initial", nil, true)
     ToyDB:RegisterEvent("TOYS_UPDATED", "Update")
 end
 
