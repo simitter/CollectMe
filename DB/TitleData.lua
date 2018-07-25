@@ -634,17 +634,6 @@ Data.Titles[307] = {
         tmp = false,
     },
 } -- Field Photographer
-Data.Titles[363] = {
-    id      = 363,
-    name    = GetTitleName(363):gsub("^%s*(.-)%s*$", "%1"),
-    filters = {
-        umo = false,
-        pvp = false,
-        are = true,
-        nlo = false,
-        tmp = false,
-    },
-} -- Fierce Gladiator
 Data.Titles[251] = {
     id      = 251,
     name    = GetTitleName(251):gsub("^%s*(.-)%s*$", "%1"),
@@ -1118,17 +1107,6 @@ Data.Titles[306] = {
         tmp = false,
     },
 } -- Legend of Pandaria
-Data.Titles[324] = {
-    id      = 324,
-    name    = GetTitleName(324):gsub("^%s*(.-)%s*$", "%1"),
-    filters = {
-        umo = true,
-        pvp = false,
-        are = false,
-        nlo = false,
-        tmp = false,
-    },
-} -- Legionary
 Data.Titles[296] = {
     id      = 296,
     name    = GetTitleName(296):gsub("^%s*(.-)%s*$", "%1"),
@@ -4059,7 +4037,6 @@ table.insert(Data.TitlesSort, 13)
 table.insert(Data.TitlesSort, 166)
 table.insert(Data.TitlesSort, 340)
 table.insert(Data.TitlesSort, 307)
-table.insert(Data.TitlesSort, 363)
 table.insert(Data.TitlesSort, 251)
 table.insert(Data.TitlesSort, 190)
 table.insert(Data.TitlesSort, 19)
@@ -4131,7 +4108,6 @@ table.insert(Data.TitlesSort, 162)
 table.insert(Data.TitlesSort, 297)
 table.insert(Data.TitlesSort, 303)
 table.insert(Data.TitlesSort, 306)
-table.insert(Data.TitlesSort, 324)
 table.insert(Data.TitlesSort, 22)
 table.insert(Data.TitlesSort, 175)
 table.insert(Data.TitlesSort, 212)
