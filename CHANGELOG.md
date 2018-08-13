@@ -1,10 +1,12 @@
+## 2.10.1
+* Updated all databases for BfA
+
 ## 2.10
 * Updated TOC for Patch 8.0
 * Fixed several API changes for BfA
 * Updated included Libs to current versions
 * Added toy expansion filters and fixed nil errors
 * Removed unavailable titles from TitleData DB
-
 
 ## 2.9.6
 * Added new zone information to pets, mounts and toys
