@@ -11,7 +11,7 @@ Data.Zones = {
     909, -- Antorus, the Burning Throne
     93, -- Arathi Basin
     14, -- Arathi Highlands
-    994, -- Argus
+    905, -- Argus
     63, -- Ashenvale
     588, -- Ashran
     732, -- Assault on Violet Hold
@@ -25,6 +25,7 @@ Data.Zones = {
     97, -- Azuremyst Isle
     15, -- Badlands
     282, -- Baradin Hold
+    1352, -- Battle of Dazar'alor
     751, -- Black Rook Hold
     339, -- Black Temple
     221, -- Blackfathom Deeps
@@ -47,6 +48,7 @@ Data.Zones = {
     571, -- Celestial Tournament
     427, -- Coldridge Valley MoP
     761, -- Court of Stars
+    1345, -- Crucible of Storms
     127, -- Crystalsong Forest
     627, -- Dalaran
     125, -- Dalaran
@@ -63,7 +65,7 @@ Data.Zones = {
     115, -- Dragonblight
     160, -- Drak'Tharon Keep
     422, -- Dread Wastes MoP
-    1197, -- Drustvar
+    896, -- Drustvar
     27, -- Dun Morogh
     1, -- Durotar
     47, -- Duskwood
@@ -124,7 +126,7 @@ Data.Zones = {
     1004, -- Kings' Rest
     418, -- Krasarang Wilds MoP
     830, -- Krokuun
-    992, -- Kul Tiras
+    876, -- Kul Tiras
     379, -- Kun-Lai Summit MoP
     48, -- Loch Modan
     277, -- Lost City of the Tol'vir
@@ -135,6 +137,8 @@ Data.Zones = {
     272, -- Mana-Tombs
     280, -- Maraudon
     706, -- Maw of Souls
+    1490, -- Mechagon
+    1462, -- Mechagon Island
     453, -- Mogu'Shan Palace MoP
     471, -- Mogu'shan Vaults MoP
     232, -- Molten Core
@@ -145,7 +149,8 @@ Data.Zones = {
     107, -- Nagrand
     550, -- Nagrand
     162, -- Naxxramas
-    1194, -- Nazmir
+    1355, -- Nazjatar
+    863, -- Nazmir
     731, -- Neltharion's Lair
     109, -- Netherstorm
     469, -- New Tinkertown MoP
@@ -195,7 +200,7 @@ Data.Zones = {
     65, -- Stonetalon Mountains
     634, -- Stormheim
     622, -- Stormshield
-    1198, -- Stormsong Valley
+    942, -- Stormsong Valley
     439, -- Stormstout Brewery MoP
     84, -- Stormwind City
     128, -- Strand of the Ancients
@@ -227,6 +232,7 @@ Data.Zones = {
     130, -- The Culling of Stratholme
     291, -- The Deadmines
     777, -- The Emerald Nightmare
+    1512, -- The Eternal Palace
     620, -- The Everbloom
     103, -- The Exodar
     334, -- The Eye
@@ -262,11 +268,11 @@ Data.Zones = {
     508, -- Throne of Thunder
     88, -- Thunder Bluff
     554, -- Timeless Isle
-    1196, -- Tiragarde Sound
+    895, -- Tiragarde Sound
     18, -- Tirisfal Glades
     244, -- Tol Barad
     245, -- Tol Barad Peninsula
-    974, -- Tol Dagor
+    1169, -- Tol Dagor
     850, -- Tomb of Sargeras
     388, -- Townlong Steppes MoP
     171, -- Trial of the Champion
@@ -291,7 +297,7 @@ Data.Zones = {
     203, -- Vashj'ir
     156, -- Vault of Archavon
     710, -- Vault of the Wardens
-    1195, -- Vol'dun
+    864, -- Vol'dun
     279, -- Wailing Caverns
     92, -- Warsong Gulch
     624, -- Warspear
@@ -302,11 +308,11 @@ Data.Zones = {
     56, -- Wetlands
     123, -- Wintergrasp
     83, -- Winterspring
-    991, -- Zandalar
+    875, -- Zandalar
     102, -- Zangarmarsh
     333, -- Zul'Aman
     121, -- Zul'Drak
     219, -- Zul'Farrak
     337, -- Zul'Gurub
-    1193, -- Zuldazar
+    862, -- Zuldazar
 }
