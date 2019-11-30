@@ -1,3 +1,7 @@
+## 2.10.2
+* Updated included Libs to current versions
+* Updated all databases for BfA 8.2
+
 ## 2.10.1
 * Updated all databases for BfA
 

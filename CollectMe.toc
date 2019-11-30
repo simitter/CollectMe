@@ -6,8 +6,8 @@
 ## X-email: admin AT tschebel DOT net
 ## X-License: MIT modified with notification clause
 
-## Interface: 80000
-## Version: 2.10.1
+## Interface: 80200
+## Version: 2.10.2
 
 ## X-credits: wowwiki
 
