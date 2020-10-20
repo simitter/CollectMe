@@ -1,3 +1,8 @@
+## 2.11
+* Updated TOC for Patch 9.0
+* Fixed Backdrop issue (Shadowlands)
+* Updated included Libs to current versions
+
 ## 2.10.2
 * Updated included Libs to current versions
 * Updated all databases for BfA 8.2
