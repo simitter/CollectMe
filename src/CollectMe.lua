@@ -620,7 +620,7 @@ function CollectMe:BuildMissingHeirloomFilters()
     self.UI:AddToFilter(self.UI:CreateHeading(self.L["Source Filter"]))
     local numSources = C_PetJournal.GetNumPetSources();
     for i=1,numSources do
-        if C_Heirloom.IsHeirloomSourceValid(i) then
+        if C_HeirloomInfo.IsHeirloomSourceValid(i) then
             self.UI:CreateFilterCheckbox(_G["BATTLE_PET_SOURCE_"..i], not C_Heirloom.GetHeirloomSourceFilter(i), { OnValueChanged = function (container, event, value) value = not value; C_Heirloom.SetHeirloomSourceFilter(i, value); self.UI:ReloadScroll() end })
         end
     end
