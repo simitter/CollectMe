@@ -1,3 +1,9 @@
+## 2.12
+* Updated TOC for Patch 10.0
+* Fixed Heirloom issue (Dragonflight)
+* Fixed FrameSize issue (Dragonflight)
+* Updated included Libs to current versions
+
 ## 2.11
 * Updated TOC for Patch 9.0
 * Fixed Backdrop issue (Shadowlands)
