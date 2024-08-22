@@ -35,6 +35,7 @@ local assert, GetTime, hooksecurefunc, ipairs, IsLoggedIn, pairs, tinsert, wipe
 local C_PetJournal = _G.C_PetJournal
 
 local PJLU_TIMEOUT = 1
+local NO_PET_SAFETY_TIMEOUT = 20
 
 --
 --
@@ -47,6 +48,9 @@ lib.event_frame:SetScript("OnEvent", function(frame, event, ...)
     frame[event](frame, ...)
 end)
 
+lib._start_time = lib._start_time or GetTime()
+lib._pjlu_count = lib._pjlu_count or 0
+
 --
 -- filter handling
 --
@@ -56,8 +60,7 @@ do
         [LE_PET_JOURNAL_FILTER_COLLECTED] = true,
         [LE_PET_JOURNAL_FILTER_NOT_COLLECTED] = true,
     }
-   
-   
+
     lib._filter_hooks = lib._filter_hooks or {}
     lib._filter_values = lib._filter_values or {}
     lib._filter_values.flag_filters = lib._filter_values.flag_filters or {}
@@ -144,6 +147,7 @@ do
             -- before our hook, so always clear the first time
             filter_values.last_search_filter = ""
             C_PetJournal.ClearSearchFilter()
+            has_changes = true
         elseif filter_values.last_search_filter ~= "" then
             filter_values.s_search_filter = filter_values.last_search_filter
             C_PetJournal.ClearSearchFilter()
@@ -285,20 +289,20 @@ function lib:_LoadPets()
     wipe(lib._petids)
 
     local total, owned = C_PetJournal.GetNumPets()
-    if total == 0 and owned == 0 then
+    if total == 0 then
         restoreAndRetryLater()
         return false
     end
-    lib._last_total = total
-    
+
     -- scan pets
+    local ownedIdx = 1
+    local hasAnyOwned = false
     for i = 1,total do
         local petID, speciesID, isOwned, _, _, _, _, _, _, _, creatureID = C_PetJournal.GetPetInfoByIndex(i)
-        
-        if i == 1 and isOwned then
-            -- PetJournal has some weird consistency issues when the UI is loading.
-            -- GetPetInfoByPetID is not immediately ready, while GetPetInfoByIndex is.
-            -- This check only seems to need to happen once.
+        if ownedIdx == 1 and isOwned then
+            -- PetJournal has some weird consistency issues when the UI is loading. Either we
+            -- get no petID or GetPetInfoByPetID does not have data for the petID. This check
+            -- only seems to need to happen once.
             local _, _, _, _, _, _, _, name = C_PetJournal.GetPetInfoByPetID(petID)
 
             if not name then
@@ -309,6 +313,8 @@ function lib:_LoadPets()
         
         if isOwned then
             tinsert(self._petids, petID)
+            ownedIdx = ownedIdx + 1
+            hasAnyOwned = true
         end
         
         if not self._set_speciesids[speciesID] then
@@ -322,6 +328,18 @@ function lib:_LoadPets()
         end
     end
 
+    if not hasAnyOwned then
+        -- The game client API will report pet list updated before we have a
+        -- consistent list of player pets.  Unfortunately with the 8.x game client,
+        -- we don't currently have a way to detect this, which means it is not immediately
+        -- apparent if the player has no pets or not
+        if lib._pjlu_count < 2 and GetTime() - self._start_time < NO_PET_SAFETY_TIMEOUT then
+            restoreAndRetryLater()
+            return false
+        end
+    end
+
+    lib._last_total = total
     return true
 end
 
@@ -362,6 +380,8 @@ end
 
 lib.event_frame:RegisterEvent("PET_JOURNAL_LIST_UPDATE")
 function lib.event_frame:PET_JOURNAL_LIST_UPDATE()
+    lib._pjlu_count = lib._pjlu_count + 1
+
     if not IsLoggedIn() then
         return
     end
