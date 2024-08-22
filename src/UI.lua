@@ -3,6 +3,8 @@ local CollectMe = LibStub("AceAddon-3.0"):GetAddon("CollectMe")
 CollectMe.UI = CollectMe:NewModule("UI", "AceEvent-3.0")
 local AceGUI = LibStub("AceGUI-3.0")
 
+local IsAddOnLoaded = C_AddOns.IsAddOnLoaded
+
 function CollectMe.UI:OnInitialize()
     self.active_group = false
 
@@ -68,7 +70,14 @@ function CollectMe.UI:Build()
     container:AddChild(tabs)
 
     local profilebutton = self:CreateButton(self.L["Options"], f.frame)
-    profilebutton:SetScript("OnClick", function() InterfaceOptionsFrame_OpenToCategory(CollectMe.ADDON_NAME) InterfaceOptionsFrame_OpenToCategory(CollectMe.ADDON_NAME) end)
+    profilebutton:SetScript("OnClick", function()
+        if Settings and Settings.OpenToCategory then
+            Settings.OpenToCategory(CollectMe.ADDON_NAME)
+        else
+            InterfaceOptionsFrame_OpenToCategory(CollectMe.ADDON_NAME) 
+            InterfaceOptionsFrame_OpenToCategory(CollectMe.ADDON_NAME) 
+        end 
+    end)
     profilebutton:ClearAllPoints()
     profilebutton:SetPoint("RIGHT", f.closebutton, "LEFT", 0, 0)
 

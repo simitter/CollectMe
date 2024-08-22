@@ -12,5 +12,5 @@
     <Include file="Libs\AceEvent-3.0\AceEvent-3.0.xml"/>
     <Script file="Libs\LibPetJournal-2.0\LibPetJournal-2.0.lua"/>
     <Script file="Libs\LibDataBroker-1.1\LibDataBroker-1.1.lua"/>
-    <Script file="Libs\LibAboutPanel\LibAboutPanel.lua"/>
+    <Script file="Libs\LibAboutPanel-2.0\LibAboutPanel-2.0.lua"/>
 </Ui>

@@ -242,17 +242,26 @@ local function GetPetBattleOptionsTable()
             }
         }
     }
-end
+end 
 
 function Config:OnInitialize()
     local ac = LibStub("AceConfig-3.0")
     local acd = LibStub("AceConfigDialog-3.0")
-    local addon_name = CollectMe.ADDON_NAME
+    local lap2 = LibStub("LibAboutPanel-2.0")
 
+    local addon_name = CollectMe.ADDON_NAME
     db = CollectMe.db
 
-    local about_panel = LibStub:GetLibrary("LibAboutPanel", true)
-    about_panel.new(nil, addon_name)
+    local options = {
+        name = "CollectMe",
+        type = "group",
+        args = {},
+        }
+
+    options.args.aboutTab = lap2:AboutOptionsTable("CollectMe")
+
+    acd:AddToBlizOptions(addon_name, "CollectMe")
+    ac:RegisterOptionsTable(addon_name, options)
 
     ac:RegisterOptionsTable(addon_name .. " LDB", GetLdbOptionsTable())
     acd:AddToBlizOptions(addon_name .. " LDB", L["Data Broker Options"], addon_name)
