@@ -1,3 +1,12 @@
+## 2.13
+* Updated TOC for Patch 11.0
+* Fixed addon API issues (TWW)
+* Fixed spell API issues (TWW)
+* Fixed setting API issues (TWW)
+* Updated LibAboutPanel integration
+* Updated included Libs to current versions
+* Added support for new API mount types
+
 ## 2.12
 * Updated TOC for Patch 10.0
 * Fixed Heirloom issue (Dragonflight)

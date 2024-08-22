@@ -2,7 +2,7 @@ local CollectMe = LibStub("AceAddon-3.0"):NewAddon("CollectMe", "AceConsole-3.0"
 local addon_name = "CollectMe"
 
 CollectMe.ADDON_NAME = addon_name
-CollectMe.VERSION = GetAddOnMetadata("CollectMe", "Version")
+CollectMe.VERSION = C_AddOns.GetAddOnMetadata("CollectMe", "Version")
 CollectMe.L = LibStub("AceLocale-3.0"):GetLocale("CollectMe", true)
 
 local defaults = {
@@ -321,9 +321,9 @@ function CollectMe:BuildRandomList()
             local value = ((random_db[id] ~= nil and random_db[id] ~= false) and true or false)
             local str = ""
             if (infos[id].favorite) then
-                str = "|Cfffff569" .. GetSpellInfo(id) .. FONT_COLOR_CODE_CLOSE
+                str = "|Cfffff569" .. C_Spell.GetSpellInfo(id).name .. FONT_COLOR_CODE_CLOSE
             else
-                str = GetSpellInfo(id)
+                str = C_Spell.GetSpellInfo(id).name
             end
             self.UI:CreateScrollCheckbox(str, value, { OnValueChanged = function (container, event, val) random_db[id] = val end})
         end
@@ -847,9 +847,12 @@ function CollectMe:SlashProcessor(input)
     elseif input == "rt" or input == "randomtitle" then
         self.Macro:Title()
     elseif input == "options" then
-        InterfaceOptionsFrame_OpenToCategory(addon_name)
-        --Blizzard Bug, needs to be called twice
-        InterfaceOptionsFrame_OpenToCategory(addon_name)
+        if Settings and Settings.OpenToCategory then
+            Settings.OpenToCategory(addon_name)
+        else
+            InterfaceOptionsFrame_OpenToCategory(addon_name)
+            InterfaceOptionsFrame_OpenToCategory(addon_name)
+        end
     elseif input == "debug title" then
         self.TitleDB:PrintAll()
     elseif input == "debug zone" then

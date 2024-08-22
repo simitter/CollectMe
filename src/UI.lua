@@ -68,7 +68,14 @@ function CollectMe.UI:Build()
     container:AddChild(tabs)
 
     local profilebutton = self:CreateButton(self.L["Options"], f.frame)
-    profilebutton:SetScript("OnClick", function() InterfaceOptionsFrame_OpenToCategory(CollectMe.ADDON_NAME) InterfaceOptionsFrame_OpenToCategory(CollectMe.ADDON_NAME) end)
+    profilebutton:SetScript("OnClick", function()
+        if Settings and Settings.OpenToCategory then
+            Settings.OpenToCategory(CollectMe.ADDON_NAME)
+        else
+            InterfaceOptionsFrame_OpenToCategory(CollectMe.ADDON_NAME) 
+            InterfaceOptionsFrame_OpenToCategory(CollectMe.ADDON_NAME) 
+        end 
+    end)
     profilebutton:ClearAllPoints()
     profilebutton:SetPoint("RIGHT", f.closebutton, "LEFT", 0, 0)
 
@@ -286,7 +293,7 @@ function CollectMe.UI:ShowCheckButtons()
 end
 
 function CollectMe.UI:AddCollectMeButtons()
-    if self.cm_button_loaded == false and IsAddOnLoaded("Blizzard_Collections") then
+    if self.cm_button_loaded == false and C_AddOns.IsAddOnLoaded("Blizzard_Collections") then
         local cmbutton = CreateFrame("Button", "CollectMeOpenButton", MountJournal, "UIPanelButtonTemplate")
         cmbutton:ClearAllPoints()
         cmbutton:SetPoint("BOTTOMRIGHT", -8, 3)
@@ -297,7 +304,7 @@ function CollectMe.UI:AddCollectMeButtons()
 
         local cmbutton2 = CreateFrame("Button", "CollectMeOpen2Button", PetJournal, "UIPanelButtonTemplate")
         cmbutton2:ClearAllPoints()
-        if IsAddOnLoaded("PetTracker_Journal") then
+        if C_AddOns.IsAddOnLoaded("PetTracker_Journal") then
             cmbutton2:SetPoint("RIGHT", PetTracker_JournalTrackToggle, "LEFT", -5, 0)
         else
             cmbutton2:SetPoint("RIGHT", PetJournalFindBattle, "LEFT", -5, 0)

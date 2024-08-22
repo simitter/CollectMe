@@ -16,7 +16,7 @@ function RandomMount:Summon(type)
         
         for _,id in pairs(collected) do
             -- check if current mount is in priority pool and if it is usable here
-            if db.random.mounts[id] ~= nil and db.random.mounts[id] ~= false and IsUsableSpell(id) ~= nil then
+            if db.random.mounts[id] ~= nil and db.random.mounts[id] ~= false and C_Spell.IsSpellUsable(id) ~= nil then
                 local _,_,_,_,summonable=C_MountJournal.GetMountInfoByID(infos[id].mount_id)
                 if (summonable==true) then
                     -- setting up zone table (aquatic handled by that too currently)

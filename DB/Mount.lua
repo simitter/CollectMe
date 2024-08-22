@@ -25,11 +25,11 @@ local function getInfoFromApiType(api_type)
         --Zone Underwater Mount
         return MountDB.AQUATIC, { [614] = 614, [615] = 615, [610] = 610 }
     end
-    if api_type == 247 or api_type == 248 then
+    if api_type == 247 or api_type == 248 or api_type == 402 or api_type == 424 then
         --Normal Flying Mounts
         return MountDB.FLY
     end
-    if api_type == 241 then
+    if api_type == 241 or api_type == 230 then
         --Zone Ground Mount
         return MountDB.GROUND, { [766] = 766 }
     end
@@ -64,7 +64,7 @@ local function update()
                 index       = i,
                 name        = name,
                 icon        = icon,
-                link        = GetSpellLink(id),
+                link        = C_Spell.GetSpellLink(id),
                 id          = id,
                 display_id  = creature_id,
                 source_id   = source,
