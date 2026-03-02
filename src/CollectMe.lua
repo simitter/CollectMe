@@ -871,7 +871,7 @@ function CollectMe:SlashProcessor(input)
 end
 
 function CollectMe:ColorizeByQuality(text, quality)
-    local color = "|C" .. select(4, GetItemQualityColor(quality))
+    local color = (ITEM_QUALITY_COLORS and ITEM_QUALITY_COLORS[quality] and ITEM_QUALITY_COLORS[quality].hex) or "|cffffffff"
     return color .. text .. FONT_COLOR_CODE_CLOSE;
 end
 

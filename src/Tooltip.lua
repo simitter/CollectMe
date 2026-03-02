@@ -11,12 +11,26 @@ function CollectMe.Tooltip:TooltipHook(tooltip)
     if self.gametooltip_visible == true or CollectMe.db.profile.tooltip.companions.hide == true then
         return
     end
+    -- UnitIsWildBattlePet/UnitGUID reject secret values during combat; return early to avoid errors
+    if InCombatLockdown() then
+        return
+    end
 
     self.gametooltip_visible = true
     if (tooltip and tooltip.GetUnit) then
         local _, unit = tooltip:GetUnit()
-        if (unit and UnitIsWildBattlePet(unit)) then
-            local creature_id = tonumber(select(6,strsplit("-",UnitGUID(unit))),10)
+        local ok, is_wild = pcall(UnitIsWildBattlePet, unit)
+        if not ok or not is_wild then
+            self.gametooltip_visible = false
+            return
+        end
+        local guid_ok, guid = pcall(UnitGUID, unit)
+        if not guid_ok or not guid then
+            self.gametooltip_visible = false
+            return
+        end
+        local creature_id = tonumber(select(6, strsplit("-", guid)), 10)
+        if creature_id then
             local line
             for i,v in ipairs(CollectMe.CompanionDB:Get()) do
                 if(creature_id == v.creature_id) then
