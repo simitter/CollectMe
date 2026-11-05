@@ -1,3 +1,10 @@
+## 2.15
+* Updated TOC for Patch 12.1
+* Fixed GetItemQualityColor errors
+* Fixed UnitIsWildBattlePet usage
+* Fixed palyer housing zone issue
+* Updated included Libs to current versions
+
 ## 2.14
 * Updated TOC for Patch 12.0
 * Added icon and category to toc

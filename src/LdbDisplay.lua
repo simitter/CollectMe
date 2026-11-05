@@ -55,17 +55,22 @@ function CollectMe.LdbDisplay:OnEnable()
 end
 
 function CollectMe.LdbDisplay:ZoneChangeListener(event)
-	if (event == "ZONE_CHANGED_NEW_AREA") then
-		self.zone_id = CollectMe.ZoneDB:Current()
-	else
-		self.zone_id = CollectMe.ZoneDB:GetZone()
-	end
-	
-	if C_Map.GetMapInfo(self.zone_id) then
-		self.zone_name = C_Map.GetMapInfo(self.zone_id).name
-	else
-		self.zone_name = nil
-	end
+    if (event == "ZONE_CHANGED_NEW_AREA") then
+        self.zone_id = CollectMe.ZoneDB:Current()
+    else
+        self.zone_id = CollectMe.ZoneDB:GetZone()
+    end
+    
+    if self.zone_id and type(self.zone_id) == "number" then
+        local mapInfo = C_Map.GetMapInfo(self.zone_id)
+        if mapInfo and mapInfo.name then
+            self.zone_name = mapInfo.name
+        else
+            self.zone_name = nil
+        end
+    else
+        self.zone_name = nil
+    end
 
     self:UpdateData()
     self:UpdateText()

@@ -311,7 +311,7 @@ end
 function CollectMe:BuildRandomList()
     local random_db = self.db.profile.random.mounts
     local search = self.UI:GetSearchText():lower()
-	local MountDB = CollectMe:GetModule("MountDB")
+    local MountDB = CollectMe:GetModule("MountDB")
     local collected, _, infos = MountDB:Get()
 
     self.UI:AddToScroll(self.UI:CreateHeading(self.L["Available mounts"] ..  " - " .. #collected))
@@ -590,7 +590,7 @@ function CollectMe:BuildMissingToyFilters()
     local list, order = CollectMe.ZoneDB:GetList()
     self.UI:CreateFilterDropdown(self.L["Select Zones"], list, self.db.profile.filters.toys.zones, { OnValueChanged = function (container, event, value) local pos = self:IsInTable(self.db.profile.filters.toys.zones, value); if not pos then table.insert(self.db.profile.filters.toys.zones, value) else table.remove(self.db.profile.filters.toys.zones, pos) end; self.UI:ReloadScroll() end }, true, order)
 
-	local ToyDB = self:GetModule("ToyDB")
+    local ToyDB = self:GetModule("ToyDB")
     self.UI:AddToFilter(self.UI:CreateHeading(self.L["Source Filter"]))
     for _,i in pairs {1,2,3,4,7,8} do
         self.UI:CreateFilterCheckbox(_G["BATTLE_PET_SOURCE_"..i], C_ToyBox.IsSourceTypeFilterChecked(i), { OnValueChanged = function (container, event, value)
@@ -599,8 +599,8 @@ function CollectMe:BuildMissingToyFilters()
             self.UI:ReloadScroll()
         end })
     end
-	self.UI:AddToFilter(self.UI:CreateHeading(self.L["Expansion Filter"]))
-	for i=1,GetNumExpansions() do
+    self.UI:AddToFilter(self.UI:CreateHeading(self.L["Expansion Filter"]))
+    for i=1,GetNumExpansions() do
         self.UI:CreateFilterCheckbox(_G["EXPANSION_NAME"..i-1], C_ToyBox.IsExpansionTypeFilterChecked(i), { OnValueChanged = function (container, event, value)
             C_ToyBox.SetExpansionTypeFilter(i, not value)
             ToyDB:Update("Filter", nil, true)
@@ -627,7 +627,7 @@ function CollectMe:BuildMissingHeirloomFilters()
 end
 
 function CollectMe:GetMountInfo(spell)
-	local mountIDs = C_MountJournal.GetMountIDs();
+    local mountIDs = C_MountJournal.GetMountIDs();
     for i = 1, #mountIDs do
         local _, spell_id = C_MountJournal.GetMountInfoByID(mountIDs[i])
         if spell_id == spell then
@@ -660,7 +660,7 @@ function CollectMe:BuildOptions()
         self.UI:AddToFilter(self.UI:CreateHeading(self.L["Group Options"]))
         self.UI:CreateFilterCheckbox(self.L["Disable in raid group"], self.db.profile.summon.companions.disable_party_raid_grp, { OnValueChanged = function (container, event, value) self.db.profile.summon.companions.disable_party_raid_grp = value end }, 2, nil, self.db.profile.summon.companions.auto)
         self.UI:CreateFilterCheckbox(self.L["Disable in normal group"], self.db.profile.summon.companions.disable_party_grp, { OnValueChanged = function (container, event, value) self.db.profile.summon.companions.disable_party_grp = value end }, 2, nil, self.db.profile.summon.companions.auto)
-		self.UI:AddToFilter(self.UI:CreateHeading(self.L["Type Options"]))
+        self.UI:AddToFilter(self.UI:CreateHeading(self.L["Type Options"]))
         self.UI:CreateFilterCheckbox(self.L["Disable in raid instance"], self.db.profile.summon.companions.disable_raid_instance, { OnValueChanged = function (container, event, value) self.db.profile.summon.companions.disable_raid_instance = value end }, nil, nil, self.db.profile.summon.companions.auto)
         self.UI:CreateFilterCheckbox(self.L["Disable in dungeon"], self.db.profile.summon.companions.disable_dungeon, { OnValueChanged = function (container, event, value) self.db.profile.summon.companions.disable_dungeon = value end }, nil, nil, self.db.profile.summon.companions.auto)
         self.UI:CreateFilterCheckbox(self.L["Disable in scenario"], self.db.profile.summon.companions.disable_scenario, { OnValueChanged = function (container, event, value) self.db.profile.summon.companions.disable_scenario = value end }, nil, nil, self.db.profile.summon.companions.auto)
@@ -680,34 +680,34 @@ function CollectMe:BuildOptions()
 end
 
 function CollectMe:BatchCheck(value)
-	local search = self.UI:GetSearchText():lower()
+    local search = self.UI:GetSearchText():lower()
     if self.UI.active_group == self.RANDOM_MOUNT then
         local random_db = self.db.profile.random.mounts
         local mountIDs = C_MountJournal.GetMountIDs();
-		
-		for i = 1, #mountIDs, 1 do
-			local name, spell_id, _, _, _, _, _, isFactionSpecific, faction, _, isCollected = C_MountJournal.GetMountInfoByID(mountIDs[i])
-			if isCollected then
-				if not faction then
-					faction = -1
-				end
-				if not isFactionSpecific or CollectMe.FACTION == "Horde" and faction == 0 or CollectMe.FACTION == "Alliance" and faction == 1 then
-					if name:lower():find(search) ~= nil then
-						random_db[spell_id] = value
-					end
-				end
-			end
-		end
+        
+        for i = 1, #mountIDs, 1 do
+            local name, spell_id, _, _, _, _, _, isFactionSpecific, faction, _, isCollected = C_MountJournal.GetMountInfoByID(mountIDs[i])
+            if isCollected then
+                if not faction then
+                    faction = -1
+                end
+                if not isFactionSpecific or CollectMe.FACTION == "Horde" and faction == 0 or CollectMe.FACTION == "Alliance" and faction == 1 then
+                    if name:lower():find(search) ~= nil then
+                        random_db[spell_id] = value
+                    end
+                end
+            end
+        end
         self.UI:ReloadScroll()
     elseif self.UI.active_group == self.RANDOM_COMPANION then
         local random_db =  self.db.profile.random.companions
 
         for i,v in pairs(self.CompanionDB:Get()) do
-			
+            
             if v.pet_id ~= nil and C_PetJournal.PetIsSummonable(v.pet_id) then
-				if v.name:lower():find(search) ~= nil then
-					random_db[v.pet_id] = value
-				end
+                if v.name:lower():find(search) ~= nil then
+                    random_db[v.pet_id] = value
+                end
             end
         end
         self.UI:ReloadScroll()
@@ -871,7 +871,7 @@ function CollectMe:SlashProcessor(input)
 end
 
 function CollectMe:ColorizeByQuality(text, quality)
-    local color = "|C" .. select(4, GetItemQualityColor(quality))
+    local color = "|C" .. select(4, C_Item.GetItemQualityColor(quality))
     return color .. text .. FONT_COLOR_CODE_CLOSE;
 end
 
